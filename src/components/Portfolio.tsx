@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowRight, MoveDown } from "lucide-react"
 import styles from "./portfolio.module.css"
+import { RollingText } from "./RollingText"
 
 interface Project {
     id: number
@@ -75,7 +76,7 @@ export const Portfolio = () => {
                     <span className={styles.downArrow}><MoveDown size={40} strokeWidth={1.5} /></span>
                 </div>
                 <a href="#" className={styles.allWorkLink}>
-                    ALL WORK <ArrowRight size={14} />
+                    <RollingText text="ALL WORK" /> <ArrowRight size={14} />
                 </a>
             </div>
 
@@ -102,7 +103,9 @@ export const Portfolio = () => {
                         </div>
 
                         <div className={styles.cardFooter}>
-                            <h3 className={styles.cardTitle}>{project.title}</h3>
+                            <h3 className={styles.cardTitle}>
+                                <RollingText text={project.title} />
+                            </h3>
                             <div className={styles.tags}>
                                 {project.tags.map((tag) => (
                                     <span key={tag} className={styles.tag}>

@@ -1,14 +1,14 @@
 import Banner from "./banner";
 import { Portfolio } from "@/components/Portfolio";
+import { IntroScroll } from "@/components/IntroScroll";
 
 export default function Home() {
   return (
-    <div className="container">
-      <div className="card-wrapper">
-        <Banner />
-        <Portfolio />
-      </div>
-    </div>
+    <main id="main-content" style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#000' }}>
+      <Banner />
+      <IntroScroll />
+      <Portfolio />
+    </main>
   );
 }
 

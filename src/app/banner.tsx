@@ -2,15 +2,34 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { Twitter, Instagram, Youtube, ArrowUpRight } from "lucide-react";
 import styles from "./banner.module.css";
 import { LiquidMetalButton } from "@/components/LiquidMetalButton";
+import { RollingText } from "@/components/RollingText";
 
 export default function Banner() {
     const glowRef = useRef<HTMLDivElement>(null);
     const [activeLine, setActiveLine] = useState(0);
+    const [hidden, setHidden] = useState(false);
+    const [isCompact, setIsCompact] = useState(false);
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        const previous = scrollY.getPrevious() || 0;
+        if (latest > previous && latest > 150) {
+            setHidden(true);
+        } else {
+            setHidden(false);
+        }
+
+        if (latest > 50) {
+            setIsCompact(true);
+        } else {
+            setIsCompact(false);
+        }
+    });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -35,7 +54,20 @@ export default function Banner() {
 
     return (
         <section className={styles.banner}>
-            <nav className={styles.nav}>
+            <motion.nav
+                className={`${styles.nav} ${isCompact ? styles.navCompact : ""}`}
+                variants={{
+                    visible: { y: 0, opacity: 1 },
+                    hidden: { y: -100, opacity: 0 }
+                }}
+                animate={hidden ? "hidden" : "visible"}
+                initial={{ y: -100, opacity: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                style={{
+                    maxWidth: isCompact ? "480px" : "1400px",
+                    padding: isCompact ? "0.5rem 1rem" : "0.75rem 2rem",
+                }}
+            >
                 <div className={styles.navLogo}>
                     <div className={styles.logoImageWrapper}>
                         <Image
@@ -48,15 +80,40 @@ export default function Banner() {
                     </div>
                     <span>Muhammad Awais</span>
                 </div>
-                <div className={styles.navMenus}>
-                    <div className={`${styles.navItem} ${styles.navItemActive}`}>Home</div>
-                    <div className={styles.navItem}>About</div>
-                    <div className={styles.navItem}>Work / Portfolio</div>
-                    <div className={styles.navItem}>Blog</div>
-                    <div className={styles.navItem}>Contact</div>
-                </div>
+
+                <AnimatePresence mode="wait">
+                    {!isCompact ? (
+                        <motion.div
+                            key="full-menu"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
+                            className={styles.navMenus}
+                        >
+                            <div className={`${styles.navItem} ${styles.navItemActive}`}>Home</div>
+                            <div className={styles.navItem}>About</div>
+                            <div className={styles.navItem}>Work / Portfolio</div>
+                            <div className={styles.navItem}>Blog</div>
+                            <div className={styles.navItem}>Contact</div>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            key="hamburger"
+                            initial={{ opacity: 0, rotate: -90 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            exit={{ opacity: 0, rotate: 90, transition: { duration: 0.2 } }}
+                            className={styles.hamburger}
+                            style={{ display: "flex" }} // Override CSS display:none
+                        >
+                            <span />
+                            <span />
+                            <span />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
                 <LiquidMetalButton label="See Projects" />
-            </nav>
+            </motion.nav>
 
             <div className={styles.mainContent}>
                 {/* Glow Background */}
@@ -151,12 +208,26 @@ export default function Banner() {
                     >
                         Merging design thinking with human insight to create digital experiences that don&apos;t just look great — they perform effortlessly.
                     </motion.p>
-                    <button className="btn-talk">
-                        Let&apos;s Talk
+                    <motion.button
+                        className="btn-talk"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onMouseMove={(e) => {
+                            const rect = e.currentTarget.getBoundingClientRect();
+                            const x = e.clientX - rect.left - rect.width / 2;
+                            const y = e.clientY - rect.top - rect.height / 2;
+                            e.currentTarget.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = `translate(0px, 0px)`;
+                        }}
+                        style={{ transition: 'transform 0.1s ease-out' }}
+                    >
+                        <RollingText text="Let's Talk" />
                         <span className="icon-circle">
                             <ArrowUpRight size={16} />
                         </span>
-                    </button>
+                    </motion.button>
                 </div>
             </div>
         </section >

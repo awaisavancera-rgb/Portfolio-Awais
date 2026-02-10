@@ -1,0 +1,87 @@
+.profileSection {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    /* Allow main background to show through */
+    z-index: 5;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    /* Anchored at bottom for peek effect */
+    justify-content: center;
+    overflow: hidden;
+}
+
+.card {
+    background-color: #e5e5e5;
+    width: 100%;
+    /* Height will be controlled by GSAP */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 6rem 4rem;
+    color: #000;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    will-change: height, width, border-radius;
+}
+
+.topRow {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.profileLabel {
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mainHeadline {
+    font-size: 5vw;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.29vw;
+    text-indent: 4em;
+}
+
+.bottomRow {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footerText {
+    max-width: 400px;
+    font-size: 1.18rem;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        height: 70vh;
+        padding: 2rem;
+    }
+
+    .mainHeadline {
+        font-size: 2rem;
+    }
+
+    .bottomRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+}
