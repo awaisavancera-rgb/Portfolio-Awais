@@ -1,9 +1,10 @@
 .portfolioSection {
     padding: 5rem 1.5rem;
-    background-color: #ffffff;
-    color: #000;
+    background-color: #000000;
+    color: #ffffff;
     font-family: inherit;
     border-radius: 16px;
+    overflow: hidden;
 }
 
 .header {
@@ -25,12 +26,14 @@
     letter-spacing: -0.04em;
     margin: 0;
     line-height: 1.1;
+    color: #ffffff;
 }
 
 .downArrow {
     font-size: 2.5rem;
     display: flex;
     align-items: center;
+    color: #ffffff;
 }
 
 .allWorkLink {
@@ -42,18 +45,30 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     text-decoration: none;
-    color: #444;
+    color: #ffffff;
     padding: 0.8rem 1.5rem;
-    border: 1px solid #eee;
+    border: 1px solid #333;
     border-radius: 100px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .allWorkLink:hover {
-    background-color: #000;
-    color: #fff;
-    border-color: #000;
+    background-color: #ffffff;
+    color: #000;
+    border-color: #ffffff;
     transform: translateY(-2px);
+}
+
+.scrollContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.cardsWrapper {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
 }
 
 .grid {
@@ -68,46 +83,50 @@
     border-radius: 32px;
     overflow: hidden;
     height: 520px;
+    width: 400px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 2.5rem;
     transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
     cursor: pointer;
-    border: 1px solid #f0f0f0;
+    border: 1px solid #333;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: #e0e0e0;
+    box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+    border-color: #555;
 }
 
 .largeCard {
-    grid-column: span 2;
+    width: 500px;
 }
 
 .smallCard {
-    grid-column: span 1;
+    width: 350px;
 }
 
 .fullWidthCard {
-    grid-column: span 3;
+    width: 600px;
     height: 600px;
 }
 
 .smallGridCard {
-    grid-column: span 1;
+    width: 380px;
     height: 450px;
 }
 
 /* Specific Card Backgrounds to match reference */
 .bgCream {
     background-color: #efede7;
+    color: #000;
 }
 
 .bgSoftTan {
     background-color: #e5d6c8;
+    color: #000;
 }
 
 .bgDark {
@@ -117,6 +136,7 @@
 
 .bgLightPink {
     background-color: #fcece8;
+    color: #000;
 }
 
 .bgDeepRed {
@@ -126,6 +146,7 @@
 
 .bgSoftGreen {
     background-color: #d8e0c3;
+    color: #000;
 }
 
 .mockupWrapper {
@@ -167,6 +188,7 @@
 .tags {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .tag {
@@ -186,14 +208,30 @@
     color: #fff;
 }
 
-@media (max-width: 1024px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
+.bgCream .tag,
+.bgSoftTan .tag,
+.bgLightPink .tag,
+.bgSoftGreen .tag {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #000;
+}
 
-    .largeCard,
+@media (max-width: 1024px) {
+    .cardsWrapper {
+        gap: 1.5rem;
+    }
+    
+    .card {
+        width: 350px;
+    }
+    
+    .largeCard {
+        width: 400px;
+    }
+    
     .fullWidthCard {
-        grid-column: span 2;
+        width: 450px;
     }
 }
 
@@ -213,15 +251,16 @@
         font-size: 2.5rem;
     }
 
-    .grid {
-        grid-template-columns: 1fr;
+    .cardsWrapper {
+        gap: 1rem;
     }
 
+    .card,
     .largeCard,
     .smallCard,
     .fullWidthCard,
     .smallGridCard {
-        grid-column: span 1;
+        width: 300px;
         height: 400px;
     }
 }
