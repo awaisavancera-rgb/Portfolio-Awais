@@ -6,9 +6,8 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import styles from "./introScroll.module.css"
 
-if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger, useGSAP)
-}
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 export const IntroScroll = () => {
     const wrapperRef = useRef<HTMLDivElement>(null)
