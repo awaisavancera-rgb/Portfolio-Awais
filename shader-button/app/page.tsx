@@ -1,7 +1,7 @@
 "use client"
 
-import { LiquidMetalButton } from "@/components/liquid-metal-button"
-import { ViewModeToggle } from "@/components/view-mode-toggle"
+import { LiquidMetalButton } from "../components/liquid-metal-button"
+import { ViewModeToggle } from "../components/view-mode-toggle"
 import { useState } from "react"
 
 export default function Page() {

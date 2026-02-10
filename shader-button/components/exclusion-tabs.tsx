@@ -1,9 +1,9 @@
 "use client"
 
 import { useMemo } from "react"
-import { useWindowSize } from "@/hooks/use-window-size"
+import { useWindowSize } from "../hooks/use-window-size"
 import { motion } from "framer-motion"
-import { useSafariDetection } from "@/hooks/use-detect-safari"
+import { useSafariDetection } from "../hooks/use-detect-safari"
 
 const tabItems = ["Text", "Icon"]
 
