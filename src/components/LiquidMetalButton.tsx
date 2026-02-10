@@ -101,6 +101,23 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
         }
       } catch (error) {
         console.error("[v0] Failed to load shader:", error)
+        // Fallback: create a gradient background if shader fails
+        if (shaderRef.current) {
+          shaderRef.current.style.background = "linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899, #f59e0b)"
+          shaderRef.current.style.backgroundSize = "400% 400%"
+          shaderRef.current.style.animation = "gradient-shift 3s ease infinite"
+          
+          // Add gradient animation keyframes
+          const gradientStyle = document.createElement("style")
+          gradientStyle.textContent = `
+            @keyframes gradient-shift {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+          `
+          document.head.appendChild(gradientStyle)
+        }
       }
     }
 
