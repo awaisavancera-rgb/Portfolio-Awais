@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowRight, MoveDown } from "lucide-react"
@@ -18,8 +18,6 @@ interface Project {
     title: string
     tags: string[]
     image: string
-    className: string
-    bgClass: string
 }
 
 const projects: Project[] = [
@@ -28,49 +26,47 @@ const projects: Project[] = [
         title: "Lorikeet CX",
         tags: ["Motion & 3D", "Web Development"],
         image: "/mockup-laptop.png",
-        className: styles.largeCard,
-        bgClass: styles.bgCream,
     },
     {
         id: 2,
         title: "Teak",
         tags: ["Motion & 3D", "Web Development"],
         image: "/mockup-phone.png",
-        className: styles.smallCard,
-        bgClass: styles.bgSoftTan,
     },
     {
         id: 3,
         title: "We Scale It",
         tags: ["Brand Identity", "Web Design & Development"],
         image: "/mockup-watch.png",
-        className: styles.fullWidthCard,
-        bgClass: styles.bgDark,
     },
     {
         id: 4,
         title: "Kastle AI",
         tags: ["Motion & 3D", "Web Design & Development"],
         image: "/mockup-display.png",
-        className: styles.smallGridCard,
-        bgClass: styles.bgLightPink,
     },
     {
         id: 5,
         title: "Jeremie Bouchard | Director + Editor",
         tags: ["Brand Identity", "Web Design & Development"],
         image: "/mockup-laptop-2.png",
-        className: styles.smallGridCard,
-        bgClass: styles.bgDeepRed,
     },
     {
         id: 6,
         title: "Kimu - Agence Créative",
         tags: ["Web Design & Development"],
         image: "/mockup-laptop-3.png",
-        className: styles.smallGridCard,
-        bgClass: styles.bgSoftGreen,
     },
+]
+
+// Background colors for cards
+const cardBackgrounds = [
+    "#efede7", // cream
+    "#e5d6c8", // soft tan
+    "#1a1a1a", // dark
+    "#fcece8", // light pink
+    "#bb2a2a", // deep red
+    "#d8e0c3", // soft green
 ]
 
 export const Portfolio = () => {
@@ -82,12 +78,14 @@ export const Portfolio = () => {
         if (!scrollContainerRef.current || !cardsRef.current) return
 
         const cards = cardsRef.current.children
-        const totalWidth = cardsRef.current.scrollWidth
-        const containerWidth = scrollContainerRef.current.offsetWidth
+        const cardWidth = 600 // Width of each card including gap
+        const visibleCards = 2
+        const totalSlides = Math.ceil(projects.length / visibleCards)
+        const maxScroll = (totalSlides - 1) * cardWidth * visibleCards
 
         // Create horizontal scroll animation
         const scrollTween = gsap.to(cardsRef.current, {
-            x: -(totalWidth - containerWidth),
+            x: -maxScroll,
             ease: "none",
             scrollTrigger: {
                 trigger: sectionRef.current,
@@ -143,25 +141,24 @@ export const Portfolio = () => {
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
-                            className={`${styles.card} ${project.className} ${project.bgClass}`}
+                            className={styles.card}
+                            style={{ backgroundColor: cardBackgrounds[index % cardBackgrounds.length] }}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: index * 0.1 }}
                         >
-                            <div className={styles.mockupWrapper}>
-                                <div className={styles.mockup}>
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className={styles.image}
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-                                </div>
+                            <div className={styles.imageContainer}>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    className={styles.image}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                             </div>
 
-                            <div className={styles.cardFooter}>
+                            <div className={styles.cardContent}>
                                 <h3 className={styles.cardTitle}>
                                     <RollingText text={project.title} />
                                 </h3>
