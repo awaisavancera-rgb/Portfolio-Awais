@@ -2,6 +2,7 @@ import Banner from "./banner";
 import { Portfolio } from "@/components/Portfolio";
 import { IntroScroll } from "@/components/IntroScroll";
 import { Expertise } from "@/components/Expertise";
+import { About } from "@/components/About";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <IntroScroll />
       <Portfolio />
       <Expertise />
+      <About />
     </main>
   );
 }

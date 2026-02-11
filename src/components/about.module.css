@@ -1,0 +1,209 @@
+.aboutSection {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0 0 6rem;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 1. Massive Title */
+.titleWrapper {
+    width: 100%;
+    overflow: hidden;
+    /* Removed border-bottom from here */
+    margin-bottom: 0;
+    /* Flush with meta bar */
+    padding-top: 4rem;
+}
+
+.massiveTitle {
+    font-size: 24vw;
+    /* Slightly adjusted */
+    line-height: 0.8;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.sup {
+    font-size: 4vw;
+    vertical-align: top;
+    margin-left: 1vw;
+    transform: translateY(-8vw);
+}
+
+/* 2. Skills Strip (The "Strip") */
+.skillsStrip {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 4rem;
+    /* Spacing before content */
+}
+
+/* Meta Bar (Top) - Optional, keeping if needed or moving */
+.metaBar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+/* 3. Split Content Layout */
+.contentGrid {
+    display: flex;
+    gap: 2.5vw;
+    align-items: start;
+}
+
+/* Left: Portrait Image */
+.imageColumn {
+    position: relative;
+    width: 31vw;
+    /* Ensure aspect ratio works, fallback height if needed */
+    aspect-ratio: 3/4;
+    min-height: 600px;
+    background-color: #333;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.portraitImage {
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.imageColumn:hover .portraitImage {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.02);
+}
+
+/* Right: Content */
+.textColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 70vw;
+    padding-top: 2rem;
+}
+
+.headline {
+    font-size: 3vw;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.12vw;
+    margin-bottom: 3vw;
+}
+
+.tm {
+    font-size: 1.5rem;
+    vertical-align: super;
+}
+
+.contactButton {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: fit-content;
+    margin-bottom: 6rem;
+}
+
+.contactButton:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Logo Grid */
+.logoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logoItem {
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+    padding: 2rem;
+}
+
+.logoItem:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contentGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .headline {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .contactButton {
+        margin-bottom: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .massiveTitle {
+        font-size: 25vw;
+        /* Slightly smaller on mobile to fit */
+    }
+
+    .logoGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .aboutSection {
+        padding-bottom: 4rem;
+    }
+}
