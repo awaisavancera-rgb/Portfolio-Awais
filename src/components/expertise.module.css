@@ -1,0 +1,204 @@
+.expertiseSection {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 2rem 4rem 6rem;
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* 1. Top Bar */
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 4rem;
+    color: #000;
+}
+
+.topBarLeft,
+.topBarRight {
+    font-weight: 500;
+}
+
+.topBarCenter {
+    opacity: 0.6;
+}
+
+/* 2. Main Title Area */
+.heroArea {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4vw;
+    position: relative;
+}
+
+.craftTitle {
+    letter-spacing: -0.75vw;
+    color: #000;
+    margin: 0;
+    font-size: 11vw;
+    font-weight: 600;
+    line-height: 10vw;
+}
+
+.smallTxt {
+    font-size: 8vw;
+}
+
+.heroImageWrapper {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.heroImage {
+    object-fit: cover;
+}
+
+/* 3. Data Table */
+.tableContainer {
+    width: 100%;
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    background-color: #000;
+    padding: 0.3vw 1vw;
+    font-size: 0.9rem;
+    color: #fff;
+    border-bottom: none;
+    /* Removing previous border */
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    padding: 1.5rem 0;
+    font-size: 1.1rem;
+    align-items: center;
+}
+
+/* Rows Container */
+.rowsWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.tableItem {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tableItem:hover {
+    background-color: transparent;
+}
+
+/* Accordion Content */
+.accordionContent {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.2, 1, 0.3, 1), padding 0.5s ease;
+}
+
+.tableItem:hover .accordionContent {
+    max-height: 500px;
+    padding-bottom: 2rem;
+}
+
+.descriptionList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0 0 0 1rem;
+    list-style: disc;
+    font-size: 0.95rem;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.companyName {
+    font-weight: 600;
+}
+
+.role {
+    font-weight: 500;
+}
+
+.location {
+    text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .heroArea {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+
+    .heroImageWrapper {
+        width: 100%;
+        height: 300px;
+    }
+
+    .craftTitle {
+        font-size: 25vw;
+    }
+
+    .descriptionList {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .expertiseSection {
+        padding: 2rem 1.5rem;
+    }
+
+    .tableHeader {
+        display: none;
+        /* Hide headers on mobile */
+    }
+
+    .tableRow {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1.5rem 0;
+        text-align: left;
+    }
+
+    .location {
+        text-align: left;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 0.9rem;
+    }
+}

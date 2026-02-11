@@ -53,7 +53,7 @@ export const IntroScroll = () => {
             backgroundColor: "#FFFFFF",
             duration: 0.1, // Short duration at the end
             ease: "none"
-        }, "-=0.1")
+        }, "-=0.2")
 
         // Reveal text staggered as expansion completes
         tl.from([headlineRef.current, footerBlocksRef.current?.children], {

@@ -1,6 +1,7 @@
 import Banner from "./banner";
 import { Portfolio } from "@/components/Portfolio";
 import { IntroScroll } from "@/components/IntroScroll";
+import { Expertise } from "@/components/Expertise";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <IntroScroll />
       <Portfolio />
+      <Expertise />
     </main>
   );
 }

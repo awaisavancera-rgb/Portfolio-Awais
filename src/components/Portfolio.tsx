@@ -3,14 +3,13 @@
 import { useRef } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, MoveDown } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
+import { ArrowUpRight } from "lucide-react"
 import styles from "./portfolio.module.css"
 import { RollingText } from "./RollingText"
 
-// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
 interface Project {
@@ -23,155 +22,146 @@ interface Project {
 const projects: Project[] = [
     {
         id: 1,
-        title: "Lorikeet CX",
-        tags: ["Motion & 3D", "Web Development"],
+        title: "Kashtech Doyel",
+        tags: ["2025 - Design"],
         image: "/mockup-laptop.png",
     },
     {
         id: 2,
-        title: "Teak",
-        tags: ["Motion & 3D", "Web Development"],
-        image: "/mockup-phone.png",
-    },
-    {
-        id: 3,
-        title: "We Scale It",
-        tags: ["Brand Identity", "Web Design & Development"],
+        title: "Saudi Lime Green",
+        tags: ["2025 - Design"],
         image: "/mockup-watch.png",
     },
     {
-        id: 4,
-        title: "Kastle AI",
-        tags: ["Motion & 3D", "Web Design & Development"],
-        image: "/mockup-display.png",
-    },
-    {
-        id: 5,
-        title: "Jeremie Bouchard | Director + Editor",
-        tags: ["Brand Identity", "Web Design & Development"],
-        image: "/mockup-laptop-2.png",
-    },
-    {
-        id: 6,
-        title: "Kimu - Agence Créative",
-        tags: ["Web Design & Development"],
+        id: 3,
+        title: "Panda Automap",
+        tags: ["2025 - Design"],
         image: "/mockup-laptop-3.png",
     },
 ]
 
-// Background colors for cards
-const cardBackgrounds = [
-    "#efede7", // cream
-    "#e5d6c8", // soft tan
-    "#1a1a1a", // dark
-    "#fcece8", // light pink
-    "#bb2a2a", // deep red
-    "#d8e0c3", // soft green
-]
-
 export const Portfolio = () => {
     const sectionRef = useRef<HTMLElement>(null)
-    const scrollContainerRef = useRef<HTMLDivElement>(null)
-    const cardsRef = useRef<HTMLDivElement>(null)
+    const titleRef = useRef<HTMLHeadingElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null)
+    const contentRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        if (!scrollContainerRef.current || !cardsRef.current) return
+        if (!titleRef.current || !sectionRef.current || !containerRef.current || !contentRef.current) return
 
-        const cards = cardsRef.current.children
-        const cardWidth = 600 // Width of each card including gap
-        const visibleCards = 2
-        const totalSlides = Math.ceil(projects.length / visibleCards)
-        const maxScroll = (totalSlides - 1) * cardWidth * visibleCards
-
-        // Create horizontal scroll animation
-        const scrollTween = gsap.to(cardsRef.current, {
-            x: -maxScroll,
-            ease: "none",
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
-                invalidateOnRefresh: true,
-            }
-        })
-
-        // Animate cards on scroll
-        gsap.fromTo(cards, 
+        // Step 1: Title shrink — only starts once portfolio covers the entire screen
+        gsap.fromTo(titleRef.current,
+            { fontSize: "25vw", y: "0" },
             {
-                opacity: 0,
-                y: 100,
-                scale: 0.8
-            },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power2.out",
+                fontSize: "7vw",
+                y: "2.5vw",
+                ease: "power2.inOut",
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 80%",
-                    end: "top 20%",
-                    toggleActions: "play none none reverse"
+                    start: "top top",
+                    end: "+=400",
+                    scrub: true,
                 }
             }
         )
 
-        return () => {
-            scrollTween.kill()
-        }
+        // Step 2: Content blur-in — starts as title finishes shrinking
+        gsap.fromTo(contentRef.current,
+            { opacity: 0, y: 60, filter: "blur(15px)" },
+            {
+                opacity: 1,
+                y: -180,
+                filter: "blur(0px)",
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top -200",
+                    end: "top -500",
+                    scrub: true,
+                }
+            }
+        )
+
+        // Step 3: Horizontal scroll
+        // Get all the card panels
+        const panels = gsap.utils.toArray<HTMLElement>(
+            containerRef.current.querySelectorAll(`.${styles.projectCard}`)
+        )
+
+        // Cards are 38vw each. 2.5 visible = ~95vw used.
+        // Overflow ≈ 118vw - 100vw = ~18vw. 18/38 = ~50% of card width.
+        gsap.to(panels, {
+            xPercent: -50,
+            ease: "none",
+            scrollTrigger: {
+                trigger: containerRef.current,
+                pin: true,
+                scrub: 1,
+                end: "+=2000",
+            }
+        })
+
     }, { scope: sectionRef })
 
     return (
         <section ref={sectionRef} className={styles.portfolioSection}>
-            <div className={styles.header}>
-                <div className={styles.titleWrapper}>
-                    <h2 className={styles.title}>Featured Work</h2>
-                    <span className={styles.downArrow}><MoveDown size={40} strokeWidth={1.5} /></span>
+            {/* This is the pinned container — like .container in the GSAP example */}
+            <div ref={containerRef} className={styles.pinnedWrapper}>
+                <div className={styles.heroTitleWrapper}>
+                    <h2 ref={titleRef} className={styles.megaTitle}>WORK</h2>
                 </div>
-                <a href="#" className={styles.allWorkLink}>
-                    <RollingText text="ALL WORK" /> <ArrowRight size={14} />
-                </a>
-            </div>
 
-            <div ref={scrollContainerRef} className={styles.scrollContainer}>
-                <div ref={cardsRef} className={styles.cardsWrapper}>
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={project.id}
-                            className={styles.card}
-                            style={{ backgroundColor: cardBackgrounds[index % cardBackgrounds.length] }}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                        >
-                            <div className={styles.imageContainer}>
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    fill
-                                    className={styles.image}
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                            </div>
+                <div ref={contentRef} className={styles.contentArea}>
+                    <div className={styles.subheader}>
+                        <h3 className={styles.selectedLabel}>SELECTED</h3>
+                        <div className={styles.buttonWrapper}>
+                            <motion.button
+                                className="btn-talk"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onMouseMove={(e) => {
+                                    const rect = e.currentTarget.getBoundingClientRect();
+                                    const x = e.clientX - rect.left - rect.width / 2;
+                                    const y = e.clientY - rect.top - rect.height / 2;
+                                    e.currentTarget.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = `translate(0px, 0px)`;
+                                }}
+                                style={{ transition: 'transform 0.1s ease-out' }}
+                            >
+                                <RollingText text="Let's Talk" />
+                                <span className="icon-circle">
+                                    <ArrowUpRight size={16} />
+                                </span>
+                            </motion.button>
+                        </div>
+                    </div>
 
-                            <div className={styles.cardContent}>
-                                <h3 className={styles.cardTitle}>
-                                    <RollingText text={project.title} />
-                                </h3>
-                                <div className={styles.tags}>
-                                    {project.tags.map((tag) => (
-                                        <span key={tag} className={styles.tag}>
-                                            {tag}
-                                        </span>
-                                    ))}
+                    {/* This is the horizontal track — like the flex panels in the GSAP example */}
+                    <div className={styles.projectsGrid}>
+                        {projects.map((project) => (
+                            <div key={project.id} className={styles.projectCard}>
+                                <div className={styles.projectImageWrapper}>
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className={styles.projectImage}
+                                        sizes="45vw"
+                                    />
+                                </div>
+                                <div className={styles.projectInfo}>
+                                    <h4 className={styles.projectTitle}>{project.title}</h4>
+                                    <div className={styles.projectTags}>
+                                        {project.tags.map(tag => (
+                                            <span key={tag} className={styles.projectTag}>{tag}</span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
-                        </motion.div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

@@ -1,10 +1,11 @@
 .profileSection {
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: auto;
     background-color: transparent;
     /* Allow main background to show through */
-    z-index: 5;
+    z-index: 1;
 }
 
 .container {
