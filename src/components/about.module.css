@@ -126,20 +126,13 @@
     vertical-align: super;
 }
 
-.contactButton {
-    display: inline-block;
-    border: 1px solid #fff;
-    border-radius: 100px;
-    padding: 1rem 3rem;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: 500;
-    background: transparent;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: fit-content;
-    margin-bottom: 6rem;
+.footerCTA {
+    position: absolute;
+    bottom: 5%;
+    right: 4rem;
+    max-width: 300px;
+    text-align: right;
+    z-index: 20;
 }
 
 .contactButton:hover {
@@ -147,33 +140,82 @@
     color: #000;
 }
 
-/* Logo Grid */
-.logoGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
+/* Logo Grid Wrapper */
+.logoGridWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3rem;
 }
 
+.logoRow {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* Ensures items spread out */
+}
+
+/* Base Logo Item */
 .logoItem {
+    width: 20%;
+    /* 5 items per row = 20% width */
     aspect-ratio: 16/9;
+    /* Or adjust to match image (approx 230x87 ~ 2.6) */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease;
-    padding: 2rem;
+    border: 1px solid rgba(187, 187, 187, 0.2);
+    /* From snippet */
+    background-color: transparent;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
 }
 
 .logoItem:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.03);
 }
 
+/* Empty Item - Invisible spacer */
+.logoItemEmpty {
+    width: 20%;
+    aspect-ratio: 16/9;
+    border: none;
+    background: transparent;
+    pointer-events: none;
+}
+
+/* Specific Radius Classes based on snippet logic */
+/* Row 1, Item 1: 10px 10px 0px -> TL=10, TR=10, BR=0, BL=10 (CSS 3-value syntax is TL, TR+BL, BR - wait, logic check) */
+/* Snippet: 10px 10px 0px. CSS standard for 3 values: top-left, top-right-and-bottom-left, bottom-right.
+   So TL=10, TR=10, BL=10, BR=0. */
+.radiusTL {
+    border-radius: 10px 10px 0px;
+}
+
+/* Row 1, Item 3: 10px 10px 0px 0px -> TL=10, TR=10, BR=0, BL=0 */
+.radiusTop {
+    border-radius: 10px 10px 0px 0px;
+}
+
+/* Row 1, Item 5: 10px 10px 10px 0px -> TL=10, TR=10, BR=10, BL=0 */
+.radiusTR {
+    border-radius: 10px 10px 10px 0px;
+}
+
+/* Row 2 items: 0px 0px 10px 10px -> TL=0, TR=0, BR=10, BL=10 */
+.radiusBottom {
+    border-radius: 0px 0px 10px 10px;
+}
+
+
+/* Text Styling */
 .logoText {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    z-index: 1;
 }
 
 /* Responsive */

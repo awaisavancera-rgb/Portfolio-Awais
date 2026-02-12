@@ -1,0 +1,62 @@
+.chartContainer {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    height: 150px;
+    /* Adjust based on needs */
+    padding: 1rem;
+    /* optional background if needed, but image looks clean */
+}
+
+.barWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.bar {
+    width: 100%;
+    min-width: 40px;
+    /* maintain some width */
+    background-color: #f3f3f3;
+    /* Light gray */
+    border-radius: 8px;
+    /* Rounded corners */
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* Center text vertically in the bar? No, rotated */
+    justify-content: center;
+    overflow: hidden;
+    transform-origin: bottom;
+    /* Grow from bottom */
+}
+
+.bar.highlight {
+    background-color: #000;
+    color: #fff;
+}
+
+.barText {
+    writing-mode: vertical-rl;
+    /* Rotate text */
+    transform: rotate(180deg);
+    /* Fix orientation */
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    padding: 0.5rem 0;
+    color: #333;
+}
+
+.bar.highlight .barText {
+    color: #fff;
+}
+
+.label {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 0.5rem;
+}

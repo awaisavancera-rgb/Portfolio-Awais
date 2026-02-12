@@ -30,19 +30,26 @@
 .pinnedWrapper {
     overflow: hidden;
     background-color: #0b0b0b;
-    padding-bottom: 6rem;
+    padding-bottom: 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .contentArea {
     padding: 0 4rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* transition: transform 0.5s ease; Removed to use GSAP */
 }
 
 .subheader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -59,21 +66,20 @@
     align-items: center;
 }
 
-/* The horizontal track — like .container with flex panels in the GSAP example */
+/* The horizontal track */
 .projectsGrid {
     display: flex;
     flex-wrap: nowrap;
-    gap: 2rem;
+    gap: 3rem;
+    padding-top: 1rem;
 }
 
-/* Each card is a "panel" — follows the GSAP example pattern */
-/* Each card is a wide panel */
+/* Each card is a "panel" */
 .projectCard {
     width: 75vw;
-    /* Wider card */
-    max-width: 1200px;
-    height: 70vh;
-    /* Fixed height for consistency */
+    max-width: 1100px;
+    height: 65vh;
+    /* Reduced height for better viewport fit */
     flex-shrink: 0;
     display: flex;
     background-color: #ffffff;
@@ -81,13 +87,12 @@
     border-radius: 24px;
     overflow: hidden;
     cursor: default;
-    /* Interior elements are interactive */
 }
 
 /* Left: Content */
 .cardContent {
     flex: 1;
-    padding: 3rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -104,49 +109,27 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 100px;
     padding: 0.4rem 1.2rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     text-transform: uppercase;
     color: #000;
 }
 
 .cardTitle {
-    font-size: 4vw;
+    font-size: 3.5vw;
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.04em;
-    margin: 1rem 0;
+    margin: 0.8rem 0;
     color: #000;
 }
 
 .cardDescription {
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
     color: rgba(0, 0, 0, 0.7);
-    max-width: 90%;
-    margin-bottom: 2rem;
-}
-
-.viewButton {
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 100px;
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    width: fit-content;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.viewButton:hover {
-    transform: scale(1.05);
-    background-color: #222;
+    max-width: 95%;
+    margin-bottom: 1.5rem;
 }
 
 .arrowIcon {
@@ -164,7 +147,7 @@
 
 /* Right: Image */
 .cardImageWrapper {
-    flex: 1.5;
+    flex: 1.3;
     position: relative;
     height: 100%;
     background-color: #f0f0f0;
@@ -185,35 +168,34 @@
 @media (max-width: 1024px) {
     .projectCard {
         width: 85vw;
-        height: 60vh;
+        height: 55vh;
     }
 
     .cardTitle {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .projectCard {
         flex-direction: column-reverse;
-        /* Image on top, content bottom */
         width: 85vw;
         height: auto;
-        min-height: 70vh;
+        min-height: 60vh;
     }
 
     .cardImageWrapper {
         flex: 1;
-        min-height: 300px;
+        min-height: 250px;
     }
 
     .cardContent {
-        padding: 2rem;
+        padding: 1.5rem;
         flex: 1;
     }
 
     .cardTitle {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .megaTitle {
@@ -223,6 +205,6 @@
     .subheader {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.5rem;
+        gap: 1rem;
     }
 }

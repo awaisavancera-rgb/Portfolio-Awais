@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import styles from "./expertise.module.css"
 import Image from "next/image"
+import { BarChart } from "./BarChart"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -165,11 +166,19 @@ export const Expertise = () => {
                                     <span className={styles.location}>{item.location}</span>
                                 </div>
                                 <div className={styles.accordionContent}>
-                                    <ul className={styles.descriptionList}>
-                                        {item.description.map((point, index) => (
-                                            <li key={index}>{point}</li>
-                                        ))}
-                                    </ul>
+                                    <div className={styles.accordionBody}>
+                                        <div className={styles.textSide}>
+                                            <p className={styles.highlightText}>{item.description[0]}</p>
+                                            <ul className={styles.descriptionList}>
+                                                {item.description.slice(1).map((point, index) => (
+                                                    <li key={index}>{point}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className={styles.chartSide}>
+                                            <BarChart />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         ))}

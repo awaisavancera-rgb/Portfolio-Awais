@@ -6,7 +6,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import styles from "./about.module.css"
 import Image from "next/image"
+
 import { ArrowUpRight } from "lucide-react"
+import { RollingText } from "./RollingText"
+import { motion } from "framer-motion"
+import { Magnetic } from "./Magnetic"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -129,35 +133,55 @@ export const About = () => {
                             <h2 className={styles.headline}>
                                 13+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
                             </h2>
-                            <button className={styles.contactButton}>
-                                Contact
-                            </button>
                         </div>
 
                         {/* Logo Grid */}
-                        <div ref={gridRef} className={styles.logoGrid}>
-                            <div className={styles.logoItem}>
-                                <span className={styles.logoText}>Cairo</span>
+                        <div ref={gridRef} className={styles.logoGridWrapper}>
+                            <div className={styles.logoRow}>
+                                <div className={`${styles.logoItem} ${styles.radiusTL}`}>
+                                    <span className={styles.logoText}>Cairo</span>
+                                </div>
+                                <div className={styles.logoItemEmpty}></div>
+                                <div className={`${styles.logoItem} ${styles.radiusTop}`}>
+                                    <span className={styles.logoText}>oslo.</span>
+                                </div>
+                                <div className={styles.logoItemEmpty}></div>
+                                <div className={`${styles.logoItem} ${styles.radiusTR}`}>
+                                    <span className={styles.logoText}>:::Chain</span>
+                                </div>
                             </div>
-                            <div className={styles.logoItem}>
-                                <span className={styles.logoText}>oslo.</span>
-                            </div>
-                            <div className={styles.logoItem}>
-                                <span className={styles.logoText}>:::Chain</span>
-                            </div>
-                            <div className={styles.logoItem}>
-                                <span className={styles.logoText}>Manila.</span>
-                            </div>
-                            <div className={styles.logoItem}>
-                                <span className={styles.logoText}>ther</span>
-                            </div>
-                            <div className={styles.logoItem}>
-                                <ArrowUpRight size={32} />
+
+                            <div className={styles.logoRow}>
+                                <div className={styles.logoItemEmpty}></div>
+                                <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
+                                    <span className={styles.logoText}>Manila.</span>
+                                </div>
+                                <div className={styles.logoItemEmpty}></div>
+                                <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
+                                    <span className={styles.logoText}>ther</span>
+                                </div>
+                                <div className={styles.logoItemEmpty}></div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className={styles.footerCTA}>
+                    <Magnetic>
+                        <motion.button
+                            className="btn-talk"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <RollingText text="Contact" />
+                            <span className="icon-circle">
+                                <ArrowUpRight size={16} />
+                            </span>
+                        </motion.button>
+                    </Magnetic>
                 </div>
             </div>
         </section>
     )
 }
+

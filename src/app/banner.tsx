@@ -8,6 +8,7 @@ import { Twitter, Instagram, Youtube, ArrowUpRight } from "lucide-react";
 import styles from "./banner.module.css";
 import { LiquidMetalButton } from "@/components/LiquidMetalButton";
 import { RollingText } from "@/components/RollingText";
+import { Magnetic } from "@/components/Magnetic";
 
 export default function Banner() {
     const glowRef = useRef<HTMLDivElement>(null);
@@ -208,26 +209,18 @@ export default function Banner() {
                     >
                         Merging design thinking with human insight to create digital experiences that don&apos;t just look great — they perform effortlessly.
                     </motion.p>
-                    <motion.button
-                        className="btn-talk"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onMouseMove={(e) => {
-                            const rect = e.currentTarget.getBoundingClientRect();
-                            const x = e.clientX - rect.left - rect.width / 2;
-                            const y = e.clientY - rect.top - rect.height / 2;
-                            e.currentTarget.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = `translate(0px, 0px)`;
-                        }}
-                        style={{ transition: 'transform 0.1s ease-out' }}
-                    >
-                        <RollingText text="Let's Talk" />
-                        <span className="icon-circle">
-                            <ArrowUpRight size={16} />
-                        </span>
-                    </motion.button>
+                    <Magnetic>
+                        <motion.button
+                            className="btn-talk"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <RollingText text="Let's Talk" />
+                            <span className="icon-circle">
+                                <ArrowUpRight size={16} />
+                            </span>
+                        </motion.button>
+                    </Magnetic>
                 </div>
             </div>
         </section >
