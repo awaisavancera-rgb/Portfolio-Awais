@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: " মুহাম্মদ ওয়াইজ | Portfolio",
+  title: "Muhammad Awais | Portfolio",
   description: "Muhammad Awais - Portfolio",
 };
 

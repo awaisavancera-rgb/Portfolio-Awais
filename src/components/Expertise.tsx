@@ -120,7 +120,7 @@ export const Expertise = () => {
 
             {/* 1. Top Bar */}
             <div className={styles.topBar}>
-                <span className={styles.topBarLeft}>© EXPERIENCE エクスペリエンス</span>
+                <span className={styles.topBarLeft}>© EXPERIENCE</span>
                 <span className={styles.topBarCenter}>(WDX® — 05)</span>
                 <span className={styles.topBarRight}>DIGITAL CRAFT</span>
             </div>

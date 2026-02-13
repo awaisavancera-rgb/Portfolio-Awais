@@ -109,7 +109,7 @@ export const About = () => {
                 </div>
 
                 <div className={styles.metaBar}>
-                    <span>© Curated Interfaces ビジュアル</span>
+                    <span>© Curated Interfaces</span>
                     <span>(WDX® — 02)</span>
                     <span>Digital Designer</span>
                 </div>

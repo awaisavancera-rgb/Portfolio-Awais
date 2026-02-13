@@ -106,7 +106,7 @@ export const PortfolioV2 = () => {
 
                 <div ref={contentRef} className={styles.contentArea}>
                     <div ref={subheaderRef} className={styles.subheader}>
-                        <h3 className={styles.selectedLabel}>SELECTED</h3>
+                        <h3 className={styles.selectedLabel}>SELECTED <span className={styles.workText}>WORK</span></h3>
                         <div className={styles.buttonWrapper}>
                             <Magnetic>
                                 <motion.button

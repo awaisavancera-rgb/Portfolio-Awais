@@ -61,6 +61,11 @@
     letter-spacing: -0.02em;
 }
 
+.workText {
+    color: #ffffff;
+    opacity: 0.8;
+}
+
 .buttonWrapper {
     display: flex;
     align-items: center;
