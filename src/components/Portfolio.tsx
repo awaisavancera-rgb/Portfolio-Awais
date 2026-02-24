@@ -59,7 +59,7 @@ export const Portfolio = () => {
             { fontSize: "25vw", y: "0" },
             {
                 fontSize: "7vw",
-                y: "2.5vw",
+                y: "1vw",
                 ease: "power2.inOut",
                 scrollTrigger: {
                     trigger: sectionRef.current,
@@ -75,7 +75,7 @@ export const Portfolio = () => {
             { opacity: 0, y: 60, filter: "blur(15px)" },
             {
                 opacity: 1,
-                y: -180,
+                y: -220,
                 filter: "blur(0px)",
                 ease: "power2.out",
                 scrollTrigger: {
