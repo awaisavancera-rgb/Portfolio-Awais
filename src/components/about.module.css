@@ -77,16 +77,18 @@
 .contentGrid {
     display: flex;
     gap: 2.5vw;
-    align-items: start;
+    align-items: stretch;
 }
 
 /* Left: Portrait Image */
 .imageColumn {
+    width: 30vw;
+}
+
+.portraitWrapper {
     position: relative;
-    width: 31vw;
-    /* Ensure aspect ratio works, fallback height if needed */
+    width: 100%;
     aspect-ratio: 3/4;
-    min-height: 600px;
     background-color: #333;
     overflow: hidden;
     border-radius: 4px;
@@ -108,17 +110,24 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-    width: 70vw;
-    padding-top: 2rem;
+    /* Start from top */
+    height: auto;
+    width: 60vw;
+    padding-top: 1vw;
+    gap: 2vw;
+    /* Consistent gap between items */
+}
+
+.headlineWrapper {
+    width: 100%;
 }
 
 .headline {
     font-size: 3vw;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.12vw;
-    margin-bottom: 3vw;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.15vw;
+    margin-bottom: 2vw;
 }
 
 .tm {
@@ -127,11 +136,7 @@
 }
 
 .footerCTA {
-    position: absolute;
-    bottom: 5%;
-    right: 4rem;
-    max-width: 300px;
-    text-align: right;
+    align-self: flex-start;
     z-index: 20;
 }
 
@@ -140,12 +145,37 @@
     color: #000;
 }
 
-/* Logo Grid Wrapper */
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 1vw 0;
+}
+
+.marqueeTrack {
+    display: flex;
+    width: max-content;
+    animation: marqueeLoop 25s linear infinite;
+}
+
 .logoGridWrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-top: 3rem;
+    width: 70vw;
+    /* Keep grid width constant */
+    flex-shrink: 0;
+    margin-right: 4rem;
+    /* Gap between sets */
+}
+
+@keyframes marqueeLoop {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-70vw - 4rem));
+    }
 }
 
 .logoRow {

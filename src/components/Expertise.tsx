@@ -17,10 +17,14 @@ const creditData = [
         role: "AI Architect & Automation",
         location: "Global",
         description: [
-            "Designing scalable AI workflows and automation pipelines.",
-            "Implementing prompt engineering strategies for optimized LLM outputs.",
-            "Architecting custom automation solutions to streamline business processes."
-        ]
+            "AI Workflow Design: Designing and deploying scalable AI workflows and automation pipelines to optimize business operations.",
+            "Prompt Engineering: Implementing advanced prompt engineering strategies to maximize the quality and accuracy of LLM (Large Language Model) outputs.",
+            "Custom Automation: Architecting bespoke automation solutions and CRM integrations (GoHighLevel) to streamline lead generation and client management.",
+            "Next-Gen Development: Developing high-performance custom websites using Next.js, React.js, and TypeScript, moving beyond standard CMS limitations.",
+            "Generative Media: Utilizing AI tools to generate consistent, high-fidelity brand images and videos, integrating them seamlessly into digital platforms.",
+            "Full-Stack Management: Overseeing complex ecosystems involving various CMS platforms and custom codebases to reduce page load times and improve SEO."
+        ],
+        growthDescription: "Since joining the team, I focused on shifting our strategy from manual execution to AI-driven scaling. By October, we established the initial automation pipelines. As the prompt engineering strategies were refined through December and January, we saw a massive surge in efficiency and output. By March, our automated workflows reached a peak of 5.9k units, representing a nearly 6x increase in performance compared to our starting baseline. This growth was driven by a synergy of custom Next.js architecture and optimized AI agents."
     },
     {
         company: "WeCreative",
@@ -176,6 +180,12 @@ export const Expertise = () => {
                                             </ul>
                                         </div>
                                         <div className={styles.chartSide}>
+                                            {item.growthDescription && (
+                                                <div className={styles.growthNarrative}>
+                                                    <h5 className={styles.growthTitle}>The Impact of Intelligent Automation</h5>
+                                                    <p className={styles.growthText}>{item.growthDescription}</p>
+                                                </div>
+                                            )}
                                             <BarChart />
                                         </div>
                                     </div>

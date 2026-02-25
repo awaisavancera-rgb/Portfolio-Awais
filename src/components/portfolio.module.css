@@ -2,7 +2,8 @@
     background-color: #0b0b0b;
     color: #ffffff;
     position: relative;
-    z-index: 10;
+    z-index: 20;
+    /* Increased z-index to stay above Expertise */
 }
 
 .heroTitleWrapper {
@@ -31,6 +32,8 @@
     overflow: hidden;
     background-color: #0b0b0b;
     padding-bottom: 6rem;
+    position: relative;
+    z-index: 20;
 }
 
 .contentArea {

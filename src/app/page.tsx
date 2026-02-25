@@ -6,7 +6,7 @@ import { About } from "@/components/About";
 
 export default function Home() {
   return (
-    <main id="main-content" style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#000' }}>
+    <main id="main-content" style={{ backgroundColor: '#000' }}>
       <Banner />
       <IntroScroll />
       <Portfolio />

@@ -13,12 +13,12 @@ interface BarData {
 }
 
 const defaultData: BarData[] = [
-    { label: "Oct", value: "+1k", height: "20%" },
-    { label: "Nov", value: "+1.3k", height: "35%" },
-    { label: "Dec", value: "+1.8k", height: "50%" },
-    { label: "Jan", value: "+2.5k", height: "65%" },
-    { label: "Feb", value: "+3.8k", height: "80%" },
-    { label: "Mar", value: "+5.9k", height: "100%", highlight: true },
+    { label: "Oct", value: "+1k", height: "5vw" },
+    { label: "Nov", value: "+1.3k", height: "6vw" },
+    { label: "Dec", value: "+1.8k", height: "7vw" },
+    { label: "Jan", value: "+2.5k", height: "8vw" },
+    { label: "Feb", value: "+3.8k", height: "9vw" },
+    { label: "Mar", value: "+5.9k", height: "10vw", highlight: true },
 ]
 
 export const BarChart = ({ data = defaultData }: { data?: BarData[] }) => {

@@ -118,67 +118,105 @@ export const About = () => {
                 <div className={styles.contentGrid}>
                     {/* Left: Portrait Image */}
                     <div ref={imageRef} className={styles.imageColumn}>
-                        <Image
-                            src="/mockup-laptop-3.png" // Placeholder - likely want a user portrait here
-                            alt="Portrait"
-                            fill
-                            className={styles.portraitImage}
-                            style={{ objectFit: 'cover' }}
-                        />
+                        <div className={styles.portraitWrapper}>
+                            <Image
+                                src="/mockup-laptop-3.png"
+                                alt="Portrait"
+                                fill
+                                className={styles.portraitImage}
+                                style={{ objectFit: 'cover' }}
+                            />
+                        </div>
                     </div>
 
-                    {/* Right: Text Content */}
+                    {/* Right: Text Content + Contact Button + Logos */}
                     <div ref={contentRef} className={styles.textColumn}>
-                        <div>
+                        <div className={styles.headlineWrapper}>
                             <h2 className={styles.headline}>
                                 13+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
                             </h2>
+                            {/* Contact Button Moved Here (Aligned Left via CSS) */}
+                            <div className={styles.footerCTA}>
+                                <Magnetic strength={-0.1}>
+                                    <motion.button
+                                        className="btn-talk"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <RollingText text="Contact" />
+                                        <span className="icon-circle">
+                                            <ArrowUpRight size={16} />
+                                        </span>
+                                    </motion.button>
+                                </Magnetic>
+                            </div>
                         </div>
 
-                        {/* Logo Grid */}
-                        <div ref={gridRef} className={styles.logoGridWrapper}>
-                            <div className={styles.logoRow}>
-                                <div className={`${styles.logoItem} ${styles.radiusTL}`}>
-                                    <span className={styles.logoText}>Cairo</span>
-                                </div>
-                                <div className={styles.logoItemEmpty}></div>
-                                <div className={`${styles.logoItem} ${styles.radiusTop}`}>
-                                    <span className={styles.logoText}>oslo.</span>
-                                </div>
-                                <div className={styles.logoItemEmpty}></div>
-                                <div className={`${styles.logoItem} ${styles.radiusTR}`}>
-                                    <span className={styles.logoText}>:::Chain</span>
-                                </div>
-                            </div>
 
-                            <div className={styles.logoRow}>
-                                <div className={styles.logoItemEmpty}></div>
-                                <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
-                                    <span className={styles.logoText}>Manila.</span>
+
+                        {/* Logo Grid Marquee */}
+                        <div className={styles.marqueeContainer}>
+                            <div className={styles.marqueeTrack}>
+                                {/* First Set */}
+                                <div ref={gridRef} className={styles.logoGridWrapper}>
+                                    <div className={styles.logoRow}>
+                                        <div className={`${styles.logoItem} ${styles.radiusTL}`}>
+                                            <span className={styles.logoText}>Cairo</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusTop}`}>
+                                            <span className={styles.logoText}>oslo.</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusTR}`}>
+                                            <span className={styles.logoText}>:::Chain</span>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.logoRow}>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
+                                            <span className={styles.logoText}>Manila.</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
+                                            <span className={styles.logoText}>ther</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                    </div>
                                 </div>
-                                <div className={styles.logoItemEmpty}></div>
-                                <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
-                                    <span className={styles.logoText}>ther</span>
+
+                                {/* Second set for seamless loop */}
+                                <div className={styles.logoGridWrapper}>
+                                    <div className={styles.logoRow}>
+                                        <div className={`${styles.logoItem} ${styles.radiusTL}`}>
+                                            <span className={styles.logoText}>Cairo</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusTop}`}>
+                                            <span className={styles.logoText}>oslo.</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusTR}`}>
+                                            <span className={styles.logoText}>:::Chain</span>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.logoRow}>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
+                                            <span className={styles.logoText}>Manila.</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                        <div className={`${styles.logoItem} ${styles.radiusBottom}`}>
+                                            <span className={styles.logoText}>ther</span>
+                                        </div>
+                                        <div className={styles.logoItemEmpty}></div>
+                                    </div>
                                 </div>
-                                <div className={styles.logoItemEmpty}></div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div className={styles.footerCTA}>
-                    <Magnetic>
-                        <motion.button
-                            className="btn-talk"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <RollingText text="Contact" />
-                            <span className="icon-circle">
-                                <ArrowUpRight size={16} />
-                            </span>
-                        </motion.button>
-                    </Magnetic>
                 </div>
             </div>
         </section>

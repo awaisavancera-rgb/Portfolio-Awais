@@ -65,8 +65,8 @@ export default function Banner() {
                 initial={{ y: -100, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 style={{
-                    maxWidth: isCompact ? "480px" : "1400px",
-                    padding: isCompact ? "0.5rem 1rem" : "0.75rem 2rem",
+                    maxWidth: isCompact ? "31.5vw" : "91.5vw",
+                    padding: isCompact ? "0.5vw 1vw" : "0.75vw 2vw",
                 }}
             >
                 <div className={styles.navLogo}>

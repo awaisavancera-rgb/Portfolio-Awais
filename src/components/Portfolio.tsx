@@ -54,54 +54,45 @@ export const Portfolio = () => {
     useGSAP(() => {
         if (!titleRef.current || !sectionRef.current || !containerRef.current || !contentRef.current) return
 
-        // Step 1: Title shrink
-        gsap.fromTo(titleRef.current,
-            { fontSize: "25vw", y: "0" },
-            {
-                fontSize: "7vw",
-                y: "1vw",
-                ease: "power2.inOut",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: "+=400",
-                    scrub: true,
-                }
-            }
-        )
-
-        // Step 2: Content blur-in
-        gsap.fromTo(contentRef.current,
-            { opacity: 0, y: 60, filter: "blur(15px)" },
-            {
-                opacity: 1,
-                y: -220,
-                filter: "blur(0px)",
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top -200",
-                    end: "top -500",
-                    scrub: true,
-                }
-            }
-        )
-
-        // Step 3: Horizontal scroll
         const panels = gsap.utils.toArray<HTMLElement>(
             containerRef.current.querySelectorAll(`.${styles.projectCard}`)
         )
 
-        gsap.to(panels, {
-            xPercent: -100 * (panels.length - 1), // Standard horizontal scroll
-            ease: "none",
+        // Create a single timeline for the entire sequence
+        const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: containerRef.current,
+                trigger: sectionRef.current,
+                start: "top top",
+                end: "+=4000", // Total scroll distance
                 pin: true,
                 scrub: 1,
-                end: "+=3000", // Longer scroll for wider cards
             }
         })
+
+        // Step 1: Title shrink AND Content blur-in happen together
+        tl.to(titleRef.current, {
+            fontSize: "7vw",
+            y: "1vw",
+            ease: "power2.inOut",
+            duration: 1
+        }, 0)
+
+        // Content starts blurred and lower, then moves up and clears
+        gsap.set(contentRef.current, { opacity: 0, y: 60, filter: "blur(15px)" })
+        tl.to(contentRef.current, {
+            opacity: 1,
+            y: -220,
+            filter: "blur(0px)",
+            ease: "power2.out",
+            duration: 1
+        }, 0)
+
+        // Step 2: Horizontal scroll happens AFTER the reveal is complete
+        tl.to(panels, {
+            xPercent: -100 * (panels.length - 1),
+            ease: "none",
+            duration: 1 // Takes up the rest of the scroll distance
+        }, 1) // Starts at 1 second (after the 1 second reveal)
 
     }, { scope: sectionRef })
 
@@ -109,7 +100,7 @@ export const Portfolio = () => {
         <section ref={sectionRef} className={styles.portfolioSection}>
             <div ref={containerRef} className={styles.pinnedWrapper}>
                 <div className={styles.heroTitleWrapper}>
-                    <h2 ref={titleRef} className={styles.megaTitle}>WORK</h2>
+                    <h2 ref={titleRef} className={styles.megaTitle}>WORKS</h2>
                 </div>
 
                 <div ref={contentRef} className={styles.contentArea}>
