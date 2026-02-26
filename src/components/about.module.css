@@ -40,6 +40,7 @@
 
 .sup {
     font-size: 4vw;
+    letter-spacing: -0.3vw;
     vertical-align: top;
     margin-left: 1vw;
     transform: translateY(-8vw);
@@ -188,8 +189,8 @@
 .logoGridWrapper {
     display: flex;
     flex-direction: column;
-    width: 168vw;
-    /* 12 slots * 14vw, expanded for 2 rows */
+    width: 196vw;
+    /* 14 slots * 14vw, expanded for 2 rows */
     flex-shrink: 0;
     margin-right: 4rem;
     /* Gap between sets */
@@ -201,7 +202,7 @@
     }
 
     100% {
-        transform: translateX(calc(-168vw - 4rem));
+        transform: translateX(calc(-196vw - 4rem));
     }
 }
 
@@ -214,8 +215,8 @@
 
 /* Base Logo Item - Grid Alignment */
 .logoItem {
-    width: 8.33%;
-    /* 12 slots per row */
+    width: 7.1428%;
+    /* 14 slots per row */
     aspect-ratio: 16/9;
     display: flex;
     flex-direction: column;
@@ -259,8 +260,8 @@
 
 /* Empty Item - Invisible spacer */
 .logoItemEmpty {
-    width: 8.33%;
-    /* 12 slots per row */
+    width: 7.1428%;
+    /* 14 slots per row */
     aspect-ratio: 16/9;
     border: none;
     background: transparent;

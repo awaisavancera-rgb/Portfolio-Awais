@@ -53,24 +53,24 @@
 }
 
 .craftTitle {
-    letter-spacing: -0.75vw;
+    letter-spacing: -0.45vw;
     color: #000;
     margin: 0;
-    font-size: 11vw;
+    font-size: 9vw;
     font-weight: 600;
-    line-height: 10vw;
+    line-height: 7vw;
 }
 
 .smallTxt {
-    font-size: 8vw;
+    font-size: 5vw;
 }
 
 .heroImageWrapper {
-    width: 300px;
-    height: 400px;
+    width: 14vw;
+    height: 17vw;
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 0.7vw;
 }
 
 .heroImage {
@@ -180,31 +180,222 @@
     flex: 1.2;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    min-width: 400px;
-    padding-left: 2rem;
+    margin-left: 2vw;
+    position: relative;
+    overflow: hidden;
 }
 
-.growthNarrative {
-    border-left: 2px solid #000;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
+.carouselContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 1vw 0;
 }
 
-.growthTitle {
-    font-size: 1rem;
+.carouselTrack {
+    display: flex;
+    gap: 1.5vw;
+}
+
+.slideCard {
+    flex: 0 0 45%;
+    /* Show approx 2 items */
+    background: #f0f0f0;
+    border-radius: 2vw;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    min-height: 480px;
+}
+
+.slideHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.slideTitle {
+    font-size: 2vw;
     font-weight: 700;
-    text-transform: uppercase;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     color: #000;
+    letter-spacing: -0.03em;
 }
 
-.growthText {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(0, 0, 0, 0.8);
+.slideSub {
+    font-size: 0.9vw;
+    line-height: 1.4;
+    color: rgba(0, 0, 0, 0.5);
     margin: 0;
-    font-style: italic;
+    max-width: 90%;
+}
+
+/* Mock UI Containers */
+.mockUiContainer {
+    flex-grow: 1;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1.5vw;
+    padding: 1.2vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Chatbot UI */
+.chatbotHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.gptPill {
+    background: #fff;
+    padding: 0.4vw 0.8vw;
+    border-radius: 0.6vw;
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
+    font-weight: 600;
+    font-size: 0.75vw;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.pillIcon {
+    width: 1.2vw;
+    height: 1.2vw;
+    opacity: 0.8;
+}
+
+.chevronDown {
+    opacity: 0.4;
+    font-size: 0.7vw;
+}
+
+.chatText {
+    font-size: 1vw;
+    font-weight: 500;
+    color: #000;
+    margin-top: auto;
+    margin-bottom: 1.5vw;
+}
+
+.chatbotFooter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.footerLeft,
+.footerRight {
+    display: flex;
+    gap: 0.5vw;
+}
+
+.footerBtn {
+    width: 2.2vw;
+    height: 2.2vw;
+    background: #111;
+    border-radius: 0.6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Voice UI */
+.voiceList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7vw;
+}
+
+.voiceItem {
+    display: flex;
+    align-items: center;
+    gap: 0.8vw;
+    padding: 0.7vw;
+    background: #fff;
+    border-radius: 1vw;
+}
+
+.avatar {
+    width: 2.8vw;
+    height: 2.8vw;
+    border-radius: 50%;
+    background: #eee;
+    overflow: hidden;
+}
+
+.voiceInfo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.callerName {
+    font-weight: 600;
+    font-size: 1vw;
+}
+
+.statusRow {
+    display: flex;
+    align-items: center;
+    gap: 0.3vw;
+}
+
+.statusDot {
+    width: 0.45vw;
+    height: 0.45vw;
+    background: #000;
+    border-radius: 50%;
+}
+
+.statusText {
+    font-size: 0.7vw;
+    font-weight: 700;
+    opacity: 0.6;
+}
+
+.micBtnCircle {
+    width: 2.8vw;
+    height: 2.8vw;
+    background: #111;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Chart UI */
+.chartWrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Slider Nav */
+.sliderNav {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    padding-top: 1.5rem;
+}
+
+.navDot {
+    width: 0.6vw;
+    height: 0.6vw;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.navDot.activeDot {
+    background: #000;
+    width: 1.5vw;
+    border-radius: 1vw;
 }
 
 .companyName {
@@ -220,24 +411,41 @@
 }
 
 /* Responsive */
+@media (max-width: 1400px) {
+    .slideCard {
+        flex: 0 0 60%;
+    }
+}
+
 @media (max-width: 1024px) {
-    .heroArea {
+    .accordionBody {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 2rem;
     }
 
-    .heroImageWrapper {
-        width: 100%;
-        height: 300px;
+    .textSide {
+        border-right: none;
+        padding-right: 0;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
-    .craftTitle {
-        font-size: 25vw;
-    }
-
-    .descriptionList {
+    .chartSide {
         margin-left: 0;
+        margin-top: 2rem;
+        width: 100%;
+    }
+
+    .slideCard {
+        flex: 0 0 85%;
+        min-height: 400px;
+    }
+
+    .slideTitle {
+        font-size: 5vw;
+    }
+
+    .slideSub {
+        font-size: 2vw;
     }
 }
 
@@ -248,7 +456,6 @@
 
     .tableHeader {
         display: none;
-        /* Hide headers on mobile */
     }
 
     .tableRow {
@@ -262,5 +469,13 @@
         text-align: left;
         color: rgba(0, 0, 0, 0.5);
         font-size: 0.9rem;
+    }
+
+    .slideTitle {
+        font-size: 8vw;
+    }
+
+    .slideSub {
+        font-size: 3.5vw;
     }
 }
