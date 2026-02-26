@@ -184,9 +184,9 @@
 
 .personImageContainer {
     position: absolute;
-    top: 100px;
+    top: 13vh;
     /* Space for the navigation menu to avoid collision */
-    bottom: -2.5rem;
+    bottom: -2.5vw;
     /* Touching absolute bottom of the card, ignoring banner padding */
     left: 0;
     width: 100%;
@@ -200,8 +200,8 @@
 .personImageInner {
     position: relative;
     width: 100%;
-    max-width: 1000px;
-    height: 700px;
+    max-width: 92vw;
+    height: 96vh;
     /* Fill container without overflowing top */
     display: flex;
     justify-content: center;

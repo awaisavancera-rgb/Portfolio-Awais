@@ -106,7 +106,7 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
           shaderRef.current.style.background = "linear-gradient(45deg, #4f46e5, #7c3aed, #ec4899, #f59e0b)"
           shaderRef.current.style.backgroundSize = "400% 400%"
           shaderRef.current.style.animation = "gradient-shift 3s ease infinite"
-          
+
           // Add gradient animation keyframes
           const gradientStyle = document.createElement("style")
           gradientStyle.textContent = `
@@ -220,7 +220,7 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
             {viewMode === "text" && (
               <span
                 style={{
-                  fontSize: "14px",
+                  fontSize: "0.8vw",
                   color: "#666666",
                   fontWeight: 400,
                   textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)",
@@ -340,8 +340,8 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                   position: "absolute",
                   left: `${ripple.x}px`,
                   top: `${ripple.y}px`,
-                  width: "20px",
-                  height: "20px",
+                  width: "2vw",
+                  height: "2vw",
                   borderRadius: "50%",
                   background: "radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%)",
                   pointerEvents: "none",

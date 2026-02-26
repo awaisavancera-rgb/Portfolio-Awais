@@ -77,6 +77,11 @@ export default function Banner() {
                             width={40}
                             height={40}
                             priority
+                            style={{
+                                objectFit: 'cover',
+                                width: '2.6vw',
+                                height: '2.6vw'
+                            }}
                         />
                     </div>
                     <span>Muhammad Awais</span>
@@ -119,8 +124,8 @@ export default function Banner() {
             <div className={styles.mainContent}>
                 {/* Glow Background */}
                 <div className={styles.glowContainer}>
-                    <div ref={glowRef} className={styles.glowCircle} style={{ width: '400px', height: '400px' }} />
-                    <div className={styles.glowCircle} style={{ width: '300px', height: '300px', opacity: 0.2 }} />
+                    <div ref={glowRef} className={styles.glowCircle} style={{ width: '30vw', height: '30vw' }} />
+                    <div className={styles.glowCircle} style={{ width: '20vw', height: '20vw', opacity: 0.2 }} />
                 </div>
 
                 {/* Decorative Background Lines */}

@@ -106,3 +106,8 @@ h2 {
 .inline-block {
   display: inline-block;
 }
+
+/* GSAP Pin Spacer Fix */
+.pin-spacer {
+  z-index: 1 !important;
+}
