@@ -29,16 +29,19 @@ export const About = () => {
     useGSAP(() => {
         if (!sectionRef.current || !titleRef.current || !imageRef.current || !contentRef.current || !gridRef.current) return
 
-        // 1. Massive Title Reveal (Slide Up)
+        // 1. Massive Title Reveal (Slide Up + Blur with Scrub)
         gsap.fromTo(titleRef.current,
-            { y: "100%" },
+            { y: "100%", filter: "blur(20px)", opacity: 0 },
             {
                 y: "0%",
-                duration: 1.5,
-                ease: "power4.out",
+                filter: "blur(0px)",
+                opacity: 1,
+                ease: "none", // Scrubbing usually feels best with linear ease
                 scrollTrigger: {
                     trigger: sectionRef.current,
-                    start: "top 80%",
+                    start: "top 95%",
+                    end: "top 40%",
+                    scrub: 1,
                 }
             }
         )
@@ -58,18 +61,20 @@ export const About = () => {
             }
         )
 
-        // 3. Content Fade In
+        // 3. Content Fade In + Blur with Scrub
         gsap.fromTo(contentRef.current.children,
-            { y: 50, opacity: 0 },
+            { y: 50, opacity: 0, filter: "blur(15px)" },
             {
                 y: 0,
                 opacity: 1,
-                duration: 1,
-                stagger: 0.2,
-                ease: "power3.out",
+                filter: "blur(0px)",
+                stagger: 0.1,
+                ease: "none",
                 scrollTrigger: {
                     trigger: contentRef.current,
-                    start: "top 85%",
+                    start: "top 90%",
+                    end: "top 50%",
+                    scrub: 1,
                 }
             }
         )
@@ -156,7 +161,7 @@ export const About = () => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
-                                        <RollingText text="Contact" />
+                                        <RollingText text="View More" />
                                         <span className="icon-circle">
                                             <ArrowUpRight size={16} />
                                         </span>

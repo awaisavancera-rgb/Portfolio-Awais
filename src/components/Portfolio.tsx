@@ -112,7 +112,7 @@ export const Portfolio = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                <RollingText text="Let's Talk" />
+                                <RollingText text="View All Projects" />
                                 <span className="icon-circle">
                                     <ArrowUpRight size={16} />
                                 </span>
@@ -125,30 +125,34 @@ export const Portfolio = () => {
                             <div key={project.id} className={styles.projectCard}>
                                 {/* Left Content */}
                                 <div className={styles.cardContent}>
-                                    <div className={styles.tagsWrapper}>
-                                        {project.tags.map(tag => (
-                                            <span key={tag} className={styles.tagPill}>{tag}</span>
-                                        ))}
+                                    <div className={styles.cardTop}>
+                                        <div className={styles.tagsWrapper}>
+                                            {project.tags.map(tag => (
+                                                <span key={tag} className={styles.tagPill}>{tag}</span>
+                                            ))}
+                                        </div>
+
+                                        <h4 className={styles.cardTitle}>{project.title}</h4>
                                     </div>
 
-                                    <h4 className={styles.cardTitle}>{project.title}</h4>
+                                    <div className={styles.cardBottom}>
+                                        <p className={styles.cardDescription}>
+                                            {project.description}
+                                        </p>
 
-                                    <p className={styles.cardDescription}>
-                                        {project.description}
-                                    </p>
-
-                                    <Magnetic>
-                                        <motion.button
-                                            className="btn-talk"
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                        >
-                                            <RollingText text="VIEW PROJECT" />
-                                            <span className={styles.arrowIcon}>
-                                                <ArrowUpRight size={16} />
-                                            </span>
-                                        </motion.button>
-                                    </Magnetic>
+                                        <Magnetic>
+                                            <motion.button
+                                                className="btn-talk"
+                                                whileHover={{ scale: 1.05 }}
+                                                whileTap={{ scale: 0.95 }}
+                                            >
+                                                <RollingText text="VIEW PROJECT" />
+                                                <span className={styles.arrowIcon}>
+                                                    <ArrowUpRight size={16} />
+                                                </span>
+                                            </motion.button>
+                                        </Magnetic>
+                                    </div>
                                 </div>
 
                                 {/* Right Image */}

@@ -135,8 +135,8 @@ export default function Banner() {
                             key={i}
                             className={`${styles.line} ${activeLine === index ? styles.lineShining : ""}`}
                             style={{
-                                width: `${i * 220}px`,
-                                height: `${i * 220}px`,
+                                width: `${i * 14}vw`,
+                                height: `${i * 14}vw`,
                                 bottom: `0px`,
                                 zIndex: 1,
                                 opacity: 0.4, // Increased base visibility

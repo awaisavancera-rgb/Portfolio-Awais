@@ -37,6 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
+    will-change: filter, transform, opacity;
 }
 
 .sup {
@@ -134,6 +135,7 @@
     line-height: 1;
     letter-spacing: -0.15vw;
     margin-bottom: 3.5vw;
+    will-change: filter, transform, opacity;
 }
 
 .tm {
@@ -172,6 +174,7 @@
     text-transform: uppercase;
     letter-spacing: 0.01vw;
     font-family: inherit;
+    will-change: filter, transform, opacity;
 }
 
 .marqueeContainer {

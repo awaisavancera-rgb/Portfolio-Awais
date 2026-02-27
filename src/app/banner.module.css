@@ -290,7 +290,7 @@
     position: absolute;
     bottom: 10%;
     right: 2rem;
-    max-width: 300px;
+    max-width: 20vw;
     text-align: right;
     z-index: 20;
 }
