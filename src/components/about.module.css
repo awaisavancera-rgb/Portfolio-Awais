@@ -184,6 +184,10 @@
     padding: 1vw 0;
 }
 
+.marqueeContainer:hover .marqueeTrack {
+    animation-play-state: paused;
+}
+
 .marqueeTrack {
     display: flex;
     width: max-content;
