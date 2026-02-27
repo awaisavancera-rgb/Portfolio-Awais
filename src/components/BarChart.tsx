@@ -29,19 +29,34 @@ export const BarChart = ({ data = defaultData }: { data?: BarData[] }) => {
 
         const bars = containerRef.current.querySelectorAll(`.${styles.bar}`)
 
-        gsap.fromTo(bars,
-            { scaleY: 0 },
+        const tl = gsap.timeline({
+            repeat: -1,
+            repeatDelay: 1.5,
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top 95%",
+            }
+        })
+
+        // Build up: Grow bars one by one
+        tl.fromTo(bars,
+            { scaleY: 0.2 },
             {
                 scaleY: 1,
-                duration: 1,
-                stagger: 0.1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 90%",
-                }
+                duration: 0.8,
+                stagger: 0.8, // Increased stagger for better one-by-one feel
+                ease: "power2.out"
             }
         )
+            // Hold: Keep them all grown for a moment
+            .to({}, { duration: 1 })
+            // Reset: Quickly bring them back down to start the loop over
+            .to(bars, {
+                scaleY: 0.2,
+                duration: 0.8,
+                stagger: 0.8,
+                ease: "power2.in"
+            })
 
     }, { scope: containerRef })
 

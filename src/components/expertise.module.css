@@ -3,7 +3,7 @@
     color: #000000;
     padding: 2rem 4rem 6rem;
     position: relative;
-    z-index: 10;
+    z-index: 30;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -32,6 +32,12 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 4rem;
     color: #000;
+}
+
+.mockupBg {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
 }
 
 .topBarLeft,
@@ -115,6 +121,11 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: background-color 0.2s ease;
+    position: relative;
+}
+
+.tableItem:hover {
+    cursor: none;
 }
 
 .tableItem:hover {
@@ -131,7 +142,7 @@
     /* Divider when open */
 }
 
-.tableItem:hover .accordionContent {
+.tableItem.itemOpen .accordionContent {
     max-height: 1000px;
     /* Numerical value required for CSS transition to work */
     padding-bottom: 2rem;
@@ -158,7 +169,7 @@
 }
 
 .highlightText {
-    font-size: 1.1rem;
+    font-size: 1.3vw;
     font-weight: 600;
     margin: 0;
     color: #000;
@@ -172,12 +183,18 @@
     padding: 0 0 0 1rem;
     list-style: disc;
     font-size: 0.95rem;
-    color: rgba(0, 0, 0, 0.7);
-    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.9);
+    line-height: 1.5;
+}
+
+.growthText {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    line-height: 1.5vw;
 }
 
 .chartSide {
-    flex: 1.2;
+    flex: 0.6;
     display: flex;
     flex-direction: column;
     margin-left: 2vw;
@@ -185,37 +202,28 @@
     overflow: hidden;
 }
 
-.carouselContainer {
-    width: 100%;
-    overflow: hidden;
-    padding: 1vw 0;
-}
-
-.carouselTrack {
-    display: flex;
-    gap: 1.5vw;
-}
-
 .slideCard {
-    flex: 0 0 45%;
-    /* Show approx 2 items */
+    width: 100%;
+    max-width: 500px;
     background: #f0f0f0;
-    border-radius: 2vw;
-    padding: 2vw;
+    border-radius: 0.8vw;
+    padding: 0.4vw;
     display: flex;
     flex-direction: column;
     gap: 1.5vw;
     min-height: 480px;
+    margin: 1vw 0;
 }
 
 .slideHeader {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    padding: 1vw;
 }
 
 .slideTitle {
-    font-size: 2vw;
+    font-size: 1.6vw;
     font-weight: 700;
     margin: 0;
     color: #000;
@@ -234,137 +242,12 @@
 .mockUiContainer {
     flex-grow: 1;
     background: rgba(255, 255, 255, 0.6);
-    border-radius: 1.5vw;
-    padding: 1.2vw;
+    border-radius: 0.8vw;
+    padding: 0.4vw;
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-/* Chatbot UI */
-.chatbotHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.gptPill {
-    background: #fff;
-    padding: 0.4vw 0.8vw;
-    border-radius: 0.6vw;
-    display: flex;
-    align-items: center;
-    gap: 0.5vw;
-    font-weight: 600;
-    font-size: 0.75vw;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-}
-
-.pillIcon {
-    width: 1.2vw;
-    height: 1.2vw;
-    opacity: 0.8;
-}
-
-.chevronDown {
-    opacity: 0.4;
-    font-size: 0.7vw;
-}
-
-.chatText {
-    font-size: 1vw;
-    font-weight: 500;
-    color: #000;
-    margin-top: auto;
-    margin-bottom: 1.5vw;
-}
-
-.chatbotFooter {
-    display: flex;
-    justify-content: space-between;
-    margin-top: auto;
-}
-
-.footerLeft,
-.footerRight {
-    display: flex;
-    gap: 0.5vw;
-}
-
-.footerBtn {
-    width: 2.2vw;
-    height: 2.2vw;
-    background: #111;
-    border-radius: 0.6vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-/* Voice UI */
-.voiceList {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7vw;
-}
-
-.voiceItem {
-    display: flex;
-    align-items: center;
-    gap: 0.8vw;
-    padding: 0.7vw;
-    background: #fff;
-    border-radius: 1vw;
-}
-
-.avatar {
-    width: 2.8vw;
-    height: 2.8vw;
-    border-radius: 50%;
-    background: #eee;
-    overflow: hidden;
-}
-
-.voiceInfo {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.callerName {
-    font-weight: 600;
-    font-size: 1vw;
-}
-
-.statusRow {
-    display: flex;
-    align-items: center;
-    gap: 0.3vw;
-}
-
-.statusDot {
-    width: 0.45vw;
-    height: 0.45vw;
-    background: #000;
-    border-radius: 50%;
-}
-
-.statusText {
-    font-size: 0.7vw;
-    font-weight: 700;
-    opacity: 0.6;
-}
-
-.micBtnCircle {
-    width: 2.8vw;
-    height: 2.8vw;
-    background: #111;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0.602187px 0.602187px -0.916667px, rgba(0, 0, 0, 0.08) 0px 2.28853px 2.28853px -1.83333px, rgba(0, 0, 0, 0.07) 0px 10px 10px -2.75px;
 }
 
 /* Chart UI */
@@ -374,28 +257,8 @@
     align-items: flex-end;
 }
 
-/* Slider Nav */
-.sliderNav {
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    padding-top: 1.5rem;
-}
-
 .navDot {
-    width: 0.6vw;
-    height: 0.6vw;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.1);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.navDot.activeDot {
-    background: #000;
-    width: 1.5vw;
-    border-radius: 1vw;
+    display: none;
 }
 
 .companyName {
@@ -410,72 +273,35 @@
     text-align: right;
 }
 
-/* Responsive */
-@media (max-width: 1400px) {
-    .slideCard {
-        flex: 0 0 60%;
-    }
+.customCursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 1000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    padding: 10px;
 }
 
 @media (max-width: 1024px) {
-    .accordionBody {
-        flex-direction: column;
-    }
-
-    .textSide {
-        border-right: none;
-        padding-right: 0;
-        padding-bottom: 2rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-    }
-
-    .chartSide {
-        margin-left: 0;
-        margin-top: 2rem;
-        width: 100%;
-    }
-
-    .slideCard {
-        flex: 0 0 85%;
-        min-height: 400px;
-    }
-
-    .slideTitle {
-        font-size: 5vw;
-    }
-
-    .slideSub {
-        font-size: 2vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .expertiseSection {
-        padding: 2rem 1.5rem;
-    }
-
-    .tableHeader {
+    .customCursor {
         display: none;
     }
 
-    .tableRow {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-        padding: 1.5rem 0;
-        text-align: left;
-    }
-
-    .location {
-        text-align: left;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 0.9rem;
-    }
-
-    .slideTitle {
-        font-size: 8vw;
-    }
-
-    .slideSub {
-        font-size: 3.5vw;
+    .tableItem:hover {
+        cursor: pointer;
     }
 }

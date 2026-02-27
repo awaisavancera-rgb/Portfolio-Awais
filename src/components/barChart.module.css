@@ -5,10 +5,10 @@
     width: 100%;
     height: 100%;
     /* Increased height for better visibility */
-    padding: 1rem;
+    padding: 1.5vw;
     /* optional background if needed, but image looks clean */
-    background: #f0f0f0;
-    border-radius: 0.8vw;
+    background: #f8f8f8;
+    border-radius: 1vw;
 }
 
 .barWrapper {
@@ -21,11 +21,11 @@
 
 .bar {
     width: 100%;
-    min-width: 40px;
+    min-width: 50px;
     /* maintain some width */
-    background-color: #f3f3f3;
+    background-color: rgb(235, 235, 235);
     /* Light gray */
-    border-radius: 8px;
+    border-radius: 0.4vw;
     /* Rounded corners */
     position: relative;
     display: flex;
@@ -35,6 +35,7 @@
     overflow: hidden;
     transform-origin: bottom;
     /* Grow from bottom */
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 0.602187px 0.602187px -0.916667px, rgba(0, 0, 0, 0.08) 0px 2.28853px 2.28853px -1.83333px, rgba(0, 0, 0, 0.07) 0px 10px 10px -2.75px;
 }
 
 .bar.highlight {

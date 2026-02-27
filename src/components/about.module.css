@@ -3,8 +3,9 @@
     color: #ffffff;
     padding: 0 0 6rem;
     position: relative;
-    z-index: 10;
+    z-index: 40;
     overflow: hidden;
+    margin-top: 0;
 }
 
 .container {
