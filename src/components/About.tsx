@@ -96,13 +96,7 @@ export const About = () => {
             }
         )
 
-        // 5. Dynamic Pinning (Stacking Card Effect)
-        ScrollTrigger.create({
-            trigger: sectionRef.current,
-            start: () => sectionRef.current && sectionRef.current.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-            pin: true,
-            pinSpacing: false
-        });
+
 
     }, { scope: sectionRef })
 

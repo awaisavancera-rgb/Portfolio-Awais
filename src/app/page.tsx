@@ -3,6 +3,7 @@ import { Portfolio } from "@/components/Portfolio";
 import { IntroScroll } from "@/components/IntroScroll";
 import { Expertise } from "@/components/Expertise";
 import { About } from "@/components/About";
+import { Reviews } from "@/components/Reviews";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Portfolio />
       <Expertise />
       <About />
+      <Reviews />
     </main>
   );
 }
