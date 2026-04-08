@@ -9,7 +9,6 @@ import { useGSAP } from "@gsap/react"
 import { ArrowUpRight } from "lucide-react"
 import styles from "./portfolioV2.module.css"
 import { RollingText } from "./RollingText"
-import { Magnetic } from "./Magnetic"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -108,18 +107,16 @@ export const PortfolioV2 = () => {
                     <div ref={subheaderRef} className={styles.subheader}>
                         <h3 className={styles.selectedLabel}>SELECTED <span className={styles.workText}>WORK</span></h3>
                         <div className={styles.buttonWrapper}>
-                            <Magnetic>
-                                <motion.button
-                                    className="btn-talk"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <RollingText text="Let's Talk" />
-                                    <span className="icon-circle">
-                                        <ArrowUpRight size={16} />
-                                    </span>
-                                </motion.button>
-                            </Magnetic>
+                            <motion.button
+                                className="btn-talk"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <RollingText text="Let's Talk" />
+                                <span className="icon-circle">
+                                    <ArrowUpRight size={16} />
+                                </span>
+                            </motion.button>
                         </div>
                     </div>
 
@@ -140,18 +137,16 @@ export const PortfolioV2 = () => {
                                         {project.description}
                                     </p>
 
-                                    <Magnetic>
-                                        <motion.button
-                                            className="btn-talk"
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                        >
-                                            <RollingText text="VIEW PROJECT" />
-                                            <span className={styles.arrowIcon}>
-                                                <ArrowUpRight size={16} />
-                                            </span>
-                                        </motion.button>
-                                    </Magnetic>
+                                    <motion.button
+                                        className="btn-talk"
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                    >
+                                        <RollingText text="VIEW PROJECT" />
+                                        <span className={styles.arrowIcon}>
+                                            <ArrowUpRight size={16} />
+                                        </span>
+                                    </motion.button>
                                 </div>
 
                                 {/* Right Image */}

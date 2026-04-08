@@ -8,7 +8,6 @@ import { Twitter, Instagram, Youtube, ArrowUpRight } from "lucide-react";
 import styles from "./banner.module.css";
 import { LiquidMetalButton } from "@/components/LiquidMetalButton";
 import { RollingText } from "@/components/RollingText";
-import { Magnetic } from "@/components/Magnetic";
 
 export default function Banner() {
     const glowRef = useRef<HTMLDivElement>(null);
@@ -214,18 +213,16 @@ export default function Banner() {
                     >
                         Merging design thinking with human insight to create digital experiences that don&apos;t just look great — they perform effortlessly.
                     </motion.p>
-                    <Magnetic>
-                        <motion.button
-                            className="btn-talk"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <RollingText text="Let's Talk" />
-                            <span className="icon-circle">
-                                <ArrowUpRight size={16} />
-                            </span>
-                        </motion.button>
-                    </Magnetic>
+                    <motion.button
+                        className="btn-talk"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <RollingText text="Let's Talk" />
+                        <span className="icon-circle">
+                            <ArrowUpRight size={16} />
+                        </span>
+                    </motion.button>
                 </div>
             </div>
         </section >

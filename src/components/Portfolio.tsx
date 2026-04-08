@@ -9,7 +9,6 @@ import { useGSAP } from "@gsap/react"
 import { ArrowUpRight } from "lucide-react"
 import styles from "./portfolio.module.css"
 import { RollingText } from "./RollingText"
-import { Magnetic } from "./Magnetic"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -140,18 +139,16 @@ export const Portfolio = () => {
                                             {project.description}
                                         </p>
 
-                                        <Magnetic>
-                                            <motion.button
-                                                className="btn-talk"
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                            >
-                                                <RollingText text="VIEW PROJECT" />
-                                                <span className={styles.arrowIcon}>
-                                                    <ArrowUpRight size={16} />
-                                                </span>
-                                            </motion.button>
-                                        </Magnetic>
+                                        <motion.button
+                                            className="btn-talk"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                        >
+                                            <RollingText text="VIEW PROJECT" />
+                                            <span className={styles.arrowIcon}>
+                                                <ArrowUpRight size={16} />
+                                            </span>
+                                        </motion.button>
                                     </div>
                                 </div>
 

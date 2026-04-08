@@ -6,12 +6,15 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./reviews.module.css";
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { RollingText } from "./RollingText";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export function Reviews() {
     const sectionRef = useRef<HTMLDivElement>(null);
+    const marqueeRevealRef = useRef<HTMLDivElement>(null);
     const marqueeScrollRef = useRef<HTMLDivElement>(null);
     const cardsLayoutRef = useRef<HTMLDivElement>(null);
 
@@ -64,46 +67,76 @@ export function Reviews() {
     ];
 
     useGSAP(() => {
-        // 1. Infinite Horizontal Scroll for the Marquee Text
+        // 1. Infinite Horizontal Scroll for the Marquee Text (Paused initially)
+        let marqueeTween: gsap.core.Tween | undefined;
         if (marqueeScrollRef.current) {
             const container = marqueeScrollRef.current;
             const textWidth = container.offsetWidth / 2;
 
-            gsap.to(container, {
+            marqueeTween = gsap.to(container, {
                 x: -textWidth,
                 ease: "none",
                 duration: 25,
                 repeat: -1,
+                paused: true, // Wait for reveal to finish!
                 modifiers: {
                     x: gsap.utils.unitize(x => parseFloat(x) % textWidth)
                 }
             });
         }
 
-        // 2. ScrollTrigger Pin and Cards Scrub
-        if (sectionRef.current && cardsLayoutRef.current) {
-            // Pin the entire 100vh section wrapper for "250%" of viewport height
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: "top top",
-                    end: "+=250%",
-                    pin: true,
-                    scrub: 1, // Smooth scrub
-                }
-            });
+        if (sectionRef.current) {
+            // 2. Reveal Animation for the Huge Text (Like About Us scrub)
+            if (marqueeRevealRef.current) {
+                gsap.fromTo(marqueeRevealRef.current,
+                    { y: "30vh", filter: "blur(20px)", opacity: 0 },
+                    {
+                        y: "0vh",
+                        filter: "blur(0px)",
+                        opacity: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: "top 95%", // starts coming in as section enters
+                            end: "top 40%",   // completely revealed by the time section pins
+                            scrub: 1,
+                            onUpdate: (self) => {
+                                // If reveal is complete, we slide like marquee!
+                                if (self.progress === 1) {
+                                    marqueeTween?.play();
+                                } else {
+                                    marqueeTween?.pause();
+                                }
+                            }
+                        }
+                    }
+                );
+            }
 
-            // Animate the cardsLayout from its initial top:100vh position 
-            // completely upwards over the section
-            tl.to(cardsLayoutRef.current, {
-                y: () => {
-                    // Move it up by its own height PLUS an extra 30vh so the last cards sit nicely in the top-middle of screen when pin unhooks
-                    return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.3);
-                },
-                ease: "none",
-            });
-        }
+            // 3. ScrollTrigger Pin and Cards Scrub
+            if (cardsLayoutRef.current) {
+                // Pin the entire 100vh section wrapper for "250%" of viewport height
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: "top top",
+                        end: "+=250%",
+                        pin: true,
+                        scrub: 1, // Smooth scrub
+                    }
+                });
 
+                // Animate the cardsLayout from its initial top:100vh position 
+                // completely upwards over the section
+                tl.to(cardsLayoutRef.current, {
+                    y: () => {
+                        // Move it up by its own height PLUS an extra 30vh so the last cards sit nicely in the top-middle of screen when pin unhooks
+                        return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.3);
+                    },
+                    ease: "none",
+                });
+            }
+        } // Close if (sectionRef.current)
     }, { scope: sectionRef });
 
     const renderCard = (test: any) => (
@@ -149,14 +182,25 @@ export function Reviews() {
                 </div>
 
                 <div className={styles.marqueeContainer}>
-                    <div className={styles.marqueeTextContainer} ref={marqueeScrollRef}>
-                        <h2 className={styles.marqueeText}>Testimonial© - Reviews Testimonial© - Reviews </h2>
-                        <h2 className={styles.marqueeText}>Testimonial© - Reviews Testimonial© - Reviews </h2>
+                    <div ref={marqueeRevealRef}>
+                        <div className={styles.marqueeTextContainer} ref={marqueeScrollRef}>
+                            <h2 className={styles.marqueeText}>Testimonial© - Reviews Testimonial© - Reviews </h2>
+                            <h2 className={styles.marqueeText}>Testimonial© - Reviews Testimonial© - Reviews </h2>
+                        </div>
                     </div>
                 </div>
 
                 <div className={styles.ctaWrapper}>
-                    <button className={styles.ctaButton}>GET IN TOUCH</button>
+                    <motion.button
+                        className="btn-talk"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <RollingText text="GET IN TOUCH" />
+                        <span className="icon-circle">
+                            <ArrowUpRight size={16} />
+                        </span>
+                    </motion.button>
                 </div>
 
             </div>

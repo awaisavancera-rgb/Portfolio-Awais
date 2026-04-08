@@ -4,6 +4,8 @@ import { IntroScroll } from "@/components/IntroScroll";
 import { Expertise } from "@/components/Expertise";
 import { About } from "@/components/About";
 import { Reviews } from "@/components/Reviews";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
       <Expertise />
       <About />
       <Reviews />
+      <Contact />
+      <Footer />
     </main>
   );
 }

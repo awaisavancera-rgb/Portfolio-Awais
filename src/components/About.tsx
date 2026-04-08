@@ -7,10 +7,9 @@ import { useGSAP } from "@gsap/react"
 import styles from "./about.module.css"
 import Image from "next/image"
 
-import { ArrowUpRight } from "lucide-react"
 import { RollingText } from "./RollingText"
 import { motion } from "framer-motion"
-import { Magnetic } from "./Magnetic"
+import { ArrowUpRight } from "lucide-react"
 import { AtomIcon } from "./AtomIcon"
 import { FigmaIcon } from "./icons/FigmaIcon"
 import { GithubIcon } from "./icons/GithubIcon"
@@ -149,18 +148,16 @@ export const About = () => {
                             </h2>
                             {/* Contact Button Moved Here (Aligned Left via CSS) */}
                             <div className={styles.footerCTA}>
-                                <Magnetic strength={-0.1}>
-                                    <motion.button
-                                        className="btn-talk"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <RollingText text="View More" />
-                                        <span className="icon-circle">
-                                            <ArrowUpRight size={16} />
-                                        </span>
-                                    </motion.button>
-                                </Magnetic>
+                                <motion.button
+                                    className="btn-talk"
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                >
+                                    <RollingText text="View More" />
+                                    <span className="icon-circle">
+                                        <ArrowUpRight size={16} />
+                                    </span>
+                                </motion.button>
                             </div>
 
                         </div>

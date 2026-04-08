@@ -1,0 +1,205 @@
+.contactSection {
+    background-color: #f7f7f7;
+    width: 100%;
+    padding: 10vw 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 5vw;
+    font-family: var(--font-inter), sans-serif;
+}
+
+/* LEFT COLUMN */
+.leftColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 43%;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5vw;
+    background-color: #e8e8e8;
+    padding: 0.5vw 1vw;
+    border-radius: 50px;
+    font-size: 0.8vw;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    width: fit-content;
+    margin-bottom: 2vw;
+}
+
+.pillDot {
+    width: 8px;
+    height: 8px;
+    background-color: #111;
+    border-radius: 50%;
+}
+
+.title {
+    font-size: 4vw;
+    font-weight: 700;
+    width: 33vw;
+    line-height: 1;
+    letter-spacing: -0.07em;
+    color: #111;
+    margin-bottom: 1vw;
+}
+
+.titleLight {
+    color: #555;
+}
+
+.description {
+    font-size: 1vw;
+    font-weight: 500;
+    color: #232323;
+    line-height: 1.35;
+    margin-bottom: 6vw;
+    max-width: 55%;
+}
+
+/* Dark Contact Card */
+.darkCard {
+    background-color: #161616;
+    border-radius: 1vw;
+    padding: 1.3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3vw;
+}
+
+.contactItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vw;
+    padding-bottom: 1.2vw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactItem:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.contactLabel {
+    font-size: 0.8vw;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contactValue {
+    font-size: 1.2vw;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+/* RIGHT COLUMN */
+.rightColumn {
+    background-color: #e8e8e8;
+    border-radius: 1vw;
+    width: 45%;
+    padding: 1.5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65vw;
+}
+
+.inputLabel {
+    font-size: 0.8vw;
+    font-weight: 700;
+    color: #232323;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+}
+
+.inputField,
+.textareaField {
+    width: 100%;
+    padding: 1vw;
+    background-color: #f7f7f7;
+    border: 1px solid transparent;
+    border-radius: 0.5vw;
+    font-size: 1vw;
+    color: #333;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.inputField::placeholder,
+.textareaField::placeholder {
+    color: #999;
+}
+
+.inputField:focus,
+.textareaField:focus {
+    border-color: #ccc;
+}
+
+.textareaField {
+    resize: none;
+    min-height: 10vw;
+}
+
+/* Plan Selection */
+.planSelection {
+    display: flex;
+    gap: 1vw;
+}
+
+.planButton {
+    flex: 1;
+    padding: 1vw;
+    border-radius: 0.5vw;
+    font-size: 0.9vw;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.planLight {
+    background-color: #f7f7f7;
+    color: #333;
+    border: 1px solid transparent;
+}
+
+.planLight:hover {
+    background-color: #fff;
+}
+
+.planDark {
+    background-color: #1a1a1a;
+    color: #fff;
+    border: 1px solid transparent;
+}
+
+.planDark:hover {
+    background-color: #000;
+}
+
+/* Custom alignment for standard site button */
+.submitWrapper {
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.submitWrapper>button {
+    width: 100%;
+    justify-content: center;
+}

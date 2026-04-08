@@ -38,6 +38,9 @@
     letter-spacing: 0.1em;
     color: #555555;
     z-index: 10;
+    /* Divider additions */
+    padding-bottom: 2vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .headerCol {
