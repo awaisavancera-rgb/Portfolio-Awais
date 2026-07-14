@@ -11,8 +11,22 @@ export function Contact() {
 
     return (
         <section className={styles.contactSection}>
-            {/* Left Column */}
-            <div className={styles.leftColumn}>
+            {/* Header Info */}
+            <div className={styles.headerInfo}>
+                <div className={styles.headerCol}>
+                    <span>© CONTACT 連絡先</span>
+                </div>
+                <div className={styles.headerCol} style={{ textAlign: "center" }}>
+                    <span>(WDX® — 07)</span>
+                </div>
+                <div className={styles.headerCol} style={{ textAlign: "right" }}>
+                    <span>LET'S TALK</span>
+                </div>
+            </div>
+
+            <div className={styles.contentWrapper}>
+                {/* Left Column */}
+                <div className={styles.leftColumn}>
                 <div className={styles.pill}>
                     <div className={styles.pillDot} />
                     CONTACT & SUPPORT
@@ -90,6 +104,8 @@ export function Contact() {
                             <ArrowUpRight size={16} />
                         </span>
                     </motion.button>
+                </div>
+
                 </div>
 
             </div>

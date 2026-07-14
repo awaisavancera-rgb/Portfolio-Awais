@@ -1,7 +1,7 @@
 import Banner from "./banner";
 import { Portfolio } from "@/components/Portfolio";
 import { IntroScroll } from "@/components/IntroScroll";
-import { Expertise } from "@/components/Expertise";
+import { HomeExpertise } from "@/components/HomeExpertise";
 import { About } from "@/components/About";
 import { Reviews } from "@/components/Reviews";
 import { Contact } from "@/components/Contact";
@@ -13,7 +13,7 @@ export default function Home() {
       <Banner />
       <IntroScroll />
       <Portfolio />
-      <Expertise />
+      <HomeExpertise />
       <About />
       <Reviews />
       <Contact />

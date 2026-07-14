@@ -1,12 +1,36 @@
 .contactSection {
     background-color: #f7f7f7;
     width: 100%;
-    padding: 10vw 5vw;
+    padding: 5vw 5vw 10vw 5vw;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-inter), sans-serif;
+}
+
+.headerInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8vw;
+    letter-spacing: 0.1em;
+    color: #555555;
+    padding-bottom: 2vw;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 5vw;
+}
+
+.headerCol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2vw;
+}
+
+.contentWrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 5vw;
-    font-family: var(--font-inter), sans-serif;
+    width: 100%;
 }
 
 /* LEFT COLUMN */

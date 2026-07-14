@@ -14,10 +14,18 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
   const [isHovered, setIsHovered] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([])
+  const [isMobile, setIsMobile] = useState(false)
   const shaderRef = useRef<HTMLDivElement>(null)
   const shaderMount = useRef<any>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const rippleId = useRef(0)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
 
   const dimensions = useMemo(() => {
     if (viewMode === "icon") {
@@ -30,6 +38,16 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
         shaderHeight: 46,
       }
     } else {
+      if (isMobile) {
+        return {
+          width: 120,
+          height: 40,
+          innerWidth: 116,
+          innerHeight: 36,
+          shaderWidth: 120,
+          shaderHeight: 40,
+        }
+      }
       return {
         width: 142,
         height: 46,
@@ -39,7 +57,7 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
         shaderHeight: 46,
       }
     }
-  }, [viewMode])
+  }, [viewMode, isMobile])
 
   useEffect(() => {
     const styleId = "shader-canvas-style-exploded"
@@ -220,7 +238,7 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
             {viewMode === "text" && (
               <span
                 style={{
-                  fontSize: "0.8vw",
+                  fontSize: isMobile ? "3vw" : "0.8vw",
                   color: "#666666",
                   fontWeight: 400,
                   textShadow: "0px 1px 2px rgba(0, 0, 0, 0.5)",

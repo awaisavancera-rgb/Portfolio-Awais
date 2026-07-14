@@ -14,7 +14,16 @@ export default function Banner() {
     const [activeLine, setActiveLine] = useState(0);
     const [hidden, setHidden] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const { scrollY } = useScroll();
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     useMotionValueEvent(scrollY, "change", (latest) => {
         const previous = scrollY.getPrevious() || 0;
@@ -52,10 +61,12 @@ export default function Banner() {
         return () => ctx.revert();
     }, []);
 
+    const effectiveIsCompact = isCompact || isMobile;
+
     return (
         <section className={styles.banner}>
             <motion.nav
-                className={`${styles.nav} ${isCompact ? styles.navCompact : ""}`}
+                className={`${styles.nav} ${effectiveIsCompact ? styles.navCompact : ""}`}
                 variants={{
                     visible: { y: 0, opacity: 1 },
                     hidden: { y: -100, opacity: 0 }
@@ -63,10 +74,6 @@ export default function Banner() {
                 animate={hidden ? "hidden" : "visible"}
                 initial={{ y: -100, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                style={{
-                    maxWidth: isCompact ? "31.5vw" : "91.5vw",
-                    padding: isCompact ? "0.5vw 1vw" : "0.75vw 2vw",
-                }}
             >
                 <div className={styles.navLogo}>
                     <div className={styles.logoImageWrapper}>
@@ -78,8 +85,8 @@ export default function Banner() {
                             priority
                             style={{
                                 objectFit: 'cover',
-                                width: '2.6vw',
-                                height: '2.6vw'
+                                width: '100%',
+                                height: '100%'
                             }}
                         />
                     </div>
@@ -87,7 +94,7 @@ export default function Banner() {
                 </div>
 
                 <AnimatePresence mode="wait">
-                    {!isCompact ? (
+                    {!effectiveIsCompact ? (
                         <motion.div
                             key="full-menu"
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -107,8 +114,9 @@ export default function Banner() {
                             initial={{ opacity: 0, rotate: -90 }}
                             animate={{ opacity: 1, rotate: 0 }}
                             exit={{ opacity: 0, rotate: 90, transition: { duration: 0.2 } }}
-                            className={styles.hamburger}
+                            className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerOpen : ""}`}
                             style={{ display: "flex" }} // Override CSS display:none
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
                             <span />
                             <span />
@@ -118,6 +126,39 @@ export default function Banner() {
                 </AnimatePresence>
 
                 <LiquidMetalButton label="See Projects" />
+
+                <AnimatePresence>
+                    {isMenuOpen && (
+                        <motion.div
+                            className={styles.dropdownMenu}
+                            initial={{ opacity: 0, y: -20, x: "-50%", scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, x: "-50%", scale: 1 }}
+                            exit={{ opacity: 0, y: -20, x: "-50%", scale: 0.95 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                        >
+                            <div className={styles.dropdownLeft}>
+                                <div className={styles.dropdownItem}>Home</div>
+                                <div className={styles.dropdownItem}>About</div>
+                                <div className={styles.dropdownItem}>Work / Portfolio</div>
+                                <div className={styles.dropdownItem}>Blog</div>
+                                <div className={styles.dropdownItem}>Contact</div>
+                            </div>
+                            <div className={styles.dropdownRight}>
+                                <div className={styles.dropdownCard}>
+                                    <Image
+                                        src="/PRICING.png"
+                                        alt="Muhammad Awais"
+                                        fill
+                                        style={{ objectFit: 'cover', objectPosition: 'top center', borderRadius: '16px' }}
+                                    />
+                                    <div className={styles.dropdownCardOverlay}>
+                                        <LiquidMetalButton label="Contact Me" />
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </motion.nav>
 
             <div className={styles.mainContent}>
