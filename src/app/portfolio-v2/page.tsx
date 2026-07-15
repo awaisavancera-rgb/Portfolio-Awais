@@ -3,6 +3,7 @@
 import Banner from "../banner";
 import { IntroScroll } from "@/components/IntroScroll";
 import { PortfolioV2 } from "@/components/PortfolioV2";
+import { ButtonShowcase } from "@/components/ButtonShowcase";
 import { Expertise } from "@/components/Expertise";
 import { About } from "@/components/About";
 
@@ -12,6 +13,7 @@ export default function PortfolioV2Page() {
             <Banner />
             <IntroScroll />
             <PortfolioV2 />
+            <ButtonShowcase />
             <Expertise />
             <About />
         </main>

@@ -495,11 +495,12 @@
         position: absolute;
         max-width: 70vw;
         bottom: 5%;
+        right: 0;
+        left: 0;
     }
 
     .footerCTA p {
-        font-size: 3vw;
-        margin-bottom: 2.9vw;
+        display: none;
     }
 
     .sideContent {
