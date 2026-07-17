@@ -60,6 +60,7 @@
     color: #fff;
     font-family: var(--font-inter), sans-serif;
     font-weight: 500;
+    transition: color var(--duration) var(--ease);
 }
 
 .arrowWrapper {
@@ -116,4 +117,8 @@
 
 .buttonContainer:hover .arrow {
     transform: rotate(var(--arrow-rotation));
+}
+
+.buttonContainer:hover .text {
+    color: #000;
 }
