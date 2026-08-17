@@ -70,13 +70,13 @@
 }
 
 .marqueeText {
-    font-size: 18vw;
+    font-size: 12vw;
     font-family: var(--font-inter), sans-serif;
-    font-weight: 800;
+    font-weight: 600;
     color: #000000;
     line-height: 1;
     padding-right: 2vw;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.06em;
     text-transform: none;
 }
 

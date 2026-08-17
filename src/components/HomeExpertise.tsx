@@ -6,76 +6,44 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import styles from "./home-expertise.module.css"
 import Image from "next/image"
-import { BarChart } from "./BarChart"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
-const AIStrategySlide = () => (
-    <div className={styles.slideCard}>
-        <div className={styles.slideHeader}>
-            <h4 className={styles.slideTitle}>AI Strategy Consulting</h4>
-            <p className={styles.slideSub}>We help you implement AI solutions for maximum efficiency and growth.</p>
-        </div>
-        <div className={styles.mockUiContainer}>
-            <div className={styles.chartWrapper}>
-                <BarChart />
-            </div>
-        </div>
-    </div>
-)
+export interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
 
-const creditData = [
-    {
-        company: "Avancera Solution",
-        year: "Nov 2024 - Present",
-        role: "AI Architect & Automation",
-        location: "Global",
-        description: [
-            "AI Workflow Design: Designing and deploying scalable AI workflows and automation pipelines to optimize business operations.",
-            "Prompt Engineering: Implementing advanced prompt engineering strategies to maximize the quality and accuracy of LLM (Large Language Model) outputs.",
-            "Custom Automation: Architecting bespoke automation solutions and CRM integrations (GoHighLevel) to streamline lead generation and client management.",
-            "Next-Gen Development: Developing high-performance custom websites using Next.js, React.js, and TypeScript, moving beyond standard CMS limitations.",
-            "Generative Media: Utilizing AI tools to generate consistent, high-fidelity brand images and videos, integrating them seamlessly into digital platforms.",
-            "Full-Stack Management: Overseeing complex ecosystems involving various CMS platforms and custom codebases to reduce page load times and improve SEO."
-        ],
-        growthDescription: "Since joining the team, I focused on shifting our strategy from manual execution to AI-driven scaling. By October, we established the initial automation pipelines. As the prompt engineering strategies were refined through December and January, we saw a massive surge in efficiency and output. By March, our automated workflows reached a peak of 5.9k units, representing a nearly 6x increase in performance compared to our starting baseline. This growth was driven by a synergy of custom Next.js architecture and optimized AI agents."
-    },
-    {
-        company: "WeCreative",
-        year: "Nov 2023 - Nov 2024",
-        role: "Website Developer",
-        location: "Remote",
-        description: [
-            "Design Figma prototypes & build custom WordPress websites using Elementor, Bricks, & WPBakery builders.",
-            "Advanced to leading end-to-end builds, from Figma prototypes to custom WordPress/Shopify solutions.",
-            "Launched 43+ WordPress/Shopify sites; average client satisfaction 4.8/5; reduced dev cycles by 20%."
-        ]
-    },
-    {
-        company: "Growth Modo",
-        year: "May 2020 - Sep 2024",
-        role: "Web Developer",
-        location: "Remote",
-        description: [
-            "Converted Figma designs into fully functional WordPress and Shopify websites, delivered 38+ projects.",
-            "Achieved an 87% improvement in mobile conversion on client redesigns.",
-            "Managed independent client projects, from design to launch, while balancing a full-time role."
-        ]
-    },
-    {
-        company: "Apps Alberta",
-        year: "Jul 2019 - Nov 2021",
-        role: "Front-End Developer",
-        location: "Canada",
-        description: [
-            "Built 20+ WordPress websites; Improved page load speed by 90%, reducing bounce rates by 25%.",
-            "Implemented custom themes, plugins, and integrations to enhance website functionality.",
-            "Focused on front-end development; later expanded into full-stack tasks including backend optimization."
-        ]
-    },
-]
+export const servicesData: ServiceItem[] = [
+  {
+    id: "(001)",
+    title: "CMS, E-Commerce & CRM Architecture",
+    description: "Building high-converting Shopify Liquid stores, custom WordPress/WooCommerce solutions, and GoHighLevel CRM automation funnels optimized for speed and maximum conversions.",
+    tags: ["Shopify Liquid", "WordPress", "GoHighLevel", "Speed Optimization"]
+  },
+  {
+    id: "(002)",
+    title: "Creative Frontend & Interactive UI",
+    description: "Designing animated components in Figma and building high-performance Next.js and TypeScript web applications using GSAP and Framer Motion for smooth micro-interactions.",
+    tags: ["Next.js", "GSAP / Framer Motion", "TypeScript", "Figma Design"]
+  },
+  {
+    id: "(003)",
+    title: "Advanced AI Engineering & RAG Architecture",
+    description: "Architecting custom RAG systems, Knowledge Graphs, and Graph Engineering workflows to bridge enterprise data with LLMs, integrated with n8n and CRM automation pipelines.",
+    tags: ["RAG Architecture", "Graph Engineering", "n8n Automation", "Vector DBs"]
+  },
+  {
+    id: "(004)",
+    title: "Autonomous AI Agents & Voice Systems",
+    description: "Developing intelligent AI calling agents, autonomous 24/7 customer support bots, social media managers, and multi-agent workflows engineered with self-correcting execution loops.",
+    tags: ["AI Voice Agents", "Support Agents", "Social Media Bots", "Loop Engineering"]
+  }
+];
 
 export const HomeExpertise = () => {
     const sectionRef = useRef<HTMLElement>(null)
@@ -185,28 +153,44 @@ export const HomeExpertise = () => {
 
                         {/* Rows */}
                         <div ref={tableRef} className={styles.rowsWrapper}>
-                            {creditData.map((item, i) => {
+                            {servicesData.map((item, i) => {
                                 const isOpen = activeIndex === i;
                                 return (
-                                    <motion.div
-                                        layout
-                                        key={i}
+                                    <div
+                                        key={item.id}
                                         className={`${styles.accordionRow} ${isOpen ? styles.rowOpen : ""}`}
                                         onClick={() => setActiveIndex(isOpen ? null : i)}
                                     >
-                                        <motion.div layout className={styles.colNum}>(00{i + 1})</motion.div>
+                                        <div className={styles.colNum}>{item.id}</div>
 
-                                        <motion.div layout className={styles.colMain}>
-                                            <AnimatePresence mode="popLayout">
-                                                {isOpen ? (
-                                                    <motion.div
-                                                        key="open"
-                                                        initial={{ opacity: 0, y: 10 }}
-                                                        animate={{ opacity: 1, y: 0 }}
-                                                        exit={{ opacity: 0, y: -10 }}
-                                                        transition={{ duration: 0.3 }}
-                                                        className={styles.openLayout}
-                                                    >
+                                        <div className={styles.colContent}>
+                                            {!isOpen && (
+                                                <div className={styles.closedLayout}>
+                                                    <h3 className={styles.closedTitle}>{item.title}</h3>
+                                                </div>
+                                            )}
+
+                                            <motion.div
+                                                initial={false}
+                                                animate={{
+                                                    height: isOpen ? "auto" : 0,
+                                                    opacity: isOpen ? 1 : 0
+                                                }}
+                                                transition={{
+                                                    height: {
+                                                        duration: 0.55,
+                                                        ease: [0.16, 1, 0.3, 1]
+                                                    },
+                                                    opacity: {
+                                                        duration: isOpen ? 0.35 : 0.2,
+                                                        delay: isOpen ? 0.08 : 0,
+                                                        ease: "easeInOut"
+                                                    }
+                                                }}
+                                                className={styles.expandedWrapper}
+                                            >
+                                                <div className={styles.expandedInner}>
+                                                    <div className={styles.leftGroup}>
                                                         <div className={styles.imagesStack}>
                                                             <div className={styles.imageLayer1}>
                                                                 <Image src="/mockup-laptop-3.png" alt="thumbnail 1" fill style={{ objectFit: 'cover' }} />
@@ -218,40 +202,50 @@ export const HomeExpertise = () => {
                                                                 <Image src="/mockup-laptop-3.png" alt="thumbnail 3" fill style={{ objectFit: 'cover' }} />
                                                             </div>
                                                         </div>
-                                                        <div className={styles.textBlock}>
-                                                            <h3>{item.company}</h3>
-                                                            <p>{item.description[0]}</p>
+
+                                                        <div className={styles.serviceInfo}>
+                                                            <h3 className={styles.expandedTitle}>{item.title}</h3>
+                                                            <p className={styles.expandedDesc}>{item.description}</p>
                                                         </div>
-                                                        <div className={styles.categoriesBlock}>
-                                                            <span className={styles.catLabel}>Categories</span>
-                                                            <div className={styles.pills}>
-                                                                <span className={styles.pill}>{item.role}</span>
-                                                                <span className={styles.pill}>{item.year}</span>
-                                                                <span className={styles.pill}>{item.location}</span>
+                                                    </div>
+
+                                                    <div className={styles.categoriesBlock}>
+                                                        <p className={styles.catLabel}>Categories</p>
+                                                        <div className={styles.pills}>
+                                                            {item.tags.map((tag, tIdx) => (
+                                                                <div key={tIdx} className={styles.pill}>
+                                                                    <span>{tag}</span>
+                                                                </div>
+                                                            ))}
+                                                            <div className={styles.pillCount}>
+                                                                <span>{item.tags.length}+</span>
                                                             </div>
                                                         </div>
-                                                    </motion.div>
-                                                ) : (
-                                                    <motion.div
-                                                        key="closed"
-                                                        initial={{ opacity: 0 }}
-                                                        animate={{ opacity: 1 }}
-                                                        exit={{ opacity: 0 }}
-                                                        transition={{ duration: 0.3 }}
-                                                        className={styles.closedLayout}
-                                                    >
-                                                        <h3>{item.company}</h3>
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
-                                        </motion.div>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        </div>
 
-                                        <motion.div layout className={styles.colToggle}>
+                                        <div className={styles.colToggle}>
                                             <div className={styles.toggleBtn}>
-                                                {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                                                <div
+                                                    className={styles.buttonInner}
+                                                    style={{ transform: isOpen ? "rotate(270deg)" : "rotate(0deg)" }}
+                                                >
+                                                    <div className={styles.iconCross}>
+                                                        <span className={styles.barH} />
+                                                        <span
+                                                            className={styles.barV}
+                                                            style={{
+                                                                transform: isOpen ? "scaleY(0)" : "scaleY(1)",
+                                                                opacity: isOpen ? 0 : 1
+                                                            }}
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </motion.div>
-                                    </motion.div>
+                                        </div>
+                                    </div>
                                 );
                             })}
                         </div>

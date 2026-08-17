@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, ArrowRight } from "lucide-react"
 import styles from "./portfolioV2.module.css"
 import { RollingText } from "./RollingText"
 
@@ -137,16 +137,19 @@ export const PortfolioV2 = () => {
                                         {project.description}
                                     </p>
 
-                                    <motion.button
-                                        className="btn-talk"
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                    >
-                                        <RollingText text="VIEW PROJECT" />
-                                        <span className={styles.arrowIcon}>
-                                            <ArrowUpRight size={16} />
-                                        </span>
-                                    </motion.button>
+                                    <button className={styles.viewProjectBtn}>
+                                        <span className={styles.btnText}>VIEW PROJECT</span>
+                                        <div className={styles.btnIconCircle}>
+                                            <div className={styles.arrowTrack}>
+                                                <div className={styles.arrowIconPrimary}>
+                                                    <ArrowRight size={16} strokeWidth={2.2} />
+                                                </div>
+                                                <div className={styles.arrowIconSecondary}>
+                                                    <ArrowRight size={16} strokeWidth={2.2} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </button>
                                 </div>
 
                                 {/* Right Image */}
