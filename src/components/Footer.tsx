@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./footer.module.css";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -59,9 +60,21 @@ export function Footer() {
                     </div>
 
                     <div className={styles.newsletterWrapper}>
-                        <span className={styles.newsletterTitle}>Sign up for our monthly newsletter.</span>
+                        <span className={styles.newsletterTitle}>Get updates and insights - Sign up for monthly newsletter.</span>
                         <input type="email" placeholder="Email" className={styles.newsletterInput} />
-                        <button className={styles.newsletterButton}>Sign up</button>
+                        <button className={styles.viewMoreBtn}>
+                            <span className={styles.btnText}>SIGN UP</span>
+                            <div className={styles.btnIconCircle}>
+                                <div className={styles.arrowTrack}>
+                                    <div className={styles.arrowIconPrimary}>
+                                        <ArrowRight size={16} strokeWidth={2.2} />
+                                    </div>
+                                    <div className={styles.arrowIconSecondary}>
+                                        <ArrowRight size={16} strokeWidth={2.2} />
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
                     </div>
                 </div>
 

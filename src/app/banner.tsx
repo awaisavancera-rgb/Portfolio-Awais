@@ -11,6 +11,9 @@ import { RollingText } from "@/components/RollingText";
 
 export default function Banner() {
     const glowRef = useRef<HTMLDivElement>(null);
+    const navItems = ["Home", "About", "Work / Portfolio", "Blog", "Contact"];
+    const [activeNav, setActiveNav] = useState("Home");
+    const [hoveredNav, setHoveredNav] = useState<string | null>(null);
     const [activeLine, setActiveLine] = useState(0);
     const [hidden, setHidden] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
@@ -101,12 +104,39 @@ export default function Banner() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
                             className={styles.navMenus}
+                            onMouseLeave={() => setHoveredNav(null)}
                         >
-                            <div className={`${styles.navItem} ${styles.navItemActive}`}>Home</div>
-                            <div className={styles.navItem}>About</div>
-                            <div className={styles.navItem}>Work / Portfolio</div>
-                            <div className={styles.navItem}>Blog</div>
-                            <div className={styles.navItem}>Contact</div>
+                            {navItems.map((item) => {
+                                const isCurrent = (hoveredNav || activeNav) === item;
+                                return (
+                                    <div
+                                        key={item}
+                                        className={styles.navItem}
+                                        onMouseEnter={() => setHoveredNav(item)}
+                                        onClick={() => setActiveNav(item)}
+                                        style={{
+                                            position: "relative",
+                                            zIndex: 1,
+                                            color: isCurrent ? "black" : "rgba(255, 255, 255, 0.6)"
+                                        }}
+                                    >
+                                        <span style={{ position: "relative", zIndex: 2 }}>{item}</span>
+                                        {isCurrent && (
+                                            <motion.div
+                                                layoutId="navPill"
+                                                style={{
+                                                    position: "absolute",
+                                                    inset: 0,
+                                                    backgroundColor: "white",
+                                                    borderRadius: 9999,
+                                                    zIndex: -1
+                                                }}
+                                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </motion.div>
                     ) : (
                         <motion.div
@@ -136,12 +166,41 @@ export default function Banner() {
                             exit={{ opacity: 0, y: -20, x: "-50%", scale: 0.95 }}
                             transition={{ duration: 0.3, ease: "easeOut" }}
                         >
-                            <div className={styles.dropdownLeft}>
-                                <div className={styles.dropdownItem}>Home</div>
-                                <div className={styles.dropdownItem}>About</div>
-                                <div className={styles.dropdownItem}>Work / Portfolio</div>
-                                <div className={styles.dropdownItem}>Blog</div>
-                                <div className={styles.dropdownItem}>Contact</div>
+                            <div className={styles.dropdownLeft} onMouseLeave={() => setHoveredNav(null)}>
+                                {navItems.map((item) => {
+                                    const isCurrent = (hoveredNav || activeNav) === item;
+                                    return (
+                                        <div
+                                            key={item}
+                                            className={styles.dropdownItem}
+                                            onMouseEnter={() => setHoveredNav(item)}
+                                            onClick={() => {
+                                                setActiveNav(item);
+                                                setIsMenuOpen(false);
+                                            }}
+                                            style={{
+                                                position: "relative",
+                                                zIndex: 1,
+                                                color: isCurrent ? "white" : "#333"
+                                            }}
+                                        >
+                                            <span style={{ position: "relative", zIndex: 2 }}>{item}</span>
+                                            {isCurrent && (
+                                                <motion.div
+                                                    layoutId="dropdownPill"
+                                                    style={{
+                                                        position: "absolute",
+                                                        inset: 0,
+                                                        backgroundColor: "black",
+                                                        borderRadius: 12,
+                                                        zIndex: -1
+                                                    }}
+                                                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                                />
+                                            )}
+                                        </div>
+                                    );
+                                })}
                             </div>
                             <div className={styles.dropdownRight}>
                                 <div className={styles.dropdownCard}>

@@ -3,11 +3,11 @@
 import styles from "./contact.module.css";
 import { motion } from "framer-motion";
 import { RollingText } from "./RollingText";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 export function Contact() {
-    const [selectedPlan, setSelectedPlan] = useState<"Pro" | "Enterprise">("Enterprise");
+    const [selectedPlan, setSelectedPlan] = useState<string>("Freelance Work");
 
     return (
         <section className={styles.contactSection}>
@@ -27,84 +27,92 @@ export function Contact() {
             <div className={styles.contentWrapper}>
                 {/* Left Column */}
                 <div className={styles.leftColumn}>
-                <div className={styles.pill}>
-                    <div className={styles.pillDot} />
-                    CONTACT & SUPPORT
-                </div>
-
-                <h2 className={styles.title}>
-                    I’d Love to Hear <span className={styles.titleLight}>From You.</span>
-                </h2>
-
-                <p className={styles.description}>
-                    Have questions or need support? Our team is here to help you every step of the way.
-                </p>
-
-                <div className={styles.darkCard}>
-                    <div className={styles.contactItem}>
-                        <span className={styles.contactLabel}>EMAIL:</span>
-                        <span className={styles.contactValue}>sales@aithor.com</span>
+                    <div className={styles.pill}>
+                        <div className={styles.pillDot} />
+                        CONTACT & SUPPORT
                     </div>
-                    <div className={styles.contactItem}>
-                        <span className={styles.contactLabel}>PHONE:</span>
-                        <span className={styles.contactValue}>+359-88777980</span>
-                    </div>
-                    <div className={styles.contactItem}>
-                        <span className={styles.contactLabel}>ADDRESS:</span>
-                        <span className={styles.contactValue}>Georgi S. Rakovski Street, Sofia, Bulgaria</span>
-                    </div>
-                </div>
-            </div>
 
-            {/* Right Column - Form */}
-            <div className={styles.rightColumn}>
-                <div className={styles.formGroup}>
-                    <label className={styles.inputLabel}>FULL NAME</label>
-                    <input type="text" className={styles.inputField} placeholder="Jane Smith" />
-                </div>
+                    <h2 className={styles.title}>
+                        I’d Love to Hear <span className={styles.titleLight}>From You.</span>
+                    </h2>
 
-                <div className={styles.formGroup}>
-                    <label className={styles.inputLabel}>YOUR EMAIL</label>
-                    <input type="email" className={styles.inputField} placeholder="jane@framer.com" />
-                </div>
+                    <p className={styles.description}>
+                        Have questions or need support? I'm always here to help you every step of the way.
+                    </p>
 
-                <div className={styles.formGroup}>
-                    <label className={styles.inputLabel}>SELECT PLAN</label>
-                    <div className={styles.planSelection}>
-                        <div
-                            className={`${styles.planButton} ${selectedPlan === "Pro" ? styles.planDark : styles.planLight}`}
-                            onClick={() => setSelectedPlan("Pro")}
-                        >
-                            Pro
+                    <div className={styles.darkCard}>
+                        <div className={styles.contactItem}>
+                            <span className={styles.contactLabel}>EMAIL:</span>
+                            <span className={styles.contactValue}>hello@awaisportfolio.com</span>
                         </div>
-                        <div
-                            className={`${styles.planButton} ${selectedPlan === "Enterprise" ? styles.planDark : styles.planLight}`}
-                            onClick={() => setSelectedPlan("Enterprise")}
-                        >
-                            Enterprise
+                        <div className={styles.contactItem}>
+                            <span className={styles.contactLabel}>PHONE:</span>
+                            <span className={styles.contactValue}>+92 310 3751421</span>
+                        </div>
+                        <div className={styles.contactItem}>
+                            <span className={styles.contactLabel}>ADDRESS:</span>
+                            <span className={styles.contactValue}>Karachi Gulshan-e-Iqbal, Pakistan</span>
                         </div>
                     </div>
                 </div>
 
-                <div className={styles.formGroup}>
-                    <label className={styles.inputLabel}>MESSAGE</label>
-                    <textarea className={styles.textareaField} placeholder="Type Your Message..."></textarea>
-                </div>
+                {/* Right Column - Form */}
+                <div className={styles.rightColumn}>
+                    <div className={styles.formGroup}>
+                        <label className={styles.inputLabel}>FULL NAME</label>
+                        <input type="text" className={styles.inputField} placeholder="Jane Smith" />
+                    </div>
 
-                {/* Using the standard site theme button aligned completely */}
-                <div className={styles.submitWrapper}>
-                    <motion.button
-                        className="btn-talk"
-                        whileHover={{ scale: 1.02 }} // Slightly softer scale for a massive width button
-                        whileTap={{ scale: 0.98 }}
-                        style={{ width: "100%", justifyContent: "center" }}
-                    >
-                        <RollingText text="Get In Touch" />
-                        <span className="icon-circle">
-                            <ArrowUpRight size={16} />
-                        </span>
-                    </motion.button>
-                </div>
+                    <div className={styles.formGroup}>
+                        <label className={styles.inputLabel}>YOUR EMAIL</label>
+                        <input type="email" className={styles.inputField} placeholder="jane@domain.com" />
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label className={styles.inputLabel}>INQUIRY TYPE</label>
+                        <div className={styles.planSelection}>
+                            <div
+                                className={`${styles.planButton} ${selectedPlan === "Freelance Work" ? styles.planDark : styles.planLight}`}
+                                onClick={() => setSelectedPlan("Freelance Work")}
+                            >
+                                Freelance Work
+                            </div>
+                            <div
+                                className={`${styles.planButton} ${selectedPlan === "Full-time Job" ? styles.planDark : styles.planLight}`}
+                                onClick={() => setSelectedPlan("Full-time Job")}
+                            >
+                                Full-time Job
+                            </div>
+                            <div
+                                className={`${styles.planButton} ${selectedPlan === "Just saying Hi" ? styles.planDark : styles.planLight}`}
+                                onClick={() => setSelectedPlan("Just saying Hi")}
+                            >
+                                Just saying Hi
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className={styles.formGroup}>
+                        <label className={styles.inputLabel}>MESSAGE</label>
+                        <textarea className={styles.textareaField} placeholder="Type Your Message..."></textarea>
+                    </div>
+
+                    {/* Using the standard site theme button aligned completely */}
+                    <div className={styles.submitWrapper}>
+                        <button className={styles.contactBtn}>
+                            <span className={styles.btnText}>GET IN TOUCH</span>
+                            <div className={styles.btnIconCircle}>
+                                <div className={styles.arrowTrack}>
+                                    <div className={styles.arrowIconPrimary}>
+                                        <ArrowRight size={16} strokeWidth={2.2} />
+                                    </div>
+                                    <div className={styles.arrowIconSecondary}>
+                                        <ArrowRight size={16} strokeWidth={2.2} />
+                                    </div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
 
                 </div>
 
