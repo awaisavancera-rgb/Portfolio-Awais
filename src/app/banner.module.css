@@ -455,6 +455,7 @@
 
     .banner {
         padding: 1rem;
+        min-height: 100vh;
     }
 
     .nav.navCompact .navLogo {
@@ -464,7 +465,7 @@
 
     .nav.navCompact .logoImageWrapper {
         width: 42px;
-        height: 32px;
+        height: 42px;
     }
 
     .navCompact .hamburger {
@@ -513,6 +514,10 @@
     }
 
     .socials {
-        justify-content: center;
+        display: none;
+    }
+
+    .mainContent {
+        margin-top: 10vh;
     }
 }

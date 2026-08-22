@@ -87,6 +87,122 @@
     z-index: 10;
 }
 
+/* Framer Reference Button (Expanding White Pill on Hover) */
+.viewProjectBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    height: 42px;
+    padding: 4px 4px 4px 18px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    width: fit-content;
+    gap: 20px;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.viewProjectBtn:hover {
+    transform: scale(1.02);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+.btnText {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    white-space: nowrap;
+    line-height: 1;
+    padding: 0 50px 0 0;
+    position: relative;
+    z-index: 2;
+    transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewProjectBtn:hover .btnText {
+    color: #000000;
+}
+
+.btnIconCircle {
+    position: absolute;
+    right: 2.5px;
+    top: 2.5px;
+    bottom: 2.5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 11px;
+    z-index: 1;
+    overflow: hidden;
+    transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+                right 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+                top 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+                bottom 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+                height 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.viewProjectBtn:hover .btnIconCircle {
+    right: 1.3px;
+    top: 1.3px;
+    bottom: 1.3px;
+    height: calc(100% - 2.6px);
+    width: calc(100% - 2.6px);
+}
+
+.arrowTrack {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.arrowIconPrimary {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    transform: translateX(0);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 1;
+}
+
+.arrowIconSecondary {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    transform: translateX(-180%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 0;
+}
+
+.viewProjectBtn:hover .arrowIconPrimary {
+    transform: translateX(180%);
+    opacity: 0;
+}
+
+.viewProjectBtn:hover .arrowIconSecondary {
+    transform: translateX(0);
+    opacity: 1;
+}
+
 .ctaButton {
     background: transparent;
     color: #000000;

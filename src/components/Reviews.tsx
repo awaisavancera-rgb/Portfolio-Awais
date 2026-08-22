@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./reviews.module.css";
-import { BadgeCheck, ArrowUpRight } from "lucide-react";
+import { BadgeCheck, ArrowUpRight, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { RollingText } from "./RollingText";
 
@@ -191,16 +191,19 @@ export function Reviews() {
                 </div>
 
                 <div className={styles.ctaWrapper}>
-                    <motion.button
-                        className="btn-talk"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <RollingText text="GET IN TOUCH" />
-                        <span className="icon-circle">
-                            <ArrowUpRight size={16} />
-                        </span>
-                    </motion.button>
+                    <button className={styles.viewProjectBtn}>
+                        <span className={styles.btnText}>GET IN TOUCH</span>
+                        <div className={styles.btnIconCircle}>
+                            <div className={styles.arrowTrack}>
+                                <div className={styles.arrowIconPrimary}>
+                                    <ArrowRight size={15} strokeWidth={2.2} />
+                                </div>
+                                <div className={styles.arrowIconSecondary}>
+                                    <ArrowRight size={15} strokeWidth={2.2} />
+                                </div>
+                            </div>
+                        </div>
+                    </button>
                 </div>
 
             </div>

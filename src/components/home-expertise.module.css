@@ -75,8 +75,16 @@
     width: 14vw;
     height: 17vw;
     position: relative;
+    border-radius: 0.7vw;
+}
+
+.heroImageInner {
+    width: 100%;
+    height: 100%;
+    position: relative;
     overflow: hidden;
     border-radius: 0.7vw;
+    background-color: #eee;
 }
 
 .heroImage {
@@ -428,9 +436,13 @@
         display: none;
     }
 
+    .colNum {
+        width: 100px;
+    }
+
     .expandedInner {
         flex-direction: column;
-        gap: 24px;
+        gap: 28px;
     }
 
     .leftGroup {
@@ -441,8 +453,162 @@
     .categoriesBlock {
         width: 100%;
     }
+}
+
+@media (max-width: 768px) {
+    .expertiseSection {
+        padding: 2rem 1.25rem 4rem;
+        margin-top: 0;
+    }
+
+    .heroArea {
+        margin-bottom: 2rem;
+    }
+
+    .craftTitle {
+        font-size: 13vw;
+        line-height: 12vw;
+    }
+
+    .heroImageWrapper {
+        display: none;
+    }
+
+    .tableHeader {
+        display: none;
+    }
+
+    .rowsWrapper {
+        margin-top: 1rem;
+    }
+
+    .accordionRow {
+        padding: 20px 0;
+        gap: 12px;
+    }
 
     .colNum {
+        width: 44px;
+        min-width: 44px;
+        font-size: 14px;
+        padding-top: 0.1rem;
+    }
+
+    .colContent {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .closedLayout {
+        padding-top: 0;
+    }
+
+    .closedTitle {
+        font-size: 1.15rem;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+    }
+
+    .expandedInner {
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 0;
+    }
+
+    .leftGroup {
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .imagesStack {
+        width: 140px;
+        height: 72px;
+    }
+
+    .imageLayer1 {
         width: 100px;
+        height: 72px;
+        border-radius: 10px;
+    }
+
+    .imageLayer2 {
+        width: 100px;
+        height: 72px;
+        left: 26px;
+        border-radius: 10px;
+    }
+
+    .imageLayer3 {
+        width: 80px;
+        height: 72px;
+        left: 52px;
+        border-radius: 10px;
+    }
+
+    .expandedTitle {
+        font-size: 1.45rem;
+        margin: 0 0 8px 0;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+    }
+
+    .expandedDesc {
+        font-size: 14px;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+
+    .categoriesBlock {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .catLabel {
+        font-size: 13px;
+    }
+
+    .pills {
+        gap: 6px;
+    }
+
+    .pill {
+        padding: 5px 12px;
+        font-size: 11px;
+    }
+
+    .pillCount {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .colToggle {
+        width: 36px;
+        padding-top: 0;
+    }
+
+    .toggleBtn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .buttonInner {
+        width: 14px;
+        height: 14px;
+    }
+
+    .iconCross {
+        width: 12px;
+        height: 12px;
+    }
+
+    .barH {
+        width: 12px;
+        height: 1.5px;
+    }
+
+    .barV {
+        width: 1.5px;
+        height: 12px;
     }
 }

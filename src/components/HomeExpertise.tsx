@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
@@ -10,6 +10,14 @@ import { motion } from "framer-motion"
 import { Plus, Minus } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
+
+const heroImages = [
+    "/mockup-laptop-3.png",
+    "/mockup-laptop-2.png",
+    "/mockup-laptop.png",
+    "/mockup-watch.png",
+    "/mockup-phone.png"
+];
 
 export interface ServiceItem {
   id: string;
@@ -51,6 +59,14 @@ export const HomeExpertise = () => {
     const tableRef = useRef<HTMLDivElement>(null)
     const imageRef = useRef<HTMLDivElement>(null)
     const [activeIndex, setActiveIndex] = useState<number | null>(0)
+    const [heroImgIndex, setHeroImgIndex] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setHeroImgIndex((prev) => (prev + 1) % heroImages.length)
+        }, 500)
+        return () => clearInterval(interval)
+    }, [])
 
     useGSAP(() => {
         if (!sectionRef.current || !titleRef.current || !tableRef.current || !imageRef.current) return
@@ -130,13 +146,15 @@ export const HomeExpertise = () => {
                             <span className={styles.smallTxt}>Muhammad</span><br />
                             Awais Profile
                         </h2>
-                        <div ref={imageRef} className={styles.heroImageWrapper}>
-                            <div className={styles.mockupBg}>
+                        <div className={styles.heroImageWrapper}>
+                            <div ref={imageRef} className={styles.heroImageInner}>
                                 <Image
-                                    src="/mockup-laptop-3.png"
+                                    src={heroImages[heroImgIndex]}
                                     alt="Craft Image"
                                     fill
                                     className={styles.heroImage}
+                                    sizes="20vw"
+                                    priority
                                 />
                             </div>
                         </div>

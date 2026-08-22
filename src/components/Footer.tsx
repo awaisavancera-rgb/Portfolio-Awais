@@ -53,8 +53,8 @@ export function Footer() {
                             simply want to explore an idea, <span className={styles.descriptionHighlight}>we&apos;d love to hear from you.</span>
                         </p>
                         <div className={styles.directContact}>
-                            <a href="mailto:hello@kanso.studio" className={styles.emailLink}>hello@kanso.studio</a>
-                            <span className={styles.phoneText}>(123) 456-7890</span>
+                            <a href="mailto:hello@awaisportfolio.com" className={styles.emailLink}>hello@awaisportfolio.com</a>
+                            <span className={styles.phoneText}>+92 310 3751421</span>
                         </div>
                     </div>
 
@@ -88,8 +88,8 @@ export function Footer() {
                     </div>
 
                     <div className={styles.linksColumn} style={{ alignItems: "flex-end" }}>
-                        <span className={styles.legalText}>Designed in <span className={styles.legalWhite}>Framer</span> By <span className={styles.legalWhite}>Thaer</span></span>
-                        <span className={styles.legalText}>© 2025 All rights reserved</span>
+                        <span className={styles.legalText}>Designed by <span className={styles.legalWhite}>Awais</span></span>
+                        <span className={styles.legalText}>© 2026 All rights reserved</span>
                     </div>
                 </div>
 
