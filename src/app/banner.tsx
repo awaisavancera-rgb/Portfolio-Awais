@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
-import { Twitter, Instagram, Youtube, ArrowUpRight } from "lucide-react";
+import { Twitter, Instagram, Youtube, ArrowRight } from "lucide-react";
 import styles from "./banner.module.css";
 import { LiquidMetalButton } from "@/components/LiquidMetalButton";
 import { RollingText } from "@/components/RollingText";
@@ -254,16 +254,19 @@ export default function Banner() {
                     >
                         Merging design thinking with human insight to create digital experiences that don&apos;t just look great — they perform effortlessly.
                     </motion.p>
-                    <motion.button
-                        className="btn-talk"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <RollingText text="Let's Talk" />
-                        <span className="icon-circle">
-                            <ArrowUpRight size={16} />
-                        </span>
-                    </motion.button>
+                    <button className={styles.talkBtn}>
+                        <span className={styles.btnText}>LET&apos;S TALK</span>
+                        <div className={styles.btnIconCircle}>
+                            <div className={styles.arrowTrack}>
+                                <div className={styles.arrowIconPrimary}>
+                                    <ArrowRight size={16} strokeWidth={2.2} />
+                                </div>
+                                <div className={styles.arrowIconSecondary}>
+                                    <ArrowRight size={16} strokeWidth={2.2} />
+                                </div>
+                            </div>
+                        </div>
+                    </button>
                 </div>
             </div>
         </section >

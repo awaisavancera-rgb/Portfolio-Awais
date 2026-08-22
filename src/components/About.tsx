@@ -9,7 +9,7 @@ import Image from "next/image"
 
 import { RollingText } from "./RollingText"
 import { motion } from "framer-motion"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { AtomIcon } from "./AtomIcon"
 import { FigmaIcon } from "./icons/FigmaIcon"
 import { GithubIcon } from "./icons/GithubIcon"
@@ -146,18 +146,21 @@ export const About = () => {
                             <h2 className={styles.headline}>
                                 13+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
                             </h2>
-                            {/* Contact Button Moved Here (Aligned Left via CSS) */}
+                            {/* Inverted View More Button */}
                             <div className={styles.footerCTA}>
-                                <motion.button
-                                    className="btn-talk"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    <RollingText text="View More" />
-                                    <span className="icon-circle">
-                                        <ArrowUpRight size={16} />
-                                    </span>
-                                </motion.button>
+                                <button className={styles.viewMoreBtn}>
+                                    <span className={styles.btnText}>VIEW MORE</span>
+                                    <div className={styles.btnIconCircle}>
+                                        <div className={styles.arrowTrack}>
+                                            <div className={styles.arrowIconPrimary}>
+                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                            </div>
+                                            <div className={styles.arrowIconSecondary}>
+                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
                             </div>
 
                         </div>

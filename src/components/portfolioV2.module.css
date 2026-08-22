@@ -253,6 +253,48 @@
     opacity: 1;
 }
 
+/* Inverted View All Projects Button (White pill on Dark background) */
+.viewAllBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 40px;
+    height: 48px;
+    padding: 4px 4px 4px 22px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    width: fit-content;
+    gap: 20px;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.viewAllBtn:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+.viewAllBtn .btnText {
+    color: #000000;
+}
+
+.viewAllBtn:hover .btnText {
+    color: #ffffff;
+}
+
+.viewAllBtn .btnIconCircle {
+    background-color: #000000;
+}
+
+.viewAllBtn .arrowIconPrimary,
+.viewAllBtn .arrowIconSecondary {
+    color: #ffffff;
+}
+
 /* Right: Image */
 .cardImageWrapper {
     flex: 1.3;

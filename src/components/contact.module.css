@@ -1,7 +1,7 @@
 .contactSection {
     background-color: #f7f7f7;
     width: 100%;
-    padding: 5vw 4.5vw 10vw;
+    padding: 3vw 4.5vw 10vw;
     display: flex;
     flex-direction: column;
     font-family: var(--font-inter), sans-serif;
@@ -14,9 +14,34 @@
     font-size: 0.8vw;
     letter-spacing: 0.1em;
     color: #555555;
-    padding-bottom: 2vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: 5vw;
+    margin-bottom: 1.2vw;
+}
+
+.tableHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 4vw;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    background-color: #000;
+    padding: .3vw 1vw;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.headerNum {
+    width: 285px;
+}
+
+.headerMain {
+    flex: 1;
+}
+
+.headerToggle {
+    width: 60px;
+    text-align: right;
 }
 
 .headerCol {
@@ -226,4 +251,74 @@
 .submitWrapper>button {
     width: 100%;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .headerInfo {
+        font-size: 0.75rem;
+        padding-bottom: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .tableHeader {
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .headerNum {
+        width: 80px;
+    }
+
+    .contentWrapper {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .leftColumn,
+    .rightColumn {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 2.2rem;
+        width: 100%;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .darkCard {
+        padding: 1.5rem;
+        border-radius: 12px;
+        gap: 1.2rem;
+    }
+
+    .contactValue {
+        font-size: 1rem;
+    }
+
+    .contactLabel {
+        font-size: 0.75rem;
+    }
+
+    .inputField,
+    .textareaField {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .planButton {
+        font-size: 0.85rem;
+        padding: 0.7rem;
+    }
+
+    .pill {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
 }

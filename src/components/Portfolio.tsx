@@ -105,17 +105,20 @@ export const Portfolio = () => {
                 <div ref={contentRef} className={styles.contentArea}>
                     <div className={styles.subheader}>
                         <h3 className={styles.selectedLabel}>SELECTED</h3>
-                        <div className={styles.buttonWrapper}>
-                            <motion.button
-                                className="btn-talk"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                <RollingText text="View All Projects" />
-                                <span className="icon-circle">
-                                    <ArrowUpRight size={16} />
-                                </span>
-                            </motion.button>
+                        <div className={styles.ctaWrapper}>
+                            <button className={styles.viewAllBtn}>
+                                <span className={styles.btnText}>VIEW ALL PROJECTS</span>
+                                <div className={styles.btnIconCircle}>
+                                    <div className={styles.arrowTrack}>
+                                        <div className={styles.arrowIconPrimary}>
+                                            <ArrowRight size={16} strokeWidth={2.2} />
+                                        </div>
+                                        <div className={styles.arrowIconSecondary}>
+                                            <ArrowRight size={16} strokeWidth={2.2} />
+                                        </div>
+                                    </div>
+                                </div>
+                            </button>
                         </div>
                     </div>
 

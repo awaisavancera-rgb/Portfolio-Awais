@@ -28,19 +28,51 @@
     /* Stays below the cards layer */
 }
 
-.headerInfo {
+.headerWrapper {
     position: absolute;
     top: 2vw;
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vw;
+    z-index: 10;
+}
+
+.headerInfo {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     font-size: 0.8vw;
     letter-spacing: 0.1em;
     color: #555555;
-    z-index: 10;
-    /* Divider additions */
-    padding-bottom: 2vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.tableHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    background-color: #000;
+    padding: .3vw 1vw;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.headerNum {
+    width: 285px;
+}
+
+.headerMain {
+    flex: 1;
+}
+
+.headerToggle {
+    width: 80px;
+    text-align: right;
 }
 
 .headerCol {
@@ -342,4 +374,25 @@
     padding-right: 0.5vw;
     opacity: 0.9;
     color: #000000;
+}
+
+@media (max-width: 768px) {
+    .headerWrapper {
+        top: 1.5rem;
+        width: 92%;
+        gap: 0.5rem;
+    }
+
+    .headerInfo {
+        font-size: 0.75rem;
+    }
+
+    .tableHeader {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .headerNum {
+        width: 70px;
+    }
 }
