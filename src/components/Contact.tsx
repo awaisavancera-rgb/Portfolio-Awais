@@ -24,13 +24,6 @@ export function Contact() {
                 </div>
             </div>
 
-            {/* Table Header Ribbon */}
-            <div className={styles.tableHeader}>
-                <span className={styles.headerNum}>Index</span>
-                <span className={styles.headerMain}>Service</span>
-                <span className={styles.headerToggle}>Explore</span>
-            </div>
-
             <div className={styles.contentWrapper}>
                 {/* Left Column */}
                 <div className={styles.leftColumn}>

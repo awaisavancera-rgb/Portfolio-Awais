@@ -169,24 +169,15 @@ export function Reviews() {
             {/* Background layer inside the pinned GSAP section */}
             <div className={styles.stickyBackground}>
 
-                <div className={styles.headerWrapper}>
-                    <div className={styles.headerInfo}>
-                        <div className={styles.headerCol}>
-                            <span>© TESTIMONIALS レビュー</span>
-                        </div>
-                        <div className={styles.headerCol} style={{ textAlign: "center" }}>
-                            <span>(WDX® — 06)</span>
-                        </div>
-                        <div className={styles.headerCol} style={{ textAlign: "right" }}>
-                            <span>REAL FEEDBACK</span>
-                        </div>
+                <div className={styles.headerInfo}>
+                    <div className={styles.headerCol}>
+                        <span>© TESTIMONIALS レビュー</span>
                     </div>
-
-                    {/* Table Header Ribbon */}
-                    <div className={styles.tableHeader}>
-                        <span className={styles.headerNum}>Client</span>
-                        <span className={styles.headerMain}>Review</span>
-                        <span className={styles.headerToggle}>Verified</span>
+                    <div className={styles.headerCol} style={{ textAlign: "center" }}>
+                        <span>(WDX® — 06)</span>
+                    </div>
+                    <div className={styles.headerCol} style={{ textAlign: "right" }}>
+                        <span>REAL FEEDBACK</span>
                     </div>
                 </div>
 
