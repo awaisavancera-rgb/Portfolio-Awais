@@ -124,14 +124,21 @@ export default function Banner() {
                                         {isCurrent && (
                                             <motion.div
                                                 layoutId="navPill"
+                                                layout
+                                                initial={{ borderRadius: 40 }}
                                                 style={{
                                                     position: "absolute",
                                                     inset: 0,
                                                     backgroundColor: "white",
-                                                    borderRadius: 9999,
+                                                    borderRadius: 40,
                                                     zIndex: -1
                                                 }}
-                                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                                transition={{
+                                                    type: "spring",
+                                                    stiffness: 400,
+                                                    damping: 30,
+                                                    mass: 0.8
+                                                }}
                                             />
                                         )}
                                     </div>
@@ -188,6 +195,8 @@ export default function Banner() {
                                             {isCurrent && (
                                                 <motion.div
                                                     layoutId="dropdownPill"
+                                                    layout
+                                                    initial={{ borderRadius: 12 }}
                                                     style={{
                                                         position: "absolute",
                                                         inset: 0,
@@ -195,7 +204,12 @@ export default function Banner() {
                                                         borderRadius: 12,
                                                         zIndex: -1
                                                     }}
-                                                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                                    transition={{
+                                                        type: "spring",
+                                                        stiffness: 400,
+                                                        damping: 30,
+                                                        mass: 0.8
+                                                    }}
                                                 />
                                             )}
                                         </div>

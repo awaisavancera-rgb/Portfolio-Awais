@@ -146,10 +146,10 @@
     z-index: 1;
     overflow: hidden;
     transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-                right 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-                top 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-                bottom 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-                height 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        right 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        top 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        bottom 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .viewProjectBtn:hover .btnIconCircle {
@@ -260,8 +260,6 @@
     width: 100%;
     max-width: 1500px;
     justify-content: center;
-    padding-right: 15vw;
-    /* Slight offset left */
 }
 
 /* Testimonial Card */

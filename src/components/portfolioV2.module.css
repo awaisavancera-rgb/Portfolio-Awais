@@ -279,7 +279,17 @@
 }
 
 .viewAllBtn .btnText {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
     color: #000000;
+    white-space: nowrap;
+    line-height: 1;
+    padding: 0 50px 0 0;
+    position: relative;
+    z-index: 2;
+    transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .viewAllBtn:hover .btnText {
@@ -287,12 +297,76 @@
 }
 
 .viewAllBtn .btnIconCircle {
+    position: absolute;
+    right: 2.5px;
+    top: 2.5px;
+    bottom: 2.5px;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
     background-color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 11px;
+    z-index: 1;
+    overflow: hidden;
+    transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        right 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        top 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        bottom 0.7s cubic-bezier(0.25, 1, 0.5, 1),
+        height 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.viewAllBtn .arrowIconPrimary,
-.viewAllBtn .arrowIconSecondary {
+.viewAllBtn:hover .btnIconCircle {
+    right: 1.3px;
+    top: 1.3px;
+    bottom: 1.3px;
+    height: calc(100% - 2.6px);
+    width: calc(100% - 2.6px);
+}
+
+.viewAllBtn .arrowTrack {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.viewAllBtn .arrowIconPrimary {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #ffffff;
+    transform: translateX(0);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 1;
+}
+
+.viewAllBtn .arrowIconSecondary {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transform: translateX(-180%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 0;
+}
+
+.viewAllBtn:hover .arrowIconPrimary {
+    transform: translateX(180%);
+    opacity: 0;
+}
+
+.viewAllBtn:hover .arrowIconSecondary {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 /* Right: Image */
