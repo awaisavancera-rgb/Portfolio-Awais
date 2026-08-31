@@ -38,11 +38,9 @@
 }
 
 .headingWrapper {
+    width: 40%;
     display: flex;
-    flex: 1;
-    position: sticky;
-    top: 130px;
-    padding-top: 15vw;
+    flex-direction: column;
     padding-right: 50px;
     z-index: 10;
 }

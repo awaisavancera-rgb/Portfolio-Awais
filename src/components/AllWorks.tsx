@@ -4,7 +4,12 @@ import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import styles from './allWorks.module.css';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const projects = [
     {
@@ -135,6 +140,26 @@ const ProjectCard = ({ project }: { project: any }) => {
 };
 
 export function AllWorks() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const headingRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        if (!containerRef.current || !headingRef.current) return;
+        
+        // Simulate position: sticky using GSAP translation
+        gsap.to(headingRef.current, {
+            y: () => containerRef.current!.offsetHeight - headingRef.current!.offsetHeight - 60, // 60 is padding/margin adjustments
+            ease: "none",
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top+=130", // Matches top: 130px
+                end: "bottom bottom", 
+                scrub: true,
+                invalidateOnRefresh: true, // Recalculate on resize
+            }
+        });
+    }, { scope: containerRef });
+
     return (
         <section className={styles.allWorksSection}>
             <div className={styles.metaBar}>
@@ -143,9 +168,9 @@ export function AllWorks() {
                 <span>Digital Designer</span>
             </div>
             
-            <div className={styles.container}>
+            <div className={styles.container} ref={containerRef}>
                 {/* Left Sticky Heading */}
-                <div className={styles.headingWrapper}>
+                <div className={styles.headingWrapper} ref={headingRef}>
                     <div className={styles.headingContent}>
                         <h1 className={styles.headingText}>
                             All<br />Works

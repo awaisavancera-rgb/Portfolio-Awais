@@ -1,9 +1,14 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import styles from './faqSection.module.css';
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const faqs = [
     {
@@ -39,7 +44,25 @@ const faqs = [
 ];
 
 export function FaqSection() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0); // First one open by default as in screenshot
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
+    const containerRef = useRef<HTMLDivElement>(null);
+    const leftColumnRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        if (!containerRef.current || !leftColumnRef.current) return;
+        
+        gsap.to(leftColumnRef.current, {
+            y: () => containerRef.current!.offsetHeight - leftColumnRef.current!.offsetHeight - 100, // 100 is padding/margin adjustments
+            ease: "none",
+            scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top top+=130", // Matches top: 130px
+                end: "bottom bottom", 
+                scrub: true,
+                invalidateOnRefresh: true, // Recalculate on resize
+            }
+        });
+    }, { scope: containerRef });
 
     const toggleFaq = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -54,9 +77,9 @@ export function FaqSection() {
                 <span>Clarifications</span>
             </div>
 
-            <div className={styles.container}>
+            <div className={styles.container} ref={containerRef}>
                 {/* Left Column - Sticky Image and Text */}
-                <div className={styles.leftColumn}>
+                <div className={styles.leftColumn} ref={leftColumnRef}>
                     <div className={styles.imageWrapper}>
                         <Image
                             src="https://framerusercontent.com/images/8Hyh6pB3pbhNuDNsxVZH0w3kvKo.png"

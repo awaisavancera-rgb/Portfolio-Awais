@@ -37,8 +37,6 @@
 /* Left Column */
 .leftColumn {
     width: 40%;
-    position: sticky;
-    top: 130px;
     display: flex;
     flex-direction: column;
     gap: 40px;
