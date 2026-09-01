@@ -146,17 +146,13 @@ export function AllWorks() {
     useGSAP(() => {
         if (!containerRef.current || !headingRef.current) return;
         
-        // Simulate position: sticky using GSAP translation
-        gsap.to(headingRef.current, {
-            y: () => containerRef.current!.offsetHeight - headingRef.current!.offsetHeight - 60, // 60 is padding/margin adjustments
-            ease: "none",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top+=130", // Matches top: 130px
-                end: "bottom bottom", 
-                scrub: true,
-                invalidateOnRefresh: true, // Recalculate on resize
-            }
+        ScrollTrigger.create({
+            trigger: headingRef.current,
+            start: "top 45%",
+            endTrigger: containerRef.current,
+            end: "bottom bottom",
+            pin: true,
+            pinSpacing: false,
         });
     }, { scope: containerRef });
 

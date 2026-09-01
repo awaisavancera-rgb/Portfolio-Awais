@@ -11,7 +11,7 @@ export function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const navItems = ["Home", "About", "Work / Portfolio", "Blog", "Contact"];
-    const [activeNav, setActiveNav] = useState(pathname === "/portfolio" ? "Work / Portfolio" : "Home");
+    const [activeNav, setActiveNav] = useState(pathname === "/portfolio" ? "Work / Portfolio" : pathname === "/contact" ? "Contact" : "Home");
     const [hoveredNav, setHoveredNav] = useState<string | null>(null);
     const [hidden, setHidden] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
@@ -48,7 +48,9 @@ export function Header() {
             router.push("/portfolio");
         } else if (item === "Home") {
             router.push("/");
-        } else if (pathname === "/portfolio") {
+        } else if (item === "Contact") {
+            router.push("/contact");
+        } else if (pathname === "/portfolio" || pathname === "/contact") {
             router.push("/");
         }
     };

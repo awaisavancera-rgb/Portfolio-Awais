@@ -48,22 +48,6 @@ export function FaqSection() {
     const containerRef = useRef<HTMLDivElement>(null);
     const leftColumnRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(() => {
-        if (!containerRef.current || !leftColumnRef.current) return;
-        
-        gsap.to(leftColumnRef.current, {
-            y: () => containerRef.current!.offsetHeight - leftColumnRef.current!.offsetHeight - 100, // 100 is padding/margin adjustments
-            ease: "none",
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top+=130", // Matches top: 130px
-                end: "bottom bottom", 
-                scrub: true,
-                invalidateOnRefresh: true, // Recalculate on resize
-            }
-        });
-    }, { scope: containerRef });
-
     const toggleFaq = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
     };
