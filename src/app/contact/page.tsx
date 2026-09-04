@@ -7,7 +7,8 @@ import { ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Contact } from "@/components/Contact";
+import { ContactDark } from "./ContactDark";
+import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
 import styles from "./contact.module.css";
 
@@ -127,7 +128,8 @@ export default function ContactPage() {
                 </div>
             </div>
             
-            <Contact theme="dark" />
+            <ContactDark />
+            <FaqSection />
             <Footer />
         </main>
     );

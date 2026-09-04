@@ -1,12 +1,10 @@
 "use client";
 
-import styles from "./contact.module.css";
-import { motion } from "framer-motion";
-import { RollingText } from "./RollingText";
+import styles from "./contactDark.module.css";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-export function Contact() {
+export function ContactDark() {
     const [selectedPlan, setSelectedPlan] = useState<string>("Freelance Work");
 
     return (

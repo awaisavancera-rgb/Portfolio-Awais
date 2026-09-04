@@ -1,7 +1,7 @@
 .contactSection {
-    background-color: #f7f7f7;
+    background-color: #000;
     width: 100%;
-    padding: 3vw 4.5vw 10vw;
+    padding: 0vw 2.5vw 2vw;
     display: flex;
     flex-direction: column;
     font-family: var(--font-inter), sans-serif;
@@ -13,9 +13,9 @@
     justify-content: space-between;
     font-size: 0.8vw;
     letter-spacing: 0.1em;
-    color: #555555;
+    color: #999;
     padding-bottom: 2vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     margin-bottom: 5vw;
 }
 
@@ -45,12 +45,12 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5vw;
-    background-color: #e8e8e8;
+    background-color: #222;
     padding: 0.5vw 1vw;
     border-radius: 50px;
     font-size: 0.8vw;
     font-weight: 700;
-    color: #111;
+    color: #fff;
     text-transform: uppercase;
     width: fit-content;
     margin-bottom: 2vw;
@@ -59,7 +59,7 @@
 .pillDot {
     width: 8px;
     height: 8px;
-    background-color: #111;
+    background-color: #fff;
     border-radius: 50%;
 }
 
@@ -69,7 +69,7 @@
     width: 33vw;
     line-height: 1;
     letter-spacing: -0.07em;
-    color: #111;
+    color: #fff;
     margin-bottom: 1vw;
 }
 
@@ -80,7 +80,7 @@
 .description {
     font-size: 1vw;
     font-weight: 500;
-    color: #232323;
+    color: #fff;
     line-height: 1.35;
     margin-bottom: 6vw;
     max-width: 55%;
@@ -126,7 +126,7 @@
 
 /* RIGHT COLUMN */
 .rightColumn {
-    background-color: #e8e8e8;
+    background-color: #111;
     border-radius: 1vw;
     width: 45%;
     padding: 1.5vw;
@@ -144,7 +144,7 @@
 .inputLabel {
     font-size: 0.8vw;
     font-weight: 700;
-    color: #232323;
+    color: #fff;
     text-transform: uppercase;
     letter-spacing: -0.03em;
 }
@@ -153,11 +153,11 @@
 .textareaField {
     width: 100%;
     padding: 1vw;
-    background-color: #f7f7f7;
+    background-color: #222;
     border: 1px solid transparent;
     border-radius: 0.5vw;
     font-size: 1vw;
-    color: #333;
+    color: #fff;
     font-family: inherit;
     outline: none;
     transition: border-color 0.3s ease;
@@ -170,7 +170,7 @@
 
 .inputField:focus,
 .textareaField:focus {
-    border-color: #ccc;
+    border-color: #666;
 }
 
 .textareaField {
@@ -197,23 +197,23 @@
 }
 
 .planLight {
-    background-color: #f7f7f7;
-    color: #333;
+    background-color: #222;
+    color: #fff;
     border: 1px solid transparent;
 }
 
 .planLight:hover {
-    background-color: #fff;
+    background-color: #333;
 }
 
 .planDark {
-    background-color: #1a1a1a;
+    background-color: #444;
     color: #fff;
     border: 1px solid transparent;
 }
 
 .planDark:hover {
-    background-color: #000;
+    background-color: #555;
 }
 
 /* Custom alignment for standard site button */
@@ -228,8 +228,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #000000;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 40px;
     height: 48px;
     padding: 4px;
@@ -244,7 +244,7 @@
 
 .contactBtn:hover {
     transform: scale(1.02);
-    border-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .contactBtn .btnText {
@@ -252,7 +252,7 @@
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.02em;
-    color: #ffffff;
+    color: #000;
     white-space: nowrap;
     line-height: 1;
     position: relative;
@@ -261,7 +261,7 @@
 }
 
 .contactBtn:hover .btnText {
-    color: #000000;
+    color: #fff;
 }
 
 .contactBtn .btnIconCircle {
@@ -272,7 +272,7 @@
     width: 40px;
     height: 40px;
     border-radius: 999px;
-    background-color: #ffffff;
+    background-color: #000;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -310,7 +310,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000000;
+    color: #fff;
     transform: translateX(0);
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
     opacity: 1;
@@ -321,7 +321,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000000;
+    color: #fff;
     transform: translateX(-180%);
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
     opacity: 0;
