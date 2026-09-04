@@ -336,3 +336,46 @@
     transform: translateX(0);
     opacity: 1;
 }
+
+/* Dark Theme Overrides */
+.darkTheme {
+    background-color: #000;
+}
+.darkTheme .title,
+.darkTheme .description,
+.darkTheme .inputLabel,
+.darkTheme .pill {
+    color: #fff;
+}
+.darkTheme .pill {
+    background-color: #222;
+}
+.darkTheme .pillDot {
+    background-color: #fff;
+}
+.darkTheme .headerInfo {
+    color: #999;
+    border-color: rgba(255,255,255,0.2);
+}
+.darkTheme .rightColumn {
+    background-color: #111;
+}
+.darkTheme .inputField,
+.darkTheme .textareaField {
+    background-color: #222;
+    color: #fff;
+}
+.darkTheme .contactBtn {
+    background-color: #fff;
+}
+.darkTheme .contactBtn .btnText,
+.darkTheme .contactBtn .arrowIconPrimary,
+.darkTheme .contactBtn .arrowIconSecondary {
+    color: #000;
+}
+.darkTheme .contactBtn:hover .btnText {
+    color: #fff;
+}
+.darkTheme .contactBtn .btnIconCircle {
+    background-color: #000;
+}

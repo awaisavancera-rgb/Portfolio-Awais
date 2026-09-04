@@ -6,11 +6,11 @@ import { RollingText } from "./RollingText";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-export function Contact() {
+export function Contact({ theme = "light" }: { theme?: "light" | "dark" }) {
     const [selectedPlan, setSelectedPlan] = useState<string>("Freelance Work");
 
     return (
-        <section className={styles.contactSection}>
+        <section className={`${styles.contactSection} ${theme === "dark" ? styles.darkTheme : ""}`}>
             {/* Header Info */}
             <div className={styles.headerInfo}>
                 <div className={styles.headerCol}>

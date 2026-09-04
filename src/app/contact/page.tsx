@@ -1,22 +1,44 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 import styles from "./contact.module.css";
 
-export default function ContactPage() {
-    return (
-        <main id="main-content" className={styles.contactSection}>
-            <div className={styles.metaBar}>
-                <div className={styles.metaCol}>
-                    <span className={styles.metaLabel}>Quick Links</span>
-                    <span className={styles.metaValue}>Home, Gallery, Work, Contact</span>
-                </div>
-                <div className={styles.metaCol} style={{ alignItems: 'flex-end' }}>
-                    <span className={styles.metaLabel}>Based in Tokyo 東京</span>
-                    <span className={styles.metaValue}>Art Director + Framer Developer</span>
-                </div>
-            </div>
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
+export default function ContactPage() {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
+
+    useGSAP(() => {
+        if (!containerRef.current || !imageRef.current) return;
+
+        gsap.fromTo(imageRef.current,
+            { yPercent: -20 },
+            {
+                yPercent: 0,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1.5,
+                }
+            }
+        );
+    }, { scope: containerRef });
+
+    return (
+        <main id="main-content" className={styles.contactSection} ref={containerRef}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     {/* The White Strip */}
@@ -30,7 +52,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className={styles.leftColumn}>
-                        <div className={styles.imageWrapper}>
+                        <div className={styles.imageWrapper} ref={imageRef}>
                             <Image
                                 src="https://framerusercontent.com/images/BChNf0ssn5x1I9kAk4vwX8qT5o.png"
                                 alt="Woman Staircase"
@@ -46,34 +68,54 @@ export default function ContactPage() {
                         <div className={styles.lists}>
                             <Link href="https://www.framer.com/@westhill-studio/" target="_blank" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
-                                    <span className={styles.listItemText}>Office: Tokyo, Japan.</span>
+                                    <div className={styles.textRollWrapper}>
+                                        <span className={styles.listItemText}>Office: Tokyo, Japan.</span>
+                                        <span className={styles.listItemTextHover}>Office: Tokyo, Japan.</span>
+                                    </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
-                                <div className={styles.line}></div>
+                                <div className={styles.line}>
+                                    <div className={styles.lineFiller}></div>
+                                </div>
                             </Link>
 
                             <Link href="https://www.instagram.com/" target="_blank" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
-                                    <span className={styles.listItemText}>Follow me on Instagram</span>
+                                    <div className={styles.textRollWrapper}>
+                                        <span className={styles.listItemText}>Follow me on Instagram</span>
+                                        <span className={styles.listItemTextHover}>Follow me on Instagram</span>
+                                    </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
-                                <div className={styles.line}></div>
+                                <div className={styles.line}>
+                                    <div className={styles.lineFiller}></div>
+                                </div>
                             </Link>
 
                             <Link href="tel:+1345664565" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
-                                    <span className={styles.listItemText}>+1 34566 4565</span>
+                                    <div className={styles.textRollWrapper}>
+                                        <span className={styles.listItemText}>+1 34566 4565</span>
+                                        <span className={styles.listItemTextHover}>+1 34566 4565</span>
+                                    </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
-                                <div className={styles.line}></div>
+                                <div className={styles.line}>
+                                    <div className={styles.lineFiller}></div>
+                                </div>
                             </Link>
 
                             <Link href="mailto:sayhi@akihiko.com" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
-                                    <span className={styles.listItemText}>sayhi@akihiko.com</span>
+                                    <div className={styles.textRollWrapper}>
+                                        <span className={styles.listItemText}>sayhi@akihiko.com</span>
+                                        <span className={styles.listItemTextHover}>sayhi@akihiko.com</span>
+                                    </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
-                                <div className={styles.line}></div>
+                                <div className={styles.line}>
+                                    <div className={styles.lineFiller}></div>
+                                </div>
                             </Link>
                         </div>
                     </div>
@@ -84,6 +126,9 @@ export default function ContactPage() {
                     <h1 className={styles.hugeText}>Contact Now</h1>
                 </div>
             </div>
+            
+            <Contact theme="dark" />
+            <Footer />
         </main>
     );
 }

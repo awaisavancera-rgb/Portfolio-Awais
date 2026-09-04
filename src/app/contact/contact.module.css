@@ -52,7 +52,7 @@
     width: 100%;
     max-width: 1480px;
     height: min-content;
-    padding: 60px 0 0;
+    padding: 120px 0 0;
     display: flex;
     position: relative;
     overflow: visible;
@@ -64,13 +64,14 @@
     flex: none;
     place-content: flex-end space-between;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     width: 100%;
     height: min-content;
     padding: 0 24px;
     display: flex;
     position: relative;
     overflow: hidden;
+    z-index: 10;
 }
 
 .whiteStripContainer {
@@ -78,10 +79,10 @@
     width: 100%;
     height: auto;
     position: absolute;
-    bottom: 30px;
+    bottom: 35px;
     left: 50%;
     transform: translate(-50%);
-    z-index: 10;
+    z-index: 1;
     pointer-events: none;
 }
 
@@ -92,7 +93,7 @@
     gap: 15vw;
     width: 100%;
     max-width: 1440px;
-    height: 50px;
+    height: min-content;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
@@ -111,6 +112,7 @@
     color: #000;
     font-weight: 600;
     font-size: 1rem;
+    line-height: 1.6em;
     font-family: 'Inter', sans-serif;
     margin: 0;
 }
@@ -124,7 +126,7 @@
     gap: 10px;
     width: 100%;
     max-width: 490px;
-    height: 550px;
+    height: 403px;
     padding: 0;
     display: flex;
     position: relative;
@@ -135,7 +137,7 @@
     z-index: 1;
     flex: none;
     width: 100%;
-    height: 100%;
+    height: 125%;
     position: absolute;
     top: 0;
     left: 0;
@@ -151,7 +153,7 @@
     width: 100%;
     max-width: 500px;
     height: min-content;
-    padding: 0 0 120px;
+    padding: 50px 0 60px;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -176,10 +178,10 @@
     flex-flow: column;
     place-content: flex-start center;
     align-items: flex-start;
-    gap: 20px;
+    gap: 10px;
     width: 100%;
     height: min-content;
-    padding: 20px 0;
+    padding: 10px 0;
     text-decoration: none;
     display: flex;
     position: relative;
@@ -202,23 +204,46 @@
     overflow: hidden;
 }
 
+.textRollWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 1.3em;
+}
+
 .listItemText {
     color: #fff;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
-    transition: color 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.listItemTextHover {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .listItem:hover .listItemText {
-    color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-100%);
+}
+
+.listItem:hover .listItemTextHover {
+    transform: translateY(-100%);
 }
 
 .icon {
     width: 20px;
     height: 20px;
     color: #fff;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .listItem:hover .icon {
@@ -229,6 +254,24 @@
     background-color: rgba(187, 187, 187, 0.2);
     width: 100%;
     height: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lineFiller {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.listItem:hover .lineFiller {
+    transform: scaleX(1);
 }
 
 .bottom {
@@ -240,8 +283,8 @@
 }
 
 .hugeText {
-    font-family: 'Inter Display', sans-serif;
-    font-size: 18vw;
+    font-family: 'Inter', sans-serif;
+    font-size: 16.3vw;
     font-weight: 600;
     color: #fff;
     letter-spacing: -0.05em;
@@ -255,7 +298,7 @@
     .whiteStrip {
         gap: 8vw;
     }
-    
+
     .top {
         padding: 0 40px;
     }
@@ -268,33 +311,33 @@
         gap: 60px;
         padding: 0 20px;
     }
-    
+
     .leftColumn {
         width: 100%;
         max-width: 100%;
         height: 400px;
     }
-    
+
     .rightColumn {
         width: 100%;
         max-width: 100%;
         padding-bottom: 100px;
     }
-    
+
     .whiteStripContainer {
         bottom: -25px;
     }
-    
+
     .whiteStrip {
         gap: 15px;
         justify-content: space-around;
         padding: 0 10px;
     }
-    
+
     .whiteStrip p {
         font-size: 0.85rem;
     }
-    
+
     .hugeText {
         font-size: 20vw;
     }
