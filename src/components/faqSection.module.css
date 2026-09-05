@@ -184,9 +184,12 @@
         padding-right: 0;
     }
 
+    .faqHeader {
+        gap: 20px;
+    }
+
     .faqNum {
-        font-size: 1rem;
-        width: 40px;
+        display: none;
     }
 
     .faqQuestion {

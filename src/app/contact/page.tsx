@@ -12,16 +12,14 @@ import { FaqSection } from "@/components/FaqSection";
 import { Footer } from "@/components/Footer";
 import styles from "./contact.module.css";
 
-if (typeof window !== "undefined") {
-    gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export default function ContactPage() {
-    const containerRef = useRef<HTMLDivElement>(null);
+    const triggerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        if (!containerRef.current || !imageRef.current) return;
+        if (!triggerRef.current || !imageRef.current) return;
 
         gsap.fromTo(imageRef.current,
             { yPercent: -20 },
@@ -29,17 +27,17 @@ export default function ContactPage() {
                 yPercent: 0,
                 ease: "none",
                 scrollTrigger: {
-                    trigger: containerRef.current,
+                    trigger: triggerRef.current,
                     start: "top bottom",
                     end: "bottom top",
                     scrub: 1.5,
                 }
             }
         );
-    }, { scope: containerRef });
+    });
 
     return (
-        <main id="main-content" className={styles.contactSection} ref={containerRef}>
+        <main id="main-content" className={styles.contactSection}>
             <div className={styles.container}>
                 <div className={styles.top}>
                     {/* The White Strip */}
@@ -52,7 +50,7 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    <div className={styles.leftColumn}>
+                    <div className={styles.leftColumn} ref={triggerRef}>
                         <div className={styles.imageWrapper} ref={imageRef}>
                             <Image
                                 src="https://framerusercontent.com/images/BChNf0ssn5x1I9kAk4vwX8qT5o.png"
