@@ -3,13 +3,8 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import styles from './allWorks.module.css';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const projects = [
     {
@@ -17,6 +12,8 @@ const projects = [
         title: "Sonder Goods",
         slug: "sonder-goods",
         tag: "Branding",
+        platform: "Shopify",
+        industry: "Ecommerce",
         bgImage: "https://framerusercontent.com/images/wA52DtSvQDx894hqLZv4ezfKfz8.png",
         innerImage: "https://framerusercontent.com/images/WSIwyrpSzX4O0fiESBwPTjSWBE.png"
     },
@@ -25,6 +22,8 @@ const projects = [
         title: "Halo Wear",
         slug: "halo-wear",
         tag: "Design",
+        platform: "Webflow Website",
+        industry: "Fashion",
         bgImage: "https://framerusercontent.com/images/IhwR33YbJAKylGnbmoCW4maBHI.png",
         innerImage: "https://framerusercontent.com/images/tkYEeCoj1udozbnzQynoaYqCI.png"
     },
@@ -33,6 +32,8 @@ const projects = [
         title: "Lucent Lab",
         slug: "lucent-lab",
         tag: "App",
+        platform: "Next.js",
+        industry: "Tech/SaaS",
         bgImage: "https://framerusercontent.com/images/G891sPJdh93gPfGSBboEt88Now.png",
         innerImage: "https://framerusercontent.com/images/YIi7jRxIe8p6gLtM1ZMNpJyVYs.jpeg"
     },
@@ -41,6 +42,8 @@ const projects = [
         title: "Arc & Bloom",
         slug: "arc-bloom",
         tag: "UI/UX",
+        platform: "Framer Website",
+        industry: "Agency",
         bgImage: "https://framerusercontent.com/images/kSBqNFitJQuBzXuk7tl1FqlAHhs.png",
         innerImage: "https://framerusercontent.com/images/Jt7zqgTjQMYT15YvEkLGKiF9Cw.png"
     },
@@ -49,6 +52,8 @@ const projects = [
         title: "Atelier Nara",
         slug: "atelier-nara",
         tag: "Website",
+        platform: "Custom Website",
+        industry: "Architecture",
         bgImage: "https://framerusercontent.com/images/svmMd86RbsKfib7KzvpKAUsHrk.png",
         innerImage: "https://framerusercontent.com/images/7WVAcnCw5jrTdcET3CmMrpU7gf0.png"
     }
@@ -57,7 +62,7 @@ const projects = [
 const ProjectCard = ({ project }: { project: any }) => {
     const cardRef = useRef<HTMLAnchorElement>(null);
     const [isHovered, setIsHovered] = useState(false);
-    
+
     // Mouse position state
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -74,9 +79,9 @@ const ProjectCard = ({ project }: { project: any }) => {
     };
 
     return (
-        <Link 
+        <Link
             ref={cardRef}
-            href={`/work/${project.slug}`} 
+            href={`/work/${project.slug}`}
             className={styles.projectCard}
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
@@ -85,8 +90,8 @@ const ProjectCard = ({ project }: { project: any }) => {
             <div className={styles.imageContainer}>
                 {/* Background Image */}
                 <div className={styles.bgImageWrapper}>
-                    <Image 
-                        src={project.bgImage} 
+                    <Image
+                        src={project.bgImage}
                         alt={`${project.title} background`}
                         fill
                         style={{ objectFit: 'cover' }}
@@ -95,8 +100,8 @@ const ProjectCard = ({ project }: { project: any }) => {
                 </div>
                 {/* Inner Centered Image */}
                 <div className={styles.innerImageWrapper}>
-                    <Image 
-                        src={project.innerImage} 
+                    <Image
+                        src={project.innerImage}
                         alt={`${project.title} inner`}
                         fill
                         style={{ objectFit: 'cover' }}
@@ -139,22 +144,61 @@ const ProjectCard = ({ project }: { project: any }) => {
     );
 };
 
-export function AllWorks() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const headingRef = useRef<HTMLDivElement>(null);
+const FilterDropdown = ({ label, options, selected, onSelect }: { label: string, options: string[], selected: string, onSelect: (val: string) => void }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div className={styles.filterDropdown} onClick={() => setIsOpen(!isOpen)}>
+            <div className={styles.filterLabel}>
+                {selected === "All" ? `All ${label}s` : selected}
+            </div>
+            <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </motion.div>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        className={styles.filterMenu}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        <div
+                            className={styles.filterOption}
+                            onClick={(e) => { e.stopPropagation(); onSelect("All"); setIsOpen(false); }}
+                        >
+                            All {label}s
+                        </div>
+                        {options.map(opt => (
+                            <div
+                                key={opt}
+                                className={styles.filterOption}
+                                onClick={(e) => { e.stopPropagation(); onSelect(opt); setIsOpen(false); }}
+                            >
+                                {opt}
+                            </div>
+                        ))}
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </div>
+    );
+};
 
-    useGSAP(() => {
-        if (!containerRef.current || !headingRef.current) return;
-        
-        ScrollTrigger.create({
-            trigger: headingRef.current,
-            start: "top 45%",
-            endTrigger: containerRef.current,
-            end: "bottom bottom",
-            pin: true,
-            pinSpacing: false,
-        });
-    }, { scope: containerRef });
+export function AllWorks() {
+    const [selectedPlatform, setSelectedPlatform] = useState("All");
+    const [selectedIndustry, setSelectedIndustry] = useState("All");
+
+    const platforms = ["Shopify", "WordPress", "Wix", "GHL", "Next.js", "React.js", "Custom Website", "Figma Designs", "Framer Website", "Webflow Website"];
+    const industries = ["Ecommerce", "Fashion", "Tech/SaaS", "Agency", "Architecture"];
+
+    const filteredProjects = projects.filter(p => {
+        const matchPlatform = selectedPlatform === "All" || p.platform === selectedPlatform;
+        const matchIndustry = selectedIndustry === "All" || p.industry === selectedIndustry;
+        return matchPlatform && matchIndustry;
+    });
 
     return (
         <section className={styles.allWorksSection}>
@@ -163,25 +207,58 @@ export function AllWorks() {
                 <span>(WDX® — 02)</span>
                 <span>Digital Designer</span>
             </div>
-            
-            <div className={styles.container} ref={containerRef}>
-                {/* Left Sticky Heading */}
-                <div className={styles.headingWrapper} ref={headingRef}>
+
+            <div className={styles.container}>
+                {/* Top Heading */}
+                <div className={styles.headingWrapper}>
                     <div className={styles.headingContent}>
                         <h1 className={styles.headingText}>
-                            All<br />Works
+                            All Works
                         </h1>
                         <div className={styles.headingNumber}>
-                            <h3>(5)</h3>
+                            <h3>({filteredProjects.length})</h3>
+                        </div>
+                    </div>
+
+                    <div className={styles.introAndFilters}>
+                        <div className={styles.introText}>
+                            Every project is a chance to blend design and development, shaping bold interactive ideas into <strong>sleek digital realities — built with</strong> intent, speed, and visual clarity that attracts lot of peoples.
+                        </div>
+
+                        {/* Filters Container */}
+                        <div className={styles.filtersContainer}>
+                            <FilterDropdown label="Platform" options={platforms} selected={selectedPlatform} onSelect={setSelectedPlatform} />
+                            <FilterDropdown label="Industry" options={industries} selected={selectedIndustry} onSelect={setSelectedIndustry} />
                         </div>
                     </div>
                 </div>
 
                 {/* Right Scrollable Cards */}
                 <div className={styles.cardsWrapper}>
-                    {projects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
-                    ))}
+                    <AnimatePresence mode="popLayout">
+                        {filteredProjects.length > 0 ? (
+                            filteredProjects.map((project) => (
+                                <motion.div
+                                    key={project.id}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.95 }}
+                                    transition={{ duration: 0.4 }}
+                                >
+                                    <ProjectCard project={project} />
+                                </motion.div>
+                            ))
+                        ) : (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className={styles.noResults}
+                            >
+                                No projects match the selected filters.
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </div>
         </section>
