@@ -6,58 +6,7 @@ import Link from 'next/link';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import styles from './allWorks.module.css';
 
-const projects = [
-    {
-        id: "01",
-        title: "Sonder Goods",
-        slug: "sonder-goods",
-        tag: "Branding",
-        platform: "Shopify",
-        industry: "Ecommerce",
-        bgImage: "https://framerusercontent.com/images/wA52DtSvQDx894hqLZv4ezfKfz8.png",
-        innerImage: "https://framerusercontent.com/images/WSIwyrpSzX4O0fiESBwPTjSWBE.png"
-    },
-    {
-        id: "02",
-        title: "Halo Wear",
-        slug: "halo-wear",
-        tag: "Design",
-        platform: "Webflow Website",
-        industry: "Fashion",
-        bgImage: "https://framerusercontent.com/images/IhwR33YbJAKylGnbmoCW4maBHI.png",
-        innerImage: "https://framerusercontent.com/images/tkYEeCoj1udozbnzQynoaYqCI.png"
-    },
-    {
-        id: "03",
-        title: "Lucent Lab",
-        slug: "lucent-lab",
-        tag: "App",
-        platform: "Next.js",
-        industry: "Tech/SaaS",
-        bgImage: "https://framerusercontent.com/images/G891sPJdh93gPfGSBboEt88Now.png",
-        innerImage: "https://framerusercontent.com/images/YIi7jRxIe8p6gLtM1ZMNpJyVYs.jpeg"
-    },
-    {
-        id: "04",
-        title: "Arc & Bloom",
-        slug: "arc-bloom",
-        tag: "UI/UX",
-        platform: "Framer Website",
-        industry: "Agency",
-        bgImage: "https://framerusercontent.com/images/kSBqNFitJQuBzXuk7tl1FqlAHhs.png",
-        innerImage: "https://framerusercontent.com/images/Jt7zqgTjQMYT15YvEkLGKiF9Cw.png"
-    },
-    {
-        id: "05",
-        title: "Atelier Nara",
-        slug: "atelier-nara",
-        tag: "Website",
-        platform: "Custom Website",
-        industry: "Architecture",
-        bgImage: "https://framerusercontent.com/images/svmMd86RbsKfib7KzvpKAUsHrk.png",
-        innerImage: "https://framerusercontent.com/images/7WVAcnCw5jrTdcET3CmMrpU7gf0.png"
-    }
-];
+import { projects } from '@/data/projects';
 
 const ProjectCard = ({ project }: { project: any }) => {
     const cardRef = useRef<HTMLAnchorElement>(null);
@@ -146,6 +95,10 @@ const ProjectCard = ({ project }: { project: any }) => {
 
 const FilterDropdown = ({ label, options, selected, onSelect }: { label: string, options: string[], selected: string, onSelect: (val: string) => void }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const filteredOptions = options.filter(opt => opt.toLowerCase().includes(searchQuery.toLowerCase()));
+
     return (
         <div className={styles.filterDropdown} onClick={() => setIsOpen(!isOpen)}>
             <div className={styles.filterLabel}>
@@ -164,22 +117,43 @@ const FilterDropdown = ({ label, options, selected, onSelect }: { label: string,
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        <div
-                            className={styles.filterOption}
-                            onClick={(e) => { e.stopPropagation(); onSelect("All"); setIsOpen(false); }}
-                        >
-                            All {label}s
+                        <div className={styles.searchInputWrapper}>
+                            <input 
+                                type="text" 
+                                placeholder={`Search...`}
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className={styles.searchInput}
+                            />
                         </div>
-                        {options.map(opt => (
-                            <div
-                                key={opt}
-                                className={styles.filterOption}
-                                onClick={(e) => { e.stopPropagation(); onSelect(opt); setIsOpen(false); }}
+                        <div 
+                            className={styles.filterOptionsList}
+                            data-lenis-prevent="true"
+                            onWheel={(e) => e.stopPropagation()}
+                            onTouchMove={(e) => e.stopPropagation()}
+                        >
+                            <div 
+                                className={styles.filterOption} 
+                                onClick={(e) => { e.stopPropagation(); onSelect("All"); setIsOpen(false); setSearchQuery(""); }}
                             >
-                                {opt}
+                                All {label}s
                             </div>
-                        ))}
+                            {filteredOptions.length > 0 ? (
+                                filteredOptions.map(opt => (
+                                    <div 
+                                        key={opt} 
+                                        className={styles.filterOption} 
+                                        onClick={(e) => { e.stopPropagation(); onSelect(opt); setIsOpen(false); setSearchQuery(""); }}
+                                    >
+                                        {opt}
+                                    </div>
+                                ))
+                            ) : (
+                                <div className={styles.noSearchMatch}>No results</div>
+                            )}
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

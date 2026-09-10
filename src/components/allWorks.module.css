@@ -99,7 +99,6 @@
     height: 570px;
     background-color: #000;
     border-radius: 12px;
-    overflow: hidden;
 }
 
 .bgImageWrapper {
@@ -162,16 +161,16 @@
 }
 
 .floatingViewBtn {
-    background-color: #fff;
     color: #000;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 12px 24px;
+    letter-spacing: 0em;
+    background-color: #fff;
     border-radius: 40px;
-    letter-spacing: 0.05em;
+    padding: 8px 20px;
+    font-family: Inter, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
     transform: translate(-50%, -50%);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    font-family: 'Inter', sans-serif;
+    box-shadow: 0 10px 20px #0003;
 }
 
 .bottomInfo {
@@ -352,27 +351,52 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     z-index: 50;
-    overflow-y: auto;
-    max-height: 250px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
 }
 
-.filterMenu::-webkit-scrollbar {
+.searchInputWrapper {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.searchInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.filterOptionsList {
+    overflow-y: auto;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filterOptionsList::-webkit-scrollbar {
     width: 6px;
 }
 
-.filterMenu::-webkit-scrollbar-track {
+.filterOptionsList::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.filterMenu::-webkit-scrollbar-thumb {
+.filterOptionsList::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
 
-.filterMenu::-webkit-scrollbar-thumb:hover {
+.filterOptionsList::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.4);
 }
 
@@ -395,6 +419,13 @@
     font-family: 'Inter', sans-serif;
     text-align: center;
     padding: 50px 0;
+}
+
+.noSearchMatch {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
 }
 
 @media (max-width: 1024px) {
