@@ -24,8 +24,13 @@ export default function WorkDetailPage(props: { params: Promise<{ slug: string }
         <main className={styles.pageContainer}>
             {/* Marquee Header */}
             <div className={styles.marqueeContainer}>
-                <div className={styles.marqueeText}>
-                    {project.title} / {project.title} / {project.title} / {project.title} /
+                <div className={styles.marqueeTrack}>
+                    <div className={styles.marqueeText}>
+                        {project.title} &nbsp;—&nbsp; {project.title} &nbsp;—&nbsp; {project.title} &nbsp;—&nbsp; {project.title} &nbsp;—&nbsp;
+                    </div>
+                    <div className={styles.marqueeText}>
+                        {project.title} &nbsp;—&nbsp; {project.title} &nbsp;—&nbsp; {project.title} &nbsp;—&nbsp; {project.title} &nbsp;—&nbsp;
+                    </div>
                 </div>
             </div>
 

@@ -14,6 +14,13 @@
     white-space: nowrap;
     padding: 120px 0 40px 0;
     position: relative;
+    display: flex;
+}
+
+.marqueeTrack {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
 }
 
 .marqueeText {
@@ -23,18 +30,15 @@
     letter-spacing: -0.05em;
     line-height: 1;
     color: #fff;
-    animation: marquee 50s linear infinite;
-    padding-left: 100%;
-    /* Start from right edge */
+    padding-right: 20px;
 }
 
 @keyframes marquee {
     0% {
-        transform: translate(0, 0);
+        transform: translateX(0%);
     }
-
     100% {
-        transform: translate(-100%, 0);
+        transform: translateX(-50%);
     }
 }
 
