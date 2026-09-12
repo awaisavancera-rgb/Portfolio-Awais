@@ -564,7 +564,7 @@
 
     .banner {
         padding: 1rem;
-        min-height: 100vh;
+        min-height: 90vh;
     }
 
     .nav.navCompact .navLogo {
@@ -584,6 +584,7 @@
     .headlineContainer {
         width: 100%;
         padding: 0 1rem;
+        margin-top: 2rem;
     }
 
     .headline {
@@ -627,6 +628,6 @@
     }
 
     .mainContent {
-        margin-top: 10vh;
+        margin-top: 5.5rem;
     }
 }
