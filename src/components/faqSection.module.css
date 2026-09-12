@@ -1,6 +1,6 @@
 .faqSection {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -18,8 +18,8 @@
     font-size: 0.9rem;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
     text-transform: uppercase;
 }
 
@@ -55,7 +55,7 @@
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.03em;
-    color: #000;
+    color: #fff;
     margin: 0;
 }
 
@@ -67,14 +67,14 @@
 }
 
 .faqItem {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 35px 0;
     cursor: pointer;
     overflow: hidden;
 }
 
 .faqItem:first-child {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .faqHeader {
@@ -90,7 +90,7 @@
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     width: 80px;
-    color: #000;
+    color: #fff;
 }
 
 .faqQuestion {
@@ -99,7 +99,7 @@
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.02em;
     flex: 1;
-    color: #000;
+    color: #fff;
 }
 
 .iconWrapper {
@@ -110,12 +110,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #000;
+    color: #fff;
     transition: background-color 0.3s ease;
 }
 
 .faqItem:hover .iconWrapper {
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .faqAnswerWrapper {
@@ -129,7 +129,7 @@
     line-height: 1.6;
     font-weight: 500;
     padding-top: 2px;
-    color: rgba(0, 0, 0, 0.6);
+    color: rgba(255, 255, 255, 0.6);
     font-family: 'Inter', sans-serif;
     margin: 0;
 }

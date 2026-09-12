@@ -1,43 +1,43 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "./footer.module.css";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-
 export function Footer() {
-    const containerRef = useRef<HTMLElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
-
-    useGSAP(() => {
-        if (!contentRef.current || !containerRef.current) return;
-
-        // Premium Parallax Reveal (Curtain effect)
-        // The footer content starts translated downwards by 30% of its height,
-        // and physically translates into place (0%) as you scroll down the container
-        gsap.fromTo(contentRef.current,
-            { yPercent: 30 },
-            {
-                yPercent: 0,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top bottom",
-                    end: "bottom bottom",
-                    scrub: 1,
-                }
-            }
-        );
-    }, { scope: containerRef });
-
+    // Force recompile to clear Turbopack HMR error
     return (
-        <footer className={styles.footerWrapper} ref={containerRef}>
-            <div className={styles.footerContent} ref={contentRef}>
+        <footer className={styles.footerWrapper}>
+            <div className={styles.footerContent}>
+                {/* Top Section from Reference */}
+                <div className={styles.referenceTopSection}>
+                    {/* Top Bar */}
+                    <div className={styles.topBar}>
+                        <span>Independent</span>
+                        <span>Overview</span>
+                        <span>Multidisciplinary</span>
+                        <span>Focused</span>
+                    </div>
+
+                    <div className={styles.referenceContent}>
+                        <p className={styles.referenceText}>
+                            I build expressive, performance-driven websites by blending clean design and native development inside Framer to help creative teams and modern brands stand out with intention.
+                        </p>
+                        <a href="mailto:hello@awaisportfolio.com" className="primary-btn">
+                            <span className="btnText">EMAIL ME</span>
+                            <div className="btnIconCircle">
+                                <div className="arrowTrack">
+                                    <div className="arrowIconPrimary">
+                                        <ArrowRight size={16} strokeWidth={2.2} />
+                                    </div>
+                                    <div className="arrowIconSecondary">
+                                        <ArrowRight size={16} strokeWidth={2.2} />
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
                 {/* Top: Mega Title */}
                 <div className={styles.titleWrapper}>

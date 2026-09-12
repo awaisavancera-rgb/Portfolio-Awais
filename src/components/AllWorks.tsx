@@ -8,7 +8,7 @@ import styles from './allWorks.module.css';
 
 import { projects } from '@/data/projects';
 
-const ProjectCard = ({ project }: { project: any }) => {
+export const ProjectCard = ({ project }: { project: any }) => {
     const cardRef = useRef<HTMLAnchorElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 

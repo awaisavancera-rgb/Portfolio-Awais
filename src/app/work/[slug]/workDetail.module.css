@@ -30,13 +30,18 @@
     letter-spacing: -0.05em;
     line-height: 1;
     color: #fff;
-    padding-right: 20px;
+}
+
+.separator {
+    margin: 0 40px;
+    font-weight: 300;
 }
 
 @keyframes marquee {
     0% {
         transform: translateX(0%);
     }
+
     100% {
         transform: translateX(-50%);
     }
@@ -45,6 +50,7 @@
 /* Content Section */
 .contentContainer {
     border-top: 1px solid #bbb3;
+    border-bottom: 1px solid #bbb3;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -52,81 +58,87 @@
     gap: 50px;
     margin: 0 auto;
     padding: 0 24px;
-    align-items: flex-start;
 }
 
 /* Left Sidebar (Sticky) */
-.leftSidebar {
+.leftSidebarWrapper {
     z-index: 1;
     flex: 1 0 0;
+    width: 1px;
+}
+
+.leftSidebar {
+    position: sticky;
+    top: 130px;
     place-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    width: 1px;
-    height: min-content;
+    width: 100%;
     padding: 50px 0 24px;
     display: flex;
-    position: sticky;
-    top: 130px;
-    overflow: hidden;
 }
 
 .dateText {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 14px;
 }
 
 .descriptionText {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
+    color: #999;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 .infoList {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    width: 100%;
     padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 15px;
+}
+
+.infoItemWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .infoItem {
     display: flex;
+    flex-direction: column;
+}
+
+.infoTexts {
+    display: flex;
     flex-direction: row;
-    font-size: 0.85rem;
+    align-items: center;
+    gap: 6px;
 }
 
 .infoLabel {
-    width: 100px;
     font-weight: 600;
     color: #fff;
+    font-size: 0.95rem;
 }
 
 .infoValue {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.liveBtn {
-    align-self: flex-start;
-    display: inline-flex;
-    padding: 10px 20px;
-    border: 1px solid #fff;
-    border-radius: 30px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 0.85rem;
+    color: rgb(153, 153, 153);
+    font-size: 0.95rem;
     font-weight: 600;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
 }
 
-.liveBtn:hover {
-    background-color: #fff;
-    color: #000;
+.infoLine {
+    height: 1px;
+    width: 100%;
+    background-color: #bbb3;
 }
+
+
 
 /* Right Gallery */
 .rightGallery {
@@ -142,7 +154,6 @@
     align-items: center;
     gap: 24px;
     width: 60%;
-    height: min-content;
     padding: 24px 0 24px 24px;
     display: flex;
     position: relative;
@@ -156,12 +167,53 @@
     object-fit: cover;
 }
 
+/* More Works Section */
+.moreWorksSection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.metaBar {
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-bottom: 1px solid #fff3;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1480px;
+    padding: 24px;
+    font-family: Inter, sans-serif;
+    font-size: .8vw;
+    display: flex;
+}
+
+.relatedGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    gap: 40px;
+    padding: 60px 40px;
+    border-top: 1px solid #bbb3;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 1024px) {
     .contentContainer {
         flex-direction: column;
         padding: 40px 24px;
         gap: 50px;
+    }
+
+    .leftSidebarWrapper {
+        width: 100%;
+        height: auto;
     }
 
     .leftSidebar {
@@ -172,5 +224,14 @@
 
     .rightGallery {
         width: 100%;
+    }
+
+    .metaBar {
+        padding: 20px 24px;
+    }
+
+    .relatedGrid {
+        grid-template-columns: 1fr;
+        padding: 40px 24px;
     }
 }

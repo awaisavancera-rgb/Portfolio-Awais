@@ -1,10 +1,25 @@
 .contactSection {
-    background-color: #f7f7f7;
+    background-color: #000000;
     width: 100%;
-    padding: 3vw 4.5vw 10vw;
+    padding: 4vw 4.5vw 8vw;
     display: flex;
     flex-direction: column;
     font-family: var(--font-inter), sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle ambient gradient highlight */
+.contactSection::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 15%;
+    width: 45vw;
+    height: 30vw;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.025) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .headerInfo {
@@ -13,10 +28,12 @@
     justify-content: space-between;
     font-size: 0.8vw;
     letter-spacing: 0.1em;
-    color: #555555;
-    padding-bottom: 2vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    color: #888888;
+    padding-bottom: 1.8vw;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     margin-bottom: 5vw;
+    position: relative;
+    z-index: 1;
 }
 
 .headerCol {
@@ -29,310 +46,444 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 5vw;
+    gap: 6vw;
     width: 100%;
+    position: relative;
+    z-index: 1;
 }
 
-/* LEFT COLUMN */
+/* LEFT COLUMN: HERO CTA */
 .leftColumn {
-    flex: 1;
+    flex: 1.1;
     display: flex;
     flex-direction: column;
-    max-width: 43%;
+    max-width: 52%;
 }
 
 .pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.5vw;
-    background-color: #e8e8e8;
-    padding: 0.5vw 1vw;
+    gap: 0.6vw;
+    background-color: #121212;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.45vw 0.9vw;
     border-radius: 50px;
-    font-size: 0.8vw;
-    font-weight: 700;
-    color: #111;
+    font-size: 0.75vw;
+    font-weight: 600;
+    color: #ffffff;
     text-transform: uppercase;
+    letter-spacing: 0.06em;
     width: fit-content;
     margin-bottom: 2vw;
 }
 
 .pillDot {
-    width: 8px;
-    height: 8px;
-    background-color: #111;
+    width: 7px;
+    height: 7px;
+    background-color: #10b981;
     border-radius: 50%;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.8);
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.35);
+        opacity: 0.55;
+    }
 }
 
 .title {
-    font-size: 4vw;
+    font-size: 4.2vw;
     font-weight: 700;
-    width: 33vw;
-    line-height: 1;
-    letter-spacing: -0.07em;
-    color: #111;
-    margin-bottom: 1vw;
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+    color: #ffffff;
+    margin-bottom: 1.5vw;
 }
 
 .titleLight {
-    color: #555;
+    color: rgba(255, 255, 255, 0.4);
+    display: inline;
 }
 
 .description {
-    font-size: 1vw;
+    font-size: 1.1vw;
+    font-weight: 400;
+    color: #a0a0a0;
+    line-height: 1.55;
+    margin-bottom: 3vw;
+    max-width: 88%;
+}
+
+.actionButtons {
+    display: flex;
+    align-items: center;
+    gap: 1.2vw;
+    flex-wrap: wrap;
+}
+
+.copyBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55vw;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 40px;
+    height: 42px;
+    padding: 0 1.5vw;
+    color: #ffffff;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 13px;
     font-weight: 500;
-    color: #232323;
-    line-height: 1.35;
-    margin-bottom: 6vw;
-    max-width: 55%;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dark Contact Card */
-.darkCard {
-    background-color: #161616;
-    border-radius: 1vw;
-    padding: 1.3vw;
-    display: flex;
-    flex-direction: column;
-    gap: 1.3vw;
+.copyBtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
 }
 
-.contactItem {
+.copyCheckIcon {
+    color: #10b981;
+}
+
+/* RIGHT COLUMN: INTERACTIVE DARK CARDS */
+.rightColumn {
+    flex: 0.9;
     display: flex;
     flex-direction: column;
-    gap: 0.5vw;
+    gap: 1.2vw;
+    width: 100%;
+}
+
+.contactCard {
+    background-color: #0c0c0c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.contactCard:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardSectionTag {
+    font-size: 0.72vw;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: #666666;
+    text-transform: uppercase;
+}
+
+.cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw;
+}
+
+.contactLinkRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 1.2vw;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
 }
 
-.contactItem:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
+.contactLinkRow:hover {
+    padding-left: 5px;
 }
 
-.contactLabel {
-    font-size: 0.8vw;
-    font-weight: 700;
-    color: #999;
+.contactLinkRow:hover .linkValue {
+    color: #ffffff;
+}
+
+.contactLinkRow:hover .rowArrow {
+    transform: translate(2px, -2px);
+    color: #ffffff;
+}
+
+.contactLinkRowStatic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.2vw;
+}
+
+.linkInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+}
+
+.linkLabel {
+    font-size: 0.7vw;
+    font-weight: 600;
+    color: #666666;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
-.contactValue {
-    font-size: 1.2vw;
-    color: #fff;
+.linkValue {
+    font-size: 1.15vw;
+    color: #e5e5e5;
     font-weight: 500;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
 }
 
-/* RIGHT COLUMN */
-.rightColumn {
-    background-color: #e8e8e8;
-    border-radius: 1vw;
-    width: 45%;
+.rowArrow {
+    color: #666666;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* SUB-CARDS GRID */
+.subCardsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2vw;
+}
+
+.subCard {
+    background-color: #0c0c0c;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
     padding: 1.5vw;
     display: flex;
     flex-direction: column;
-    gap: 1.5vw;
-}
-
-.formGroup {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65vw;
-}
-
-.inputLabel {
-    font-size: 0.8vw;
-    font-weight: 700;
-    color: #232323;
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-}
-
-.inputField,
-.textareaField {
-    width: 100%;
-    padding: 1vw;
-    background-color: #f7f7f7;
-    border: 1px solid transparent;
-    border-radius: 0.5vw;
-    font-size: 1vw;
-    color: #333;
-    font-family: inherit;
-    outline: none;
+    justify-content: space-between;
+    gap: 0.8vw;
+    min-height: 120px;
     transition: border-color 0.3s ease;
 }
 
-.inputField::placeholder,
-.textareaField::placeholder {
-    color: #999;
+.subCard:hover {
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
-.inputField:focus,
-.textareaField:focus {
-    border-color: #ccc;
+.subCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5vw;
 }
 
-.textareaField {
-    resize: none;
-    min-height: 10vw;
+.liveIndicatorDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
 }
 
-/* Plan Selection */
-.planSelection {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1vw;
-}
-
-.planButton {
-    flex: 1;
-    padding: 1vw;
-    border-radius: 0.5vw;
-    font-size: 0.9vw;
+.subCardTag {
+    font-size: 0.7vw;
     font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s ease;
+    letter-spacing: 0.08em;
+    color: #666666;
+    text-transform: uppercase;
 }
 
-.planLight {
-    background-color: #f7f7f7;
-    color: #333;
-    border: 1px solid transparent;
-}
-
-.planLight:hover {
-    background-color: #fff;
-}
-
-.planDark {
-    background-color: #1a1a1a;
-    color: #fff;
-    border: 1px solid transparent;
-}
-
-.planDark:hover {
-    background-color: #000;
-}
-
-/* Custom alignment for standard site button */
-.submitWrapper {
-    margin-top: 1vw;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.contactBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000000;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 40px;
-    height: 48px;
-    padding: 4px;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
-    overflow: hidden;
-    z-index: 1;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.contactBtn:hover {
-    transform: scale(1.02);
-    border-color: rgba(0, 0, 0, 0.3);
-}
-
-.contactBtn .btnText {
-    font-family: var(--font-inter), sans-serif;
-    font-size: 14px;
+.subCardValue {
+    font-size: 0.95vw;
     font-weight: 500;
-    letter-spacing: 0.02em;
     color: #ffffff;
-    white-space: nowrap;
-    line-height: 1;
-    position: relative;
-    z-index: 2;
-    transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    line-height: 1.35;
 }
 
-.contactBtn:hover .btnText {
-    color: #000000;
+.subCardSub {
+    font-size: 0.75vw;
+    color: #777777;
 }
 
-.contactBtn .btnIconCircle {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    bottom: 4px;
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    background-color: #ffffff;
+.socialsList {
     display: flex;
+    flex-direction: column;
+    gap: 0.3vw;
+}
+
+.socialItem {
+    display: inline-flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: 12px;
-    z-index: 1;
-    overflow: hidden;
-    transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        right 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        top 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        bottom 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        height 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    justify-content: space-between;
+    color: #cccccc;
+    font-size: 0.88vw;
+    text-decoration: none;
+    padding: 0.25vw 0;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.contactBtn:hover .btnIconCircle {
-    right: 1.5px;
-    top: 1.5px;
-    bottom: 1.5px;
-    height: calc(100% - 3px);
-    width: calc(100% - 3px);
+.socialItem:hover {
+    color: #ffffff;
+    transform: translateX(3px);
 }
 
-.contactBtn .arrowTrack {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    flex-shrink: 0;
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .contentWrapper {
+        flex-direction: column;
+        gap: 4vw;
+    }
+
+    .leftColumn {
+        max-width: 100%;
+    }
+
+    .pill {
+        font-size: 1.1vw;
+        padding: 0.6vw 1.3vw;
+    }
+
+    .title {
+        font-size: 5.5vw;
+    }
+
+    .description {
+        font-size: 1.5vw;
+        max-width: 95%;
+    }
+
+    .rightColumn {
+        max-width: 100%;
+    }
+
+    .contactCard {
+        padding: 3vw;
+    }
+
+    .cardSectionTag,
+    .linkLabel,
+    .subCardTag {
+        font-size: 1.1vw;
+    }
+
+    .linkValue {
+        font-size: 1.8vw;
+    }
+
+    .subCardValue {
+        font-size: 1.5vw;
+    }
+
+    .subCardSub {
+        font-size: 1.2vw;
+    }
+
+    .socialItem {
+        font-size: 1.4vw;
+    }
+
+    .copyBtn {
+        padding: 0 2vw;
+    }
 }
 
-.contactBtn .arrowIconPrimary {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000000;
-    transform: translateX(0);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-    opacity: 1;
-}
+@media (max-width: 768px) {
+    .contactSection {
+        padding: 3.5rem 1.5rem 6rem;
+    }
 
-.contactBtn .arrowIconSecondary {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000000;
-    transform: translateX(-180%);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-    opacity: 0;
-}
+    .headerInfo {
+        font-size: 12px;
+        padding-bottom: 1.2rem;
+        margin-bottom: 2.5rem;
+    }
 
-.contactBtn:hover .arrowIconPrimary {
-    transform: translateX(180%);
-    opacity: 0;
-}
+    .headerInfo .headerCol:nth-child(2) {
+        display: none;
+    }
 
-.contactBtn:hover .arrowIconSecondary {
-    transform: translateX(0);
-    opacity: 1;
+    .contentWrapper {
+        gap: 3rem;
+    }
+
+    .pill {
+        font-size: 10px;
+        padding: 6px 14px;
+        margin-bottom: 1.5rem;
+    }
+
+    .title {
+        font-size: 2.4rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .actionButtons {
+        gap: 1rem;
+    }
+
+    .copyBtn {
+        padding: 0 1.2rem;
+        font-size: 12px;
+    }
+
+    .contactCard {
+        padding: 1.5rem;
+        border-radius: 12px;
+        gap: 1.2rem;
+    }
+
+    .cardSectionTag,
+    .linkLabel,
+    .subCardTag {
+        font-size: 11px;
+    }
+
+    .linkValue {
+        font-size: 15px;
+    }
+
+    .cardList {
+        gap: 1.2rem;
+    }
+
+    .subCardsGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .subCard {
+        padding: 1.2rem;
+        border-radius: 12px;
+        gap: 0.6rem;
+        min-height: auto;
+    }
+
+    .subCardValue {
+        font-size: 14px;
+    }
+
+    .subCardSub {
+        font-size: 12px;
+    }
+
+    .socialItem {
+        font-size: 13px;
+        padding: 0.4rem 0;
+    }
 }

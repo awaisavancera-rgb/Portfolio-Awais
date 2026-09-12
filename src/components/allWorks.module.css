@@ -4,6 +4,9 @@
     align-items: center;
     background-color: #000;
     width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 1rem;
     position: relative;
 }
 
@@ -32,7 +35,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding: 0px 24px 80px 24px;
+    padding: 0 0 5rem;
     width: 100%;
     max-width: 1480px;
     align-items: flex-start;
@@ -55,8 +58,7 @@
 }
 
 .headingText {
-    font-size: 14vw;
-    /* Huge text */
+    font-size: 20.4rem;
     line-height: 0.85;
     font-weight: 600;
     color: #fff;
@@ -65,11 +67,11 @@
 }
 
 .headingNumber {
-    margin-bottom: 2vw;
+    margin-bottom: 2rem;
 }
 
 .headingNumber h3 {
-    font-size: 3vw;
+    font-size: 2.5rem;
     font-weight: 500;
     color: #fff;
     margin: 0;

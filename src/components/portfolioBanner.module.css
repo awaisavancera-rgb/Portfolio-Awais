@@ -1,0 +1,272 @@
+.container {
+    z-index: 3;
+    flex-flow: column;
+    flex: none;
+    place-content: flex-start center;
+    align-items: flex-start;
+    gap: 40px;
+    width: 100%;
+    max-width: 1480px;
+    height: min-content;
+    margin: 0 auto;
+    padding: 120px 0 0;
+    display: flex;
+    position: relative;
+    overflow: visible;
+}
+
+/* TOP SECTION */
+.top {
+    z-index: 10;
+    flex-flow: row;
+    flex: none;
+    place-content: flex-end space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: min-content;
+    padding: 0 1rem;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* WHITE STRIP MARQUEE */
+.whiteStripContainer {
+    z-index: 1;
+    pointer-events: none;
+    flex: none;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.whiteStrip {
+    pointer-events: auto;
+    background-color: #fff;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15vw;
+    width: 100%;
+    max-width: 1440px;
+    height: min-content;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.whiteStrip p {
+    white-space: pre;
+    color: #000;
+    flex: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6em;
+    position: relative;
+}
+
+/* MAIN COLUMNS */
+.columnsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 20px 40px 60px 40px;
+    gap: 40px;
+}
+
+@media (min-width: 1024px) {
+    .columnsWrapper {
+        flex-direction: row;
+        padding: 40px 60px 100px 60px;
+        gap: 60px;
+    }
+}
+
+.leftColumn {
+    border-radius: 12px;
+    flex-flow: row;
+    flex: 1 0 0;
+    place-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 490px;
+    height: 403px;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.imageWrapper {
+    z-index: 1;
+    flex: none;
+    width: 100%;
+    height: 125%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.rightColumn {
+    flex-flow: column;
+    flex: 1 0 0;
+    place-content: flex-start center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+    height: min-content;
+    padding: 50px 0 60px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.lists {
+    flex-flow: column;
+    flex: none;
+    place-content: center;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    height: min-content;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* LIST ITEM & ANIMATIONS */
+.listItem {
+    cursor: pointer;
+    flex-flow: column;
+    place-content: flex-start center;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    height: min-content;
+    padding: 10px 0;
+    text-decoration: none;
+    transition: all .3s;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.listItemContent {
+    flex-flow: row;
+    flex: none;
+    place-content: center space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: min-content;
+    padding: 0;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.textRollWrapper {
+    flex-direction: column;
+    height: 1.3em;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.listItemText {
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.listItemTextHover {
+    color: #fff;
+    font-family: Inter, sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.listItem:hover .listItemText {
+    transform: translateY(-100%);
+}
+
+.listItem:hover .listItemTextHover {
+    transform: translateY(-100%);
+}
+
+.icon {
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    transition: transform .6s cubic-bezier(.16, 1, .3, 1);
+}
+
+.listItem:hover .icon {
+    color: #fff;
+    transform: translate(4px, -4px);
+}
+
+.line {
+    background-color: #bbb3;
+    width: 100%;
+    height: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lineFiller {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    transform: translateX(-101%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.listItem:hover .lineFiller {
+    transform: translateX(0);
+}
+
+/* BOTTOM SECTION */
+.bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding-bottom: 2vh;
+}
+
+.hugeText {
+    font-size: 16vw;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: #fff;
+    margin: 0;
+    line-height: 0.8;
+    text-align: center;
+    overflow: hidden;
+}

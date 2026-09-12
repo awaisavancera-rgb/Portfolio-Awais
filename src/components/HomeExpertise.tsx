@@ -131,15 +131,13 @@ export const HomeExpertise = () => {
     return (
         <>
             <section ref={sectionRef} className={styles.expertiseSection}>
-
-                {/* 1. Top Bar */}
-                <div className={styles.topBar}>
-                    <span className={styles.topBarLeft}>© EXPERIENCE</span>
-                    <span className={styles.topBarCenter}>(WDX® — 05)</span>
-                    <span className={styles.topBarRight}>DIGITAL CRAFT</span>
-                </div>
-
                 <div className={styles.container}>
+                    {/* 1. Top Bar */}
+                    <div className={styles.topBar}>
+                        <span className={styles.topBarLeft}>© EXPERIENCE</span>
+                        <span className={styles.topBarCenter}>(WDX® — 05)</span>
+                        <span className={styles.topBarRight}>DIGITAL CRAFT</span>
+                    </div>
                     {/* 2. Hero Area: Title + Image */}
                     <div className={styles.heroArea}>
                         <h2 ref={titleRef} className={styles.craftTitle}>

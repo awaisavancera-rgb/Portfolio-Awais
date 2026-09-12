@@ -1,19 +1,21 @@
 .expertiseSection {
     background-color: #ffffff;
     color: #000000;
-    padding: 2rem 4rem 6rem;
+    padding: 0;
     position: relative;
     z-index: 30;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin-top: -10vw;
+    width: 100%;
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 1480px;
     margin: 0 auto;
     width: 100%;
+    padding: 2rem 1.8rem 6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -457,8 +459,12 @@
 
 @media (max-width: 768px) {
     .expertiseSection {
-        padding: 2rem 1.25rem 4rem;
+        padding: 0;
         margin-top: 0;
+    }
+
+    .container {
+        padding: 2rem 1.25rem 4rem;
     }
 
     .heroArea {
