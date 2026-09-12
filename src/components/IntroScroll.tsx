@@ -88,7 +88,7 @@ export const IntroScroll = () => {
                     trigger: wrapperRef.current,
                     pin: "#main-content",
                     pinnedContainer: "#main-content",
-                    start: "top 85%",     // Triggers immediately right after banner finishes
+                    start: "top 80%",     // Triggers immediately right after banner finishes
                     end: "+=35%",         // Quick and responsive expansion
                     scrub: 0.5,
                     invalidateOnRefresh: true,
