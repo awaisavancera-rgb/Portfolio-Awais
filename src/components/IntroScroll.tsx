@@ -16,54 +16,102 @@ export const IntroScroll = () => {
     const footerBlocksRef = useRef<HTMLDivElement>(null)
 
     useGSAP(() => {
-        // Initial Styles - Anchored at the bottom of its 100vh container
-        gsap.set(cardRef.current, {
-            height: "15vh", // Small peek from the bottom
-            width: "50%",
-            backgroundColor: "#E5E5E5",
-            borderTopLeftRadius: "40px",
-            borderTopRightRadius: "40px",
-            borderBottomLeftRadius: "0px",
-            borderBottomRightRadius: "0px",
+        const mm = gsap.matchMedia();
+
+        // 1. Desktop: Same exact smooth animation
+        mm.add("(min-width: 769px)", () => {
+            gsap.set(cardRef.current, {
+                height: "15vh",
+                width: "50%",
+                backgroundColor: "#E5E5E5",
+                borderTopLeftRadius: "40px",
+                borderTopRightRadius: "40px",
+                borderBottomLeftRadius: "0px",
+                borderBottomRightRadius: "0px",
+            })
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: wrapperRef.current,
+                    pin: "#main-content",
+                    pinnedContainer: "#main-content",
+                    start: "top center",
+                    end: "+=100%",
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                }
+            })
+
+            tl.to(cardRef.current, {
+                height: "100vh",
+                width: "100%",
+                borderTopLeftRadius: "0px",
+                borderTopRightRadius: "0px",
+                ease: "none"
+            })
+
+            tl.to(cardRef.current, {
+                backgroundColor: "#FFFFFF",
+                duration: 0.1,
+                ease: "none"
+            }, "-=0.2")
+
+            tl.from([headlineRef.current, footerBlocksRef.current?.children], {
+                opacity: 0,
+                y: 40,
+                stagger: 0.1,
+                duration: 0.5,
+                ease: "power2.out"
+            }, "-=0.3")
         })
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: wrapperRef.current,
-                pin: "#main-content",          // Pin the entire page's main content
-                pinnedContainer: "#main-content",
-                start: "top center",           // Trigger earlier for better visual flow
-                end: "+=100%",                 // Expand over 100vh of scroll
-                scrub: true,
-                invalidateOnRefresh: true,
-            }
+        // 2. Mobile: Triggers right after banner, starts at 55% width, expands to 60vh height & 100% width
+        mm.add("(max-width: 768px)", () => {
+            gsap.set(cardRef.current, {
+                height: "18vh",
+                width: "55%",
+                backgroundColor: "#E5E5E5",
+                borderTopLeftRadius: "20px",
+                borderTopRightRadius: "20px",
+                borderBottomLeftRadius: "0px",
+                borderBottomRightRadius: "0px",
+                paddingTop: "1.4rem",
+            })
+
+            gsap.set([headlineRef.current, footerBlocksRef.current], {
+                opacity: 1,
+                y: 0,
+            })
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: wrapperRef.current,
+                    pin: "#main-content",
+                    pinnedContainer: "#main-content",
+                    start: "top 85%",     // Triggers immediately right after banner finishes
+                    end: "+=35%",         // Quick and responsive expansion
+                    scrub: 0.5,
+                    invalidateOnRefresh: true,
+                }
+            })
+
+            tl.to(cardRef.current, {
+                height: "50vh",
+                width: "100%",
+                borderTopLeftRadius: "0px",
+                borderTopRightRadius: "0px",
+                paddingTop: "1.8rem",
+                ease: "power1.out"
+            })
+
+            tl.to(cardRef.current, {
+                backgroundColor: "#FFFFFF",
+                duration: 0.1,
+                ease: "none"
+            }, "-=0.15")
         })
 
-        // Expansion: Growth from bottom highlight to full screen
-        tl.to(cardRef.current, {
-            height: "100vh",
-            width: "100%",
-            borderTopLeftRadius: "0px",
-            borderTopRightRadius: "0px",
-            ease: "none"
-        })
-
-        // Color Transition: Shift to white as it nears completion
-        tl.to(cardRef.current, {
-            backgroundColor: "#FFFFFF",
-            duration: 0.1, // Short duration at the end
-            ease: "none"
-        }, "-=0.2")
-
-        // Reveal text staggered as expansion completes
-        tl.from([headlineRef.current, footerBlocksRef.current?.children], {
-            opacity: 0,
-            y: 40,
-            stagger: 0.1,
-            duration: 0.5,
-            ease: "power2.out"
-        }, "-=0.3")
-
+        return () => mm.revert();
     }, { scope: wrapperRef })
 
     return (
