@@ -461,19 +461,36 @@
     .expertiseSection {
         padding: 0;
         margin-top: 0;
+        min-height: auto;
     }
 
     .container {
-        padding: 2rem 1.25rem 4rem;
+        padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .topBar {
+        padding-bottom: 1.2rem;
+        margin-bottom: 2rem;
+        font-size: 0.75rem;
+    }
+
+    .topBarCenter {
+        display: none;
     }
 
     .heroArea {
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 
     .craftTitle {
-        font-size: 13vw;
-        line-height: 12vw;
+        font-size: clamp(2rem, 9.5vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+    }
+
+    .smallTxt {
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
     }
 
     .heroImageWrapper {

@@ -58,8 +58,16 @@ export const HomeExpertise = () => {
     const titleRef = useRef<HTMLHeadingElement>(null)
     const tableRef = useRef<HTMLDivElement>(null)
     const imageRef = useRef<HTMLDivElement>(null)
-    const [activeIndex, setActiveIndex] = useState<number | null>(0)
+    const [openIndices, setOpenIndices] = useState<number[]>([0])
     const [heroImgIndex, setHeroImgIndex] = useState(0)
+
+    const toggleRow = (index: number) => {
+        setOpenIndices((prev) =>
+            prev.includes(index)
+                ? prev.filter((i) => i !== index)
+                : [...prev, index]
+        )
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -67,6 +75,13 @@ export const HomeExpertise = () => {
         }, 500)
         return () => clearInterval(interval)
     }, [])
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            ScrollTrigger.refresh()
+        }, 350)
+        return () => clearTimeout(timer)
+    }, [openIndices])
 
     useGSAP(() => {
         if (!sectionRef.current || !titleRef.current || !tableRef.current || !imageRef.current) return
@@ -118,14 +133,25 @@ export const HomeExpertise = () => {
             }
         )
 
-        // 4. Dynamic Pinning (Stacking Card Effect)
-        ScrollTrigger.create({
-            trigger: sectionRef.current,
-            start: () => sectionRef.current && sectionRef.current.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-            pin: true,
-            pinSpacing: false
-        });
+        const mm = gsap.matchMedia()
 
+        // 4. DESKTOP ONLY: Dynamic Pinning (Stacking Card Effect)
+        mm.add("(min-width: 769px)", () => {
+            ScrollTrigger.create({
+                trigger: sectionRef.current,
+                start: () => sectionRef.current && sectionRef.current.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+                pin: true,
+                pinSpacing: false,
+                invalidateOnRefresh: true,
+            })
+        })
+
+        // MOBILE ONLY: Natural scrolling with NO pin-spacer so user can freely scroll and view all open items!
+        mm.add("(max-width: 768px)", () => {
+            // Pinning disabled on mobile
+        })
+
+        return () => mm.revert()
     }, { scope: sectionRef })
 
     return (
@@ -170,12 +196,12 @@ export const HomeExpertise = () => {
                         {/* Rows */}
                         <div ref={tableRef} className={styles.rowsWrapper}>
                             {servicesData.map((item, i) => {
-                                const isOpen = activeIndex === i;
+                                const isOpen = openIndices.includes(i);
                                 return (
                                     <div
                                         key={item.id}
                                         className={`${styles.accordionRow} ${isOpen ? styles.rowOpen : ""}`}
-                                        onClick={() => setActiveIndex(isOpen ? null : i)}
+                                        onClick={() => toggleRow(i)}
                                     >
                                         <div className={styles.colNum}>{item.id}</div>
 

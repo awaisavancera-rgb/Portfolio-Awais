@@ -409,35 +409,141 @@
 }
 
 @media (max-width: 768px) {
-    .projectCard {
-        flex-direction: column-reverse;
-        /* Image on top, content bottom */
-        width: 85vw;
+    .portfolioSection {
+        padding: 3.5rem 1.25rem 5rem;
+    }
+
+    .pinnedWrapper {
+        padding-bottom: 0;
+        overflow: visible;
+    }
+
+    .heroTitleWrapper {
         height: auto;
-        min-height: 70vh;
-    }
-
-    .cardImageWrapper {
-        flex: 1;
-        min-height: 300px;
-    }
-
-    .cardContent {
-        padding: 2rem;
-        flex: 1;
-    }
-
-    .cardTitle {
-        font-size: 2.5rem;
+        padding-top: 0;
+        margin-bottom: 1.5rem;
+        justify-content: flex-start;
     }
 
     .megaTitle {
-        font-size: 30vw;
+        font-size: 16vw;
+        line-height: 0.9;
+        text-align: left;
+    }
+
+    .contentArea {
+        padding: 0;
     }
 
     .subheader {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1.2rem;
+    }
+
+    .selectedLabel {
+        font-size: 1.4rem;
+        letter-spacing: -0.01em;
+    }
+
+    .viewAllBtn {
+        height: 38px;
+        padding: 0 14px;
+        gap: 10px;
+    }
+
+    .viewAllBtn .btnText {
+        font-size: 11px;
+    }
+
+    .projectsGrid {
+        display: flex;
         flex-direction: column;
+        gap: 2.2rem;
+        width: 100%;
+    }
+
+    .projectCard {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        border-radius: 16px;
+        padding: 0;
+        background-color: #ffffff;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .cardImageWrapper {
+        order: -1;
+        /* Ensures image is displayed at the top */
+        width: 100%;
+        height: 300px;
+        min-height: 300px;
+        position: relative;
+        border-radius: 16px 16px 0 0;
+        background-color: #f3f3f3;
+        overflow: hidden;
+    }
+
+    .cardContent {
+        width: 100%;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        min-width: 0;
+    }
+
+    .cardTop {
+        gap: 0.75rem;
+    }
+
+    .tagsWrapper {
+        gap: 0.5rem;
+    }
+
+    .tagPill {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .cardTitle {
+        font-size: 2rem;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        margin: 0.2rem 0 0;
+    }
+
+    .cardDescription {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #444444;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .cardBottom {
+        gap: 1.2rem;
         align-items: flex-start;
-        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .viewProjectBtn {
+        width: auto;
+        height: 44px;
+        border-radius: 40px;
+        justify-content: space-between;
+    }
+
+    .viewProjectBtn .btnText {
+        font-size: 13px;
+        font-weight: 600;
     }
 }

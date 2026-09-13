@@ -53,46 +53,69 @@ export const Portfolio = () => {
     useGSAP(() => {
         if (!titleRef.current || !sectionRef.current || !containerRef.current || !contentRef.current) return
 
-        const panels = gsap.utils.toArray<HTMLElement>(
-            containerRef.current.querySelectorAll(`.${styles.projectCard}`)
-        )
+        const mm = gsap.matchMedia();
 
-        // Create a single timeline for the entire sequence
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top top",
-                end: "+=4000", // Total scroll distance
-                pin: true,
-                scrub: 1,
-            }
+        // 1. DESKTOP ONLY (> 768px): Exact same pinned horizontal scroll animation (100% untouched)
+        mm.add("(min-width: 769px)", () => {
+            const panels = gsap.utils.toArray<HTMLElement>(
+                containerRef.current!.querySelectorAll(`.${styles.projectCard}`)
+            )
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top top",
+                    end: "+=4000",
+                    pin: true,
+                    scrub: 1,
+                }
+            })
+
+            tl.to(titleRef.current, {
+                fontSize: "7vw",
+                y: "1vw",
+                ease: "power2.inOut",
+                duration: 1
+            }, 0)
+
+            gsap.set(contentRef.current, { opacity: 0, y: 60, filter: "blur(15px)" })
+            tl.to(contentRef.current, {
+                opacity: 1,
+                y: -220,
+                filter: "blur(0px)",
+                ease: "power2.out",
+                duration: 1
+            }, 0)
+
+            tl.to(panels, {
+                xPercent: -100 * (panels.length - 1),
+                ease: "none",
+                duration: 1
+            }, 1)
         })
 
-        // Step 1: Title shrink AND Content blur-in happen together
-        tl.to(titleRef.current, {
-            fontSize: "7vw",
-            y: "1vw",
-            ease: "power2.inOut",
-            duration: 1
-        }, 0)
+        // 2. MOBILE ONLY (<= 768px): Clean, smooth vertical card reveal (NO trapped 4000px scroll)
+        mm.add("(max-width: 768px)", () => {
+            gsap.set(contentRef.current, { opacity: 1, y: 0, filter: "none" })
+            gsap.set(titleRef.current, { y: 0 })
 
-        // Content starts blurred and lower, then moves up and clears
-        gsap.set(contentRef.current, { opacity: 0, y: 60, filter: "blur(15px)" })
-        tl.to(contentRef.current, {
-            opacity: 1,
-            y: -220,
-            filter: "blur(0px)",
-            ease: "power2.out",
-            duration: 1
-        }, 0)
+            const cards = containerRef.current!.querySelectorAll(`.${styles.projectCard}`)
+            cards.forEach((card) => {
+                gsap.from(card, {
+                    opacity: 0,
+                    y: 35,
+                    duration: 0.7,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 88%",
+                        toggleActions: "play none none reverse",
+                    }
+                })
+            })
+        })
 
-        // Step 2: Horizontal scroll happens AFTER the reveal is complete
-        tl.to(panels, {
-            xPercent: -100 * (panels.length - 1),
-            ease: "none",
-            duration: 1 // Takes up the rest of the scroll distance
-        }, 1) // Starts at 1 second (after the 1 second reveal)
-
+        return () => mm.revert();
     }, { scope: sectionRef })
 
     return (
