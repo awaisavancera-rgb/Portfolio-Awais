@@ -24,6 +24,7 @@ export interface ServiceItem {
   title: string;
   description: string;
   tags: string[];
+  extraTags: string[];
 }
 
 export const servicesData: ServiceItem[] = [
@@ -31,25 +32,29 @@ export const servicesData: ServiceItem[] = [
     id: "(001)",
     title: "CMS, E-Commerce & CRM Architecture",
     description: "Building high-converting Shopify Liquid stores, custom WordPress/WooCommerce solutions, and GoHighLevel CRM automation funnels optimized for speed and maximum conversions.",
-    tags: ["Shopify Liquid", "WordPress", "GoHighLevel", "Speed Optimization"]
+    tags: ["Shopify Liquid", "WordPress", "GoHighLevel", "Speed Optimization"],
+    extraTags: ["WooCommerce", "HubSpot CRM", "Zapier / Make", "Klaviyo Email", "Custom Checkout", "Stripe Integration"]
   },
   {
     id: "(002)",
     title: "Creative Frontend & Interactive UI",
     description: "Designing animated components in Figma and building high-performance Next.js and TypeScript web applications using GSAP and Framer Motion for smooth micro-interactions.",
-    tags: ["Next.js", "GSAP / Framer Motion", "TypeScript", "Figma Design"]
+    tags: ["Next.js", "GSAP / Framer Motion", "TypeScript", "Figma Design"],
+    extraTags: ["Tailwind CSS", "Three.js / WebGL", "React 19", "Lenis Scroll", "Responsive Architecture", "Micro-Interactions"]
   },
   {
     id: "(003)",
     title: "Advanced AI Engineering & RAG Architecture",
     description: "Architecting custom RAG systems, Knowledge Graphs, and Graph Engineering workflows to bridge enterprise data with LLMs, integrated with n8n and CRM automation pipelines.",
-    tags: ["RAG Architecture", "Graph Engineering", "n8n Automation", "Vector DBs"]
+    tags: ["RAG Architecture", "Graph Engineering", "n8n Automation", "Vector DBs"],
+    extraTags: ["LangChain", "OpenAI / Claude API", "Pinecone & Qdrant", "Python Pipelines", "Knowledge Retrieval", "Prompt Optimization"]
   },
   {
     id: "(004)",
     title: "Autonomous AI Agents & Voice Systems",
     description: "Developing intelligent AI calling agents, autonomous 24/7 customer support bots, social media managers, and multi-agent workflows engineered with self-correcting execution loops.",
-    tags: ["AI Voice Agents", "Support Agents", "Social Media Bots", "Loop Engineering"]
+    tags: ["AI Voice Agents", "Support Agents", "Social Media Bots", "Loop Engineering"],
+    extraTags: ["Vapi / Bland AI", "Twilio Telephony", "Self-Correcting Loops", "Telegram & WhatsApp", "Multi-Agent Swarms", "Autonomous Scraping"]
   }
 ];
 
@@ -59,10 +64,20 @@ export const HomeExpertise = () => {
     const tableRef = useRef<HTMLDivElement>(null)
     const imageRef = useRef<HTMLDivElement>(null)
     const [openIndices, setOpenIndices] = useState<number[]>([0])
+    const [expandedTagIndices, setExpandedTagIndices] = useState<number[]>([])
     const [heroImgIndex, setHeroImgIndex] = useState(0)
 
     const toggleRow = (index: number) => {
         setOpenIndices((prev) =>
+            prev.includes(index)
+                ? prev.filter((i) => i !== index)
+                : [...prev, index]
+        )
+    }
+
+    const toggleExtraTags = (index: number, e: React.MouseEvent) => {
+        e.stopPropagation()
+        setExpandedTagIndices((prev) =>
             prev.includes(index)
                 ? prev.filter((i) => i !== index)
                 : [...prev, index]
@@ -81,7 +96,7 @@ export const HomeExpertise = () => {
             ScrollTrigger.refresh()
         }, 350)
         return () => clearTimeout(timer)
-    }, [openIndices])
+    }, [openIndices, expandedTagIndices])
 
     useGSAP(() => {
         if (!sectionRef.current || !titleRef.current || !tableRef.current || !imageRef.current) return
@@ -135,13 +150,14 @@ export const HomeExpertise = () => {
 
         const mm = gsap.matchMedia()
 
-        // 4. DESKTOP ONLY: Dynamic Pinning (Stacking Card Effect)
+        // 4. DESKTOP ONLY: Extended Pinning (Generous Scroll Distance so user can see all accordions)
         mm.add("(min-width: 769px)", () => {
             ScrollTrigger.create({
                 trigger: sectionRef.current,
-                start: () => sectionRef.current && sectionRef.current.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
+                start: "bottom bottom",
+                end: "+=1200", // Gives users ample scroll space to explore all accordions before About section enters
                 pin: true,
-                pinSpacing: false,
+                pinSpacing: true, // Reserves space so the section stays pinned in full view
                 invalidateOnRefresh: true,
             })
         })
@@ -259,9 +275,19 @@ export const HomeExpertise = () => {
                                                                     <span>{tag}</span>
                                                                 </div>
                                                             ))}
-                                                            <div className={styles.pillCount}>
-                                                                <span>{item.tags.length}+</span>
-                                                            </div>
+                                                            {expandedTagIndices.includes(i) && item.extraTags?.map((extraTag, etIdx) => (
+                                                                <div key={`extra-${etIdx}`} className={`${styles.pill} ${styles.extraPill}`}>
+                                                                    <span>{extraTag}</span>
+                                                                </div>
+                                                            ))}
+                                                            <button
+                                                                type="button"
+                                                                className={`${styles.pillCount} ${expandedTagIndices.includes(i) ? styles.pillCountActive : ''}`}
+                                                                onClick={(e) => toggleExtraTags(i, e)}
+                                                                aria-label={expandedTagIndices.includes(i) ? "Show less categories" : "Show more categories"}
+                                                            >
+                                                                <span>{expandedTagIndices.includes(i) ? "Less" : `${item.extraTags?.length || 4}+`}</span>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -272,7 +298,7 @@ export const HomeExpertise = () => {
                                             <div className={styles.toggleBtn}>
                                                 <div
                                                     className={styles.buttonInner}
-                                                    style={{ transform: isOpen ? "rotate(270deg)" : "rotate(0deg)" }}
+                                                    style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                                                 >
                                                     <div className={styles.iconCross}>
                                                         <span className={styles.barH} />

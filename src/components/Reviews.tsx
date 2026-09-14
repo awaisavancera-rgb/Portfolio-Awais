@@ -115,26 +115,47 @@ export function Reviews() {
 
             // 3. ScrollTrigger Pin and Cards Scrub
             if (cardsLayoutRef.current) {
-                // Pin the entire 100vh section wrapper (250% on desktop, 300% on mobile for 5-card single file scroll)
+                const contactElem = document.getElementById("contact");
+
+                // Pin the entire 100vh section wrapper (250% on desktop, 200% on mobile)
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: sectionRef.current,
                         start: "top top",
-                        end: () => (window.innerWidth <= 768 ? "+=300%" : "+=250%"),
+                        end: () => (window.innerWidth <= 768 ? "+=200%" : "+=250%"),
                         pin: true,
                         scrub: 1, // Smooth scrub
                         invalidateOnRefresh: true,
+                        onToggle: (self) => {
+                            if (window.innerWidth <= 768 && contactElem) {
+                                if (self.isActive) {
+                                    contactElem.style.position = "fixed";
+                                    contactElem.style.top = "70vh";
+                                    contactElem.style.left = "0";
+                                    contactElem.style.width = "100%";
+                                    contactElem.style.height = "30vh";
+                                    contactElem.style.overflow = "hidden";
+                                    contactElem.style.zIndex = "60";
+                                } else {
+                                    contactElem.style.position = "";
+                                    contactElem.style.top = "";
+                                    contactElem.style.left = "";
+                                    contactElem.style.width = "";
+                                    contactElem.style.height = "";
+                                    contactElem.style.overflow = "";
+                                    contactElem.style.zIndex = "";
+                                }
+                            }
+                        }
                     }
                 });
 
-                // Animate the cardsLayout from its initial top:100vh position 
-                // completely upwards over the section
+                // Animate the cardsLayout from its initial position upwards over the section
                 tl.to(cardsLayoutRef.current, {
                     y: () => {
                         const isMobile = window.innerWidth <= 768;
                         if (isMobile) {
-                            // On mobile, scroll up enough so the GET IN TOUCH button lands centered and clearly visible after all cards
-                            return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.45);
+                            return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.15);
                         }
                         // Desktop: Move it up by its own height PLUS an extra 30vh so the last cards sit nicely in the top-middle of screen when pin unhooks
                         return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.3);
@@ -143,6 +164,19 @@ export function Reviews() {
                 });
             }
         } // Close if (sectionRef.current)
+
+        return () => {
+            const contactElem = document.getElementById("contact");
+            if (contactElem) {
+                contactElem.style.position = "";
+                contactElem.style.top = "";
+                contactElem.style.left = "";
+                contactElem.style.width = "";
+                contactElem.style.height = "";
+                contactElem.style.overflow = "";
+                contactElem.style.zIndex = "";
+            }
+        };
     }, { scope: sectionRef });
 
     const renderCard = (test: any) => (

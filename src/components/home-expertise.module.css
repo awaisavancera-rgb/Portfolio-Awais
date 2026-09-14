@@ -223,6 +223,7 @@
     height: 90px;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .imageLayer2 {
@@ -235,7 +236,8 @@
     top: 0;
     left: 38px;
     overflow: hidden;
-    box-shadow: -.8px 0 1.76px -.7px #0006, -2.18px 0 4.79px -1.4px #00000063, -4.78px 0 10.53px -2.1px #0000005c, -10.62px 0 23.37px -2.8px #0000004f, -27px 0 59.4px -3.5px #0000002b;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.07), -1px 0 3px rgba(0, 0, 0, 0.03);
 }
 
 .imageLayer3 {
@@ -248,7 +250,8 @@
     top: 0;
     left: 76px;
     overflow: hidden;
-    box-shadow: -.8px 0 1.76px -.7px #0006, -2.18px 0 4.79px -1.4px #00000063, -4.78px 0 10.53px -2.1px #0000005c, -10.62px 0 23.37px -2.8px #0000004f, -27px 0 59.4px -3.5px #0000002b;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.07), -1px 0 3px rgba(0, 0, 0, 0.03);
 }
 
 .serviceInfo {
@@ -318,7 +321,7 @@
 .pillCount {
     padding: 6px 12px;
     border-radius: 50px;
-    background-color: #272727;
+    background-color: #1a1a1a;
     color: #fff;
     font-size: 12px;
     font-weight: 600;
@@ -327,6 +330,44 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    outline: none;
+    transition: background-color 0.25s ease, transform 0.2s ease, border-color 0.25s ease;
+}
+
+.pillCount:hover {
+    background-color: #333333;
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: scale(1.04);
+}
+
+.pillCountActive {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+.pillCountActive:hover {
+    background-color: #e5e5e5;
+    border-color: #e5e5e5;
+}
+
+.extraPill {
+    background-color: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeInPill 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInPill {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .colToggle {

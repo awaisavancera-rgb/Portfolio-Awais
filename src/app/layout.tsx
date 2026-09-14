@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Qwigley } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header } from "@/components/Header";
+import { CustomCursor } from "@/components/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} ${qwigley.variable}`}>
+        <CustomCursor />
         <SmoothScroll>
           <Header />
           {children}

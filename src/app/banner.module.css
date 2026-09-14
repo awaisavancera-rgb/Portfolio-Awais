@@ -564,7 +564,7 @@
 
     .banner {
         padding: 1rem;
-        min-height: 90vh;
+        min-height: 100vh;
     }
 
     .nav.navCompact .navLogo {
