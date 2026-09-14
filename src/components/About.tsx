@@ -103,11 +103,16 @@ export const About = () => {
         <section ref={sectionRef} className={styles.aboutSection}>
             <div className={styles.container}>
 
-                {/* 1. Header Area with Massive Title */}
+                {/* 1. Header Area with Title */}
                 <div className={styles.titleWrapper}>
                     <h1 className={styles.massiveTitle}>
                         <span ref={titleRef}>
-                            About<sup className={styles.sup}>Awais</sup>
+                            <span className={styles.desktopTitle}>
+                                About<sup className={styles.sup}>Awais</sup>
+                            </span>
+                            <span className={styles.mobileTitle}>
+                                About Awais
+                            </span>
                         </span>
                     </h1>
                 </div>

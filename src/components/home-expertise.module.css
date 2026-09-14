@@ -483,14 +483,14 @@
     }
 
     .craftTitle {
-        font-size: clamp(2rem, 9.5vw, 3rem);
+        font-size: 3.5rem;
         line-height: 1.1;
-        letter-spacing: -0.03em;
+        letter-spacing: -0.04em;
     }
 
     .smallTxt {
-        font-size: 0.95rem;
-        letter-spacing: 0.04em;
+        font-size: 3rem;
+        letter-spacing: -0.04em;
     }
 
     .heroImageWrapper {

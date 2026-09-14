@@ -87,6 +87,10 @@
     z-index: 10;
 }
 
+.mobileCtaWrapper {
+    display: none;
+}
+
 /* Framer Reference Button (Expanding White Pill on Hover) */
 .viewProjectBtn {
     display: inline-flex;
@@ -340,4 +344,150 @@
     padding-right: 0.5vw;
     opacity: 0.9;
     color: #000000;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .card {
+        width: 38vw;
+        padding: 1.5rem;
+    }
+
+    .quote {
+        font-size: 1rem;
+    }
+
+    .authorName {
+        font-size: 1rem;
+    }
+
+    .authorTitle {
+        font-size: 0.8rem;
+    }
+
+    .companyFallback {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .headerInfo {
+        top: 1.25rem;
+        width: 92%;
+        font-size: clamp(0.55rem, 2.3vw, 0.7rem);
+        padding-bottom: 0.75rem;
+        letter-spacing: 0.05em;
+    }
+
+    .marqueeContainer {
+        top: 50%;
+    }
+
+    .marqueeText {
+        font-size: clamp(2.8rem, 14vw, 4.2rem);
+        letter-spacing: -0.04em;
+        padding-right: 1.5rem;
+    }
+
+    .ctaWrapper {
+        bottom: 1.5rem;
+    }
+
+    .stickyBackground .ctaWrapper {
+        display: none !important;
+    }
+
+    .mobileCtaWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+        z-index: 10;
+    }
+
+    .viewProjectBtn {
+        height: 38px;
+        padding: 3px 3px 3px 16px;
+        gap: 14px;
+    }
+
+    .btnText {
+        font-size: 12px;
+        padding-right: 36px;
+    }
+
+    .btnIconCircle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .cardsLayout {
+        gap: 4.5vh;
+        padding-bottom: 8vh;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+    }
+
+    /* Single-column card feed on mobile: cards appear 1 by 1 smoothly during scroll */
+    .cardRow {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        gap: 4.5vh;
+    }
+
+    .cardRowCentered {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 360px;
+        margin-top: 0 !important; /* Clears desktop stagger offsets (15vh, 20vh) for even single-card vertical rhythm */
+        padding: 1.35rem;
+        border-radius: 14px;
+        gap: 1rem;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+    }
+
+    .quote {
+        font-size: 0.92rem;
+        line-height: 1.55;
+    }
+
+    .authorInfo {
+        gap: 0.75rem;
+        padding-top: 0.85rem;
+    }
+
+    .avatar {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        border-radius: 8px;
+    }
+
+    .authorNameRow {
+        gap: 0.35rem;
+    }
+
+    .authorName {
+        font-size: 0.95rem;
+    }
+
+    .authorTitle {
+        font-size: 0.78rem;
+        margin-top: 2px;
+    }
+
+    .companyFallback {
+        font-size: 1.15rem;
+    }
 }

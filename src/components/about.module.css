@@ -48,6 +48,16 @@
     transform: translateY(-8vw);
 }
 
+.desktopTitle {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.mobileTitle {
+    display: none;
+}
+
 /* 2. Skills Strip (The "Strip") */
 .skillsStrip {
     display: flex;
@@ -440,31 +450,197 @@
 /* Responsive */
 @media (max-width: 1024px) {
     .contentGrid {
-        grid-template-columns: 1fr;
         gap: 2rem;
     }
 
+    .imageColumn {
+        width: 38vw;
+    }
+
+    .textColumn {
+        width: 58vw;
+    }
+
     .headline {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 3.2vw, 2.6rem);
         margin-bottom: 2rem;
     }
 
-    .contactButton {
-        margin-bottom: 4rem;
+    .statusBar {
+        width: 100%;
+        margin-left: 0;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .statusLabel {
+        font-size: 0.85rem;
     }
 }
 
 @media (max-width: 768px) {
-    .massiveTitle {
-        font-size: 25vw;
-        /* Slightly smaller on mobile to fit */
-    }
-
-    .logoGrid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .aboutSection {
-        padding-bottom: 4rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .titleWrapper {
+        padding-top: 2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .desktopTitle {
+        display: none !important;
+    }
+
+    .sup {
+        display: none !important;
+    }
+
+    .mobileTitle {
+        display: block;
+        font-size: 3.75rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        text-transform: uppercase;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .massiveTitle {
+        font-size: inherit;
+        line-height: 1.15;
+        white-space: normal;
+        display: block;
+        text-align: center;
+    }
+
+    .skillsStrip {
+        padding: 0.45rem 0.75rem;
+        font-size: clamp(0.6rem, 2.4vw, 0.75rem);
+        margin-bottom: 1.75rem;
+        gap: 0.5rem;
+    }
+
+    .metaBar {
+        font-size: clamp(0.6rem, 2.3vw, 0.72rem);
+        padding: 0.75rem 0;
+        margin-bottom: 1.75rem;
+        gap: 0.5rem;
+    }
+
+    .contentGrid {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    .imageColumn {
+        width: 100%;
+    }
+
+    .portraitWrapper {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 11;
+        max-height: 340px;
+        border-radius: 12px;
+    }
+
+    .textColumn {
+        width: 100%;
+        padding-top: 0;
+        gap: 1.5rem;
+    }
+
+    .headline {
+        font-size: clamp(1.4rem, 5.8vw, 1.85rem);
+        line-height: 1.28;
+        letter-spacing: -0.02em;
+        margin-bottom: 1.5rem;
+    }
+
+    .tm {
+        font-size: 0.85rem;
+        margin-left: 2px;
+    }
+
+    .footerCTA {
+        margin-bottom: 1.5rem;
+    }
+
+    .statusBar {
+        width: 100%;
+        margin-left: 0;
+        padding: 0.65rem 0.85rem;
+        margin-bottom: 1.25rem;
+        justify-content: space-between;
+        gap: 0.35rem;
+        box-sizing: border-box;
+    }
+
+    .statusLabel {
+        font-size: clamp(0.55rem, 2.2vw, 0.68rem);
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+    }
+
+    .marqueeContainer {
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
+    .logoGridWrapper {
+        width: 480vw;
+        margin-right: 2rem;
+    }
+
+    .logoItem {
+        width: 7.1428%;
+        aspect-ratio: auto;
+        min-height: 80px;
+        padding: 8px 4px;
+    }
+
+    .logoItemEmpty {
+        width: 7.1428%;
+        aspect-ratio: auto;
+        min-height: 80px;
+    }
+
+    .iconBox {
+        width: 42px;
+        height: 42px;
+        border-radius: 10px;
+    }
+
+    .iconBox svg,
+    .iconBox :global(svg),
+    .logoSvg {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    .logoText {
+        font-size: 10px;
+        margin-top: 6px;
+        opacity: 0.75;
+    }
+
+    .marqueeTrack {
+        animation: marqueeLoopMobile 24s linear infinite;
+    }
+}
+
+@keyframes marqueeLoopMobile {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-480vw - 2rem));
     }
 }

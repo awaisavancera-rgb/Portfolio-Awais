@@ -115,14 +115,15 @@ export function Reviews() {
 
             // 3. ScrollTrigger Pin and Cards Scrub
             if (cardsLayoutRef.current) {
-                // Pin the entire 100vh section wrapper for "250%" of viewport height
+                // Pin the entire 100vh section wrapper (250% on desktop, 300% on mobile for 5-card single file scroll)
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: sectionRef.current,
                         start: "top top",
-                        end: "+=250%",
+                        end: () => (window.innerWidth <= 768 ? "+=300%" : "+=250%"),
                         pin: true,
                         scrub: 1, // Smooth scrub
+                        invalidateOnRefresh: true,
                     }
                 });
 
@@ -130,7 +131,12 @@ export function Reviews() {
                 // completely upwards over the section
                 tl.to(cardsLayoutRef.current, {
                     y: () => {
-                        // Move it up by its own height PLUS an extra 30vh so the last cards sit nicely in the top-middle of screen when pin unhooks
+                        const isMobile = window.innerWidth <= 768;
+                        if (isMobile) {
+                            // On mobile, scroll up enough so the GET IN TOUCH button lands centered and clearly visible after all cards
+                            return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.45);
+                        }
+                        // Desktop: Move it up by its own height PLUS an extra 30vh so the last cards sit nicely in the top-middle of screen when pin unhooks
                         return -(cardsLayoutRef.current!.offsetHeight) - (window.innerHeight * 0.3);
                     },
                     ease: "none",
@@ -226,6 +232,23 @@ export function Reviews() {
                 <div className={styles.cardRow}>
                     {renderCard(testimonials[3])}
                     {renderCard(testimonials[4])}
+                </div>
+
+                {/* Mobile CTA: reveals smoothly after scrolling through all testimonial cards */}
+                <div className={styles.mobileCtaWrapper}>
+                    <button className={styles.viewProjectBtn}>
+                        <span className={styles.btnText}>GET IN TOUCH</span>
+                        <div className={styles.btnIconCircle}>
+                            <div className={styles.arrowTrack}>
+                                <div className={styles.arrowIconPrimary}>
+                                    <ArrowRight size={15} strokeWidth={2.2} />
+                                </div>
+                                <div className={styles.arrowIconSecondary}>
+                                    <ArrowRight size={15} strokeWidth={2.2} />
+                                </div>
+                            </div>
+                        </div>
+                    </button>
                 </div>
 
             </div>
