@@ -153,14 +153,14 @@ export const About = () => {
                             </h2>
                             {/* Inverted View More Button */}
                             <div className={styles.footerCTA}>
-                                <button className={styles.viewMoreBtn}>
-                                    <span className={styles.btnText}>VIEW MORE</span>
-                                    <div className={styles.btnIconCircle}>
-                                        <div className={styles.arrowTrack}>
-                                            <div className={styles.arrowIconPrimary}>
+                                <button className="primary-btn">
+                                    <span className="btnText">VIEW MORE</span>
+                                    <div className="btnIconCircle">
+                                        <div className="arrowTrack">
+                                            <div className="arrowIconPrimary">
                                                 <ArrowRight size={16} strokeWidth={2.2} />
                                             </div>
-                                            <div className={styles.arrowIconSecondary}>
+                                            <div className="arrowIconSecondary">
                                                 <ArrowRight size={16} strokeWidth={2.2} />
                                             </div>
                                         </div>

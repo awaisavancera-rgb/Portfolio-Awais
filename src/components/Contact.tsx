@@ -15,7 +15,7 @@ export function Contact() {
     };
 
     return (
-        <section className={styles.contactSection}>
+        <section id="contact" className={styles.contactSection}>
             {/* Header Info */}
             <div className={styles.headerInfo}>
                 <div className={styles.headerCol}>

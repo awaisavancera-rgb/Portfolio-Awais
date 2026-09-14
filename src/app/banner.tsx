@@ -128,19 +128,19 @@ export default function Banner() {
                     >
                         Merging design thinking with human insight to create digital experiences that don&apos;t just look great — they perform effortlessly.
                     </motion.p>
-                    <button className={styles.talkBtn}>
-                        <span className={styles.btnText}>LET&apos;S TALK</span>
-                        <div className={styles.btnIconCircle}>
-                            <div className={styles.arrowTrack}>
-                                <div className={styles.arrowIconPrimary}>
+                    <a href="#contact" className="primary-btn">
+                        <span className="btnText">LET&apos;S TALK</span>
+                        <div className="btnIconCircle">
+                            <div className="arrowTrack">
+                                <div className="arrowIconPrimary">
                                     <ArrowRight size={16} strokeWidth={2.2} />
                                 </div>
-                                <div className={styles.arrowIconSecondary}>
+                                <div className="arrowIconSecondary">
                                     <ArrowRight size={16} strokeWidth={2.2} />
                                 </div>
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </section >

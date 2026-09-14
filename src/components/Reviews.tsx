@@ -197,19 +197,19 @@ export function Reviews() {
                 </div>
 
                 <div className={styles.ctaWrapper}>
-                    <button className={styles.viewProjectBtn}>
-                        <span className={styles.btnText}>GET IN TOUCH</span>
-                        <div className={styles.btnIconCircle}>
-                            <div className={styles.arrowTrack}>
-                                <div className={styles.arrowIconPrimary}>
-                                    <ArrowRight size={15} strokeWidth={2.2} />
+                    <a href="#contact" className="primary-btn light">
+                        <span className="btnText">GET IN TOUCH</span>
+                        <div className="btnIconCircle">
+                            <div className="arrowTrack">
+                                <div className="arrowIconPrimary">
+                                    <ArrowRight size={16} strokeWidth={2.2} />
                                 </div>
-                                <div className={styles.arrowIconSecondary}>
-                                    <ArrowRight size={15} strokeWidth={2.2} />
+                                <div className="arrowIconSecondary">
+                                    <ArrowRight size={16} strokeWidth={2.2} />
                                 </div>
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
 
             </div>
@@ -236,19 +236,19 @@ export function Reviews() {
 
                 {/* Mobile CTA: reveals smoothly after scrolling through all testimonial cards */}
                 <div className={styles.mobileCtaWrapper}>
-                    <button className={styles.viewProjectBtn}>
-                        <span className={styles.btnText}>GET IN TOUCH</span>
-                        <div className={styles.btnIconCircle}>
-                            <div className={styles.arrowTrack}>
-                                <div className={styles.arrowIconPrimary}>
-                                    <ArrowRight size={15} strokeWidth={2.2} />
+                    <a href="#contact" className="primary-btn light">
+                        <span className="btnText">GET IN TOUCH</span>
+                        <div className="btnIconCircle">
+                            <div className="arrowTrack">
+                                <div className="arrowIconPrimary">
+                                    <ArrowRight size={16} strokeWidth={2.2} />
                                 </div>
-                                <div className={styles.arrowIconSecondary}>
-                                    <ArrowRight size={15} strokeWidth={2.2} />
+                                <div className="arrowIconSecondary">
+                                    <ArrowRight size={16} strokeWidth={2.2} />
                                 </div>
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
 
             </div>

@@ -129,14 +129,14 @@ export const Portfolio = () => {
                     <div className={styles.subheader}>
                         <h3 className={styles.selectedLabel}>SELECTED</h3>
                         <div className={styles.ctaWrapper}>
-                            <button className={styles.viewAllBtn}>
-                                <span className={styles.btnText}>VIEW ALL PROJECTS</span>
-                                <div className={styles.btnIconCircle}>
-                                    <div className={styles.arrowTrack}>
-                                        <div className={styles.arrowIconPrimary}>
+                            <button className="primary-btn">
+                                <span className="btnText">VIEW ALL PROJECTS</span>
+                                <div className="btnIconCircle">
+                                    <div className="arrowTrack">
+                                        <div className="arrowIconPrimary">
                                             <ArrowRight size={16} strokeWidth={2.2} />
                                         </div>
-                                        <div className={styles.arrowIconSecondary}>
+                                        <div className="arrowIconSecondary">
                                             <ArrowRight size={16} strokeWidth={2.2} />
                                         </div>
                                     </div>
@@ -165,14 +165,14 @@ export const Portfolio = () => {
                                             {project.description}
                                         </p>
 
-                                        <button className={styles.viewProjectBtn}>
-                                            <span className={styles.btnText}>VIEW PROJECT</span>
-                                            <div className={styles.btnIconCircle}>
-                                                <div className={styles.arrowTrack}>
-                                                    <div className={styles.arrowIconPrimary}>
+                                        <button className="primary-btn light">
+                                            <span className="btnText">VIEW PROJECT</span>
+                                            <div className="btnIconCircle">
+                                                <div className="arrowTrack">
+                                                    <div className="arrowIconPrimary">
                                                         <ArrowRight size={16} strokeWidth={2.2} />
                                                     </div>
-                                                    <div className={styles.arrowIconSecondary}>
+                                                    <div className="arrowIconSecondary">
                                                         <ArrowRight size={16} strokeWidth={2.2} />
                                                     </div>
                                                 </div>
