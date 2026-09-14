@@ -3,9 +3,23 @@
 import styles from "./footer.module.css";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export function Footer() {
-    // Force recompile to clear Turbopack HMR error
+    const [email, setEmail] = useState("");
+    const [subscribed, setSubscribed] = useState(false);
+
+    const handleNewsletter = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (email.trim()) {
+            setSubscribed(true);
+            setTimeout(() => {
+                setSubscribed(false);
+                setEmail("");
+            }, 3000);
+        }
+    };
+
     return (
         <footer className={styles.footerWrapper}>
             <div className={styles.footerContent}>
@@ -60,21 +74,35 @@ export function Footer() {
                     </div>
 
                     <div className={styles.newsletterWrapper}>
-                        <span className={styles.newsletterTitle}>Get updates and insights - Sign up for monthly newsletter.</span>
-                        <input type="email" placeholder="Email" className={styles.newsletterInput} />
-                        <button className={styles.viewMoreBtn}>
-                            <span className={styles.btnText}>SIGN UP</span>
-                            <div className={styles.btnIconCircle}>
-                                <div className={styles.arrowTrack}>
-                                    <div className={styles.arrowIconPrimary}>
-                                        <ArrowRight size={16} strokeWidth={2.2} />
+                        <span className={styles.newsletterTitle}>Get updates and insights &mdash; Sign up for monthly newsletter.</span>
+                        <form className={styles.newsletterForm} onSubmit={handleNewsletter}>
+                            <div className={styles.newsletterInputGroup}>
+                                <input 
+                                    type="email" 
+                                    placeholder="Enter your email" 
+                                    className={styles.newsletterInput} 
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                                <button type="submit" className="primary-btn">
+                                    <span className="btnText">{subscribed ? "SUBSCRIBED!" : "SIGN UP"}</span>
+                                    <div className="btnIconCircle">
+                                        <div className="arrowTrack">
+                                            <div className="arrowIconPrimary">
+                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                            </div>
+                                            <div className="arrowIconSecondary">
+                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className={styles.arrowIconSecondary}>
-                                        <ArrowRight size={16} strokeWidth={2.2} />
-                                    </div>
-                                </div>
+                                </button>
                             </div>
-                        </button>
+                            {subscribed && (
+                                <span className={styles.newsletterSuccess}>Thank you for subscribing!</span>
+                            )}
+                        </form>
                     </div>
                 </div>
 
