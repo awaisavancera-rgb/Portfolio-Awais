@@ -21,6 +21,13 @@
     outline: 1px solid transparent; /* Forces smooth anti-aliased edge on GPU */
 }
 
+/* Disable mix-blend-mode during page transitions to prevent GPU compositor tiling artifacts */
+body.page-transitioning .customCursor {
+    mix-blend-mode: normal;
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
 .cursorLabel {
     font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 10px;

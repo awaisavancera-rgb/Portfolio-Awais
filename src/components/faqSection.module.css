@@ -67,14 +67,14 @@
 }
 
 .faqItem {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid #bbb3;
     padding: 35px 0;
     cursor: pointer;
     overflow: hidden;
 }
 
 .faqItem:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #bbb3;
 }
 
 .faqHeader {
@@ -197,5 +197,9 @@
 
     .heading {
         font-size: 2rem;
+    }
+
+    .faqItem {
+        padding: 15px 0;
     }
 }

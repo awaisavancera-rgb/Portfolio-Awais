@@ -30,6 +30,10 @@
         font-size: 0.8rem;
         padding: 20px 20px;
     }
+
+    .allWorksSection {
+        padding: 0 1.25rem 1.25rem;
+    }
 }
 
 .container {
@@ -255,7 +259,7 @@
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        padding: 40px 20px 0;
+        padding: 40px 0 0;
     }
 
     .headingWrapper {
@@ -265,12 +269,16 @@
     }
 
     .headingText {
-        font-size: 20vw;
+        font-size: 19vw;
+    }
+
+    .headingNumber {
+        margin-bottom: 0;
     }
 
     .headingNumber h3 {
         font-size: 5vw;
-        margin-bottom: 4vw;
+        margin-bottom: 2vw;
     }
 
     .cardsWrapper {

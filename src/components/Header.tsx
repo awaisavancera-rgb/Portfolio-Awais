@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import styles from "./header.module.css";
 import { LiquidMetalButton } from "@/components/LiquidMetalButton";
+import { triggerPageTransition } from "@/components/PageTransition";
 
 export function Header() {
     const pathname = usePathname();
@@ -45,15 +46,15 @@ export function Header() {
         setActiveNav(item);
         setIsMenuOpen(false);
         if (item === "Work / Portfolio") {
-            router.push("/portfolio");
+            triggerPageTransition("/portfolio");
         } else if (item === "Home") {
-            router.push("/");
+            triggerPageTransition("/");
         } else if (item === "Contact") {
-            router.push("/contact");
+            triggerPageTransition("/contact");
         } else if (item === "Blog") {
-            router.push("/blog");
+            triggerPageTransition("/blog");
         } else if (pathname === "/portfolio" || pathname === "/contact" || pathname === "/blog") {
-            router.push("/");
+            triggerPageTransition("/");
         }
     };
 
@@ -154,7 +155,7 @@ export function Header() {
                 )}
             </AnimatePresence>
 
-            <LiquidMetalButton label="See Projects" />
+            <LiquidMetalButton label="See Projects" onClick={() => handleNavClick("Work / Portfolio")} />
 
             <AnimatePresence>
                 {isMenuOpen && (

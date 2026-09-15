@@ -292,7 +292,7 @@
 .statusLabel {
     color: #000;
     font-size: 0.9vw;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.01vw;
     font-family: inherit;
@@ -488,7 +488,7 @@
 
     .titleWrapper {
         padding-top: 2rem;
-        margin-bottom: 1.25rem;
+        margin-bottom: .25rem;
     }
 
     .desktopTitle {
@@ -519,10 +519,14 @@
     }
 
     .skillsStrip {
-        padding: 0.45rem 0.75rem;
-        font-size: clamp(0.6rem, 2.4vw, 0.75rem);
+        padding: 0 10px;
+        font-size: 0.75rem;
         margin-bottom: 1.75rem;
         gap: 0.5rem;
+        position: absolute;
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%);
     }
 
     .metaBar {
@@ -530,6 +534,7 @@
         padding: 0.75rem 0;
         margin-bottom: 1.75rem;
         gap: 0.5rem;
+        margin-top: 50px;
     }
 
     .contentGrid {
@@ -573,17 +578,23 @@
     }
 
     .statusBar {
-        width: 100%;
+        width: 110%;
         margin-left: 0;
-        padding: 0.65rem 0.85rem;
+        padding: 0 10px;
         margin-bottom: 1.25rem;
         justify-content: space-between;
         gap: 0.35rem;
         box-sizing: border-box;
+        padding: 0 10px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%) !important;
     }
 
     .statusLabel {
-        font-size: clamp(0.55rem, 2.2vw, 0.68rem);
+        font-size: .75rem;
+        line-height: 1.6em;
         letter-spacing: 0.01em;
         white-space: nowrap;
     }
@@ -591,6 +602,7 @@
     .marqueeContainer {
         padding: 0.5rem 0;
         width: 100%;
+        margin-top: 40px;
     }
 
     .logoGridWrapper {
