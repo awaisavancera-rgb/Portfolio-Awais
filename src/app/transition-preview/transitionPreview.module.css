@@ -1,0 +1,209 @@
+/* ═══════════════════════════════════════════════════════════
+   PAGE TRANSITION PREVIEW — Static Design
+   Dark monochrome theme matching the portfolio site.
+   ═══════════════════════════════════════════════════════════ */
+
+.screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    color: #ffffff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── MAIN CONTENT ─── */
+.mainContent {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 32px 0;
+    position: relative;
+    z-index: 5;
+}
+
+/* LEFT SIDE: Huge Typography */
+.leftSide {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hugeText {
+    margin: 0;
+    padding: 0;
+    line-height: 0.88;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+}
+
+.hugeLine {
+    display: block;
+    font-size: clamp(5rem, 11vw, 12rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #ffffff;
+    text-transform: none;
+    position: relative;
+}
+
+.registeredMark {
+    font-size: clamp(1rem, 2vw, 2.2rem);
+    font-weight: 400;
+    vertical-align: super;
+    color: rgba(255, 255, 255, 0.35);
+    margin-left: 4px;
+    position: relative;
+    top: -0.5em;
+}
+
+/* RIGHT SIDE: Image */
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.imageWrapper {
+    width: clamp(180px, 18vw, 260px);
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    position: relative;
+    background-color: #111;
+}
+
+.portraitImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ─── FULL WIDTH SKILLS STRIP ─── */
+.skillsStrip {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: 0.45rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 10;
+}
+
+/* ─── BOTTOM SECTION ─── */
+.bottomSection {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 20px 32px 28px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Percentage Counter */
+.percentageArea {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+}
+
+.percentageNumber {
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.percentSign {
+    font-size: clamp(1.5rem, 3vw, 2.8rem);
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    vertical-align: baseline;
+    margin-left: 2px;
+}
+
+/* Progress Bar */
+.progressTrack {
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progressFill {
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 1px;
+    transition: width 0.3s ease;
+}
+
+/* Status Row */
+.statusRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.statusLabel {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+    .mainContent {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px 20px 0;
+    }
+
+    .hugeLine {
+        font-size: clamp(3rem, 14vw, 6rem);
+    }
+
+    .rightSide {
+        align-items: flex-start;
+    }
+
+    .imageWrapper {
+        width: 140px;
+    }
+
+    .skillsStrip {
+        font-size: 0.6rem;
+        padding: 0.35rem 0.8rem;
+    }
+
+    .bottomSection {
+        padding: 16px 20px 20px;
+    }
+
+    .percentageNumber {
+        font-size: 3.5rem;
+    }
+}

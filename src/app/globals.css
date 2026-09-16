@@ -28,11 +28,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* During page transitions, force the entire page into a single compositor layer
+   so Chrome doesn't leave stale white tiles when the transition panels lift. */
+body.page-transitioning main {
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 /* Override for specific pages to allow native position: sticky */
 html.portfolio-detail-page,
 body.portfolio-detail-page {
   overflow-x: visible !important;
 }
+
 
 .container {
   width: 100%;
