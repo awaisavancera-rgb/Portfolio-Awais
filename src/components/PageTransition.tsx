@@ -29,7 +29,14 @@ export function PageTransition() {
     const backdropRef = useRef<HTMLDivElement>(null);
     const frameAccentRef = useRef<HTMLDivElement>(null);
     const frameMainRef = useRef<HTMLDivElement>(null);
-    const logoRef = useRef<HTMLDivElement>(null);
+
+    const line1Ref = useRef<HTMLSpanElement>(null);
+    const line2Ref = useRef<HTMLSpanElement>(null);
+    const imageRef = useRef<HTMLDivElement>(null);
+    const skillsStripRef = useRef<HTMLDivElement>(null);
+    const counterTextRef = useRef<HTMLSpanElement>(null);
+    const progressFillRef = useRef<HTMLDivElement>(null);
+    const statusLabelRef = useRef<HTMLSpanElement>(null);
 
     const isTransitioningRef = useRef(false);
     const currentPathRef = useRef(pathname);
@@ -52,9 +59,8 @@ export function PageTransition() {
         const backdrop = backdropRef.current;
         const frameAccent = frameAccentRef.current;
         const frameMain = frameMainRef.current;
-        const logo = logoRef.current;
 
-        if (!overlay || !backdrop || !frameAccent || !frameMain || !logo) {
+        if (!overlay || !backdrop || !frameAccent || !frameMain) {
             router.push(targetUrl);
             return;
         }
@@ -65,7 +71,22 @@ export function PageTransition() {
         document.body.classList.add("page-transitioning");
 
         // Kill any previous tweens to prevent conflicts
-        gsap.killTweensOf([overlay, backdrop, frameAccent, frameMain, logo]);
+        gsap.killTweensOf([
+            overlay,
+            backdrop,
+            frameAccent,
+            frameMain,
+            line1Ref.current,
+            line2Ref.current,
+            imageRef.current,
+            skillsStripRef.current,
+            progressFillRef.current,
+        ]);
+
+        const counterObj = { val: 0 };
+        if (counterTextRef.current) counterTextRef.current.textContent = "0";
+        if (progressFillRef.current) progressFillRef.current.style.width = "0%";
+        if (statusLabelRef.current) statusLabelRef.current.textContent = "INITIALIZING...";
 
         const tl = gsap.timeline({
             onComplete: () => {
@@ -88,111 +109,157 @@ export function PageTransition() {
         });
 
         // ═══════════════════════════════════════════
-        // PHASE 1 — ENTER: Black curtains slide up from the bottom
+        // INITIAL SETTINGS
         // ═══════════════════════════════════════════
-
         tl.set(overlay, { display: "block", autoAlpha: 1 })
             .set(backdrop, { autoAlpha: 1 })
             .set([frameAccent, frameMain], { yPercent: 100 })
-            .set(logo, { y: 35, autoAlpha: 0 })
+            .set([line1Ref.current, line2Ref.current], { yPercent: 120, opacity: 0 })
+            .set(imageRef.current, { scale: 1.15, opacity: 0 })
+            .set(skillsStripRef.current, { y: 20, opacity: 0 })
+            .set(progressFillRef.current, { width: "0%" });
 
-            // Curtains slide up
-            .to(frameAccent, {
+        // ═══════════════════════════════════════════
+        // PHASE 1 — ENTER: Black curtain slides up from bottom
+        // ═══════════════════════════════════════════
+        tl.to(frameAccent, {
+            yPercent: 0,
+            duration: 0.65,
+            ease: "power4.inOut",
+        })
+        .to(
+            frameMain,
+            {
                 yPercent: 0,
+                duration: 0.65,
+                ease: "power4.inOut",
+            },
+            0.08
+        )
+
+        // ═══════════════════════════════════════════
+        // INNER ANIMATIONS: Text, image, skills, counter
+        // ═══════════════════════════════════════════
+        .to(
+            line1Ref.current,
+            {
+                yPercent: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power4.out",
+            },
+            0.35
+        )
+        .to(
+            line2Ref.current,
+            {
+                yPercent: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power4.out",
+            },
+            0.45
+        )
+        .to(
+            imageRef.current,
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 0.75,
+                ease: "power3.out",
+            },
+            0.4
+        )
+        .to(
+            skillsStripRef.current,
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.55,
+                ease: "power3.out",
+            },
+            0.48
+        )
+
+        // Counter & Progress Bar: 0 -> 100%
+        .to(
+            counterObj,
+            {
+                val: 100,
+                duration: 1.1,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    const rounded = Math.round(counterObj.val);
+                    if (counterTextRef.current) {
+                        counterTextRef.current.textContent = `${rounded}`;
+                    }
+                    if (progressFillRef.current) {
+                        progressFillRef.current.style.width = `${rounded}%`;
+                    }
+                    if (statusLabelRef.current) {
+                        if (rounded < 40) {
+                            statusLabelRef.current.textContent = "LOADING ASSETS...";
+                        } else if (rounded < 85) {
+                            statusLabelRef.current.textContent = "COMPOSITING SCENE...";
+                        } else if (rounded < 100) {
+                            statusLabelRef.current.textContent = "FINALIZING...";
+                        } else {
+                            statusLabelRef.current.textContent = "COMPLETE";
+                        }
+                    }
+                },
+            },
+            0.35
+        )
+
+        // ═══════════════════════════════════════════
+        // PHASE 2 — NAVIGATE: Route change when 100% reached
+        // ═══════════════════════════════════════════
+        .add(() => {
+            router.push(targetUrl);
+            window.scrollTo(0, 0);
+        })
+
+        // Brief hold for new page components to mount cleanly
+        .to({}, { duration: 0.35 })
+
+        // ═══════════════════════════════════════════
+        // PHASE 3 — EXIT: Panels slide up and away
+        // ═══════════════════════════════════════════
+        .to(
+            frameMain,
+            {
+                yPercent: -100,
                 duration: 0.8,
                 ease: "power4.inOut",
-            })
-            .to(
-                frameMain,
-                {
-                    yPercent: 0,
-                    duration: 0.8,
-                    ease: "power4.inOut",
-                },
-                0.12
-            )
-            .to(
-                logo,
-                {
-                    y: 0,
-                    autoAlpha: 1,
-                    duration: 0.5,
-                    ease: "power3.out",
-                },
-                0.35
-            )
+            }
+        )
+        .to(
+            frameAccent,
+            {
+                yPercent: -100,
+                duration: 0.8,
+                ease: "power4.inOut",
+            },
+            "<0.04"
+        )
 
-            // ═══════════════════════════════════════════
-            // PHASE 2 — NAVIGATE: Screen fully covered → change route
-            // ═══════════════════════════════════════════
-
-            .add(() => {
-                router.push(targetUrl);
-                window.scrollTo(0, 0);
-            })
-
-            // Hold 0.5s for new page to mount and render
-            .to({}, { duration: 0.5 })
-
-            // ═══════════════════════════════════════════
-            // PHASE 3 — EXIT: Panels slide up, backdrop covers artifacts
-            // ═══════════════════════════════════════════
-            //
-            // KEY INSIGHT: The black backdrop stays fully opaque while
-            // panels slide up. This hides any GPU compositor tile
-            // artifacts. Only AFTER panels are gone does the backdrop
-            // fade out — by then the page is fully composited.
-
-            // Logo fades out first
-            .to(logo, {
-                y: -25,
+        // ═══════════════════════════════════════════
+        // PHASE 4 — REVEAL: Backdrop fades out smoothly
+        // ═══════════════════════════════════════════
+        .to(backdrop, {
+            autoAlpha: 0,
+            duration: 0.35,
+            ease: "power2.out",
+        })
+        .to(
+            overlay,
+            {
                 autoAlpha: 0,
-                duration: 0.35,
-                ease: "power2.in",
-            })
-
-            // Panels slide up and away (backdrop still visible behind them!)
-            .to(
-                frameMain,
-                {
-                    yPercent: -100,
-                    duration: 0.85,
-                    ease: "power4.inOut",
-                },
-                "-=0.08"
-            )
-            .to(
-                frameAccent,
-                {
-                    yPercent: -100,
-                    duration: 0.85,
-                    ease: "power4.inOut",
-                },
-                "<"
-            )
-
-            // ═══════════════════════════════════════════
-            // PHASE 4 — REVEAL: Backdrop fades out to show the new page
-            // ═══════════════════════════════════════════
-            // Panels are now off-screen. The backdrop was covering
-            // everything, so no white lines were ever visible.
-            // Now fade the backdrop to reveal the fully-composited page.
-
-            .to(backdrop, {
-                autoAlpha: 0,
-                duration: 0.4,
-                ease: "power2.out",
-            })
-
-            // Final overlay cleanup
-            .to(
-                overlay,
-                {
-                    autoAlpha: 0,
-                    duration: 0.1,
-                },
-                "-=0.1"
-            );
+                duration: 0.1,
+            },
+            "-=0.1"
+        );
     };
 
     // Event listeners for links and custom trigger
@@ -248,14 +315,75 @@ export function PageTransition() {
             {/* Leading subtle accent curtain */}
             <div ref={frameAccentRef} className={styles.frameAccent} />
 
-            {/* Main deep black curtain */}
-            <div ref={frameMainRef} className={styles.frameMain} />
+            {/* Main deep black curtain with the full transition design */}
+            <div ref={frameMainRef} className={styles.frameMain}>
+                {/* ─── MAIN CONTENT ─── */}
+                <div className={styles.mainContent}>
+                    {/* LEFT SIDE: Huge Typography */}
+                    <div className={styles.leftSide}>
+                        <h1 className={styles.hugeText}>
+                            <span className={styles.lineMask}>
+                                <span ref={line1Ref} className={styles.hugeLine}>
+                                    Muhammad
+                                </span>
+                            </span>
+                            <span className={styles.lineMask}>
+                                <span
+                                    ref={line2Ref}
+                                    className={styles.hugeLine}
+                                    style={{ textAlign: "right" }}
+                                >
+                                    Awais
+                                    <sup className={styles.registeredMark}>®</sup>
+                                </span>
+                            </span>
+                        </h1>
+                    </div>
 
-            {/* Minimal refined luxury typography */}
-            <div ref={logoRef} className={styles.logoWrapper}>
-                <span className={styles.brandTitle}>AWAIS</span>
-                <div className={styles.brandLine} />
-                <span className={styles.brandSub}>SELECTED WORKS</span>
+                    {/* RIGHT SIDE: Image */}
+                    <div className={styles.rightSide}>
+                        <div ref={imageRef} className={styles.imageWrapper}>
+                            <img
+                                src="/PRICING.png"
+                                alt="Muhammad Awais"
+                                className={styles.portraitImage}
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* ─── FULL WIDTH SKILLS STRIP ─── */}
+                <div ref={skillsStripRef} className={styles.skillsStrip}>
+                    <span>Freelancer</span>
+                    <span>Digital Nomad</span>
+                    <span>Creative Developer</span>
+                </div>
+
+                {/* ─── BOTTOM SECTION ─── */}
+                <div className={styles.bottomSection}>
+                    <div className={styles.percentageArea}>
+                        <div className={styles.percentageNumber}>
+                            <span ref={counterTextRef}>0</span>
+                            <span className={styles.percentSign}>%</span>
+                        </div>
+
+                        {/* Progress line */}
+                        <div className={styles.progressTrack}>
+                            <div
+                                ref={progressFillRef}
+                                className={styles.progressFill}
+                                style={{ width: "0%" }}
+                            />
+                        </div>
+
+                        <div className={styles.statusRow}>
+                            <span ref={statusLabelRef} className={styles.statusLabel}>
+                                LOADING ASSETS...
+                            </span>
+                            <span className={styles.statusLabel}>PLEASE WAIT</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

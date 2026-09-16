@@ -43,10 +43,16 @@
     width: 100%;
 }
 
+.lineMask {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+}
+
 .hugeLine {
     display: block;
     font-size: clamp(5rem, 11vw, 12rem);
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.04em;
     color: #ffffff;
     text-transform: none;
@@ -70,6 +76,7 @@
     align-items: flex-end;
     position: relative;
     z-index: 10;
+    width: 25vw;
     flex-shrink: 0;
 }
 
@@ -111,6 +118,7 @@
     align-items: flex-end;
     padding: 20px 32px 28px;
     position: relative;
+    margin-top: 40px;
     z-index: 10;
 }
 
@@ -124,7 +132,7 @@
 
 .percentageNumber {
     font-size: clamp(4rem, 8vw, 7rem);
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: -0.04em;
     line-height: 1;
     color: #ffffff;
@@ -206,4 +214,29 @@
     .percentageNumber {
         font-size: 3.5rem;
     }
+}
+
+.replayButton {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 18px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.replayButton:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
 }
