@@ -32,6 +32,7 @@ export const ProjectCard = ({ project }: { project: any }) => {
             ref={cardRef}
             href={`/work/${project.slug}`}
             className={styles.projectCard}
+            data-cursor="none"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}

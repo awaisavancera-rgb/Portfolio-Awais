@@ -4,9 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import styles from "./custom-cursor.module.css";
 
-// 48px native size scaled down to ~14px gives ultra-crisp anti-aliasing without raster glitching on scale
+// 48px native size scaled down to ~14px gives ultra-crisp anti-aliasing
 const DEFAULT_SCALE = 0.292; // 48px * 0.292 ≈ 14px
-const HOVER_SCALE = 1.0;    // 48px native size
 const TEXT_SCALE = 1.4;     // 48px * 1.4 ≈ 67px
 
 export function CustomCursor() {
@@ -52,13 +51,12 @@ export function CustomCursor() {
             setIsHovered(hovered);
             setCursorText(text);
 
-            const targetScale = hovered
-                ? (text ? TEXT_SCALE : HOVER_SCALE)
-                : DEFAULT_SCALE;
+            // Do NOT expand on buttons or fields; keep default scale unless explicit text label exists
+            const targetScale = text ? TEXT_SCALE : DEFAULT_SCALE;
 
             gsap.to(cursor, {
                 scale: targetScale,
-                duration: 0.3,
+                duration: 0.2,
                 ease: "power2.out",
                 overwrite: "auto",
             });
@@ -70,13 +68,27 @@ export function CustomCursor() {
             xCursor(x);
             yCursor(y);
 
-            if (!isVisibleRef.current) {
-                isVisibleRef.current = true;
-                gsap.to(cursor, { opacity: 1, duration: 0.25, overwrite: "auto" });
+            const target = e.target as HTMLElement | null;
+
+            // Check if hovering over an element with its own dedicated cursor (e.g. portfolio cards)
+            const hasCustomCursor = target?.closest(
+                "[data-cursor='none'], [data-cursor='view'], [class*='projectCard']"
+            );
+
+            if (hasCustomCursor) {
+                if (isVisibleRef.current) {
+                    isVisibleRef.current = false;
+                    gsap.to(cursor, { opacity: 0, scale: 0, duration: 0.15, overwrite: "auto" });
+                }
+                return;
             }
 
-            // Detect clickable or interactive elements
-            const target = e.target as HTMLElement | null;
+            if (!isVisibleRef.current) {
+                isVisibleRef.current = true;
+                gsap.to(cursor, { opacity: 1, scale: DEFAULT_SCALE, duration: 0.2, overwrite: "auto" });
+            }
+
+            // Detect clickable or interactive elements without expanding into a big circle
             if (target) {
                 const clickable = target.closest(
                     "a, button, input, textarea, select, [role='button'], [data-cursor='pointer'], [data-cursor-text], summary"
@@ -92,9 +104,8 @@ export function CustomCursor() {
         };
 
         const handleMouseDown = () => {
-            const clickScale = isHoveredRef.current
-                ? (cursorTextRef.current ? 1.2 : 0.82)
-                : 0.22;
+            // Subtle click compression, never expanding big
+            const clickScale = DEFAULT_SCALE * 0.75;
 
             gsap.to(cursor, {
                 scale: clickScale,
@@ -105,13 +116,11 @@ export function CustomCursor() {
         };
 
         const handleMouseUp = () => {
-            const releaseScale = isHoveredRef.current
-                ? (cursorTextRef.current ? TEXT_SCALE : HOVER_SCALE)
-                : DEFAULT_SCALE;
+            const releaseScale = cursorTextRef.current ? TEXT_SCALE : DEFAULT_SCALE;
 
             gsap.to(cursor, {
                 scale: releaseScale,
-                duration: 0.25,
+                duration: 0.2,
                 ease: "power2.out",
                 overwrite: "auto",
             });
@@ -119,12 +128,12 @@ export function CustomCursor() {
 
         const handleMouseLeave = () => {
             isVisibleRef.current = false;
-            gsap.to(cursor, { opacity: 0, duration: 0.25, overwrite: "auto" });
+            gsap.to(cursor, { opacity: 0, duration: 0.2, overwrite: "auto" });
         };
 
         const handleMouseEnter = () => {
             isVisibleRef.current = true;
-            gsap.to(cursor, { opacity: 1, duration: 0.25, overwrite: "auto" });
+            gsap.to(cursor, { opacity: 1, scale: DEFAULT_SCALE, duration: 0.2, overwrite: "auto" });
         };
 
         window.addEventListener("mousemove", handleMouseMove, { passive: true });
