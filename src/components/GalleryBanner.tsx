@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './galleryBanner.module.css';
 
-export function GalleryBanner() {
+export function GalleryBanner({ title = "Works©" }: { title?: string }) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Track mouse position
@@ -65,7 +65,7 @@ export function GalleryBanner() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    Works©
+                    {title}
                 </motion.h1>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

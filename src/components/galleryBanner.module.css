@@ -220,12 +220,91 @@
     height: 14vw;
 }
 
-@media (max-width: 768px) {
-    .title {
-        font-size: 18vw;
+@media (max-width: 1024px) {
+    .galleryBanner {
+        min-height: 85vh;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+        padding: 60px 24px;
     }
 
-    .imageWrapper {
-        transform: scale(0.7) !important;
+    .title {
+        font-size: clamp(3.8rem, 15vw, 9rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .galleryBanner {
+        min-height: 75vh;
+        margin-top: 0;
+        padding: 95px 16px 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .title {
+        font-size: clamp(3.2rem, 16vw, 5.5rem);
+    }
+
+    .talkBtn {
+        height: 38px;
+        padding: 3px 3px 3px 16px;
+        gap: 14px;
+    }
+
+    .btnText {
+        font-size: 12px;
+        padding-right: 40px;
+    }
+
+    .btnIconCircle {
+        width: 32px;
+        height: 32px;
+    }
+
+    .img3,
+    .img6,
+    .img7,
+    .img8 {
+        display: none;
+    }
+
+    .img1 {
+        top: 8%;
+        left: 3%;
+        width: 26vw;
+        height: 19vw;
+        min-width: 75px;
+        min-height: 55px;
+        opacity: 0.65;
+    }
+
+    .img4 {
+        top: 10%;
+        right: 3%;
+        width: 24vw;
+        height: 17vw;
+        min-width: 75px;
+        min-height: 55px;
+        opacity: 0.65;
+    }
+
+    .img5 {
+        bottom: 8%;
+        left: 3%;
+        width: 26vw;
+        height: 28vw;
+        min-width: 75px;
+        min-height: 85px;
+        opacity: 0.65;
+    }
+
+    .img2 {
+        bottom: 10%;
+        right: 3%;
+        width: 24vw;
+        height: 32vw;
+        min-width: 75px;
+        min-height: 100px;
+        opacity: 0.65;
     }
 }

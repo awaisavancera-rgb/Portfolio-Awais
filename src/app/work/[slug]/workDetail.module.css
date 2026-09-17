@@ -5,6 +5,7 @@
     min-height: 100vh;
     color: #fff;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
 /* Marquee Section */
@@ -25,7 +26,7 @@
 
 .marqueeText {
     display: inline-block;
-    font-size: 15vw;
+    font-size: clamp(3.5rem, 14vw, 15vw);
     font-weight: 600;
     letter-spacing: -0.05em;
     line-height: 1;
@@ -83,6 +84,7 @@
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 14px;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .descriptionText {
@@ -117,7 +119,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 6px;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
 }
 
 .infoLabel {
@@ -129,7 +133,7 @@
 .infoValue {
     color: rgb(153, 153, 153);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .infoLine {
@@ -137,8 +141,6 @@
     width: 100%;
     background-color: #bbb3;
 }
-
-
 
 /* Right Gallery */
 .rightGallery {
@@ -165,6 +167,7 @@
     height: auto;
     border-radius: 8px;
     object-fit: cover;
+    display: block;
 }
 
 /* More Works Section */
@@ -188,7 +191,7 @@
     max-width: 1480px;
     padding: 24px;
     font-family: Inter, sans-serif;
-    font-size: .8vw;
+    font-size: clamp(0.72rem, 0.8vw, 0.85rem);
     display: flex;
 }
 
@@ -203,35 +206,113 @@
     border-top: 1px solid #bbb3;
 }
 
-/* Mobile Responsiveness */
+/* Tablet & Mobile Responsiveness */
 @media (max-width: 1024px) {
+    .marqueeContainer {
+        padding: 100px 0 30px 0;
+    }
+
     .contentContainer {
         flex-direction: column;
-        padding: 40px 24px;
-        gap: 50px;
+        padding: 36px 24px;
+        gap: 40px;
     }
 
     .leftSidebarWrapper {
         width: 100%;
         height: auto;
+        flex: none;
     }
 
     .leftSidebar {
         width: 100%;
         position: relative;
         top: 0;
+        padding: 0;
+        gap: 14px;
     }
 
     .rightGallery {
         width: 100%;
+        border-left: none;
+        border-top: 1px solid #bbb3;
+        padding: 36px 0 0 0;
+        gap: 20px;
     }
 
     .metaBar {
+        font-size: 0.8rem;
         padding: 20px 24px;
     }
 
     .relatedGrid {
         grid-template-columns: 1fr;
         padding: 40px 24px;
+        gap: 32px;
+    }
+
+    .moreWorksSection {
+        margin-top: 40px;
+    }
+}
+
+/* Small Mobile Responsiveness */
+@media (max-width: 640px) {
+    .marqueeContainer {
+        padding: 120px 0 20px 0;
+    }
+
+    .separator {
+        margin: 0 20px;
+    }
+
+    .contentContainer {
+        padding: 2rem 1.25rem;
+        gap: 28px;
+    }
+
+    .dateText {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+
+    .descriptionText {
+        font-size: 0.95rem;
+        padding-bottom: 14px;
+        line-height: 1.5;
+    }
+
+    .infoList {
+        padding-bottom: 20px;
+        gap: 12px;
+    }
+
+    .infoLabel,
+    .infoValue {
+        font-size: 0.88rem;
+    }
+
+    .rightGallery {
+        padding: 28px 0 0 0;
+        gap: 16px;
+    }
+
+    .galleryImage {
+        border-radius: 6px;
+    }
+
+    .metaBar {
+        font-size: 0.68rem;
+        padding: 1.25rem;
+        letter-spacing: 0.05em;
+    }
+
+    .relatedGrid {
+        padding: 2.2rem 1.25rem;
+        gap: 24px;
+    }
+
+    .moreWorksSection {
+        margin-top: 24px;
     }
 }

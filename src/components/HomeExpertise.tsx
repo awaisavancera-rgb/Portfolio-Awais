@@ -150,14 +150,14 @@ export const HomeExpertise = () => {
 
         const mm = gsap.matchMedia()
 
-        // 4. DESKTOP ONLY: Extended Pinning (Generous Scroll Distance so user can see all accordions)
+        // 4. DESKTOP ONLY: Extended Pinning with Stacking Card Overlap
         mm.add("(min-width: 769px)", () => {
             ScrollTrigger.create({
                 trigger: sectionRef.current,
                 start: "bottom bottom",
-                end: "+=1200", // Gives users ample scroll space to explore all accordions before About section enters
+                end: () => `+=${Math.round(window.innerHeight * 1.8)}`,
                 pin: true,
-                pinSpacing: true, // Reserves space so the section stays pinned in full view
+                pinSpacing: false, // Allows About section to smoothly overlap on top
                 invalidateOnRefresh: true,
             })
         })
@@ -320,6 +320,8 @@ export const HomeExpertise = () => {
                     </div>
                 </div>
             </section>
+            {/* Scroll buffer spacer allowing user to explore experience section before About overlaps */}
+            <div className={styles.overlapSpacer} aria-hidden="true" />
         </>
     )
 }
