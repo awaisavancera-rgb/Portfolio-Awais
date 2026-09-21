@@ -4,9 +4,6 @@
   --background: #000000;
   --inner-bg: #000000;
   --foreground: #ffffff;
-  --primary: #5c00ff;
-  /* Vibrant Purple */
-  --primary-light: #8b5cf6;
   --font-main: 'Inter', sans-serif;
   --font-display: 'Inter', sans-serif;
 }
@@ -271,6 +268,7 @@ h2 {
 
 /* Custom Cursor Active on Desktop */
 @media (hover: hover) and (pointer: fine) {
+
   body.custom-cursor-active,
   body.custom-cursor-active a,
   body.custom-cursor-active button,

@@ -163,8 +163,17 @@
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        padding: 60px 24px;
+        padding: 60px 0;
         gap: 60px;
+    }
+
+    .faqSection {
+        padding: 0 1.25rem;
+    }
+
+    .metaBar {
+        font-size: clamp(.6rem, 2.3vw, .72rem);
+        padding: 10px 0px 20px;
     }
 
     .leftColumn {
