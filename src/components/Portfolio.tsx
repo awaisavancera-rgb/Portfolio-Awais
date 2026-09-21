@@ -23,24 +23,24 @@ interface Project {
 const projects: Project[] = [
     {
         id: 1,
-        title: "Colletre - Collage Dashboard",
-        tags: ["Branding", "Website"],
-        image: "/mockup-laptop.png",
-        description: "Expertise A modern agency site crafted to highlight luxury, innovation, and award-winning marketing expertise",
+        title: "Flyers Cocktail Co.",
+        tags: ["Shopify", "Tailwind CSS"],
+        image: "/mockup/Flyers Website.png",
+        description: "The World's Most Awarded CBD Cocktails — modern Shopify e-commerce platform built with Tailwind CSS, custom Alpine.js interactions, and Klaviyo.",
     },
     {
         id: 2,
-        title: "Saudi Lime Green",
-        tags: ["Design", "Development"],
-        image: "/mockup-watch.png",
-        description: "A sustainable energy platform designed to showcase green initiatives and renewable technologies with a clean aesthetic.",
+        title: "Bite Toothpaste Bits",
+        tags: ["Shopify", "React.js"],
+        image: "/mockup/Bite Toothpaste Bits Website.jfif",
+        description: "Eco-friendly oral care Shopify store engineered with React & Preact components, Tailwind CSS styling, and advanced Rebuy personalization.",
     },
     {
         id: 3,
-        title: "Panda Automap",
-        tags: ["App", "UI/UX"],
-        image: "/mockup-laptop-3.png",
-        description: "An intuitive navigation dashboard for autonomous vehicles, focusing on clarity, ease of use, and real-time data visualization.",
+        title: "Tokyo Headspa",
+        tags: ["Remix", "Radix UI"],
+        image: "/mockup/Tokyoheadspa Website.png",
+        description: "Australia's leading Japanese head spa web experience built with Remix, React Router, Radix UI, Lenis smooth scrolling, and Swiper showcases.",
     },
 ]
 

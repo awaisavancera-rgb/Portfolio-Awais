@@ -7,6 +7,7 @@ import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motio
 import styles from './allWorks.module.css';
 
 import { projects } from '@/data/projects';
+import { ArrowDown, RotateCw } from 'lucide-react';
 
 export const ProjectCard = ({ project }: { project: any }) => {
     const cardRef = useRef<HTMLAnchorElement>(null);
@@ -165,6 +166,8 @@ const FilterDropdown = ({ label, options, selected, onSelect }: { label: string,
 export function AllWorks() {
     const [selectedPlatform, setSelectedPlatform] = useState("All");
     const [selectedIndustry, setSelectedIndustry] = useState("All");
+    const [visibleCount, setVisibleCount] = useState(6);
+    const [isLoading, setIsLoading] = useState(false);
 
     const platforms = ["Shopify", "WordPress", "Wix", "GHL", "Next.js", "React.js", "Custom Website", "Figma Designs", "Framer Website", "Webflow Website"];
     const industries = ["Ecommerce", "Fashion", "Tech/SaaS", "Agency", "Architecture"];
@@ -174,6 +177,28 @@ export function AllWorks() {
         const matchIndustry = selectedIndustry === "All" || p.industry === selectedIndustry;
         return matchPlatform && matchIndustry;
     });
+
+    const handlePlatformSelect = (platform: string) => {
+        setSelectedPlatform(platform);
+        setVisibleCount(6);
+    };
+
+    const handleIndustrySelect = (industry: string) => {
+        setSelectedIndustry(industry);
+        setVisibleCount(6);
+    };
+
+    const handleLoadMore = () => {
+        if (isLoading) return;
+        setIsLoading(true);
+        setTimeout(() => {
+            setVisibleCount(prev => prev + 6);
+            setIsLoading(false);
+        }, 600); // 0.6 seconds reload animation
+    };
+
+    const displayedProjects = filteredProjects.slice(0, visibleCount);
+    const hasMore = visibleCount < filteredProjects.length;
 
     return (
         <section className={styles.allWorksSection}>
@@ -202,8 +227,8 @@ export function AllWorks() {
 
                         {/* Filters Container */}
                         <div className={styles.filtersContainer}>
-                            <FilterDropdown label="Platform" options={platforms} selected={selectedPlatform} onSelect={setSelectedPlatform} />
-                            <FilterDropdown label="Industry" options={industries} selected={selectedIndustry} onSelect={setSelectedIndustry} />
+                            <FilterDropdown label="Platform" options={platforms} selected={selectedPlatform} onSelect={handlePlatformSelect} />
+                            <FilterDropdown label="Industry" options={industries} selected={selectedIndustry} onSelect={handleIndustrySelect} />
                         </div>
                     </div>
                 </div>
@@ -211,8 +236,8 @@ export function AllWorks() {
                 {/* Right Scrollable Cards */}
                 <div className={styles.cardsWrapper}>
                     <AnimatePresence mode="popLayout">
-                        {filteredProjects.length > 0 ? (
-                            filteredProjects.map((project) => (
+                        {displayedProjects.length > 0 ? (
+                            displayedProjects.map((project) => (
                                 <motion.div
                                     key={project.id}
                                     layout
@@ -235,6 +260,34 @@ export function AllWorks() {
                         )}
                     </AnimatePresence>
                 </div>
+
+                {/* Load More Button */}
+                {hasMore && (
+                    <div className={styles.loadMoreWrapper}>
+                        <button
+                            type="button"
+                            className="primary-btn"
+                            onClick={handleLoadMore}
+                            disabled={isLoading}
+                        >
+                            <span className="btnText">
+                                {isLoading ? "LOADING..." : "LOAD MORE"}
+                            </span>
+                            <div className="btnIconCircle">
+                                <div className="arrowTrack">
+                                    {isLoading ? (
+                                        <RotateCw className={styles.spinIcon} size={15} />
+                                    ) : (
+                                        <>
+                                            <ArrowDown className={styles.downArrowPrimary} size={15} strokeWidth={2.2} />
+                                            <ArrowDown className={styles.downArrowSecondary} size={15} strokeWidth={2.2} />
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );
