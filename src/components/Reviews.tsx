@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -231,7 +232,7 @@ export function Reviews() {
                 </div>
 
                 <div className={styles.ctaWrapper}>
-                    <a href="#contact" className="primary-btn light">
+                    <Link href="/contact" className="primary-btn light">
                         <span className="btnText">GET IN TOUCH</span>
                         <div className="btnIconCircle">
                             <div className="arrowTrack">
@@ -243,7 +244,7 @@ export function Reviews() {
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 </div>
 
             </div>
@@ -270,7 +271,7 @@ export function Reviews() {
 
                 {/* Mobile CTA: reveals smoothly after scrolling through all testimonial cards */}
                 <div className={styles.mobileCtaWrapper}>
-                    <a href="#contact" className="primary-btn light">
+                    <Link href="/contact" className="primary-btn light">
                         <span className="btnText">GET IN TOUCH</span>
                         <div className="btnIconCircle">
                             <div className="arrowTrack">
@@ -282,7 +283,7 @@ export function Reviews() {
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 </div>
 
             </div>

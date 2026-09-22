@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -15,6 +16,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP)
 interface Project {
     id: number
     title: string
+    slug: string
     tags: string[]
     image: string
     description: string
@@ -24,6 +26,7 @@ const projects: Project[] = [
     {
         id: 1,
         title: "Flyers Cocktail Co.",
+        slug: "flyers-cocktail-co",
         tags: ["Shopify", "Tailwind CSS"],
         image: "/mockup/Flyers Website.png",
         description: "The World's Most Awarded CBD Cocktails — modern Shopify e-commerce platform built with Tailwind CSS, custom Alpine.js interactions, and Klaviyo.",
@@ -31,6 +34,7 @@ const projects: Project[] = [
     {
         id: 2,
         title: "Bite Toothpaste Bits",
+        slug: "bite-toothpaste-bits",
         tags: ["Shopify", "React.js"],
         image: "/mockup/Bite Toothpaste Bits Website.jfif",
         description: "Eco-friendly oral care Shopify store engineered with React & Preact components, Tailwind CSS styling, and advanced Rebuy personalization.",
@@ -38,6 +42,7 @@ const projects: Project[] = [
     {
         id: 3,
         title: "Tokyo Headspa",
+        slug: "tokyo-headspa",
         tags: ["Remix", "Radix UI"],
         image: "/mockup/Tokyoheadspa Website.png",
         description: "Australia's leading Japanese head spa web experience built with Remix, React Router, Radix UI, Lenis smooth scrolling, and Swiper showcases.",
@@ -129,7 +134,7 @@ export const Portfolio = () => {
                     <div className={styles.subheader}>
                         <h3 className={styles.selectedLabel}>SELECTED</h3>
                         <div className={styles.ctaWrapper}>
-                            <button className="primary-btn">
+                            <Link href="/work" className="primary-btn">
                                 <span className="btnText">VIEW ALL PROJECTS</span>
                                 <div className="btnIconCircle">
                                     <div className="arrowTrack">
@@ -141,7 +146,7 @@ export const Portfolio = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -165,7 +170,7 @@ export const Portfolio = () => {
                                             {project.description}
                                         </p>
 
-                                        <button className="primary-btn light">
+                                        <Link href={`/work/${project.slug}`} className="primary-btn light">
                                             <span className="btnText">VIEW PROJECT</span>
                                             <div className="btnIconCircle">
                                                 <div className="arrowTrack">
@@ -177,12 +182,12 @@ export const Portfolio = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
 
                                 {/* Right Image */}
-                                <div className={styles.cardImageWrapper}>
+                                <Link href={`/work/${project.slug}`} className={styles.cardImageWrapper}>
                                     <Image
                                         src={project.image}
                                         alt={project.title}
@@ -190,7 +195,7 @@ export const Portfolio = () => {
                                         className={styles.cardImage}
                                         sizes="50vw"
                                     />
-                                </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

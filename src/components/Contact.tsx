@@ -32,10 +32,9 @@ export function Contact() {
             <div className={styles.contentWrapper}>
                 {/* Left Column: CTA Hero */}
                 <div className={styles.leftColumn}>
-                    <div className={styles.pill}>
-                        <div className={styles.pillDot} />
+                    <span className={styles.availableTag}>
                         AVAILABLE FOR NEW PROJECTS
-                    </div>
+                    </span>
 
                     <h2 className={styles.title}>
                         I’d Love to Hear <span className={styles.titleLight}>From You.</span>
@@ -46,7 +45,7 @@ export function Contact() {
                     </p>
 
                     <div className={styles.actionButtons}>
-                        <a href="mailto:hello@awaisportfolio.com" className="primary-btn">
+                        <Link href="/contact" className="primary-btn">
                             <span className="btnText">GET IN TOUCH</span>
                             <div className="btnIconCircle">
                                 <div className="arrowTrack">
@@ -58,7 +57,7 @@ export function Contact() {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
 
                         <button 
                             type="button"
@@ -81,69 +80,83 @@ export function Contact() {
                     </div>
                 </div>
 
-                {/* Right Column: Interactive Dark Contact Cards */}
+                {/* Right Column: Cardless Editorial Direct Inquiries & Status */}
                 <div className={styles.rightColumn}>
-                    {/* Direct Inquiries Card */}
-                    <div className={styles.contactCard}>
-                        <div className={styles.cardHeader}>
-                            <span className={styles.cardSectionTag}>DIRECT INQUIRIES</span>
-                        </div>
-
-                        <div className={styles.cardList}>
-                            <a href="mailto:hello@awaisportfolio.com" className={styles.contactLinkRow}>
-                                <div className={styles.linkInfo}>
-                                    <span className={styles.linkLabel}>EMAIL</span>
-                                    <span className={styles.linkValue}>hello@awaisportfolio.com</span>
-                                </div>
-                                <ArrowUpRight className={styles.rowArrow} size={18} />
-                            </a>
-
-                            <a href="tel:+923103751421" className={styles.contactLinkRow}>
-                                <div className={styles.linkInfo}>
-                                    <span className={styles.linkLabel}>PHONE / WHATSAPP</span>
-                                    <span className={styles.linkValue}>+92 310 3751421</span>
-                                </div>
-                                <ArrowUpRight className={styles.rowArrow} size={18} />
-                            </a>
-
-                            <div className={styles.contactLinkRowStatic}>
-                                <div className={styles.linkInfo}>
-                                    <span className={styles.linkLabel}>LOCATION</span>
-                                    <span className={styles.linkValue}>Karachi Gulshan-e-Iqbal, Pakistan</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div className={styles.columnHeader}>
+                        <span className={styles.columnTag}>DIRECT INQUIRIES</span>
+                        <span className={styles.columnIndex}>(04 CHANNELS)</span>
                     </div>
 
-                    {/* Sub Info & Socials */}
-                    <div className={styles.subCardsGrid}>
-                        <div className={styles.subCard}>
-                            <div className={styles.subCardHeader}>
-                                <span className={styles.liveIndicatorDot} />
-                                <span className={styles.subCardTag}>AVAILABILITY</span>
+                    <div className={styles.lists}>
+                        <a className={styles.listItem} href="mailto:hello@awaisportfolio.com">
+                            <div className={styles.listItemContent}>
+                                <div className={styles.textRollWrapper}>
+                                    <span className={styles.listItemText}>hello@awaisportfolio.com</span>
+                                    <span className={styles.listItemTextHover}>hello@awaisportfolio.com</span>
+                                </div>
+                                <ArrowUpRight className={styles.icon} />
                             </div>
-                            <span className={styles.subCardValue}>Open for Remote Worldwide</span>
-                            <span className={styles.subCardSub}>PKT (UTC+5) • Mon – Fri</span>
+                            <div className={styles.line}>
+                                <div className={styles.lineFiller}></div>
+                            </div>
+                        </a>
+
+                        <a className={styles.listItem} href="tel:+923103751421">
+                            <div className={styles.listItemContent}>
+                                <div className={styles.textRollWrapper}>
+                                    <span className={styles.listItemText}>+92 310 3751421</span>
+                                    <span className={styles.listItemTextHover}>+92 310 3751421</span>
+                                </div>
+                                <ArrowUpRight className={styles.icon} />
+                            </div>
+                            <div className={styles.line}>
+                                <div className={styles.lineFiller}></div>
+                            </div>
+                        </a>
+
+                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="https://maps.google.com/?q=Karachi+Pakistan">
+                            <div className={styles.listItemContent}>
+                                <div className={styles.textRollWrapper}>
+                                    <span className={styles.listItemText}>Office: Karachi, Pakistan.</span>
+                                    <span className={styles.listItemTextHover}>Office: Karachi, Pakistan.</span>
+                                </div>
+                                <ArrowUpRight className={styles.icon} />
+                            </div>
+                            <div className={styles.line}>
+                                <div className={styles.lineFiller}></div>
+                            </div>
+                        </a>
+
+                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="https://www.instagram.com/">
+                            <div className={styles.listItemContent}>
+                                <div className={styles.textRollWrapper}>
+                                    <span className={styles.listItemText}>Follow me on Instagram</span>
+                                    <span className={styles.listItemTextHover}>Follow me on Instagram</span>
+                                </div>
+                                <ArrowUpRight className={styles.icon} />
+                            </div>
+                            <div className={styles.line}>
+                                <div className={styles.lineFiller}></div>
+                            </div>
+                        </a>
+                    </div>
+
+                    {/* Minimalist Bottom Status & Social Strip */}
+                    <div className={styles.bottomMetaStrip}>
+                        <div className={styles.statusBlock}>
+                            <span className={styles.liveIndicatorDot} />
+                            <span className={styles.statusText}>Available for Remote Worldwide &bull; PKT (UTC+5)</span>
                         </div>
 
-                        <div className={styles.subCard}>
-                            <div className={styles.subCardHeader}>
-                                <span className={styles.subCardTag}>CONNECT</span>
-                            </div>
-                            <div className={styles.socialsList}>
-                                <Link href="https://linkedin.com" target="_blank" rel="noreferrer" className={styles.socialItem}>
-                                    <span>LinkedIn</span>
-                                    <ArrowUpRight size={13} />
-                                </Link>
-                                <Link href="https://twitter.com" target="_blank" rel="noreferrer" className={styles.socialItem}>
-                                    <span>Twitter / X</span>
-                                    <ArrowUpRight size={13} />
-                                </Link>
-                                <Link href="https://instagram.com" target="_blank" rel="noreferrer" className={styles.socialItem}>
-                                    <span>Instagram</span>
-                                    <ArrowUpRight size={13} />
-                                </Link>
-                            </div>
+                        <div className={styles.socialsInline}>
+                            <Link href="https://linkedin.com" target="_blank" rel="noreferrer" className={styles.socialLinkInline}>
+                                <span>LinkedIn</span>
+                                <ArrowUpRight size={13} />
+                            </Link>
+                            <Link href="https://twitter.com" target="_blank" rel="noreferrer" className={styles.socialLinkInline}>
+                                <span>Twitter/X</span>
+                                <ArrowUpRight size={13} />
+                            </Link>
                         </div>
                     </div>
                 </div>

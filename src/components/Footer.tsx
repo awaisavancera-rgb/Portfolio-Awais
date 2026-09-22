@@ -111,7 +111,7 @@ export function Footer() {
                     <div className={styles.linksColumn}>
                         <Link href="/" className={styles.footerLink}>Home</Link>
                         <Link href="/about" className={styles.footerLink}>About</Link>
-                        <Link href="/projects" className={styles.footerLink}>Projects</Link>
+                        <Link href="/work" className={styles.footerLink}>Projects</Link>
                         <Link href="/blog" className={styles.footerLink}>Blog</Link>
                         <Link href="/contact" className={styles.footerLink}>Contact</Link>
                     </div>

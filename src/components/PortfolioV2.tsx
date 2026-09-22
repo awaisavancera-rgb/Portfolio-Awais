@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
@@ -107,7 +108,7 @@ export const PortfolioV2 = () => {
                     <div ref={subheaderRef} className={styles.subheader}>
                         <h3 className={styles.selectedLabel}>SELECTED <span className={styles.workText}>WORK</span></h3>
                         <div className={styles.buttonWrapper}>
-                            <button className={styles.viewAllBtn}>
+                            <Link href="/work" className={styles.viewAllBtn}>
                                 <span className={styles.btnText}>VIEW ALL PROJECTS</span>
                                 <div className={styles.btnIconCircle}>
                                     <div className={styles.arrowTrack}>
@@ -119,7 +120,7 @@ export const PortfolioV2 = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -140,7 +141,7 @@ export const PortfolioV2 = () => {
                                         {project.description}
                                     </p>
 
-                                    <button className={styles.viewProjectBtn}>
+                                    <Link href="/work" className={styles.viewProjectBtn}>
                                         <span className={styles.btnText}>VIEW PROJECT</span>
                                         <div className={styles.btnIconCircle}>
                                             <div className={styles.arrowTrack}>
@@ -152,7 +153,7 @@ export const PortfolioV2 = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 {/* Right Image */}

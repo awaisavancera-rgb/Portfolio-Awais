@@ -25,6 +25,7 @@ export interface ServiceItem {
   description: string;
   tags: string[];
   extraTags: string[];
+  images: [string, string, string];
 }
 
 export const servicesData: ServiceItem[] = [
@@ -33,28 +34,48 @@ export const servicesData: ServiceItem[] = [
     title: "CMS, E-Commerce & CRM Architecture",
     description: "Building high-converting Shopify Liquid stores, custom WordPress/WooCommerce solutions, and GoHighLevel CRM automation funnels optimized for speed and maximum conversions.",
     tags: ["Shopify Liquid", "WordPress", "GoHighLevel", "Speed Optimization"],
-    extraTags: ["WooCommerce", "HubSpot CRM", "Zapier / Make", "Klaviyo Email", "Custom Checkout", "Stripe Integration"]
+    extraTags: ["WooCommerce", "HubSpot CRM", "Zapier / Make", "Klaviyo Email", "Custom Checkout", "Stripe Integration"],
+    images: [
+      "/CMS, E-Commerce & CRM Architecture.jpg",
+      "/CMS, E-Commerce & CRM Architecture2.jpg",
+      "/CMS, E-Commerce & CRM Architecture3.jpg"
+    ]
   },
   {
     id: "(002)",
     title: "Creative Frontend & Interactive UI",
     description: "Designing animated components in Figma and building high-performance Next.js and TypeScript web applications using GSAP and Framer Motion for smooth micro-interactions.",
     tags: ["Next.js", "GSAP / Framer Motion", "TypeScript", "Figma Design"],
-    extraTags: ["Tailwind CSS", "Three.js / WebGL", "React 19", "Lenis Scroll", "Responsive Architecture", "Micro-Interactions"]
+    extraTags: ["Tailwind CSS", "Three.js / WebGL", "React 19", "Lenis Scroll", "Responsive Architecture", "Micro-Interactions"],
+    images: [
+      "/Creative Frontend & Interactive UI.jpg",
+      "/Creative Frontend & Interactive UI2.jpg",
+      "/Creative Frontend & Interactive UI3.jpg"
+    ]
   },
   {
     id: "(003)",
     title: "Advanced AI Engineering & RAG Architecture",
     description: "Architecting custom RAG systems, Knowledge Graphs, and Graph Engineering workflows to bridge enterprise data with LLMs, integrated with n8n and CRM automation pipelines.",
     tags: ["RAG Architecture", "Graph Engineering", "n8n Automation", "Vector DBs"],
-    extraTags: ["LangChain", "OpenAI / Claude API", "Pinecone & Qdrant", "Python Pipelines", "Knowledge Retrieval", "Prompt Optimization"]
+    extraTags: ["LangChain", "OpenAI / Claude API", "Pinecone & Qdrant", "Python Pipelines", "Knowledge Retrieval", "Prompt Optimization"],
+    images: [
+      "/Advanced AI Engineering & RAG Architecture.jpg",
+      "/Advanced AI Engineering & RAG Architecture2.jpg",
+      "/Advanced AI Engineering & RAG Architecture3.jpg"
+    ]
   },
   {
     id: "(004)",
     title: "Autonomous AI Agents & Voice Systems",
     description: "Developing intelligent AI calling agents, autonomous 24/7 customer support bots, social media managers, and multi-agent workflows engineered with self-correcting execution loops.",
     tags: ["AI Voice Agents", "Support Agents", "Social Media Bots", "Loop Engineering"],
-    extraTags: ["Vapi / Bland AI", "Twilio Telephony", "Self-Correcting Loops", "Telegram & WhatsApp", "Multi-Agent Swarms", "Autonomous Scraping"]
+    extraTags: ["Vapi / Bland AI", "Twilio Telephony", "Self-Correcting Loops", "Telegram & WhatsApp", "Multi-Agent Swarms", "Autonomous Scraping"],
+    images: [
+      "/Autonomous AI Agents & Voice Systems.jpg",
+      "/Autonomous AI Agents & Voice Systems2.jpg",
+      "/Autonomous AI Agents & Voice Systems3.jpg"
+    ]
   }
 ];
 
@@ -251,13 +272,13 @@ export const HomeExpertise = () => {
                                                     <div className={styles.leftGroup}>
                                                         <div className={styles.imagesStack}>
                                                             <div className={styles.imageLayer1}>
-                                                                <Image src="/mockup-laptop-3.png" alt="thumbnail 1" fill style={{ objectFit: 'cover' }} />
+                                                                <Image src={item.images[0]} alt={`${item.title} 1`} fill style={{ objectFit: 'cover' }} unoptimized />
                                                             </div>
                                                             <div className={styles.imageLayer2}>
-                                                                <Image src="/mockup-laptop-3.png" alt="thumbnail 2" fill style={{ objectFit: 'cover' }} />
+                                                                <Image src={item.images[1]} alt={`${item.title} 2`} fill style={{ objectFit: 'cover' }} unoptimized />
                                                             </div>
                                                             <div className={styles.imageLayer3}>
-                                                                <Image src="/mockup-laptop-3.png" alt="thumbnail 3" fill style={{ objectFit: 'cover' }} />
+                                                                <Image src={item.images[2]} alt={`${item.title} 3`} fill style={{ objectFit: 'cover' }} unoptimized />
                                                             </div>
                                                         </div>
 

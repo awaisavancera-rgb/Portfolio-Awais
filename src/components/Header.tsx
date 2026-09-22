@@ -12,7 +12,7 @@ export function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const navItems = ["Home", "About", "Work / Portfolio", "Blog", "Contact"];
-    const [activeNav, setActiveNav] = useState(pathname === "/portfolio" ? "Work / Portfolio" : pathname === "/contact" ? "Contact" : pathname === "/blog" ? "Blog" : "Home");
+    const [activeNav, setActiveNav] = useState(pathname?.startsWith("/work") ? "Work / Portfolio" : pathname === "/contact" ? "Contact" : pathname === "/blog" ? "Blog" : "Home");
     const [hoveredNav, setHoveredNav] = useState<string | null>(null);
     const [hidden, setHidden] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
@@ -46,14 +46,14 @@ export function Header() {
         setActiveNav(item);
         setIsMenuOpen(false);
         if (item === "Work / Portfolio") {
-            triggerPageTransition("/portfolio");
+            triggerPageTransition("/work");
         } else if (item === "Home") {
             triggerPageTransition("/");
         } else if (item === "Contact") {
             triggerPageTransition("/contact");
         } else if (item === "Blog") {
             triggerPageTransition("/blog");
-        } else if (pathname === "/portfolio" || pathname === "/contact" || pathname === "/blog") {
+        } else if (pathname?.startsWith("/work") || pathname === "/contact" || pathname === "/blog") {
             triggerPageTransition("/");
         }
     };

@@ -378,6 +378,7 @@
 
 /* Right: Image */
 .cardImageWrapper {
+    display: block;
     flex: 1;
     position: relative;
     height: 100%;
