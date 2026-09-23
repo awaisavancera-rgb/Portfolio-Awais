@@ -26,6 +26,10 @@ Portfolio Website/
 │   ├── app/
 │   │   ├── globals.css                  # Global tokens, button styles, custom cursor reset
 │   │   ├── page.tsx                     # Home page
+│   │   ├── about/page.tsx               # Dedicated About Page (/about)
+│   │   ├── about/about.module.css
+│   │   ├── about/raw-framer.html        # Staging file for pasting inspected Framer HTML
+│   │   ├── about/raw-framer.css         # Staging file for pasting inspected Framer CSS
 │   │   ├── work/page.tsx                # Works / Portfolio page with AllWorks component (/work)
 │   │   ├── work/[slug]/page.tsx         # Dynamic Work Detail Page (sticky sidebar + gallery)
 │   │   ├── work/[slug]/workDetail.module.css
@@ -95,6 +99,20 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
 ---
 
 ## 📝 5. Changelog & Recent Updates History
+
+### [2026-09-23]
+* **Dedicated `/about` Page Scaffold & Framer Conversion (Chunks 1, 2 & 3)**:
+  * **Chunk 1 (`AboutHero.tsx`)**: Created `src/components/AboutHero.tsx` and `src/components/aboutHero.module.css` matching Palmer Framer template (`https://palmer-template.framer.website`). Includes editorial staggered headline with Japanese accent, interactive 3D physics tilt video card with Vimeo reel, horizontal white category bar, and mega brand title (`Akihiko™`).
+  * **Chunk 2 (`AboutBio.tsx`)**: Created independent standalone duplicate component `src/components/AboutBio.tsx` and `src/components/aboutBio.module.css` for the `/about` page based on the home page's `contentGrid`. Completely decoupled from the home page `About.tsx` and `about.module.css` so changes on `/about` do not impact the home page. Includes top `metaBar`, portrait laptop mockup, headline with "13+ years of digital form...", "VIEW MORE" primary button, white status bar (with exact home page dimensions & margins), and tech stack logo marquee with 1:1 matching continuous loop animations.
+  * **Chunk 3 (`AboutFeaturedWorks.tsx`)**: Created standalone component `src/components/AboutFeaturedWorks.tsx` and `src/components/aboutFeaturedWorks.module.css` for the `/about` page based on the Palmer template's Work section:
+    * Replaced `framer-tjjepc-container` with clean modern meta bar: Left (`© Featured Projects プロジェクト`, `(WDX® — 03)`), Right (`Creative Development`).
+    * Big white continuous marquee header banner scrolling `"Featured Works© "`.
+    * Body description text with highlighted white bold phrasing + global `.primary-btn` `"SEE WORKS"` linking to `/work`.
+    * High-end GSAP horizontal slider with `slidesToShow: 2` on desktop: scrolling through the section pins and slides cards so 2 are shown at once and scrolling reveals the next pairs.
+    * Work cards replicate the exact `/work` (`AllWorks.tsx`) card experience: double-layer mockup scaling, hover tag banner, smooth spring cursor-following `"VIEW"` pill, and rolling text title/counter (`(01)`, `(02)`).
+  * Rendered `<AboutHero />`, `<AboutBio />`, and `<AboutFeaturedWorks />` sequentially in `src/app/about/page.tsx`.
+  * Created staging files `src/app/about/raw-framer.html` and `src/app/about/raw-framer.css` for chunk-by-chunk pasting.
+  * Updated `Header.tsx` to handle direct navigation and active state for the "About" link (`/about`).
 
 ### [2026-09-22]
 * **Contact Section Spacing & Sizing Refinements**: Kept section max-width (1480px) and side padding (1.5rem); set balanced column gap (80px); aligned right-column list item typography and padding to `.9rem` (exact match with `/work` portfolio banner); converted "AVAILABLE FOR NEW PROJECTS" into a clean, modern editorial text without pill box or dot icon.

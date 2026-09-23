@@ -1,0 +1,229 @@
+.framer-cyXrc .framer-7ma1j6 {
+  background-color: var(--token-2d91bfb1-1bb0-467e-bf37-8ef020f4f815, #000);
+  flex-flow: column;
+  flex: none;
+  place-content: flex-start center;
+  align-items: flex-start;
+  gap: 50px;
+  width: 100%;
+  max-width: 1480px;
+  height: min-content;
+  padding: 180px 0 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-g03chh,
+.framer-cyXrc .framer-nioezp {
+  flex-flow: column;
+  flex: none;
+  place-content: center;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-hrs0gc,
+.framer-cyXrc .framer-1ue40ad,
+.framer-cyXrc .framer-bngqg2 {
+  background-color: var(--token-01c07c7e-a9ae-45ca-a79a-cc49e2fa5e89, #bbb3);
+  flex: none;
+  width: 100%;
+  height: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-1vtzatb {
+  flex-flow: column;
+  flex: none;
+  place-content: flex-start center;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 570px;
+  height: min-content;
+  padding: 0 24px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-1nbs19a {
+  --framer-paragraph-spacing: 0px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  word-wrap: break-word;
+  flex: none;
+  width: auto;
+  max-width: 540px;
+  height: auto;
+  position: relative;
+}
+
+[data-framer-component-type=RichTextContainer] {
+  outline: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: flex;
+}
+
+p.framer-text.framer-styles-preset-14w8e6o {
+  font-size: 19px;
+  font-weight: 500;
+  color: rgb(187, 187, 187);
+}
+
+span.framer-text {
+  font-weight: 600;
+  color: #fff;
+}
+
+.framer-cyXrc .framer-ydi31p {
+  flex-flow: column;
+  flex: none;
+  place-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  padding: 0 24px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-1ejixw2 {
+  flex-flow: column;
+  flex: none;
+  place-content: center;
+  align-items: center;
+  gap: 160px;
+  width: 100%;
+  height: min-content;
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-yyr9dg {
+  flex-flow: row;
+  flex: none;
+  place-content: flex-start space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: min-content;
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-aieywt {
+  flex-flow: column;
+  flex: none;
+  place-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 50%;
+  height: min-content;
+  padding: 100px 0 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-cyXrc .framer-1avqepk,
+.framer-cyXrc .framer-r9l3vn,
+.framer-cyXrc .framer-vrk7k3,
+.framer-cyXrc .framer-1nmac4u,
+.framer-cyXrc .framer-g3svvv {
+  flex-flow: column;
+  flex: none;
+  place-content: flex-start center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  height: min-content;
+  padding: 0;
+  display: flex;
+  position: relative;
+}
+
+.framer-cyXrc .framer-tqvx7w,
+.framer-cyXrc .framer-1c3zuno,
+.framer-cyXrc .framer-859d0m,
+.framer-cyXrc .framer-2b77dg,
+.framer-cyXrc .framer-1vtosv4,
+.framer-cyXrc .framer-15ho39z,
+.framer-cyXrc .framer-h0rdv8,
+.framer-cyXrc .framer-1su5na9,
+.framer-cyXrc .framer-14bojy4 {
+  flex-flow: row;
+  flex: none;
+  place-content: center flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: min-content;
+  padding: 0;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+
+.framer-cyXrc .framer-1iijldg-container,
+.framer-cyXrc .framer-1xfh2b8-container,
+.framer-cyXrc .framer-ngmrzn-container,
+.framer-cyXrc .framer-1tvmme6-container,
+.framer-cyXrc .framer-1tv4fvb-container,
+.framer-cyXrc .framer-1yslzav-container,
+.framer-cyXrc .framer-w56dtp-container,
+.framer-cyXrc .framer-5sd1c5-container,
+.framer-cyXrc .framer-1umn22f-container,
+.framer-cyXrc .framer-1pdl6xk-container,
+.framer-cyXrc .framer-1nqezu6-container,
+.framer-cyXrc .framer-8rssa6-container,
+.framer-cyXrc .framer-1985ok6-container,
+.framer-cyXrc .framer-19licix-container {
+  flex: 1 0 0;
+  width: 1px;
+  height: auto;
+  position: relative;
+}
+
+.framer-uxrJc.framer-1la9h02 {
+  cursor: pointer;
+  flex-flow: column;
+  place-content: flex-start center;
+  align-items: flex-start;
+  gap: 14px;
+  width: 698px;
+  height: 749px;
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.framer-uxrJc .framer-p9o99y {
+  will-change: var(--framer-will-change-override, transform);
+  flex-flow: column;
+  flex: 1 0 0;
+  place-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 1px;
+  padding: 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}

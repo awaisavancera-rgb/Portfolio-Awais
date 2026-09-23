@@ -1,0 +1,15 @@
+.aboutPageContainer {
+    background-color: #000000;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.mainContent {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
