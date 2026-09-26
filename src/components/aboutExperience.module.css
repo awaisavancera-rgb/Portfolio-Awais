@@ -1,0 +1,258 @@
+.experienceSection {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 2rem 0 6rem;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 1. Meta Bar (100% consistent with AboutBio) */
+.metaBar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 2.5rem;
+}
+
+/* 2. Top Heading & Image Area */
+.headingWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    margin-bottom: 2.5rem;
+    gap: 2rem;
+}
+
+.headingText {
+    font-size: clamp(4.5rem, 13vw, 13rem);
+    font-weight: 600;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin: 0;
+    color: #ffffff;
+    font-family: inherit;
+    user-select: none;
+}
+
+/* Rounded image card (No signature as requested) */
+.imageCardWrapper {
+    flex-shrink: 0;
+    width: 140px;
+    height: 200px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.imageCardWrapper:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.cardImage {
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageCardWrapper:hover .cardImage {
+    transform: scale(1.05);
+}
+
+/* 3. White Category Strip */
+.whiteStripContainer {
+    width: 100%;
+    background-color: #ffffff;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+}
+
+.whiteStripInner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 1.5rem;
+}
+
+.stripCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+}
+
+.stripText {
+    color: #000000;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+}
+
+/* 4. Experience Table Rows */
+.tableContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.4fr 0.8fr;
+    align-items: center;
+    padding: 1.5rem 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.25s ease, padding 0.25s ease;
+    border-radius: 4px;
+}
+
+.tableRow:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tableRow:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.companyCol {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.periodCol {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: -0.01em;
+}
+
+.roleCol {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.locationCol {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: right;
+    letter-spacing: -0.01em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .headingWrapper {
+        align-items: flex-end;
+    }
+
+    .tableRow {
+        grid-template-columns: 1.2fr 1fr 1.2fr 0.6fr;
+        padding: 1.25rem 0.25rem;
+    }
+
+    .companyCol,
+    .periodCol,
+    .roleCol,
+    .locationCol {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .headingWrapper {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    .headingText {
+        font-size: clamp(3.2rem, 16vw, 6rem);
+    }
+
+    .imageCardWrapper {
+        width: 100px;
+        height: 145px;
+    }
+
+    .whiteStripContainer {
+        height: auto;
+        padding: 0.75rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .whiteStripInner {
+        flex-wrap: wrap;
+        gap: 0.75rem 1rem;
+        justify-content: space-between;
+    }
+
+    .stripCol {
+        flex: 1 1 40%;
+    }
+
+    .stripText {
+        font-size: 0.85rem;
+    }
+
+    .tableRow {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 0.5rem;
+        padding: 1.2rem 0;
+    }
+
+    .companyCol {
+        grid-column: 1 / 2;
+    }
+
+    .periodCol {
+        grid-column: 2 / 3;
+        text-align: right;
+    }
+
+    .roleCol {
+        grid-column: 1 / 2;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .locationCol {
+        grid-column: 2 / 3;
+        font-size: 0.9rem;
+    }
+}

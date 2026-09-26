@@ -7,7 +7,7 @@
     padding: 5rem 0 7rem;
 }
 
-/* 1. Meta Bar */
+/* 1. Meta Bar (Consistent 3-item layout) */
 .metaBar {
     display: flex;
     justify-content: space-between;
@@ -17,30 +17,25 @@
     margin: 0 auto;
     padding: 0 1.5rem 1.5rem;
     border-bottom: 1px solid rgba(187, 187, 187, 0.2);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     font-family: var(--font-inter), sans-serif;
 }
 
-.metaLeft {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-.metaLeftTitle {
+.metaBar span:first-child {
     color: #ffffff;
     font-weight: 500;
 }
 
-.metaLeftCode {
+.metaBar span:nth-child(2) {
     color: rgba(187, 187, 187, 0.45);
+    letter-spacing: 0.08em;
 }
 
-.metaRight {
-    color: rgba(187, 187, 187, 0.6);
-    font-weight: 500;
+.metaBar span:last-child {
+    color: rgba(187, 187, 187, 0.7);
+    font-weight: 400;
 }
 
 /* 2. White Marquee Header */

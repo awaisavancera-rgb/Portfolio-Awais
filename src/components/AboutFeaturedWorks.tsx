@@ -160,15 +160,11 @@ export function AboutFeaturedWorks() {
 
     return (
         <section ref={sectionRef} className={styles.featuredWorksSection}>
-            {/* 1. Meta Bar */}
+            {/* 1. Meta Bar (Consistent 3-item layout) */}
             <div className={styles.metaBar}>
-                <div className={styles.metaLeft}>
-                    <span className={styles.metaLeftTitle}>© Featured Projects プロジェクト</span>
-                    <span className={styles.metaLeftCode}>(WDX® — 03)</span>
-                </div>
-                <div className={styles.metaRight}>
-                    <span>Creative Development</span>
-                </div>
+                <span>© Featured Projects プロジェクト</span>
+                <span>(WDX® — 03)</span>
+                <span>Creative Development</span>
             </div>
 
             {/* 2. White Marquee Header Banner */}

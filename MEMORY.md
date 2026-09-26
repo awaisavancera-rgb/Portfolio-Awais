@@ -100,6 +100,25 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
 
 ## 📝 5. Changelog & Recent Updates History
 
+### [2026-09-26]
+* **Applied Exact Framer CSS & Architecture to `AboutHero`**:
+  * Configured `.whiteStripContainer` (`.framer-1y2k8yn-container`) as absolute at `top: 396px; left: 50%; transform: translate(-50%); width: 100%; z-index: 1;`.
+  * Configured `.topRow` (`.framer-ty36tk`) with `padding: 24px; display: flex; position: relative; overflow: hidden; z-index: 2;`.
+  * Positioned white stripe before topRow in DOM hierarchy matching Framer reference screenshot, allowing the `349px` image card inside `topRow` to overflow over the stripe while naturally terminating before the `dividerLine` and "About Awais".
+  * Maintained high-res portrait image (`/about/hero-image.png`) with interactive 3D physics tilt.
+  * Preserved user's custom styling on `.whiteStripContainer`.
+* **Created Experience / Practice Section (`AboutExperience.tsx`)**:
+  * Built standalone component `src/components/AboutExperience.tsx` and `src/components/aboutExperience.module.css`.
+  * Integrated 100% consistent top `metaBar` identical to `AboutBio.tsx` (`© EXPERIENCE エクスペリエンス` | `(WDX® — 05)` | `DIGITAL CRAFT`).
+  * Big bold headline `"Practice."` with responsive fluid typography.
+  * Rounded portrait image card (`public/about/practice-image.jpg`) with subtle hover elevation; signature image omitted as requested.
+  * Solid white category bar (`Global`, `Creative Collabs`, `Studio`, `Creative Partnerships`).
+  * 5-row clean experience grid with top/bottom border dividers, 4 columns (Company, Period, Role, Location right-aligned), and smooth hover states.
+  * Rendered in `src/app/about/page.tsx` right after `AboutFeaturedWorks`.
+* **Removed Profile Section from `/about`**:
+  * Removed `AboutProfile` component and its invocation from `src/app/about/page.tsx`.
+  * Deleted old profile assets in `public/about/`.
+
 ### [2026-09-23]
 * **Dedicated `/about` Page Scaffold & Framer Conversion (Chunks 1, 2 & 3)**:
   * **Chunk 1 (`AboutHero.tsx`)**: Created `src/components/AboutHero.tsx` and `src/components/aboutHero.module.css` matching Palmer Framer template (`https://palmer-template.framer.website`). Includes editorial staggered headline with Japanese accent, interactive 3D physics tilt video card with Vimeo reel, horizontal white category bar, and mega brand title (`Akihiko™`).
