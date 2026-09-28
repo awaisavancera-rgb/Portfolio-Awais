@@ -95,7 +95,7 @@ export function AboutHero({ brandName = "About Awais" }: AboutHeroProps) {
                         transition={{ duration: 0.8, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <h2 className={styles.headline}>
-                            Bold <span className={styles.japaneseText}>イメージ.</span>
+                            Bold <span className={styles.japaneseText}></span>
                         </h2>
                     </motion.div>
                 </div>

@@ -21,6 +21,7 @@
     width: 100%;
     height: min-content;
     padding: 24px;
+    padding-top: 34px;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -39,7 +40,7 @@
 }
 
 .headline {
-    font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+    font-size: 2.8rem;
     font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.04em;
@@ -55,8 +56,8 @@
 /* 3D TILT IMAGE CARD */
 .reelWrapper {
     flex: 0 0 auto;
-    width: 440px;
-    height: 349px;
+    width: 400px;
+    height: 389px;
     perspective: 800px;
     display: flex;
     align-items: center;
@@ -107,7 +108,7 @@
     position: absolute;
     top: 396px;
     left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%) !important;
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -168,7 +169,7 @@
 }
 
 .megaBrandTitle {
-    font-size: clamp(4.5rem, 19vw, 19.5rem);
+    font-size: 16rem;
     font-weight: 600;
     line-height: 0.82;
     letter-spacing: -0.05em;

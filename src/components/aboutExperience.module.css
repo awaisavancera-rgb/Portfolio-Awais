@@ -78,15 +78,18 @@
 
 /* 3. White Category Strip */
 .whiteStripContainer {
-    width: 100%;
-    background-color: #ffffff;
-    height: 42px;
-    display: flex;
+    color: #000;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 5;
+    width: 100%;
+    padding: 0 40px;
     margin-bottom: 3.5rem;
-    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.6em;
+    display: flex;
 }
 
 .whiteStripInner {
@@ -95,15 +98,18 @@
     height: 100%;
     align-items: center;
     justify-content: space-around;
-    padding: 0 1.5rem;
 }
 
 .stripCol {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     flex: 1;
+}
+
+.stripCol:nth-child(4) {
+    justify-content: flex-end;
 }
 
 .stripText {

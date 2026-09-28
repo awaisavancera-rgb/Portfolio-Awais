@@ -113,8 +113,8 @@ export function AboutFeaturedWorks() {
     const triggerRef = useRef<HTMLDivElement>(null);
     const trackRef = useRef<HTMLDivElement>(null);
 
-    // Select first 6 high-impact client projects
-    const featuredList = projects.slice(0, 6);
+    // Select first 4 high-impact client projects
+    const featuredList = projects.slice(0, 4);
 
     useGSAP(() => {
         if (!sectionRef.current || !triggerRef.current || !trackRef.current) return;

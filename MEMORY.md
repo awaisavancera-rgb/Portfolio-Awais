@@ -100,6 +100,10 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
 
 ## 📝 5. Changelog & Recent Updates History
 
+### [2026-09-28]
+* **Updated `AboutFeaturedWorks` Project Count**:
+  * Changed the horizontal slider project slice from 6 to 4 projects (`projects.slice(0, 4)`), displaying 2 initial cards with a clean 2-card reveal on scroll.
+
 ### [2026-09-26]
 * **Applied Exact Framer CSS & Architecture to `AboutHero`**:
   * Configured `.whiteStripContainer` (`.framer-1y2k8yn-container`) as absolute at `top: 396px; left: 50%; transform: translate(-50%); width: 100%; z-index: 1;`.
