@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import styles from "./about.module.css"
 import Image from "next/image"
+import Link from "next/link"
 
 import { RollingText } from "./RollingText"
 import { motion } from "framer-motion"
@@ -153,7 +154,7 @@ export const About = () => {
                             </h2>
                             {/* Inverted View More Button */}
                             <div className={styles.footerCTA}>
-                                <button className="primary-btn">
+                                <Link href="/about" className="primary-btn">
                                     <span className="btnText">VIEW MORE</span>
                                     <div className="btnIconCircle">
                                         <div className="arrowTrack">
@@ -165,7 +166,7 @@ export const About = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </button>
+                                </Link>
                             </div>
 
                         </div>

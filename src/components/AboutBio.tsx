@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import styles from "./aboutBio.module.css";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowDown } from "lucide-react";
 import { AtomIcon } from "./AtomIcon";
 import { FigmaIcon } from "./icons/FigmaIcon";
 import { GithubIcon } from "./icons/GithubIcon";
@@ -109,21 +109,25 @@ export const AboutBio = () => {
                                 13+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
                             </h2>
 
-                            {/* View More Button with Primary Pill Style */}
+                            {/* Download Resume Button with Primary Pill Style */}
                             <div className={styles.footerCTA}>
-                                <button className="primary-btn">
-                                    <span className="btnText">VIEW MORE</span>
+                                <a
+                                    href="/Muhammad%20Awais%20Resume%20(1).pdf"
+                                    download="Muhammad Awais Resume.pdf"
+                                    className="primary-btn"
+                                >
+                                    <span className="btnText">DOWNLOAD RESUME</span>
                                     <div className="btnIconCircle">
                                         <div className="arrowTrack">
                                             <div className="arrowIconPrimary">
-                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                                <ArrowDown size={16} strokeWidth={2.2} />
                                             </div>
                                             <div className="arrowIconSecondary">
-                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                                <ArrowDown size={16} strokeWidth={2.2} />
                                             </div>
                                         </div>
                                     </div>
-                                </button>
+                                </a>
                             </div>
                         </div>
 

@@ -179,6 +179,11 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
 
 * **Replaced About Section Image with `about-us-image.png`**:
   * Replaced the laptop mockup image (`/mockup-laptop-3.png`) in [About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx) and [AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx) with the user-provided `/about-us-image.png`.
+  * Removed grayscale filter and added subtle border & ambient glow for contrast against pure black background.
+
+* **About Section CTAs Updated**:
+  * Home Page ([About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx)): "VIEW MORE" button links directly to `/about`.
+  * About Page ([AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx)): Button updated to **"DOWNLOAD RESUME"** with download link to `/Muhammad Awais Resume (1).pdf`.
 
 ### [2026-09-21]
 * **Replaced Old Demo Projects with Real Client Portfolio**:
