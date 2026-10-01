@@ -65,7 +65,7 @@ export function Footer() {
                     <div className={styles.contactInfo}>
                         <p className={styles.description}>
                             Whether you&apos;re building a brand, designing a product, or
-                            simply want to explore an idea, <span className={styles.descriptionHighlight}>we&apos;d love to hear from you.</span>
+                            simply want to explore an idea, <span className={styles.descriptionHighlight}>I&apos;d love to hear from you.</span>
                         </p>
                         <div className={styles.directContact}>
                             <a href="mailto:hello@awaisportfolio.com" className={styles.emailLink}>hello@awaisportfolio.com</a>

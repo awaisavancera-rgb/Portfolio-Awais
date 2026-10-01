@@ -6,13 +6,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75vw 2vw;
+    padding: .6rem 1rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
-    max-width: 91.5vw;
+    max-width: 94.5vw;
     margin: 0 auto;
     z-index: 1000;
     transition: max-width 0.5s ease-in-out, padding 0.5s ease-in-out, background-color 0.3s ease, border-color 0.3s ease;
@@ -140,18 +140,18 @@
 .navLogo {
     display: flex;
     align-items: center;
-    gap: 0.75vw;
+    gap: .65rem;
     color: white;
     font-weight: 600;
-    font-size: 1.1vw;
+    font-size: 1rem;
 }
 
 .logoImageWrapper {
     position: relative;
-    width: 2.7vw;
-    height: 2.7vw;
+    width: 2.7rem;
+    height: 2.7rem;
     border-radius: 50%;
-    padding: 0.1vw;
+    padding: 0.1rem;
     background: linear-gradient(135deg, #fff 0%, #333 100%);
     overflow: hidden;
 }
@@ -200,11 +200,11 @@
 }
 
 .navItem {
-    padding: 0.7vw 1.75vw;
+    padding: .6rem 1.65rem;
     border-radius: 100vw;
     color: rgba(255, 255, 255, 0.6);
     font-weight: 500;
-    font-size: 0.9vw;
+    font-size: .85rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }

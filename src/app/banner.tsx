@@ -86,7 +86,7 @@ export default function Banner() {
                     >
                         <Image
                             src="/PRICING.png"
-                            alt="Nolan Blake"
+                            alt="Muhammad Awais"
                             fill
                             priority
                             style={{ objectFit: 'contain', objectPosition: 'bottom' }}

@@ -22,47 +22,50 @@ export function Reviews() {
     const testimonials = [
         {
             id: 1,
-            quote: `"Akihiko elevated every layer of our brand's online presence. From motion details to structural layout, every piece felt crafted and intentional. The site not only looked beautiful but performed well too — and the entire collaboration process was smooth."`,
-            name: "Lisa Kuroda",
-            title: "Founder, Studio Analog",
-            image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
-            companyText: "Cairo",
+            quote: `"Muhammed did an excellent job, working flexibly, suggesting the most efficient solutions and accommodating our work schedules. I highly recommend him, especially to clients who know what they want to achieve with their website but have no internal skills to create it."`,
+            name: "Alison Kibble",
+            title: "Co-Founder, Kibble Ferrier Consulting",
+            image: "/Alison-Portrait.png",
+            companyText: "Kibble Ferrier",
             marginOffset: "0vh"
         },
         {
             id: 2,
-            quote: `"Akihiko approaches every project with a deep sense of purpose. His work is never just about the surface — it's about how each element functions, connects, and flows. He brings logic, sharpness, and confidence to every decision, and his build quality."`,
-            name: "Daniel Reyes",
-            title: "Director, Framehaus",
-            image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=200&auto=format&fit=crop",
-            companyText: "Cairo",
+            quote: `"Muhammed did an excellent job, working flexibly, suggesting the most efficient solutions and accommodating our work schedules. I highly recommend him, especially to clients who know what they want to achieve with their website but have no internal skills to create it."`,
+            name: "David Protaziuk",
+            title: "Co-Founder, Veteran Medical Opinions",
+            image: "/David Protaziuk.png",
+            companyText: "Veteran Medical",
             marginOffset: "15vh"
         },
         {
             id: 3,
-            quote: `"His clean interaction design is unmatched. Akihiko understands not just how things should look, but why they should look that way — and that insight came through in every part of the work."`,
-            name: "Mei Tanaka",
-            title: "UX Designer, Nuro",
-            image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=200&auto=format&fit=crop",
-            companyText: "Cairo",
+            quote: `"Professional work and exactly what I wanted for the website design. Muhammed delivered clean aesthetics, responsive structure, and sharp attention to detail that truly brought VitaNova Clinical's vision to life."`,
+            name: "Arusvid",
+            title: "Founder, VitaNova Clinical",
+            image: null,
+            initial: "A",
+            companyText: "VitaNova",
             marginOffset: "0vh"
         },
         {
             id: 4,
-            quote: `"Working with Akihiko was more than just hiring a designer — it felt like bringing on a creative partner who truly understood our goals. He took our raw ideas, added clarity, and transformed them into something that not only looked stunning."`,
-            name: "Julian Pierce",
-            title: "Director, Vektor Inc.",
-            image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
-            companyText: "Cairo",
+            quote: `"Currently collaborating with Muhammed on our GoHighLevel infrastructure — building out the new website, smart list segmentations, and automated CRM pipelines. His technical grasp of GHL, speed, and proactive communication have made the entire rollout effortless."`,
+            name: "Victor",
+            title: "Technical Team, Shee & Hawe",
+            image: null,
+            initial: "V",
+            companyText: "Shee & Hawe",
             marginOffset: "0vh"
         },
         {
             id: 5,
-            quote: `"Akihiko brings a rare balance of creativity and discipline. He's incredibly fast without ever sacrificing attention to detail. From early ideation to the final product, his process is intentional, his communication is clear."`,
-            name: "Hana Samoto",
-            title: "CEO, Willow Studio",
-            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
-            companyText: "Cairo",
+            quote: `"Muhammed is leading the frontend engineering for our Next.js medical platform — encompassing client and patient portals with secure HL7/FHIR data workflows, followed by cross-platform mobile development. His architectural discipline and execution standards are exceptional."`,
+            name: "Ramez",
+            title: "Business Operations Manager, CrestView Group LLC",
+            image: null,
+            initial: "R",
+            companyText: "CrestView Group",
             marginOffset: "20vh"
         }
     ];
@@ -184,13 +187,19 @@ export function Reviews() {
         <div key={test.id} className={styles.card} style={{ marginTop: test.marginOffset }}>
             <p className={styles.quote}>{test.quote}</p>
             <div className={styles.authorInfo}>
-                <Image
-                    src={test.image}
-                    alt={test.name}
-                    width={48}
-                    height={48}
-                    className={styles.avatar}
-                />
+                {test.image ? (
+                    <Image
+                        src={test.image}
+                        alt={test.name}
+                        width={48}
+                        height={48}
+                        className={styles.avatar}
+                    />
+                ) : (
+                    <div className={styles.avatarInitial}>
+                        {test.initial || test.name.charAt(0).toUpperCase()}
+                    </div>
+                )}
                 <div className={styles.authorDetails}>
                     <div className={styles.authorNameRow}>
                         <span className={styles.authorName}>{test.name}</span>

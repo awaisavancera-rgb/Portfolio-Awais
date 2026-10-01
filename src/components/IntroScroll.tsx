@@ -126,15 +126,15 @@ export const IntroScroll = () => {
                     </div>
 
                     <h1 ref={headlineRef} className={styles.mainHeadline}>
-                        We transform bold ideas into standout brands through strategy, design, and marketing — all seamlessly integrated
+                        I transform bold ideas into standout brands through strategy, design, and marketing — all seamlessly integrated
                     </h1>
 
                     <div ref={footerBlocksRef} className={styles.bottomRow}>
                         <p className={styles.footerText}>
-                            From day one, our mission has been to craft timeless identities that cut through the noise. Each year we collaborate with five teams to ensure unrivaled attention and dedication
+                            From day one, I&apos;m on a mission to craft timeless identities that cut through the noise. Each year I collaborate with five teams to ensure unrivaled attention and dedication
                         </p>
                         <p className={styles.footerText}>
-                            For over a decade, we&apos;ve partnered worldwide with founders to shape bold identities that redefine markets.
+                            For over a decade, I&apos;ve partnered worldwide with founders to shape bold identities that redefine markets.
                         </p>
                     </div>
                 </div>

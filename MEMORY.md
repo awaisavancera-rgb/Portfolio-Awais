@@ -100,6 +100,14 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
 
 ## 📝 5. Changelog & Recent Updates History
 
+### [2026-09-30]
+* **Personal Portfolio Copy Conversion (First-Person Singular)**:
+  * Converted plural copy ("we", "our") into first-person singular ("I", "I'm") across the home page:
+    * `IntroScroll.tsx`: "We transform..." -> "I transform...", "our mission" -> "I'm on a mission...", "we collaborate" -> "I collaborate...", and "we've partnered" -> "I've partnered...".
+    * `Footer.tsx`: "we'd love to hear from you" -> "I'd love to hear from you".
+    * `Reviews.tsx`: Replaced legacy template mentions of "Akihiko" with "Awais".
+    * `banner.tsx`: Updated hero avatar image alt tag to "Muhammad Awais".
+
 ### [2026-09-28]
 * **Updated `AboutFeaturedWorks` Project Count**:
   * Changed the horizontal slider project slice from 6 to 4 projects (`projects.slice(0, 4)`), displaying 2 initial cards with a clean 2-card reveal on scroll.
@@ -158,6 +166,19 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Built Load More button with global `.primary-btn` styling and `ArrowDown` icon.
   * Added 0.6s (600ms) reload icon spin state on click before revealing the next 6 items.
   * Automatically hides when all projects are displayed.
+
+### [2026-10-01]
+* **Home Page Reviews Section Content Update**:
+  * Replaced demo review cards with 5 real client reviews:
+    1. **Alison Kibble** (Co-Founder, Kibble Ferrier Consulting) - image `/Alison-Portrait.png`.
+    2. **David Protaziuk** (Co-Founder, Veteran Medical Opinions) - image `/David Protaziuk.png`.
+    3. **Arusvid** (Founder, VitaNova Clinical) - custom styling with initial badge `"A"`.
+    4. **Victor** (Technical Team, Shee & Hawe) - GoHighLevel infrastructure & automation review with initial badge `"V"`.
+    5. **Ramez** (Business Operations Manager, CrestView Group LLC) - Next.js client & patient portal + HL7/FHIR & mobile app review with initial badge `"R"`.
+  * Added fallback avatar initial renderer (`.avatarInitial`) in `reviews.module.css` and `Reviews.tsx` to display initials for clients without portrait images.
+
+* **Replaced About Section Image with `about-us-image.png`**:
+  * Replaced the laptop mockup image (`/mockup-laptop-3.png`) in [About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx) and [AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx) with the user-provided `/about-us-image.png`.
 
 ### [2026-09-21]
 * **Replaced Old Demo Projects with Real Client Portfolio**:

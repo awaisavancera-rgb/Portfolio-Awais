@@ -136,8 +136,8 @@ export const About = () => {
                     <div ref={imageRef} className={styles.imageColumn}>
                         <div className={styles.portraitWrapper}>
                             <Image
-                                src="/mockup-laptop-3.png"
-                                alt="Portrait"
+                                src="/about-us-image.png"
+                                alt="About Us"
                                 fill
                                 className={styles.portraitImage}
                                 style={{ objectFit: 'cover' }}
