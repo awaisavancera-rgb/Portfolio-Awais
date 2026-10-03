@@ -93,6 +93,7 @@
 .cardImage {
     object-fit: cover;
     border-radius: 12px;
+    object-position: 25% 20%;
     transition: transform 0.5s ease;
 }
 

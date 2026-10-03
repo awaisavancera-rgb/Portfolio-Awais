@@ -334,6 +334,7 @@
 
     .leftColumn {
         max-width: 100%;
+        max-height: max-content;
     }
 
     .pill {
@@ -352,6 +353,7 @@
 
     .rightColumn {
         max-width: 100%;
+        max-height: max-content;
     }
 
     .columnTag {
@@ -387,13 +389,18 @@
     }
 
     .headerInfo {
-        font-size: 12px;
+        font-size: clamp(.6rem, 2.3vw, .72rem);
         padding-bottom: 0.75rem;
         margin-bottom: 1.2rem;
     }
 
     .headerInfo .headerCol:nth-child(2) {
         display: none;
+    }
+
+    .availableTag {
+        font-size: .65rem;
+        margin-bottom: 1rem;
     }
 
     .contentWrapper {
