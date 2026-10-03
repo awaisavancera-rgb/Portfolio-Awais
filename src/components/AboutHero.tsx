@@ -120,7 +120,7 @@ export function AboutHero({ brandName = "About Awais" }: AboutHeroProps) {
                     >
                         <div className={styles.imageContainer}>
                             <Image
-                                src="/about/hero-image.png"
+                                src="/about/muhammad-awais-main-banner.png"
                                 alt="About Awais"
                                 fill
                                 priority

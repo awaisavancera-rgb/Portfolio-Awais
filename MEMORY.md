@@ -167,6 +167,10 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Added 0.6s (600ms) reload icon spin state on click before revealing the next 6 items.
   * Automatically hides when all projects are displayed.
 
+### [2026-10-03]
+* **Updated Portfolio Background Images (`portfolio-bg`)**:
+  * Replaced project background images (`bgImage`) in [projects.ts](file:///d:/Portfolio%20Website/src/data/projects.ts) and [Portfolio.tsx](file:///d:/Portfolio%20Website/src/components/Portfolio.tsx) with the 11 user-provided portfolio background thumbnails (`/flyer-cocktail-portfolio-bg.jpg`, `/bite-toothpaste-portfolio-bg.jpg`, `/tokyo-headspa-portfolio-bg.jpg`, `/haveya-portfolio-bg.jpg`, `/zeuus-portfolio-bg.jpg`, `/ix-art-show-portfolio-bg.jpg`, `/lighthouse-cu-portfolio-bg.jpg`, `/black-star-pastry-portfolio-bg.jpg`, `/power-sheds-portfolio-bg.jpg`, `/hey-spud-portfolio-bg.jpg`, `/nyc-socail-portfolio-bg.jpg`).
+
 ### [2026-10-01]
 * **Home Page Reviews Section Content Update**:
   * Replaced demo review cards with 5 real client reviews:
