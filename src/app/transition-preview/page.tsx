@@ -59,53 +59,53 @@ export default function TransitionPreviewPage() {
             duration: 0.9,
             ease: "power4.out",
         }, 0.1)
-        .to(line2Ref.current, {
-            yPercent: 0,
-            opacity: 1,
-            duration: 0.9,
-            ease: "power4.out",
-        }, 0.22)
+            .to(line2Ref.current, {
+                yPercent: 0,
+                opacity: 1,
+                duration: 0.9,
+                ease: "power4.out",
+            }, 0.22)
 
-        // 2. Image scale/fade reveal
-        .to(imageRef.current, {
-            scale: 1,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-        }, 0.25)
+            // 2. Image scale/fade reveal
+            .to(imageRef.current, {
+                scale: 1,
+                opacity: 1,
+                duration: 1,
+                ease: "power3.out",
+            }, 0.25)
 
-        // 3. Skills strip reveal
-        .to(skillsStripRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            ease: "power3.out",
-        }, 0.35)
+            // 3. Skills strip reveal
+            .to(skillsStripRef.current, {
+                y: 0,
+                opacity: 1,
+                duration: 0.7,
+                ease: "power3.out",
+            }, 0.35)
 
-        // 4. Percentage counter & progress fill (0 -> 100%)
-        .to(counterObj, {
-            val: 100,
-            duration: 1.6,
-            ease: "power2.inOut",
-            onUpdate: () => {
-                const rounded = Math.round(counterObj.val);
-                setCounterVal(rounded);
-                if (progressFillRef.current) {
-                    progressFillRef.current.style.width = `${rounded}%`;
-                }
-                if (statusLabelRef.current) {
-                    if (rounded < 40) {
-                        statusLabelRef.current.textContent = "LOADING ASSETS...";
-                    } else if (rounded < 85) {
-                        statusLabelRef.current.textContent = "COMPOSITING SCENE...";
-                    } else if (rounded < 100) {
-                        statusLabelRef.current.textContent = "FINALIZING...";
-                    } else {
-                        statusLabelRef.current.textContent = "SYSTEM READY • COMPLETE";
+            // 4. Percentage counter & progress fill (0 -> 100%)
+            .to(counterObj, {
+                val: 100,
+                duration: 1.6,
+                ease: "power2.inOut",
+                onUpdate: () => {
+                    const rounded = Math.round(counterObj.val);
+                    setCounterVal(rounded);
+                    if (progressFillRef.current) {
+                        progressFillRef.current.style.width = `${rounded}%`;
                     }
-                }
-            },
-        }, 0.2);
+                    if (statusLabelRef.current) {
+                        if (rounded < 40) {
+                            statusLabelRef.current.textContent = "LOADING ASSETS...";
+                        } else if (rounded < 85) {
+                            statusLabelRef.current.textContent = "COMPOSITING SCENE...";
+                        } else if (rounded < 100) {
+                            statusLabelRef.current.textContent = "FINALIZING...";
+                        } else {
+                            statusLabelRef.current.textContent = "SYSTEM READY • COMPLETE";
+                        }
+                    }
+                },
+            }, 0.2);
     };
 
     useEffect(() => {

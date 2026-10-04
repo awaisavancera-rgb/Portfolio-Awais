@@ -102,9 +102,10 @@
 .bodyText {
     max-width: 500px;
     font-size: 1.1rem;
-    line-height: 1.55;
+    line-height: 1.45;
+    letter-spacing: -0.03em;
     color: rgb(187, 187, 187);
-    font-weight: 400;
+    font-weight: 500;
     margin: 0;
 }
 

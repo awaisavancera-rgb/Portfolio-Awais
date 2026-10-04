@@ -127,139 +127,139 @@ export function PageTransition() {
             duration: 0.65,
             ease: "power4.inOut",
         })
-        .to(
-            frameMain,
-            {
-                yPercent: 0,
-                duration: 0.65,
-                ease: "power4.inOut",
-            },
-            0.08
-        )
-
-        // ═══════════════════════════════════════════
-        // INNER ANIMATIONS: Text, image, skills, counter
-        // ═══════════════════════════════════════════
-        .to(
-            line1Ref.current,
-            {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.7,
-                ease: "power4.out",
-            },
-            0.35
-        )
-        .to(
-            line2Ref.current,
-            {
-                yPercent: 0,
-                opacity: 1,
-                duration: 0.7,
-                ease: "power4.out",
-            },
-            0.45
-        )
-        .to(
-            imageRef.current,
-            {
-                scale: 1,
-                opacity: 1,
-                duration: 0.75,
-                ease: "power3.out",
-            },
-            0.4
-        )
-        .to(
-            skillsStripRef.current,
-            {
-                y: 0,
-                opacity: 1,
-                duration: 0.55,
-                ease: "power3.out",
-            },
-            0.48
-        )
-
-        // Counter & Progress Bar: 0 -> 100%
-        .to(
-            counterObj,
-            {
-                val: 100,
-                duration: 1.1,
-                ease: "power2.inOut",
-                onUpdate: () => {
-                    const rounded = Math.round(counterObj.val);
-                    if (counterTextRef.current) {
-                        counterTextRef.current.textContent = `${rounded}`;
-                    }
-                    if (progressFillRef.current) {
-                        progressFillRef.current.style.width = `${rounded}%`;
-                    }
-                    if (statusLabelRef.current) {
-                        if (rounded < 40) {
-                            statusLabelRef.current.textContent = "LOADING ASSETS...";
-                        } else if (rounded < 85) {
-                            statusLabelRef.current.textContent = "COMPOSITING SCENE...";
-                        } else if (rounded < 100) {
-                            statusLabelRef.current.textContent = "FINALIZING...";
-                        } else {
-                            statusLabelRef.current.textContent = "COMPLETE";
-                        }
-                    }
+            .to(
+                frameMain,
+                {
+                    yPercent: 0,
+                    duration: 0.65,
+                    ease: "power4.inOut",
                 },
-            },
-            0.35
-        )
+                0.08
+            )
 
-        // ═══════════════════════════════════════════
-        // PHASE 2 — NAVIGATE: Route change when 100% reached
-        // ═══════════════════════════════════════════
-        .add(() => {
-            router.push(targetUrl);
-            window.scrollTo(0, 0);
-        })
+            // ═══════════════════════════════════════════
+            // INNER ANIMATIONS: Text, image, skills, counter
+            // ═══════════════════════════════════════════
+            .to(
+                line1Ref.current,
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 0.7,
+                    ease: "power4.out",
+                },
+                0.35
+            )
+            .to(
+                line2Ref.current,
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 0.7,
+                    ease: "power4.out",
+                },
+                0.45
+            )
+            .to(
+                imageRef.current,
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: 0.75,
+                    ease: "power3.out",
+                },
+                0.4
+            )
+            .to(
+                skillsStripRef.current,
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.55,
+                    ease: "power3.out",
+                },
+                0.48
+            )
 
-        // Brief hold for new page components to mount cleanly
-        .to({}, { duration: 0.35 })
+            // Counter & Progress Bar: 0 -> 100%
+            .to(
+                counterObj,
+                {
+                    val: 100,
+                    duration: 1.1,
+                    ease: "power2.inOut",
+                    onUpdate: () => {
+                        const rounded = Math.round(counterObj.val);
+                        if (counterTextRef.current) {
+                            counterTextRef.current.textContent = `${rounded}`;
+                        }
+                        if (progressFillRef.current) {
+                            progressFillRef.current.style.width = `${rounded}%`;
+                        }
+                        if (statusLabelRef.current) {
+                            if (rounded < 40) {
+                                statusLabelRef.current.textContent = "LOADING ASSETS...";
+                            } else if (rounded < 85) {
+                                statusLabelRef.current.textContent = "COMPOSITING SCENE...";
+                            } else if (rounded < 100) {
+                                statusLabelRef.current.textContent = "FINALIZING...";
+                            } else {
+                                statusLabelRef.current.textContent = "COMPLETE";
+                            }
+                        }
+                    },
+                },
+                0.35
+            )
 
-        // ═══════════════════════════════════════════
-        // PHASE 3 — EXIT: Panels slide up and away
-        // ═══════════════════════════════════════════
-        .to(
-            frameMain,
-            {
-                yPercent: -100,
-                duration: 0.8,
-                ease: "power4.inOut",
-            }
-        )
-        .to(
-            frameAccent,
-            {
-                yPercent: -100,
-                duration: 0.8,
-                ease: "power4.inOut",
-            },
-            "<0.04"
-        )
+            // ═══════════════════════════════════════════
+            // PHASE 2 — NAVIGATE: Route change when 100% reached
+            // ═══════════════════════════════════════════
+            .add(() => {
+                router.push(targetUrl);
+                window.scrollTo(0, 0);
+            })
 
-        // ═══════════════════════════════════════════
-        // PHASE 4 — REVEAL: Backdrop fades out smoothly
-        // ═══════════════════════════════════════════
-        .to(backdrop, {
-            autoAlpha: 0,
-            duration: 0.35,
-            ease: "power2.out",
-        })
-        .to(
-            overlay,
-            {
+            // Brief hold for new page components to mount cleanly
+            .to({}, { duration: 0.35 })
+
+            // ═══════════════════════════════════════════
+            // PHASE 3 — EXIT: Panels slide up and away
+            // ═══════════════════════════════════════════
+            .to(
+                frameMain,
+                {
+                    yPercent: -100,
+                    duration: 0.8,
+                    ease: "power4.inOut",
+                }
+            )
+            .to(
+                frameAccent,
+                {
+                    yPercent: -100,
+                    duration: 0.8,
+                    ease: "power4.inOut",
+                },
+                "<0.04"
+            )
+
+            // ═══════════════════════════════════════════
+            // PHASE 4 — REVEAL: Backdrop fades out smoothly
+            // ═══════════════════════════════════════════
+            .to(backdrop, {
                 autoAlpha: 0,
-                duration: 0.1,
-            },
-            "-=0.1"
-        );
+                duration: 0.35,
+                ease: "power2.out",
+            })
+            .to(
+                overlay,
+                {
+                    autoAlpha: 0,
+                    duration: 0.1,
+                },
+                "-=0.1"
+            );
     };
 
     // Event listeners for links and custom trigger

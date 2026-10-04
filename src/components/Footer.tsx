@@ -37,7 +37,7 @@ export function Footer() {
                         <p className={styles.referenceText}>
                             I build expressive, performance-driven websites by blending clean design and native development inside Framer to help creative teams and modern brands stand out with intention.
                         </p>
-                        <a href="mailto:hello@awaisportfolio.com" className="primary-btn">
+                        <a href="mailto:awaisarain953@gmail.com" className="primary-btn">
                             <span className="btnText">EMAIL ME</span>
                             <div className="btnIconCircle">
                                 <div className="arrowTrack">
@@ -68,8 +68,8 @@ export function Footer() {
                             simply want to explore an idea, <span className={styles.descriptionHighlight}>I&apos;d love to hear from you.</span>
                         </p>
                         <div className={styles.directContact}>
-                            <a href="mailto:hello@awaisportfolio.com" className={styles.emailLink}>hello@awaisportfolio.com</a>
-                            <span className={styles.phoneText}>+92 310 3751421</span>
+                            <a href="mailto:awaisarain953@gmail.com" className={styles.emailLink}>awaisarain953@gmail.com</a>
+                            <a href="tel:+923103751421" className={styles.phoneText}>+92 310 3751421</a>
                         </div>
                     </div>
 
@@ -77,10 +77,10 @@ export function Footer() {
                         <span className={styles.newsletterTitle}>Get updates and insights &mdash; Sign up for monthly newsletter.</span>
                         <form className={styles.newsletterForm} onSubmit={handleNewsletter}>
                             <div className={styles.newsletterInputGroup}>
-                                <input 
-                                    type="email" 
-                                    placeholder="Enter your email" 
-                                    className={styles.newsletterInput} 
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className={styles.newsletterInput}
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required

@@ -66,7 +66,7 @@ export function FaqSection() {
                 <div className={styles.leftColumn} ref={leftColumnRef}>
                     <div className={styles.imageWrapper}>
                         <Image
-                            src="https://framerusercontent.com/images/8Hyh6pB3pbhNuDNsxVZH0w3kvKo.png"
+                            src="muhammad-awais-main-banner.png"
                             alt="FAQ Portrait"
                             fill
                             style={{ objectFit: 'cover' }}

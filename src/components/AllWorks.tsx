@@ -122,31 +122,31 @@ const FilterDropdown = ({ label, options, selected, onSelect }: { label: string,
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className={styles.searchInputWrapper}>
-                            <input 
-                                type="text" 
+                            <input
+                                type="text"
                                 placeholder={`Search...`}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className={styles.searchInput}
                             />
                         </div>
-                        <div 
+                        <div
                             className={styles.filterOptionsList}
                             data-lenis-prevent="true"
                             onWheel={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
                         >
-                            <div 
-                                className={styles.filterOption} 
+                            <div
+                                className={styles.filterOption}
                                 onClick={(e) => { e.stopPropagation(); onSelect("All"); setIsOpen(false); setSearchQuery(""); }}
                             >
                                 All {label}s
                             </div>
                             {filteredOptions.length > 0 ? (
                                 filteredOptions.map(opt => (
-                                    <div 
-                                        key={opt} 
-                                        className={styles.filterOption} 
+                                    <div
+                                        key={opt}
+                                        className={styles.filterOption}
                                         onClick={(e) => { e.stopPropagation(); onSelect(opt); setIsOpen(false); setSearchQuery(""); }}
                                     >
                                         {opt}

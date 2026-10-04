@@ -28,7 +28,7 @@ const projects: Project[] = [
         title: "Flyers Cocktail Co.",
         slug: "flyers-cocktail-co",
         tags: ["Shopify", "Tailwind CSS"],
-        image: "/Flyers Website.jfif",
+        image: "/mockup/Flyers Website.png",
         description: "The World's Most Awarded CBD Cocktails — modern Shopify e-commerce platform built with Tailwind CSS, custom Alpine.js interactions, and Klaviyo.",
     },
     {
@@ -36,7 +36,7 @@ const projects: Project[] = [
         title: "Bite Toothpaste Bits",
         slug: "bite-toothpaste-bits",
         tags: ["Shopify", "React.js"],
-        image: "/Bite Toothpaste Bits Website.jfif",
+        image: "/mockup/Bite Toothpaste Bits Website.jfif",
         description: "Eco-friendly oral care Shopify store engineered with React & Preact components, Tailwind CSS styling, and advanced Rebuy personalization.",
     },
     {
@@ -44,7 +44,7 @@ const projects: Project[] = [
         title: "Tokyo Headspa",
         slug: "tokyo-headspa",
         tags: ["Remix", "Radix UI"],
-        image: "/Tokyoheadspa Website.jfif",
+        image: "/mockup/Tokyoheadspa Website.png",
         description: "Australia's leading Japanese head spa web experience built with Remix, React Router, Radix UI, Lenis smooth scrolling, and Swiper showcases.",
     },
 ]

@@ -59,9 +59,9 @@ export function Contact() {
                             </div>
                         </Link>
 
-                        <button 
+                        <button
                             type="button"
-                            className={styles.copyBtn} 
+                            className={styles.copyBtn}
                             onClick={handleCopyEmail}
                             aria-label="Copy email address"
                         >
@@ -144,7 +144,6 @@ export function Contact() {
                     {/* Minimalist Bottom Status & Social Strip */}
                     <div className={styles.bottomMetaStrip}>
                         <div className={styles.statusBlock}>
-                            <span className={styles.liveIndicatorDot} />
                             <span className={styles.statusText}>Available for Remote Worldwide &bull; PKT (UTC+5)</span>
                         </div>
 

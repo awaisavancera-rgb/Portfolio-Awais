@@ -53,7 +53,7 @@ export default function ContactPage() {
                     <div className={styles.leftColumn} ref={triggerRef}>
                         <div className={styles.imageWrapper} ref={imageRef}>
                             <Image
-                                src="https://framerusercontent.com/images/BChNf0ssn5x1I9kAk4vwX8qT5o.png"
+                                src="Cinematic Stairwell Light and Shadows.png"
                                 alt="Woman Staircase"
                                 fill
                                 priority
@@ -65,11 +65,11 @@ export default function ContactPage() {
 
                     <div className={styles.rightColumn}>
                         <div className={styles.lists}>
-                            <Link href="https://www.framer.com/@westhill-studio/" target="_blank" className={styles.listItem}>
+                            <Link href="mailto:awaisarain953@gmail.com" target="_blank" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
                                     <div className={styles.textRollWrapper}>
-                                        <span className={styles.listItemText}>Office: Tokyo, Japan.</span>
-                                        <span className={styles.listItemTextHover}>Office: Tokyo, Japan.</span>
+                                        <span className={styles.listItemText}>Location: Karachi, Pakistan.</span>
+                                        <span className={styles.listItemTextHover}>Location: Karachi, Pakistan.</span>
                                     </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
@@ -91,11 +91,11 @@ export default function ContactPage() {
                                 </div>
                             </Link>
 
-                            <Link href="tel:+1345664565" className={styles.listItem}>
+                            <Link href="tel:+923103751421" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
                                     <div className={styles.textRollWrapper}>
-                                        <span className={styles.listItemText}>+1 34566 4565</span>
-                                        <span className={styles.listItemTextHover}>+1 34566 4565</span>
+                                        <span className={styles.listItemText}>+92 310 3751421</span>
+                                        <span className={styles.listItemTextHover}>+92 310 3751421</span>
                                     </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
@@ -104,11 +104,11 @@ export default function ContactPage() {
                                 </div>
                             </Link>
 
-                            <Link href="mailto:sayhi@akihiko.com" className={styles.listItem}>
+                            <Link href="mailto:awaisarai953@gmail.com" className={styles.listItem}>
                                 <div className={styles.listItemContent}>
                                     <div className={styles.textRollWrapper}>
-                                        <span className={styles.listItemText}>sayhi@akihiko.com</span>
-                                        <span className={styles.listItemTextHover}>sayhi@akihiko.com</span>
+                                        <span className={styles.listItemText}>awaisarai953@gmail.com</span>
+                                        <span className={styles.listItemTextHover}>awaisarai953@gmail.com</span>
                                     </div>
                                     <ArrowUpRight className={styles.icon} />
                                 </div>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                     <h1 className={styles.hugeText}>Contact Now</h1>
                 </div>
             </div>
-            
+
             <ContactDark />
             <FaqSection />
             <Footer />

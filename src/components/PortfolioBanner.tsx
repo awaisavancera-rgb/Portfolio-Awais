@@ -28,26 +28,26 @@ export function PortfolioBanner() {
                     </div>
                 </div>
                 <div className={styles.leftColumn}>
-                    <motion.div 
-                        className={styles.imageWrapper} 
+                    <motion.div
+                        className={styles.imageWrapper}
                         style={{ y: yTransform }}
                     >
                         <img
                             alt="Woman Staircase"
                             decoding="async"
                             data-nimg="fill"
-                            src="https://framerusercontent.com/images/BChNf0ssn5x1I9kAk4vwX8qT5o.png"
+                            src="Cinematic Stairwell Light and Shadows.png"
                             style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', objectFit: 'cover', objectPosition: 'center center', color: 'transparent' }}
                         />
                     </motion.div>
                 </div>
                 <div className={styles.rightColumn}>
                     <div className={styles.lists}>
-                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="https://www.framer.com/@westhill-studio/">
+                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="mailto:awaisarain953@gmail.com">
                             <div className={styles.listItemContent}>
                                 <div className={styles.textRollWrapper}>
-                                    <span className={styles.listItemText}>Office: Tokyo, Japan.</span>
-                                    <span className={styles.listItemTextHover}>Office: Tokyo, Japan.</span>
+                                    <span className={styles.listItemText}>Location: Karachi, Pakistan.</span>
+                                    <span className={styles.listItemTextHover}>Location: Karachi, Pakistan.</span>
                                 </div>
                                 <ArrowUpRight className={styles.icon} />
                             </div>
@@ -67,11 +67,11 @@ export function PortfolioBanner() {
                                 <div className={styles.lineFiller}></div>
                             </div>
                         </a>
-                        <a className={styles.listItem} href="tel:+1345664565">
+                        <a className={styles.listItem} href="tel:+923103751421">
                             <div className={styles.listItemContent}>
                                 <div className={styles.textRollWrapper}>
-                                    <span className={styles.listItemText}>+1 34566 4565</span>
-                                    <span className={styles.listItemTextHover}>+1 34566 4565</span>
+                                    <span className={styles.listItemText}>+92 310 3751421</span>
+                                    <span className={styles.listItemTextHover}>+92 310 3751421</span>
                                 </div>
                                 <ArrowUpRight className={styles.icon} />
                             </div>
@@ -79,11 +79,11 @@ export function PortfolioBanner() {
                                 <div className={styles.lineFiller}></div>
                             </div>
                         </a>
-                        <a className={styles.listItem} href="mailto:sayhi@akihiko.com">
+                        <a className={styles.listItem} href="mailto:awaisarain953@gmail.com">
                             <div className={styles.listItemContent}>
                                 <div className={styles.textRollWrapper}>
-                                    <span className={styles.listItemText}>sayhi@akihiko.com</span>
-                                    <span className={styles.listItemTextHover}>sayhi@akihiko.com</span>
+                                    <span className={styles.listItemText}>awaisarain953@gmail.com</span>
+                                    <span className={styles.listItemTextHover}>awaisarain953@gmail.com</span>
                                 </div>
                                 <ArrowUpRight className={styles.icon} />
                             </div>

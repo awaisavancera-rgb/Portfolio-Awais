@@ -18,7 +18,8 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transform-origin: center center;
-    outline: 1px solid transparent; /* Forces smooth anti-aliased edge on GPU */
+    outline: 1px solid transparent;
+    /* Forces smooth anti-aliased edge on GPU */
 }
 
 /* Disable mix-blend-mode during page transitions to prevent GPU compositor tiling artifacts */
@@ -47,7 +48,8 @@ body.page-transitioning .customCursor {
 }
 
 /* Hide completely on touch devices */
-@media (pointer: coarse), (hover: none) {
+@media (pointer: coarse),
+(hover: none) {
     .customCursor {
         display: none !important;
     }
