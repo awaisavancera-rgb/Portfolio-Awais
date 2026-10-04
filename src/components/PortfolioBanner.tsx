@@ -36,7 +36,7 @@ export function PortfolioBanner() {
                             alt="Woman Staircase"
                             decoding="async"
                             data-nimg="fill"
-                            src="Cinematic Stairwell Light and Shadows.png"
+                            src="/Cinematic Stairwell Light and Shadows.png"
                             style={{ position: 'absolute', height: '100%', width: '100%', inset: '0px', objectFit: 'cover', objectPosition: 'center center', color: 'transparent' }}
                         />
                     </motion.div>

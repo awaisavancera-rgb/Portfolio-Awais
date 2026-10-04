@@ -53,7 +53,7 @@ export default function ContactPage() {
                     <div className={styles.leftColumn} ref={triggerRef}>
                         <div className={styles.imageWrapper} ref={imageRef}>
                             <Image
-                                src="Cinematic Stairwell Light and Shadows.png"
+                                src="/Cinematic Stairwell Light and Shadows.png"
                                 alt="Woman Staircase"
                                 fill
                                 priority
