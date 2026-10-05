@@ -1,11 +1,66 @@
 "use client";
 
 import styles from "./contactDark.module.css";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { useState } from "react";
 
 export function ContactDark() {
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
     const [selectedPlan, setSelectedPlan] = useState<string>("Freelance Work");
+    const [message, setMessage] = useState("");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [statusMessage, setStatusMessage] = useState("");
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!fullName.trim() || !email.trim() || !message.trim()) {
+            setStatus("error");
+            setStatusMessage("Please fill in your name, email, and message.");
+            return;
+        }
+
+        setStatus("loading");
+        setStatusMessage("");
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/awaisarain953@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    Name: fullName,
+                    Email: email,
+                    "Inquiry Type": selectedPlan,
+                    Message: message,
+                    _subject: `New Portfolio Inquiry from ${fullName} (${selectedPlan})`,
+                    _template: "table"
+                })
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                setStatusMessage("Thank you! Your inquiry has been sent to Awais.");
+                setFullName("");
+                setEmail("");
+                setMessage("");
+                setSelectedPlan("Freelance Work");
+                setTimeout(() => {
+                    setStatus("idle");
+                    setStatusMessage("");
+                }, 6000);
+            } else {
+                setStatus("error");
+                setStatusMessage("Could not send message. Please email directly at awaisarain953@gmail.com.");
+            }
+        } catch {
+            setStatus("error");
+            setStatusMessage("Network error. Please email directly at awaisarain953@gmail.com.");
+        }
+    };
 
     return (
         <section className={styles.contactSection}>
@@ -38,81 +93,118 @@ export function ContactDark() {
                         Have questions or need support? I'm always here to help you every step of the way.
                     </p>
 
-                    <div className={styles.darkCard}>
-                        <div className={styles.contactItem}>
-                            <span className={styles.contactLabel}>EMAIL:</span>
-                            <span className={styles.contactValue}>hello@awaisportfolio.com</span>
-                        </div>
-                        <div className={styles.contactItem}>
-                            <span className={styles.contactLabel}>PHONE:</span>
-                            <span className={styles.contactValue}>+92 310 3751421</span>
-                        </div>
-                        <div className={styles.contactItem}>
-                            <span className={styles.contactLabel}>ADDRESS:</span>
-                            <span className={styles.contactValue}>Karachi Gulshan-e-Iqbal, Pakistan</span>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Right Column - Form */}
-                <div className={styles.rightColumn}>
+                <form className={styles.rightColumn} onSubmit={handleSubmit}>
                     <div className={styles.formGroup}>
                         <label className={styles.inputLabel}>FULL NAME</label>
-                        <input type="text" className={styles.inputField} placeholder="Jane Smith" />
+                        <input
+                            type="text"
+                            className={styles.inputField}
+                            placeholder="Jane Smith"
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
+                            required
+                        />
+                        <div className={styles.line}>
+                            <div className={styles.lineFiller} />
+                        </div>
                     </div>
 
                     <div className={styles.formGroup}>
                         <label className={styles.inputLabel}>YOUR EMAIL</label>
-                        <input type="email" className={styles.inputField} placeholder="jane@domain.com" />
+                        <input
+                            type="email"
+                            className={styles.inputField}
+                            placeholder="jane@domain.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                        <div className={styles.line}>
+                            <div className={styles.lineFiller} />
+                        </div>
                     </div>
 
                     <div className={styles.formGroup}>
                         <label className={styles.inputLabel}>INQUIRY TYPE</label>
                         <div className={styles.planSelection}>
-                            <div
-                                className={`${styles.planButton} ${selectedPlan === "Freelance Work" ? styles.planDark : styles.planLight}`}
-                                onClick={() => setSelectedPlan("Freelance Work")}
-                            >
-                                Freelance Work
-                            </div>
-                            <div
-                                className={`${styles.planButton} ${selectedPlan === "Full-time Job" ? styles.planDark : styles.planLight}`}
-                                onClick={() => setSelectedPlan("Full-time Job")}
-                            >
-                                Full-time Job
-                            </div>
-                            <div
-                                className={`${styles.planButton} ${selectedPlan === "Just saying Hi" ? styles.planDark : styles.planLight}`}
-                                onClick={() => setSelectedPlan("Just saying Hi")}
-                            >
-                                Just saying Hi
-                            </div>
+                            {["Freelance Work", "Full-time Job", "Just saying Hi"].map((plan) => (
+                                <button
+                                    key={plan}
+                                    type="button"
+                                    className={`${styles.planButton} ${selectedPlan === plan ? styles.planActive : ""}`}
+                                    onClick={() => setSelectedPlan(plan)}
+                                >
+                                    {plan}
+                                </button>
+                            ))}
                         </div>
                     </div>
 
                     <div className={styles.formGroup}>
                         <label className={styles.inputLabel}>MESSAGE</label>
-                        <textarea className={styles.textareaField} placeholder="Type Your Message..."></textarea>
+                        <textarea
+                            className={styles.textareaField}
+                            rows={3}
+                            placeholder="Type Your Message..."
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            required
+                        />
+                        <div className={styles.line}>
+                            <div className={styles.lineFiller} />
+                        </div>
                     </div>
 
-                    {/* Using the standard site theme button aligned completely */}
+                    {/* Global style primary-btn aligned right */}
                     <div className={styles.submitWrapper}>
-                        <button className={styles.contactBtn}>
-                            <span className={styles.btnText}>GET IN TOUCH</span>
-                            <div className={styles.btnIconCircle}>
-                                <div className={styles.arrowTrack}>
-                                    <div className={styles.arrowIconPrimary}>
-                                        <ArrowRight size={16} strokeWidth={2.2} />
-                                    </div>
-                                    <div className={styles.arrowIconSecondary}>
-                                        <ArrowRight size={16} strokeWidth={2.2} />
-                                    </div>
+                        <button
+                            type="submit"
+                            className="primary-btn"
+                            disabled={status === "loading"}
+                            style={{ opacity: status === "loading" ? 0.8 : 1, cursor: status === "loading" ? "not-allowed" : "pointer" }}
+                        >
+                            <span className="btnText">
+                                {status === "loading"
+                                    ? "SENDING..."
+                                    : status === "success"
+                                    ? "MESSAGE SENT ✓"
+                                    : "GET IN TOUCH"}
+                            </span>
+                            <div className="btnIconCircle">
+                                <div className="arrowTrack">
+                                    {status === "loading" ? (
+                                        <Loader2 size={16} className={styles.spinIcon} />
+                                    ) : status === "success" ? (
+                                        <Check size={16} strokeWidth={2.5} className={styles.checkIcon} />
+                                    ) : (
+                                        <>
+                                            <div className="arrowIconPrimary">
+                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                            </div>
+                                            <div className="arrowIconSecondary">
+                                                <ArrowRight size={16} strokeWidth={2.2} />
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         </button>
+
+                        {statusMessage && (
+                            <p
+                                className={`${styles.statusFeedback} ${
+                                    status === "success" ? styles.statusSuccess : styles.statusError
+                                }`}
+                            >
+                                {statusMessage}
+                            </p>
+                        )}
                     </div>
 
-                </div>
+                </form>
 
             </div>
         </section>

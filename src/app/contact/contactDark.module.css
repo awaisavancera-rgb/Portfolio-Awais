@@ -124,218 +124,183 @@
     letter-spacing: -0.03em;
 }
 
-/* RIGHT COLUMN */
+/* RIGHT COLUMN - CLEAN FRAMELESS EDITORIAL FORM */
 .rightColumn {
-    background-color: #111;
-    border-radius: 1vw;
-    border: 1px solid #bbb3;
-    width: 45%;
-    padding: 1.5vw;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    width: 50%;
+    max-width: 680px;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 1.5vw;
+    gap: 2rem;
 }
 
 .formGroup {
     display: flex;
     flex-direction: column;
-    gap: 0.65vw;
+    gap: 0.4rem;
+    position: relative;
+    width: 100%;
 }
 
 .inputLabel {
-    font-size: 0.8vw;
-    font-weight: 700;
-    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.45);
     text-transform: uppercase;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.05em;
+    transition: color 0.4s ease;
+}
+
+.formGroup:hover .inputLabel,
+.formGroup:focus-within .inputLabel {
+    color: #ffffff;
 }
 
 .inputField,
 .textareaField {
     width: 100%;
-    padding: 1vw;
-    background-color: #222;
-    border: 1px solid transparent;
-    border-radius: 0.5vw;
-    font-size: 1vw;
-    color: #fff;
+    padding: 8px 0 10px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #ffffff;
     font-family: inherit;
     outline: none;
-    transition: border-color 0.3s ease;
+    letter-spacing: -0.03em;
 }
 
 .inputField::placeholder,
 .textareaField::placeholder {
-    color: #999;
-}
-
-.inputField:focus,
-.textareaField:focus {
-    border-color: #666;
+    color: rgba(255, 255, 255, 0.28);
+    font-weight: 400;
 }
 
 .textareaField {
     resize: none;
-    min-height: 10vw;
+    min-height: 80px;
+    line-height: 1.5;
 }
 
-/* Plan Selection */
+/* Underline Wipe-In Animation (Same as Contact Lists) */
+.line {
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    height: 1px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.lineFiller {
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.formGroup:hover .lineFiller,
+.formGroup:focus-within .lineFiller {
+    transform: scaleX(1);
+}
+
+/* Plan Selection Pills */
 .planSelection {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.3rem;
 }
 
 .planButton {
-    flex: 1;
-    padding: 1vw;
-    border-radius: 0.5vw;
-    font-size: 0.9vw;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.planLight {
-    background-color: #222;
-    color: #fff;
-    border: 1px solid transparent;
-}
-
-.planLight:hover {
-    background-color: #333;
-}
-
-.planDark {
-    background-color: #444;
-    color: #fff;
-    border: 1px solid transparent;
-}
-
-.planDark:hover {
-    background-color: #555;
-}
-
-/* Custom alignment for standard site button */
-.submitWrapper {
-    margin-top: 1vw;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.contactBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.5rem 1.1rem;
     border-radius: 40px;
-    height: 48px;
-    padding: 4px;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    width: 100%;
-    overflow: hidden;
-    z-index: 1;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.contactBtn:hover {
-    transform: scale(1.02);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.contactBtn .btnText {
-    font-family: var(--font-inter), sans-serif;
-    font-size: 14px;
+    font-size: 0.85rem;
     font-weight: 500;
-    letter-spacing: 0.02em;
-    color: #000;
-    white-space: nowrap;
-    line-height: 1;
-    position: relative;
-    z-index: 2;
-    transition: color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.contactBtn:hover .btnText {
-    color: #fff;
+.planButton:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.contactBtn .btnIconCircle {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    bottom: 4px;
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    background-color: #000;
+.planActive {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+/* Submit Button Wrapper */
+.submitWrapper {
+    margin-top: 0.5rem;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 12px;
-    z-index: 1;
-    overflow: hidden;
-    transition: width 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        right 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        top 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        bottom 0.7s cubic-bezier(0.25, 1, 0.5, 1),
-        height 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
 }
 
-.contactBtn:hover .btnIconCircle {
-    right: 1.5px;
-    top: 1.5px;
-    bottom: 1.5px;
-    height: calc(100% - 3px);
-    width: calc(100% - 3px);
+.statusFeedback {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-align: right;
+    margin: 0;
+    animation: fadeIn 0.4s ease;
 }
 
-.contactBtn .arrowTrack {
-    position: relative;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    flex-shrink: 0;
+.statusSuccess {
+    color: #4ade80;
 }
 
-.contactBtn .arrowIconPrimary {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    transform: translateX(0);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-    opacity: 1;
+.statusError {
+    color: #f87171;
 }
 
-.contactBtn .arrowIconSecondary {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    transform: translateX(-180%);
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
-    opacity: 0;
+.spinIcon {
+    animation: spinRotate 0.8s linear infinite;
+    color: #ffffff;
 }
 
-.contactBtn:hover .arrowIconPrimary {
-    transform: translateX(180%);
-    opacity: 0;
+.checkIcon {
+    color: #ffffff;
 }
 
-.contactBtn:hover .arrowIconSecondary {
-    transform: translateX(0);
-    opacity: 1;
+@keyframes spinRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Overrides */
@@ -424,76 +389,50 @@
         margin-bottom: 30px;
     }
 
-    .darkCard {
-        padding: 20px;
-        border-radius: 12px;
-        gap: 20px;
-    }
-
-    .contactItem {
-        padding-bottom: 15px;
-        gap: 8px;
-    }
-
-    .contactLabel {
-        font-size: 12px;
-    }
-
-    .contactValue {
-        font-size: 14px;
-    }
-
     .rightColumn {
-        padding: 25px;
-        border-radius: 12px;
-        gap: 25px;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        gap: 1.8rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .formGroup {
-        gap: 10px;
+        gap: 6px;
     }
 
     .inputLabel {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .inputField,
     .textareaField {
-        font-size: 12px;
-        padding: 12px;
-        border-radius: 4px;
+        font-size: 14px;
+        padding: 8px 0 10px;
+        border-radius: 0;
+        background: transparent;
     }
 
     .textareaField {
-        min-height: 12vh;
+        min-height: 70px;
     }
 
     .planSelection {
-        gap: 10px;
+        gap: 8px;
         display: flex;
         flex-wrap: wrap;
     }
 
     .planButton {
-        border-radius: 8px;
-        padding: 12px;
+        border-radius: 30px;
+        padding: 8px 14px;
         font-size: 12px;
         min-width: max-content;
     }
 
-    .contactBtn {
-        height: 45px;
-        border-radius: 50px;
-    }
-
-    .contactBtn .btnText {
-        font-size: 14px;
-        font-weight: 500;
-    }
-
-    .contactBtn .btnIconCircle {
-        width: 37px;
-        height: 36px;
-        padding-right: 10px;
+    .submitWrapper {
+        justify-content: flex-end;
     }
 }

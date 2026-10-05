@@ -64,13 +64,11 @@
     justify-content: space-between;
     background-color: #ffffff;
     color: #000000;
-    padding: 0.45rem 1rem;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    padding: 0px 40px;
+    font-size: 1rem;
     font-weight: 600;
-    letter-spacing: 0.02em;
+    line-height: 1.6em;
     margin-bottom: 4rem;
-    /* Spacing before content */
 }
 
 /* Meta Bar (Top) - Optional, keeping if needed or moving */
@@ -284,7 +282,7 @@
     width: 97vw;
     margin-left: calc(50% - 64vw);
     background-color: #fff;
-    padding: .5vw 2vw;
+    padding: 0px 40px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -296,10 +294,9 @@
 
 .statusLabel {
     color: #000;
-    font-size: 0.9vw;
+    font-size: 1rem;
+    line-height: 1.6em;
     font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.01vw;
     font-family: inherit;
     will-change: filter, transform, opacity;
 }
@@ -525,7 +522,8 @@
 
     .skillsStrip {
         padding: 0 10px;
-        font-size: 0.75rem;
+        font-size: clamp(0.68rem, 2.3vw, 0.72rem);
+        line-height: 1.45em;
         margin-bottom: 1.75rem;
         gap: 0.5rem;
         position: absolute;
@@ -555,9 +553,13 @@
     .portraitWrapper {
         width: 100%;
         height: auto;
-        aspect-ratio: 16 / 11;
+        aspect-ratio: 16 / 14;
         max-height: 340px;
         border-radius: 12px;
+    }
+
+    .portraitImage {
+        object-position: 25% 25%;
     }
 
     .textColumn {
@@ -598,9 +600,8 @@
     }
 
     .statusLabel {
-        font-size: .75rem;
-        line-height: 1.6em;
-        letter-spacing: 0.01em;
+        font-size: clamp(0.68rem, 2.3vw, 0.72rem);
+        line-height: 1.45em;
         white-space: nowrap;
     }
 

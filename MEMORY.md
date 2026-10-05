@@ -167,6 +167,16 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Added 0.6s (600ms) reload icon spin state on click before revealing the next 6 items.
   * Automatically hides when all projects are displayed.
 
+### [2026-10-05]
+* **Contact Page Refinement**:
+  * Removed the static contact details card (`.darkCard` with Email, Phone, Address) from [ContactDark.tsx](file:///d:/Portfolio%20Website/src/app/contact/ContactDark.tsx) as requested.
+  * Completely removed the heavy card box styles (`#111` background, `#bbb3` border, and padding) from `.rightColumn`.
+  * Redesigned the contact form to match the analyzed editorial animated underline interaction (`.line` + `.lineFiller` with `scaleX(0)` to `scaleX(1)` using `cubic-bezier(0.22, 1, 0.36, 1)`) on both `:hover` and `:focus-within`.
+  * Form inputs & textarea styled cleanly with transparent backgrounds, no box borders, and smooth white bottom lines.
+  * Modernized `INQUIRY TYPE` pills into sleek rounded chips.
+  * Contact submit button ("GET IN TOUCH") connected to global `.primary-btn` styling from `globals.css` with right-aligned layout for website-wide consistency.
+  * Integrated FormSubmit AJAX service (`https://formsubmit.co/ajax/awaisarain953@gmail.com`) into [ContactDark.tsx](file:///d:/Portfolio%20Website/src/app/contact/ContactDark.tsx) to deliver all queries (Name, Email, Inquiry Type, Message) directly to `awaisarain953@gmail.com` with live loading and success/error feedback.
+
 ### [2026-10-03]
 * **Updated Portfolio Background Images (`portfolio-bg`)**:
   * Replaced project background images (`bgImage`) in [projects.ts](file:///d:/Portfolio%20Website/src/data/projects.ts) and [Portfolio.tsx](file:///d:/Portfolio%20Website/src/components/Portfolio.tsx) with the 11 user-provided portfolio background thumbnails (`/flyer-cocktail-portfolio-bg.jpg`, `/bite-toothpaste-portfolio-bg.jpg`, `/tokyo-headspa-portfolio-bg.jpg`, `/haveya-portfolio-bg.jpg`, `/zeuus-portfolio-bg.jpg`, `/ix-art-show-portfolio-bg.jpg`, `/lighthouse-cu-portfolio-bg.jpg`, `/black-star-pastry-portfolio-bg.jpg`, `/power-sheds-portfolio-bg.jpg`, `/hey-spud-portfolio-bg.jpg`, `/nyc-socail-portfolio-bg.jpg`).
