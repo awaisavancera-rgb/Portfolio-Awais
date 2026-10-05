@@ -199,6 +199,13 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Home Page ([About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx)): "VIEW MORE" button links directly to `/about`.
   * About Page ([AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx)): Button updated to **"DOWNLOAD RESUME"** with download link to `/Muhammad Awais Resume (1).pdf`.
 
+### [2026-10-05]
+* **Header Active Navigation Pill Synchronization**:
+  * Fixed issue where navigating to different pages via in-page CTA buttons (e.g., "VIEW MORE" -> `/about`, "GET IN TOUCH" -> `/contact`, "VIEW ALL PROJECTS" -> `/work`) or via the Footer links did not update the header active menu item pill.
+  * Added route synchronization via `useEffect` listening to `pathname` changes from `usePathname()`, dynamically mapping current path to active nav items (`"Home"`, `"About"`, `"Work / Portfolio"`, `"Blog"`, `"Contact"`).
+  * Made the nav logo clickable (`cursor: pointer`) routing back to Home with the "Home" pill active.
+  * Added `onClick={() => handleNavClick("Contact")}` to the dropdown menu CTA button.
+
 ### [2026-09-21]
 * **Replaced Old Demo Projects with Real Client Portfolio**:
   * Removed old placeholders (`sonder-goods`, `halo-wear`, `lucent-lab`, `arc-bloom`, `atelier-nara`).

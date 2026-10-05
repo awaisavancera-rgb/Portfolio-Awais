@@ -8,17 +8,32 @@ import styles from "./header.module.css";
 import { LiquidMetalButton } from "@/components/LiquidMetalButton";
 import { triggerPageTransition } from "@/components/PageTransition";
 
+const getActiveNavFromPath = (path: string | null): string | null => {
+    if (!path) return "Home";
+    if (path === "/") return "Home";
+    if (path.startsWith("/work") || path.startsWith("/portfolio")) return "Work / Portfolio";
+    if (path.startsWith("/about")) return "About";
+    if (path.startsWith("/contact")) return "Contact";
+    if (path.startsWith("/blog")) return "Blog";
+    return null;
+};
+
 export function Header() {
     const pathname = usePathname();
     const router = useRouter();
     const navItems = ["Home", "About", "Work / Portfolio", "Blog", "Contact"];
-    const [activeNav, setActiveNav] = useState(pathname?.startsWith("/work") ? "Work / Portfolio" : pathname === "/about" ? "About" : pathname === "/contact" ? "Contact" : pathname === "/blog" ? "Blog" : "Home");
+    const [activeNav, setActiveNav] = useState<string | null>(() => getActiveNavFromPath(pathname));
     const [hoveredNav, setHoveredNav] = useState<string | null>(null);
     const [hidden, setHidden] = useState(false);
     const [isCompact, setIsCompact] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const { scrollY } = useScroll();
+
+    useEffect(() => {
+        setActiveNav(getActiveNavFromPath(pathname));
+        setIsMenuOpen(false);
+    }, [pathname]);
 
     useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -55,7 +70,7 @@ export function Header() {
             triggerPageTransition("/contact");
         } else if (item === "Blog") {
             triggerPageTransition("/blog");
-        } else if (pathname?.startsWith("/work") || pathname === "/about" || pathname === "/contact" || pathname === "/blog") {
+        } else {
             triggerPageTransition("/");
         }
     };
@@ -73,7 +88,11 @@ export function Header() {
             initial={{ y: -100, opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
         >
-            <div className={styles.navLogo}>
+            <div 
+                className={styles.navLogo}
+                onClick={() => handleNavClick("Home")}
+                style={{ cursor: "pointer" }}
+            >
                 <div className={styles.logoImageWrapper}>
                     <Image
                         src="/Whisk_74972c1328c633aa89d4f1ae1bf892a9eg.png"
@@ -217,7 +236,7 @@ export function Header() {
                                     style={{ objectFit: 'cover', objectPosition: 'top center', borderRadius: '16px' }}
                                 />
                                 <div className={styles.dropdownCardOverlay}>
-                                    <LiquidMetalButton label="Contact Me" />
+                                    <LiquidMetalButton label="Contact Me" onClick={() => handleNavClick("Contact")} />
                                 </div>
                             </div>
                         </div>
