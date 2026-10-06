@@ -43,11 +43,12 @@ export function AboutHero({ brandName = "About Awais" }: AboutHeroProps) {
 
     return (
         <section className={styles.heroSection}>
-            {/* 1. Horizontal White Banner Strip (Absolute at top: 396px matching Framer) */}
+            {/* 1. Horizontal White Banner Strip */}
             <motion.div
                 className={styles.whiteStripContainer}
                 initial={{ opacity: 0, scaleX: 0.95 }}
                 animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
                 <div className={styles.whiteStripInner}>
                     {stripCategories.map((item, idx) => (

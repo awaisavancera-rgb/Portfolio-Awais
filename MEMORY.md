@@ -199,6 +199,16 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Home Page ([About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx)): "VIEW MORE" button links directly to `/about`.
   * About Page ([AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx)): Button updated to **"DOWNLOAD RESUME"** with download link to `/Muhammad Awais Resume (1).pdf`.
 
+### [2026-10-06]
+* **About Page Hero Banner Responsiveness & Layout Fix**:
+  * **Desktop Layout Restored 100%**: Reverted desktop styles and JSX structure in [AboutHero.tsx](file:///d:/Portfolio%20Website/src/components/AboutHero.tsx) and [aboutHero.module.css](file:///d:/Portfolio%20Website/src/components/aboutHero.module.css) to exact original specifications (`whiteStripContainer` absolute at `top: 396px; left: 50%; transform: translate(-50%) !important; z-index: 1;`, `topRow` flex row with `padding: 34px 24px 24px; z-index: 2;`, `reelWrapper` overlapping at `z-index: 10;`, and `megaBrandTitle` at `16rem`).
+  * **Mobile & Tablet Responsive (`@media`)**: Applied clean, non-conflicting scoped media queries:
+    - Text (`.headingBlock`) stays at the top (`order: 1`).
+    - Portrait Photo Card (`.reelWrapper`) positioned below text aligned to the bottom-right (`order: 2; align-self: flex-end; margin-left: auto; width: 220px; height: 290px;`).
+    - White Strip (`.whiteStripContainer`) transitions to relative flow below `topRow` (`order: 2`) with `transform: none !important`.
+    - Removed empty space by setting `flex: none` on mobile for `.headingBlock` and adding a tight `1.25rem` gap.
+    - Responsive font clamps for mobile to prevent horizontal overflow.
+
 ### [2026-10-05]
 * **Header Active Navigation Pill Synchronization**:
   * Fixed issue where navigating to different pages via in-page CTA buttons (e.g., "VIEW MORE" -> `/about`, "GET IN TOUCH" -> `/contact`, "VIEW ALL PROJECTS" -> `/work`) or via the Footer links did not update the header active menu item pill.
