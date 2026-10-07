@@ -7,36 +7,23 @@
     padding: 5rem 0 7rem;
 }
 
+
 /* 1. Meta Bar (Consistent 3-item layout) */
 .metaBar {
-    display: flex;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    width: 100%;
+    color: #fff9;
+    max-width: 1480px;
+    font-size: .8rem;
+    border-bottom: 1px solid #bbb3;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    max-width: 1480px;
     margin: 0 auto;
     padding: 0 1.5rem 1.5rem;
-    border-bottom: 1px solid rgba(187, 187, 187, 0.2);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    font-family: var(--font-inter), sans-serif;
+    display: flex;
 }
 
-.metaBar span:first-child {
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.metaBar span:nth-child(2) {
-    color: rgba(187, 187, 187, 0.45);
-    letter-spacing: 0.08em;
-}
-
-.metaBar span:last-child {
-    color: rgba(187, 187, 187, 0.7);
-    font-weight: 400;
-}
 
 /* 2. White Marquee Header */
 .marqueeWrapper {
@@ -298,18 +285,125 @@
     transform: translateY(-100%);
 }
 
+/* Mobile Carousel Controls (Hidden on Desktop by default) */
+.mobileCarouselControls {
+    display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .featuredWorksSection {
         padding: 4rem 0 5rem;
     }
 
+    .sliderViewport {
+        padding: 0 1.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE / Edge */
+    }
+
+    .sliderViewport::-webkit-scrollbar {
+        display: none !important; /* Chrome / Safari */
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .cardsTrack {
+        gap: 20px;
+    }
+
     .cardItem {
         width: 440px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        flex-shrink: 0;
     }
 
     .imageContainer {
         height: 420px;
+    }
+
+    .mobileCarouselControls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1480px;
+        margin: 1.5rem auto 0;
+        padding: 0 1.5rem;
+    }
+
+    .carouselArrowBtn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background-color: #121212;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        flex-shrink: 0;
+    }
+
+    .carouselArrowBtn:hover:not(:disabled) {
+        background-color: #ffffff;
+        color: #000000;
+        border-color: #ffffff;
+        transform: scale(1.05);
+    }
+
+    .carouselArrowBtn:active:not(:disabled) {
+        transform: scale(0.95);
+    }
+
+    .carouselArrowBtn:disabled {
+        opacity: 0.25;
+        cursor: not-allowed;
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .carouselInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .carouselDots {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .carouselDot {
+        height: 5px;
+        width: 6px;
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.25);
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .carouselDotActive {
+        width: 22px;
+        background-color: #ffffff;
+    }
+
+    .carouselCounter {
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        color: rgba(255, 255, 255, 0.55);
+        font-family: var(--font-inter), sans-serif;
+        font-weight: 500;
     }
 }
 
@@ -318,12 +412,19 @@
         padding: 3rem 0 4rem;
     }
 
+    .metaWrapper {
+        padding: 0 1rem;
+    }
+
     .metaBar {
-        padding: 0 1rem 1rem;
-        font-size: 0.75rem;
-        flex-direction: column;
+        padding: .75rem 0;
+        font-size: clamp(.6rem, 2.3vw, .72rem);
         align-items: flex-start;
         gap: 0.5rem;
+    }
+
+    .metaBar span:nth-child(2) {
+        display: none;
     }
 
     .metaLeft {
@@ -336,7 +437,7 @@
     }
 
     .dividerLine {
-        margin: 0 auto 2rem;
+        margin: 0 auto 1rem;
     }
 
     .bodyRow {
@@ -350,23 +451,45 @@
         padding: 0 1rem;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .sliderViewport::-webkit-scrollbar {
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
     .cardsTrack {
-        gap: 20px;
+        gap: 16px;
     }
 
     .cardItem {
-        width: 82vw;
+        width: 84vw;
         max-width: 360px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        flex-shrink: 0;
     }
 
     .imageContainer {
-        height: 340px;
+        height: 300px;
     }
 
     .innerImageWrapper {
         width: 68%;
         height: 72%;
+    }
+
+    .bodyText {
+        font-size: 0.85rem;
+    }
+
+    .mobileCarouselControls {
+        padding: 0 1rem;
+        margin-top: 1.25rem;
     }
 }

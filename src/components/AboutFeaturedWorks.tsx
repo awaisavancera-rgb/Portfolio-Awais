@@ -7,7 +7,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./aboutFeaturedWorks.module.css";
 import { projects } from "@/data/projects";
 
@@ -115,6 +115,38 @@ export function AboutFeaturedWorks() {
 
     // Select first 4 high-impact client projects
     const featuredList = projects.slice(0, 4);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
+    const handleScroll = () => {
+        if (!triggerRef.current) return;
+        const scrollLeft = triggerRef.current.scrollLeft;
+        const cardEl = triggerRef.current.querySelector(`.${styles.cardItem}`) as HTMLElement | null;
+        const cardWidth = cardEl ? cardEl.offsetWidth + 16 : 320;
+        const newIndex = Math.round(scrollLeft / cardWidth);
+        if (newIndex >= 0 && newIndex < featuredList.length) {
+            setCurrentSlide(newIndex);
+        }
+    };
+
+    const scrollToIndex = (index: number) => {
+        if (!triggerRef.current) return;
+        const safeIndex = Math.max(0, Math.min(index, featuredList.length - 1));
+        const cardEl = triggerRef.current.querySelector(`.${styles.cardItem}`) as HTMLElement | null;
+        const cardWidth = cardEl ? cardEl.offsetWidth + 16 : 320;
+        triggerRef.current.scrollTo({
+            left: safeIndex * cardWidth,
+            behavior: "smooth"
+        });
+        setCurrentSlide(safeIndex);
+    };
+
+    const handlePrev = () => {
+        scrollToIndex(currentSlide - 1);
+    };
+
+    const handleNext = () => {
+        scrollToIndex(currentSlide + 1);
+    };
 
     useGSAP(() => {
         if (!sectionRef.current || !triggerRef.current || !trackRef.current) return;
@@ -161,12 +193,13 @@ export function AboutFeaturedWorks() {
     return (
         <section ref={sectionRef} className={styles.featuredWorksSection}>
             {/* 1. Meta Bar (Consistent 3-item layout) */}
-            <div className={styles.metaBar}>
-                <span>© Featured Projects プロジェクト</span>
-                <span>(WDX® — 03)</span>
-                <span>Creative Development</span>
+            <div className={styles.metaWrapper}>
+                <div className={styles.metaBar}>
+                    <span>© Featured Projects</span>
+                    <span>(MAP® — 03)</span>
+                    <span>Creative Development</span>
+                </div>
             </div>
-
             {/* 2. White Marquee Header Banner */}
             <div className={styles.marqueeWrapper}>
                 <div className={styles.marqueeTrack}>
@@ -203,13 +236,57 @@ export function AboutFeaturedWorks() {
                 </div>
             </div>
 
-            {/* 4. Slider: 2 Cards Visible at Once, Scroll to Reveal Next 2 */}
-            <div ref={triggerRef} className={styles.sliderViewport}>
+            {/* 4. Slider / Mobile Carousel */}
+            <div 
+                ref={triggerRef} 
+                className={styles.sliderViewport}
+                onScroll={handleScroll}
+            >
                 <div ref={trackRef} className={styles.cardsTrack}>
                     {featuredList.map((project) => (
                         <FeaturedCardItem key={project.id} project={project} />
                     ))}
                 </div>
+            </div>
+
+            {/* 5. Mobile Carousel Controls (Hidden on Desktop) */}
+            <div className={styles.mobileCarouselControls}>
+                <button
+                    type="button"
+                    onClick={handlePrev}
+                    disabled={currentSlide === 0}
+                    className={styles.carouselArrowBtn}
+                    aria-label="Previous project"
+                >
+                    <ChevronLeft size={20} strokeWidth={2.4} />
+                </button>
+
+                <div className={styles.carouselInfo}>
+                    <div className={styles.carouselDots}>
+                        {featuredList.map((_, idx) => (
+                            <button
+                                key={idx}
+                                type="button"
+                                onClick={() => scrollToIndex(idx)}
+                                className={`${styles.carouselDot} ${currentSlide === idx ? styles.carouselDotActive : ""}`}
+                                aria-label={`Go to project ${idx + 1}`}
+                            />
+                        ))}
+                    </div>
+                    <span className={styles.carouselCounter}>
+                        0{currentSlide + 1} / 0{featuredList.length}
+                    </span>
+                </div>
+
+                <button
+                    type="button"
+                    onClick={handleNext}
+                    disabled={currentSlide === featuredList.length - 1}
+                    className={styles.carouselArrowBtn}
+                    aria-label="Next project"
+                >
+                    <ChevronRight size={20} strokeWidth={2.4} />
+                </button>
             </div>
         </section>
     );

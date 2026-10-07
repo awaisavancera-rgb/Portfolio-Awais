@@ -82,7 +82,7 @@ export const AboutBio = () => {
                 {/* Meta Bar */}
                 <div className={styles.metaBar}>
                     <span>© Curated Interfaces</span>
-                    <span>(WDX® — 02)</span>
+                    <span>(MAP® — 02)</span>
                     <span>Digital Designer</span>
                 </div>
 
@@ -106,7 +106,7 @@ export const AboutBio = () => {
                     <div ref={contentRef} className={styles.textColumn}>
                         <div className={styles.headlineWrapper}>
                             <h2 className={styles.headline}>
-                                13+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
+                                7+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
                             </h2>
 
                             {/* Download Resume Button with Primary Pill Style */}

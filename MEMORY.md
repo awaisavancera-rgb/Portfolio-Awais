@@ -199,6 +199,13 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Home Page ([About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx)): "VIEW MORE" button links directly to `/about`.
   * About Page ([AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx)): Button updated to **"DOWNLOAD RESUME"** with download link to `/Muhammad Awais Resume (1).pdf`.
 
+### [2026-10-07]
+* **Featured Projects / Portfolio Slider Mobile Carousel with Navigation Arrows**:
+  * Transformed [AboutFeaturedWorks.tsx](file:///d:/Portfolio%20Website/src/components/AboutFeaturedWorks.tsx) and [aboutFeaturedWorks.module.css](file:///d:/Portfolio%20Website/src/components/aboutFeaturedWorks.module.css) into a smooth, interactive carousel on mobile viewports while leaving the desktop GSAP pinned horizontal scroll completely untouched (100% identical).
+  * **Removed Native Scrollbar**: Added cross-browser CSS rules (`scrollbar-width: none; -ms-overflow-style: none; ::-webkit-scrollbar { display: none !important }`) to remove the horizontal scrollbar on mobile.
+  * **Smooth Snap Sliding**: Integrated `scroll-snap-type: x mandatory` and `scroll-snap-align: start` with card width snapping.
+  * **Mobile Carousel Controls**: Added sleek Prev (`<`) and Next (`>`) glass circular arrow buttons (`carouselArrowBtn`), dynamic slide counter (`01 / 04`), and animated expanding pill indicators (`carouselDots`) that update on click or touch swipe. Hidden completely on desktop.
+
 ### [2026-10-06]
 * **About Page Hero Banner Responsiveness & Layout Fix**:
   * **Desktop Layout Restored 100%**: Reverted desktop styles and JSX structure in [AboutHero.tsx](file:///d:/Portfolio%20Website/src/components/AboutHero.tsx) and [aboutHero.module.css](file:///d:/Portfolio%20Website/src/components/aboutHero.module.css) to exact original specifications (`whiteStripContainer` absolute at `top: 396px; left: 50%; transform: translate(-50%) !important; z-index: 1;`, `topRow` flex row with `padding: 34px 24px 24px; z-index: 2;`, `reelWrapper` overlapping at `z-index: 10;`, and `megaBrandTitle` at `16rem`).

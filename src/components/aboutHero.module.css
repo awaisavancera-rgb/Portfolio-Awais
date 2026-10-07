@@ -318,11 +318,14 @@
 
     .bottomBrandSection {
         order: 3;
-        padding-bottom: 1.5rem;
     }
 
     .megaBrandTitle {
         font-size: clamp(2.3rem, 12vw, 4.5rem);
+    }
+
+    .metaBar:nth-child(2) {
+        display: none;
     }
 }
 

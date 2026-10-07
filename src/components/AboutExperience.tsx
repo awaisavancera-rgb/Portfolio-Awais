@@ -51,8 +51,8 @@ export function AboutExperience() {
             <div className={styles.container}>
                 {/* 1. Meta Bar (100% consistent with AboutBio) */}
                 <div className={styles.metaBar}>
-                    <span>© EXPERIENCE エクスペリエンス</span>
-                    <span>(WDX® — 05)</span>
+                    <span>© EXPERIENCE</span>
+                    <span>(MAP® — 05)</span>
                     <span>DIGITAL CRAFT</span>
                 </div>
 
