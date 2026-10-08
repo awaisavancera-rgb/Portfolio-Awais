@@ -58,17 +58,17 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
 | # | Project Name | Slug | Platform | Tech Stack Highlights | Mockup File (`public/mockup/`) | Live Link |
 |---|--------------|------|----------|-----------------------|--------------------------------|-----------|
 | 01 | **Flyers Cocktail Co.** | `flyers-cocktail-co` | Shopify | Shopify, Tailwind CSS, Alpine.js, Klaviyo | `Flyers Website.png` | [drinkflyers.com](https://drinkflyers.com/) |
-| 02 | **Bite Toothpaste Bits** | `bite-toothpaste-bits` | Shopify | Shopify, React, Preact, Tailwind, Rebuy, Klaviyo | `Bite Toothpaste Bits Website.jfif` | [bitetoothpastebits.com](https://bitetoothpastebits.com/) |
+| 02 | **Bite Toothpaste Bits** | `bite-toothpaste-bits` | Shopify | Shopify, React, Preact, Tailwind, Rebuy, Klaviyo | `Bite Toothpaste Bits Website.jpg` | [bitetoothpastebits.com](https://bitetoothpastebits.com/) |
 | 03 | **Tokyo Headspa** | `tokyo-headspa` | React.js | Remix, React Router, Radix UI, Lenis, Swiper | `Tokyoheadspa Website.png` | [tokyoheadspa.com.au](https://www.tokyoheadspa.com.au/) |
-| 04 | **Heveya®** | `heveya` | Shopify | Shopify, Preact, styled-components, Swiper, Klaviyo | `Heyva Ecommerce Website.jfif` | [heveya.sg](https://www.heveya.sg/) |
-| 05 | **Zeuss** | `zeuss` | Custom Website | Astro, Storyblok CMS, Tailwind CSS, Tidio, AWS | `Zeuss - Home (getzeuss.com).jfif` | [getzeuss.com](https://getzeuss.com/) |
-| 06 | **IX Art Show** | `ix-art-show` | WordPress | WordPress, WP Engine, Masonry, FancyBox, Swiper | `IX Show Event Website.jfif` | [imaginativerealism.com](https://imaginativerealism.com/) |
-| 07 | **Display Studio** | `display-care` | Custom Website | Sanity CMS, Netlify, Lenis, Locomotive, AccessiBe | `Display — A disability oriented design studio.jfif` | [display.care](https://www.display.care/) |
-| 08 | **Light House CU** | `lighthouse-cu` | WordPress | WordPress, Hello Elementor, GSAP, JetEngine, Salesforce | `Light House CU - www.lighthousecu.org.jfif` | [lighthousecu.org](https://www.lighthousecu.org/) |
-| 09 | **Black Star Pastry** | `black-star-pastry` | Shopify | Shopify, Meta/Pinterest Ads, Cloudflare CDN | `Black Star Pastry - Home of the World's Most Instagrammed Cake.jfif` | [blackstarpastry.com](https://www.blackstarpastry.com/) |
-| 10 | **Power Sheds** | `power-sheds` | Shopify | Shopify, GSAP, Sanity CMS, Algolia, Radix UI | `Power Shed Shopify GSAP Animated Website.jfif` | [powersheds.com](https://www.powersheds.com/) |
-| 11 | **Hey Spud!** | `hey-spud` | Wix | Wix eCommerce, GSAP, React, Onsen UI, Google Cloud | `Hey Spud Website.jfif` | [heyspud.co.uk](https://heyspud.co.uk/) |
-| 12 | **NYC Social Club** | `nyc-social-club` | Wix | Wix, React, Cloudflare CDN | `NYC Influencer Marketing Agency  NYC Social Club.jfif` | [nycsocialclub.com](https://nycsocialclub.com/) |
+| 04 | **Heveya®** | `heveya` | Shopify | Shopify, Preact, styled-components, Swiper, Klaviyo | `Heyva Ecommerce Website.jpg` | [heveya.sg](https://www.heveya.sg/) |
+| 05 | **Zeuss** | `zeuss` | Custom Website | Astro, Storyblok CMS, Tailwind CSS, Tidio, AWS | `Zeuss - Home (getzeuss.com).jpg` | [getzeuss.com](https://getzeuss.com/) |
+| 06 | **IX Art Show** | `ix-art-show` | WordPress | WordPress, WP Engine, Masonry, FancyBox, Swiper | `IX Show Event Website.jpg` | [imaginativerealism.com](https://imaginativerealism.com/) |
+| 07 | **Display Studio** | `display-care` | Custom Website | Sanity CMS, Netlify, Lenis, Locomotive, AccessiBe | `Display — A disability oriented design studio.jpg` | [display.care](https://www.display.care/) |
+| 08 | **Light House CU** | `lighthouse-cu` | WordPress | WordPress, Hello Elementor, GSAP, JetEngine, Salesforce | `Light House CU - www.lighthousecu.org.jpg` | [lighthousecu.org](https://www.lighthousecu.org/) |
+| 09 | **Black Star Pastry** | `black-star-pastry` | Shopify | Shopify, Meta/Pinterest Ads, Cloudflare CDN | `Black Star Pastry - Home of the World's Most Instagrammed Cake.jpg` | [blackstarpastry.com](https://www.blackstarpastry.com/) |
+| 10 | **Power Sheds** | `power-sheds` | Shopify | Shopify, GSAP, Sanity CMS, Algolia, Radix UI | `Power Shed Shopify GSAP Animated Website.jpg` | [powersheds.com](https://www.powersheds.com/) |
+| 11 | **Hey Spud!** | `hey-spud` | Wix | Wix eCommerce, GSAP, React, Onsen UI, Google Cloud | `Hey Spud Website.jpg` | [heyspud.co.uk](https://heyspud.co.uk/) |
+| 12 | **NYC Social Club** | `nyc-social-club` | Wix | Wix, React, Cloudflare CDN | `NYC Influencer Marketing Agency  NYC Social Club.jpg` | [nycsocialclub.com](https://nycsocialclub.com/) |
 
 ---
 
@@ -217,6 +217,18 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
     - Responsive font clamps for mobile to prevent horizontal overflow.
 
 ### [2026-10-05]
+### [2026-10-08]
+* **Fixed Broken Image on Vercel Deployment (`.jfif` to `.jpg` conversion)**:
+  * Vercel's Edge server serves `.jfif` files with `Content-Type: application/octet-stream` instead of an image MIME type. When Next.js `<Image />` runs through Vercel's Image Optimization service (`/_next/image`), Vercel rejected `.jfif` requests with `400 Bad Request: INVALID_IMAGE_OPTIMIZE_REQUEST`.
+  * Renamed all 10 `.jfif` mockup images in `public/mockup/` to standard `.jpg` (`git mv`).
+  * Updated all image references in `src/data/projects.ts` and `src/components/Portfolio.tsx` to `.jpg`.
+  * All images are now recognized as `image/jpeg`, optimized seamlessly on Vercel without broken image icons.
+
+* **AboutBio "Download Resume" Button Hover Animation Scoped to Top-to-Bottom**:
+  * Scoped the hover arrow animation on the "DOWNLOAD RESUME" button in [AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx) from horizontal (`translateX`) to vertical top-to-bottom (`translateY`).
+  * Replaced global `.arrowIconPrimary` / `.arrowIconSecondary` with scoped `.downArrowPrimary` / `.downArrowSecondary` in `aboutBio.module.css`.
+  * Preserved all global button styles (`globals.css`) untouched so other `.primary-btn` instances continue their normal behavior.
+
 * **Header Active Navigation Pill Synchronization**:
   * Fixed issue where navigating to different pages via in-page CTA buttons (e.g., "VIEW MORE" -> `/about`, "GET IN TOUCH" -> `/contact`, "VIEW ALL PROJECTS" -> `/work`) or via the Footer links did not update the header active menu item pill.
   * Added route synchronization via `useEffect` listening to `pathname` changes from `usePathname()`, dynamically mapping current path to active nav items (`"Home"`, `"About"`, `"Work / Portfolio"`, `"Blog"`, `"Contact"`).

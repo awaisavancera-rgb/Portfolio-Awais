@@ -1,10 +1,13 @@
 .faqSection {
-    background-color: #000;
     color: #fff;
-    width: 100%;
-    display: flex;
+    background-color: #000;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
     position: relative;
 }
 
@@ -13,13 +16,12 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1480px;
-    padding: 30px 24px;
-    font-size: 0.9rem;
-    font-weight: 500;
+    letter-spacing: .05em;
+    padding: 1.5rem 0;
+    font-size: 0.8rem;
     font-family: 'Inter', sans-serif;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.6);
+    color: #fff9;
     text-transform: uppercase;
 }
 
@@ -168,12 +170,16 @@
     }
 
     .faqSection {
-        padding: 0 1.25rem;
+        padding: 0 1rem;
     }
 
     .metaBar {
         font-size: clamp(.6rem, 2.3vw, .72rem);
-        padding: 10px 0px 20px;
+        padding: .75rem 0;
+    }
+
+    .metaBar span:nth-child(2) {
+        display: none;
     }
 
     .leftColumn {

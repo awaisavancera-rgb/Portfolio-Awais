@@ -119,10 +119,10 @@ export const AboutBio = () => {
                                     <span className="btnText">DOWNLOAD RESUME</span>
                                     <div className="btnIconCircle">
                                         <div className="arrowTrack">
-                                            <div className="arrowIconPrimary">
+                                            <div className={styles.downArrowPrimary}>
                                                 <ArrowDown size={16} strokeWidth={2.2} />
                                             </div>
-                                            <div className="arrowIconSecondary">
+                                            <div className={styles.downArrowSecondary}>
                                                 <ArrowDown size={16} strokeWidth={2.2} />
                                             </div>
                                         </div>

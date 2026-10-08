@@ -26,7 +26,7 @@ export const projects = [
         platform: "Shopify",
         industry: "Ecommerce",
         bgImage: "/bite-toothpaste-portfolio-bg.jpg",
-        innerImage: "/mockup/Bite Toothpaste Bits Website.jfif",
+        innerImage: "/mockup/Bite Toothpaste Bits Website.jpg",
         date: "Monday, August 19, 2024",
         description: "Engineered an eco-friendly oral care platform on Shopify powered by React & Preact interactive components, Tailwind CSS styling, advanced Rebuy personalization, and Klaviyo retention workflows. Built for high performance, accessibility, and high-converting subscription checkouts.",
         client: "The Bite Company",
@@ -34,7 +34,7 @@ export const projects = [
         location: "Los Angeles, USA",
         link: "https://bitetoothpastebits.com/",
         gallery: [
-            "/mockup/Bite Toothpaste Bits Website.jfif"
+            "/mockup/Bite Toothpaste Bits Website.jpg"
         ]
     },
     {
@@ -64,7 +64,7 @@ export const projects = [
         platform: "Shopify",
         industry: "Ecommerce",
         bgImage: "/haveya-portfolio-bg.jpg",
-        innerImage: "/mockup/Heyva Ecommerce Website.jfif",
+        innerImage: "/mockup/Heyva Ecommerce Website.jpg",
         date: "Wednesday, June 12, 2024",
         description: "Developed a premium multilingual Shopify e-commerce flagship for natural latex bedding and organic mattresses. Built customized Preact product configurators, styled-components UI, multi-currency localized checkout, and high-performance Swiper & Glide.js carousels with Klaviyo marketing automation.",
         client: "Heveya Singapore",
@@ -72,7 +72,7 @@ export const projects = [
         location: "Singapore",
         link: "https://www.heveya.sg/",
         gallery: [
-            "/mockup/Heyva Ecommerce Website.jfif"
+            "/mockup/Heyva Ecommerce Website.jpg"
         ]
     },
     {
@@ -83,7 +83,7 @@ export const projects = [
         platform: "Custom Website",
         industry: "Tech/SaaS",
         bgImage: "/zeuus-portfolio-bg.jpg",
-        innerImage: "/mockup/Zeuss - Home (getzeuss.com).jfif",
+        innerImage: "/mockup/Zeuss - Home (getzeuss.com).jpg",
         date: "Thursday, May 16, 2024",
         description: "Architected a lightning-fast telehealth and wellness platform using Astro static site generation and Storyblok headless CMS. Styled with modern Tailwind CSS, integrated automated Tidio live support, and optimized for high-converting marketing campaigns across AWS and Azure cloud infrastructure.",
         client: "Zeuss Health Inc.",
@@ -91,7 +91,7 @@ export const projects = [
         location: "Miami, USA",
         link: "https://getzeuss.com/",
         gallery: [
-            "/mockup/Zeuss - Home (getzeuss.com).jfif"
+            "/mockup/Zeuss - Home (getzeuss.com).jpg"
         ]
     },
     {
@@ -102,7 +102,7 @@ export const projects = [
         platform: "WordPress",
         industry: "Agency",
         bgImage: "/ix-art-show-portfolio-bg.jpg",
-        innerImage: "/mockup/IX Show Event Website.jfif",
+        innerImage: "/mockup/IX Show Event Website.jpg",
         date: "Friday, April 05, 2024",
         description: "Engineered an exhibition and ticketing portal for the annual IX Art Show (Imaginative Realism) on WordPress and WP Engine. Implemented dynamic Masonry artist portfolios, interactive event schedules, FancyBox modals, and full Yoast SEO optimization.",
         client: "IX Arts LLC",
@@ -110,7 +110,7 @@ export const projects = [
         location: "Pennsylvania, USA",
         link: "https://imaginativerealism.com/",
         gallery: [
-            "/mockup/IX Show Event Website.jfif"
+            "/mockup/IX Show Event Website.jpg"
         ]
     },
     {
@@ -120,8 +120,8 @@ export const projects = [
         tag: "Sanity / Creative",
         platform: "Custom Website",
         industry: "Agency",
-        bgImage: "/mockup/Display — A disability oriented design studio.jfif",
-        innerImage: "/mockup/Display — A disability oriented design studio.jfif",
+        bgImage: "/mockup/Display — A disability oriented design studio.jpg",
+        innerImage: "/mockup/Display — A disability oriented design studio.jpg",
         date: "Tuesday, March 19, 2024",
         description: "Crafted an accessible, progressive digital studio showcase for Display, a care- and disability-oriented design studio. Built with Sanity headless CMS, Netlify CDN, Lenis & Locomotive smooth scrolling, and comprehensive AccessiBe accessibility compliance.",
         client: "Display Studio",
@@ -129,7 +129,7 @@ export const projects = [
         location: "Melbourne, Australia",
         link: "https://www.display.care/",
         gallery: [
-            "/mockup/Display — A disability oriented design studio.jfif"
+            "/mockup/Display — A disability oriented design studio.jpg"
         ]
     },
     {
@@ -140,7 +140,7 @@ export const projects = [
         platform: "WordPress",
         industry: "Tech/SaaS",
         bgImage: "/lighthouse-cu-portfolio-bg.jpg",
-        innerImage: "/mockup/Light House CU - www.lighthousecu.org.jfif",
+        innerImage: "/mockup/Light House CU - www.lighthousecu.org.jpg",
         date: "Monday, February 12, 2024",
         description: "Engineered an enterprise financial institution web portal for Light House Credit Union using WordPress, Hello Elementor, and Crocoblock JetEngine. Features smooth GSAP animations, Salesforce CRM integration, Extole referral marketing, and robust security protocols.",
         client: "Light House Credit Union",
@@ -148,7 +148,7 @@ export const projects = [
         location: "Houston, USA",
         link: "https://www.lighthousecu.org/",
         gallery: [
-            "/mockup/Light House CU - www.lighthousecu.org.jfif"
+            "/mockup/Light House CU - www.lighthousecu.org.jpg"
         ]
     },
     {
@@ -159,7 +159,7 @@ export const projects = [
         platform: "Shopify",
         industry: "Ecommerce",
         bgImage: "/black-star-pastry-portfolio-bg.jpg",
-        innerImage: "/mockup/Black Star Pastry - Home of the World's Most Instagrammed Cake.jfif",
+        innerImage: "/mockup/Black Star Pastry - Home of the World's Most Instagrammed Cake.jpg",
         date: "Wednesday, January 24, 2024",
         description: "Developed a high-traffic Shopify e-commerce presence for the creators of the world's most Instagrammed cake. Crafted seamless order management, multi-store pickup scheduling, Pinterest and Meta tracking pixels, and Cloudflare CDN acceleration.",
         client: "Black Star Pastry",
@@ -167,7 +167,7 @@ export const projects = [
         location: "Sydney, Australia",
         link: "https://www.blackstarpastry.com/",
         gallery: [
-            "/mockup/Black Star Pastry - Home of the World's Most Instagrammed Cake.jfif"
+            "/mockup/Black Star Pastry - Home of the World's Most Instagrammed Cake.jpg"
         ]
     },
     {
@@ -178,7 +178,7 @@ export const projects = [
         platform: "Shopify",
         industry: "Ecommerce",
         bgImage: "/power-sheds-portfolio-bg.jpg",
-        innerImage: "/mockup/Power Shed Shopify GSAP Animated Website.jfif",
+        innerImage: "/mockup/Power Shed Shopify GSAP Animated Website.jpg",
         date: "Thursday, December 14, 2023",
         description: "Engineered a bespoke, high-performance Shopify e-commerce platform with GSAP and Framer Motion micro-animations, headless Sanity CMS integration, Algolia instant search, and Radix UI components. Integrated Klaviyo retention and Gorgias live chat.",
         client: "Power Sheds Ltd.",
@@ -186,7 +186,7 @@ export const projects = [
         location: "Bradford, UK",
         link: "https://www.powersheds.com/",
         gallery: [
-            "/mockup/Power Shed Shopify GSAP Animated Website.jfif"
+            "/mockup/Power Shed Shopify GSAP Animated Website.jpg"
         ]
     },
     {
@@ -197,7 +197,7 @@ export const projects = [
         platform: "Wix",
         industry: "Ecommerce",
         bgImage: "/hey-spud-portfolio-bg.jpg",
-        innerImage: "/mockup/Hey Spud Website.jfif",
+        innerImage: "/mockup/Hey Spud Website.jpg",
         date: "Tuesday, November 28, 2023",
         description: "Designed and launched a vibrant catering and event booking platform for Hey Spud!, serving award-winning fusion-loaded fries across the South of England. Built with Wix eCommerce, React components, and GSAP micro-animations with streamlined enquiry workflows.",
         client: "Hey Spud! UK",
@@ -205,7 +205,7 @@ export const projects = [
         location: "London, UK",
         link: "https://www.heyspud.co.uk/",
         gallery: [
-            "/mockup/Hey Spud Website.jfif"
+            "/mockup/Hey Spud Website.jpg"
         ]
     },
     {
@@ -216,7 +216,7 @@ export const projects = [
         platform: "Wix",
         industry: "Agency",
         bgImage: "/nyc-socail-portfolio-bg.jpg",
-        innerImage: "/mockup/NYC Influencer Marketing Agency  NYC Social Club.jfif",
+        innerImage: "/mockup/NYC Influencer Marketing Agency  NYC Social Club.jpg",
         date: "Wednesday, October 11, 2023",
         description: "Developed a high-impact, bold digital presence for NYC Social Club, a premier influencer marketing and UGC agency. Built with custom interactive layouts on Wix and React, optimized for fast brand onboarding, case study showcases, and Cloudflare CDN performance.",
         client: "NYC Social Club",
@@ -224,7 +224,7 @@ export const projects = [
         location: "New York, USA",
         link: "https://www.nycsocialclub.com/",
         gallery: [
-            "/mockup/NYC Influencer Marketing Agency  NYC Social Club.jfif"
+            "/mockup/NYC Influencer Marketing Agency  NYC Social Club.jpg"
         ]
     }
 ];

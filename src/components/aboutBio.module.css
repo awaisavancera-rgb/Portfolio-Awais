@@ -313,6 +313,10 @@
         margin-top: 20px;
     }
 
+    .metaBar span:nth-child(2) {
+        display: none;
+    }
+
     .contentGrid {
         flex-direction: column;
         gap: 2rem;
@@ -432,4 +436,37 @@
     100% {
         transform: translateX(calc(-480vw - 2rem));
     }
+}
+
+/* Download Resume Button Vertical Animation (Top-to-Bottom) */
+.downArrowPrimary {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transform: translateY(0);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 1;
+}
+
+.downArrowSecondary {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transform: translateY(-180%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    opacity: 0;
+}
+
+:global(.primary-btn):hover .downArrowPrimary {
+    transform: translateY(180%);
+    opacity: 0;
+}
+
+:global(.primary-btn):hover .downArrowSecondary {
+    transform: translateY(0);
+    opacity: 1;
 }

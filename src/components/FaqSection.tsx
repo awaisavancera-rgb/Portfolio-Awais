@@ -56,8 +56,8 @@ export function FaqSection() {
         <section className={styles.faqSection}>
             {/* Top Meta Bar */}
             <div className={styles.metaBar}>
-                <span>© Help Center ヘルプ</span>
-                <span>(WDX® — 01)</span>
+                <span>© Help Center</span>
+                <span>(MAP® — 03)</span>
                 <span>Clarifications</span>
             </div>
 

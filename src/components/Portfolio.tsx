@@ -36,7 +36,7 @@ const projects: Project[] = [
         title: "Bite Toothpaste Bits",
         slug: "bite-toothpaste-bits",
         tags: ["Shopify", "React.js"],
-        image: "/mockup/Bite Toothpaste Bits Website.jfif",
+        image: "/mockup/Bite Toothpaste Bits Website.jpg",
         description: "Eco-friendly oral care Shopify store engineered with React & Preact components, Tailwind CSS styling, and advanced Rebuy personalization.",
     },
     {

@@ -11,24 +11,28 @@
 }
 
 .metaBar {
-    color: #999;
+    color: #fff9;
+    text-transform: uppercase;
+    letter-spacing: .05em;
     border-bottom: 1px solid #fff3;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1480px;
-    padding: 24px 24px;
+    padding: 1.5rem 0;
     font-family: Inter, sans-serif;
-    font-size: .8vw;
-    text-transform: uppercase;
-    letter-spacing: .1em;
+    font-size: .8rem;
     display: flex;
 }
 
 @media (max-width: 768px) {
     .metaBar {
         font-size: clamp(.6rem, 2.3vw, .72rem);
-        padding: 10px 0px 20px;
+        padding: .75rem 0;
+    }
+
+    metaBar span:nth-child(2) {
+        display: none;
     }
 
     .allWorksSection {
@@ -235,7 +239,7 @@
 
 @media (max-width: 1024px) {
     .headingText {
-        font-size: 16vw;
+        font-size: 4.5rem;
     }
 
     .headingNumber h3 {
@@ -260,6 +264,11 @@
     .container {
         flex-direction: column;
         padding: 40px 0 0;
+        gap: 40px;
+    }
+
+    .metaBar span:nth-child(2) {
+        display: none;
     }
 
     .headingWrapper {
@@ -269,7 +278,7 @@
     }
 
     .headingText {
-        font-size: 19vw;
+        font-size: 4.5rem;
     }
 
     .headingNumber {
@@ -288,7 +297,11 @@
     }
 
     .imageContainer {
-        height: 400px;
+        height: 300px;
+    }
+
+    .loadMoreWrapper {
+        padding-top: 20px;
     }
 }
 

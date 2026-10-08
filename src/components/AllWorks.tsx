@@ -204,7 +204,7 @@ export function AllWorks() {
         <section className={styles.allWorksSection}>
             <div className={styles.metaBar}>
                 <span>© Curated Interfaces</span>
-                <span>(WDX® — 02)</span>
+                <span>(MAP® — 02)</span>
                 <span>Digital Designer</span>
             </div>
 
