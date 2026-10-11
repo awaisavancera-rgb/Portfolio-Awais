@@ -5,9 +5,83 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 
+const mainNavLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/work" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact", href: "/contact" },
+];
+
+const legalLinks = [
+    { label: "Terms & Conditions", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
+    { label: "404", href: "/404" },
+];
+
+const socialLinks = [
+    { label: "Instagram", href: "https://www.instagram.com/awais_khan_48", external: true },
+    { label: "GitHub", href: "https://github.com/awaisarain-marker", external: true },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/muhammadawais-webdev/", external: true },
+    { label: "Fiverr", href: "https://www.fiverr.com/awaislancer48", external: true },
+];
+
+interface WaveNavLinkProps {
+    href: string;
+    label: string;
+    isDimmed: boolean;
+    onMouseEnter: () => void;
+    external?: boolean;
+}
+
+function WaveText({ text, stepDelay = 25 }: { text: string; stepDelay?: number }) {
+    return (
+        <span className={styles.waveText} aria-hidden="true">
+            <span className={styles.waveRow}>
+                {text.split("").map((char, charIdx) => (
+                    <span
+                        key={charIdx}
+                        className={styles.waveChar}
+                        style={{ transitionDelay: `${charIdx * stepDelay}ms` }}
+                    >
+                        {char === " " ? "\u00A0" : char}
+                    </span>
+                ))}
+            </span>
+            <span className={`${styles.waveRow} ${styles.waveRowDuplicate}`}>
+                {text.split("").map((char, charIdx) => (
+                    <span
+                        key={charIdx}
+                        className={styles.waveChar}
+                        style={{ transitionDelay: `${charIdx * stepDelay}ms` }}
+                    >
+                        {char === " " ? "\u00A0" : char}
+                    </span>
+                ))}
+            </span>
+        </span>
+    );
+}
+
+function WaveNavLink({ href, label, isDimmed, onMouseEnter, external }: WaveNavLinkProps) {
+    return (
+        <Link
+            href={href}
+            className={`${styles.mainNavLink} ${isDimmed ? styles.dimmedLink : ""}`}
+            onMouseEnter={onMouseEnter}
+            {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+            <span className={styles.srOnly}>{label}</span>
+            <WaveText text={label} stepDelay={25} />
+        </Link>
+    );
+}
+
 export function Footer() {
     const [email, setEmail] = useState("");
     const [subscribed, setSubscribed] = useState(false);
+    const [hoveredNav, setHoveredNav] = useState<{ col: number; index: number } | null>(null);
+    const [hoveredContact, setHoveredContact] = useState<"email" | "phone" | null>(null);
 
     const handleNewsletter = (e: React.FormEvent) => {
         e.preventDefault();
@@ -67,9 +141,26 @@ export function Footer() {
                             Whether you&apos;re building a brand, designing a product, or
                             simply want to explore an idea, <span className={styles.descriptionHighlight}>I&apos;d love to hear from you.</span>
                         </p>
-                        <div className={styles.directContact}>
-                            <a href="mailto:awaisarain953@gmail.com" className={styles.emailLink}>awaisarain953@gmail.com</a>
-                            <a href="tel:+923103751421" className={styles.phoneText}>+92 310 3751421</a>
+                        <div 
+                            className={styles.directContact}
+                            onMouseLeave={() => setHoveredContact(null)}
+                        >
+                            <a 
+                                href="mailto:awaisarain953@gmail.com" 
+                                className={`${styles.directContactLink} ${styles.emailLink} ${hoveredContact === "phone" ? styles.dimmedLink : ""}`}
+                                onMouseEnter={() => setHoveredContact("email")}
+                            >
+                                <span className={styles.srOnly}>awaisarain953@gmail.com</span>
+                                <WaveText text="awaisarain953@gmail.com" stepDelay={16} />
+                            </a>
+                            <a 
+                                href="tel:+923103751421" 
+                                className={`${styles.directContactLink} ${styles.phoneText} ${hoveredContact === "email" ? styles.dimmedLink : ""}`}
+                                onMouseEnter={() => setHoveredContact("phone")}
+                            >
+                                <span className={styles.srOnly}>+92 310 3751421</span>
+                                <WaveText text="+92 310 3751421" stepDelay={20} />
+                            </a>
                         </div>
                     </div>
 
@@ -108,26 +199,56 @@ export function Footer() {
 
                 {/* Bottom: Nav Columns */}
                 <div className={styles.bottomWrapper}>
-                    <div className={styles.linksColumn}>
-                        <Link href="/" className={styles.footerLink}>Home</Link>
-                        <Link href="/about" className={styles.footerLink}>About</Link>
-                        <Link href="/work" className={styles.footerLink}>Projects</Link>
-                        <Link href="/blog" className={styles.footerLink}>Blog</Link>
-                        <Link href="/contact" className={styles.footerLink}>Contact</Link>
+                    {/* Column 1: Main Pages */}
+                    <div 
+                        className={`${styles.linksColumn} ${styles.mainNavColumn}`}
+                        onMouseLeave={() => setHoveredNav(null)}
+                    >
+                        {mainNavLinks.map((item, index) => (
+                            <WaveNavLink
+                                key={item.href}
+                                href={item.href}
+                                label={item.label}
+                                isDimmed={hoveredNav !== null && hoveredNav.col === 0 && hoveredNav.index !== index}
+                                onMouseEnter={() => setHoveredNav({ col: 0, index })}
+                            />
+                        ))}
                     </div>
 
-                    <div className={styles.linksColumn}>
-                        <Link href="/terms" className={styles.footerLink}>Terms & Conditions</Link>
-                        <Link href="/privacy" className={styles.footerLink}>Privacy Policy</Link>
-                        <Link href="/404" className={styles.footerLink}>404</Link>
+                    {/* Column 2: Legal / Terms */}
+                    <div 
+                        className={`${styles.linksColumn} ${styles.mainNavColumn}`}
+                        onMouseLeave={() => setHoveredNav(null)}
+                    >
+                        {legalLinks.map((item, index) => (
+                            <WaveNavLink
+                                key={item.href}
+                                href={item.href}
+                                label={item.label}
+                                isDimmed={hoveredNav !== null && hoveredNav.col === 1 && hoveredNav.index !== index}
+                                onMouseEnter={() => setHoveredNav({ col: 1, index })}
+                            />
+                        ))}
                     </div>
 
-                    <div className={styles.linksColumn}>
-                        <Link href="https://twitter.com" className={styles.footerLink}>Twitter/X</Link>
-                        <Link href="https://instagram.com" className={styles.footerLink}>Instagram</Link>
-                        <Link href="https://linkedin.com" className={styles.footerLink}>LinkedIn</Link>
+                    {/* Column 3: Social Media */}
+                    <div 
+                        className={`${styles.linksColumn} ${styles.mainNavColumn}`}
+                        onMouseLeave={() => setHoveredNav(null)}
+                    >
+                        {socialLinks.map((item, index) => (
+                            <WaveNavLink
+                                key={item.href}
+                                href={item.href}
+                                label={item.label}
+                                isDimmed={hoveredNav !== null && hoveredNav.col === 2 && hoveredNav.index !== index}
+                                onMouseEnter={() => setHoveredNav({ col: 2, index })}
+                                external={item.external}
+                            />
+                        ))}
                     </div>
 
+                    {/* Column 4: Rights & Attribution */}
                     <div className={styles.linksColumn} style={{ alignItems: "flex-end" }}>
                         <span className={styles.legalText}>Designed by <span className={styles.legalWhite}>Awais</span></span>
                         <span className={styles.legalText}>© 2026 All rights reserved</span>

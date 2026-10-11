@@ -199,6 +199,31 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Home Page ([About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx)): "VIEW MORE" button links directly to `/about`.
   * About Page ([AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx)): Button updated to **"DOWNLOAD RESUME"** with download link to `/Muhammad Awais Resume (1).pdf`.
 
+### [2026-10-11]
+* **FAQ Section Content Rewritten (Aligned with Real Expertise & Services)**:
+  * Replaced the outdated Framer-centric demo FAQs in [FaqSection.tsx](file:///d:/Portfolio%20Website/src/components/FaqSection.tsx) with 6 comprehensive, production-grade answers directly reflecting Muhammad Awais's full stack capabilities:
+    1. **Core Specializations**: Creative Frontend (Next.js, React 19, TypeScript, GSAP), E-Commerce (Shopify Liquid, WooCommerce), CRM Funnels (GoHighLevel, Klaviyo, HubSpot), and Advanced AI Engineering (RAG, Voice Agents, Support Bots).
+    2. **Tech Stacks & Platforms**: Detailed frontend, backend, CMS, and AI toolsets.
+    3. **AI Voice Agents & Autonomous Workflows**: Vapi, Bland AI, Twilio telephony, multi-agent loops, and CRM integrations.
+    4. **Scratch Builds & Complex Migrations**: Custom stores, legacy WordPress upgrades, headless Next.js migrations with zero downtime and SEO preservation.
+    5. **Figma UI/UX to Code Workflow**: 1:1 pixel-perfect design system conversion with micro-interactions.
+    6. **Project Timelines & 4-Stage Roadmap**: Transparent breakdown of delivery schedules and stages.
+  * Corrected heading typography from awkward template phrasing to clean professional copy: *"Clarifying Deliverables Before We Begin with Real Process & Full Transparency."*
+* **Hero Section & Footer Social Media Links Updated**:
+  * Replaced demo hero icons with real interactive glass circle links in [banner.tsx](file:///d:/Portfolio%20Website/src/app/banner.tsx) and [banner.module.css](file:///d:/Portfolio%20Website/src/app/banner.module.css):
+    * **Instagram**: `https://www.instagram.com/awais_khan_48`
+    * **GitHub**: `https://github.com/awaisarain-marker`
+    * **LinkedIn**: `https://www.linkedin.com/in/muhammadawais-webdev/`
+    * **Fiverr**: `https://www.fiverr.com/awaislancer48` (using updated custom stroke vector icon component [FiverrIcon.tsx](file:///d:/Portfolio%20Website/src/components/icons/FiverrIcon.tsx) with `lawnicons` clean outline path)
+  * Synchronized the Footer social links column in [Footer.tsx](file:///d:/Portfolio%20Website/src/components/Footer.tsx) with the exact same four profile links.
+* **Footer Navigation & Direct Contact Wave Character Roll & Sibling Dimming**:
+  * Implemented interactive wave rolling text animation for:
+    * **Direct Contact Section**: Email (`awaisarain953@gmail.com`) and Phone (`+92 310 3751421`) in [Footer.tsx](file:///d:/Portfolio%20Website/src/components/Footer.tsx) and [footer.module.css](file:///d:/Portfolio%20Website/src/components/footer.module.css). Hovering either link triggers the wave character roll while mutually dimming the other link to `opacity: 0.6`.
+    * **All Three Footer Link Columns**: `Main Pages`, `Legal & Terms`, and `Social Media` using reusable `WaveText` and `WaveNavLink` components.
+  * **Wave Character Roll**: Each string's characters are split into spans with incremental transition delays (`stepDelay * index`). When hovered, original characters roll up (`translateY(-100%)`) while duplicate bottom characters glide in (`translateY(0%)`) with a fluid cubic-bezier wave curve (`cubic-bezier(0.76, 0, 0.24, 1)`).
+  * **Sibling Dimming Calibrated to `opacity: 0.6`**: Hovering any link dims its sibling items in that group down to `opacity: 0.6`, while the hovered link stays at pure white `opacity: 1`.
+  * Preserved static styling for the fourth column (Designed by Awais / © 2026 rights text).
+
 ### [2026-10-07]
 * **Featured Projects / Portfolio Slider Mobile Carousel with Navigation Arrows**:
   * Transformed [AboutFeaturedWorks.tsx](file:///d:/Portfolio%20Website/src/components/AboutFeaturedWorks.tsx) and [aboutFeaturedWorks.module.css](file:///d:/Portfolio%20Website/src/components/aboutFeaturedWorks.module.css) into a smooth, interactive carousel on mobile viewports while leaving the desktop GSAP pinned horizontal scroll completely untouched (100% identical).

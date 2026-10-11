@@ -119,21 +119,45 @@
     gap: 0.5vw;
 }
 
+.directContactLink {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+    line-height: 1.3;
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-font-smoothing: antialiased;
+}
+
+.directContactLink.dimmedLink {
+    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.directContact:has(.directContactLink:hover) .directContactLink:not(:hover) {
+    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.directContact:has(.directContactLink:hover) .directContactLink:hover,
+.directContactLink:hover {
+    opacity: 1 !important;
+    color: #ffffff !important;
+}
+
 .emailLink {
     font-size: 1.5vw;
     font-weight: 700;
     color: #fff;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.emailLink:hover {
-    opacity: 0.7;
 }
 
 .phoneText {
     font-size: 1.1vw;
-    color: #999;
+    font-weight: 500;
+    color: #fff;
 }
 
 .newsletterWrapper {
@@ -233,6 +257,110 @@
     opacity: 0.6;
 }
 
+/* ========================================================
+   Main Navigation Menu Column (Wave Animation & Dimming)
+   ======================================================== */
+.mainNavColumn {
+    position: relative;
+}
+
+.mainNavLink {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.9vw;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    width: fit-content;
+    cursor: pointer;
+    opacity: 1;
+    line-height: 1.35;
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Sibling Dimming: Handled via React state */
+.mainNavLink.dimmedLink {
+    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sibling Dimming: Handled via CSS :has() for instant responsiveness */
+.mainNavColumn:has(.mainNavLink:hover) .mainNavLink:not(:hover) {
+    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mainNavColumn:has(.mainNavLink:hover) .mainNavLink:hover,
+.mainNavLink:hover {
+    opacity: 1 !important;
+    color: #ffffff !important;
+}
+
+/* Wave Text Container */
+.waveText {
+    position: relative;
+    display: inline-flex;
+    overflow: hidden;
+    line-height: 1.35;
+    pointer-events: none;
+}
+
+/* Character Rows */
+.waveRow {
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.waveRowDuplicate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+/* Individual Wave Characters */
+.waveChar {
+    display: inline-block;
+    will-change: transform;
+    transition: transform 0.42s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Initial States: Top is visible at 0%, Duplicate sits below at 100% */
+.waveRow:not(.waveRowDuplicate) .waveChar {
+    transform: translateY(0%);
+}
+
+.waveRowDuplicate .waveChar {
+    transform: translateY(100%);
+}
+
+/* Hover States: Top rolls UP to -100%, Duplicate rolls UP into view from 100% to 0% */
+.mainNavLink:hover .waveRow:not(.waveRowDuplicate) .waveChar,
+.directContactLink:hover .waveRow:not(.waveRowDuplicate) .waveChar {
+    transform: translateY(-100%);
+}
+
+.mainNavLink:hover .waveRowDuplicate .waveChar,
+.directContactLink:hover .waveRowDuplicate .waveChar {
+    transform: translateY(0%);
+}
+
+/* Screen Reader Only Utility */
+.srOnly {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .legalText {
     font-size: 16px;
     font-weight: 500;
@@ -283,7 +411,8 @@
         padding: 0.8rem 1rem;
     }
 
-    .footerLink {
+    .footerLink,
+    .mainNavLink {
         font-size: 0.9rem;
     }
 
@@ -438,7 +567,8 @@
         border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .footerLink {
+    .footerLink,
+    .mainNavLink {
         font-size: 0.92rem;
     }
 

@@ -52,7 +52,7 @@
 }
 
 .heading {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     line-height: 1.1;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
@@ -96,7 +96,7 @@
 }
 
 .faqQuestion {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     letter-spacing: -0.02em;
@@ -123,14 +123,14 @@
 .faqAnswerWrapper {
     padding-left: 180px;
     /* Align with question text */
-    padding-right: 180px;
+    padding-right: 100px;
 }
 
 .faqAnswer {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1.6;
     font-weight: 500;
-    padding-top: 2px;
+    padding-top: 10px;
     color: rgba(255, 255, 255, 0.6);
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -146,11 +146,11 @@
     }
 
     .heading {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .faqQuestion {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
 
     .faqAnswerWrapper {
@@ -207,11 +207,11 @@
     }
 
     .faqQuestion {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
     }
 
     .heading {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
     .faqItem {

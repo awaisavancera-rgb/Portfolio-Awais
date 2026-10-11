@@ -150,7 +150,7 @@ export const About = () => {
                     <div ref={contentRef} className={styles.textColumn}>
                         <div className={styles.headlineWrapper}>
                             <h2 className={styles.headline}>
-                                13+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
+                                7+ years<sup className={styles.tm}>TM</sup> of digital form, sharp interactions, and relentless creative discipline and effort.
                             </h2>
                             {/* Inverted View More Button */}
                             <div className={styles.footerCTA}>

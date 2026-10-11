@@ -56,49 +56,49 @@ export default function WorkDetailPage(props: { params: Promise<{ slug: string }
                 <div className={styles.leftSidebarWrapper}>
                     <div className={styles.leftSidebar}>
                         <div className={styles.dateText}>{project.date}</div>
-                    
-                    <div className={styles.descriptionText}>
-                        {project.description}
-                    </div>
 
-                    <div className={styles.infoList}>
-                        <div className={styles.infoItemWrapper}>
-                            <div className={styles.infoItem}>
-                                <div className={styles.infoTexts}>
-                                    <span className={styles.infoLabel}>Category:</span>
-                                    <span className={styles.infoValue}>{project.tag}</span>
-                                </div>
-                            </div>
-                            <div className={styles.infoLine}></div>
+                        <div className={styles.descriptionText}>
+                            {project.description}
                         </div>
-                        <div className={styles.infoItemWrapper}>
-                            <div className={styles.infoItem}>
-                                <div className={styles.infoTexts}>
-                                    <span className={styles.infoLabel}>Client:</span>
-                                    <span className={styles.infoValue}>{project.client}</span>
+
+                        <div className={styles.infoList}>
+                            <div className={styles.infoItemWrapper}>
+                                <div className={styles.infoItem}>
+                                    <div className={styles.infoTexts}>
+                                        <span className={styles.infoLabel}>Category:</span>
+                                        <span className={styles.infoValue}>{project.tag}</span>
+                                    </div>
                                 </div>
+                                <div className={styles.infoLine}></div>
                             </div>
-                            <div className={styles.infoLine}></div>
-                        </div>
-                        <div className={styles.infoItemWrapper}>
-                            <div className={styles.infoItem}>
-                                <div className={styles.infoTexts}>
-                                    <span className={styles.infoLabel}>Duration:</span>
-                                    <span className={styles.infoValue}>{project.duration}</span>
+                            <div className={styles.infoItemWrapper}>
+                                <div className={styles.infoItem}>
+                                    <div className={styles.infoTexts}>
+                                        <span className={styles.infoLabel}>Client:</span>
+                                        <span className={styles.infoValue}>{project.client}</span>
+                                    </div>
                                 </div>
+                                <div className={styles.infoLine}></div>
                             </div>
-                            <div className={styles.infoLine}></div>
-                        </div>
-                        <div className={styles.infoItemWrapper}>
-                            <div className={styles.infoItem}>
-                                <div className={styles.infoTexts}>
-                                    <span className={styles.infoLabel}>Location:</span>
-                                    <span className={styles.infoValue}>{project.location}</span>
+                            <div className={styles.infoItemWrapper}>
+                                <div className={styles.infoItem}>
+                                    <div className={styles.infoTexts}>
+                                        <span className={styles.infoLabel}>Duration:</span>
+                                        <span className={styles.infoValue}>{project.duration}</span>
+                                    </div>
                                 </div>
+                                <div className={styles.infoLine}></div>
                             </div>
-                            <div className={styles.infoLine}></div>
+                            <div className={styles.infoItemWrapper}>
+                                <div className={styles.infoItem}>
+                                    <div className={styles.infoTexts}>
+                                        <span className={styles.infoLabel}>Location:</span>
+                                        <span className={styles.infoValue}>{project.location}</span>
+                                    </div>
+                                </div>
+                                <div className={styles.infoLine}></div>
+                            </div>
                         </div>
-                    </div>
 
                         <a href={project.link} target="_blank" rel="noopener noreferrer" className="primary-btn" style={{ marginTop: '20px' }}>
                             <span className="btnText">LIVE WEBSITE</span>
@@ -115,7 +115,7 @@ export default function WorkDetailPage(props: { params: Promise<{ slug: string }
                 {/* Right Scrollable Gallery */}
                 <div className={styles.rightGallery}>
                     {project.gallery?.map((imgUrl: string, idx: number) => (
-                        <Image 
+                        <Image
                             key={idx}
                             src={imgUrl}
                             alt={`${project.title} image ${idx + 1}`}
@@ -132,7 +132,7 @@ export default function WorkDetailPage(props: { params: Promise<{ slug: string }
             <section className={styles.moreWorksSection}>
                 <div className={styles.metaBar}>
                     <span>© Curated Interfaces</span>
-                    <span>(WDX® — 02)</span>
+                    <span>(MAP® — 02)</span>
                     <span>Digital Designer</span>
                 </div>
 

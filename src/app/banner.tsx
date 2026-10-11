@@ -4,8 +4,32 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import gsap from "gsap";
-import { Twitter, Instagram, Youtube, ArrowRight } from "lucide-react";
+import { Instagram, Github, Linkedin, ArrowRight } from "lucide-react";
+import { FiverrIcon } from "@/components/icons/FiverrIcon";
 import styles from "./banner.module.css";
+
+const heroSocialLinks = [
+    {
+        name: "Instagram",
+        href: "https://www.instagram.com/awais_khan_48",
+        icon: Instagram,
+    },
+    {
+        name: "GitHub",
+        href: "https://github.com/awaisarain-marker",
+        icon: Github,
+    },
+    {
+        name: "LinkedIn",
+        href: "https://www.linkedin.com/in/muhammadawais-webdev/",
+        icon: Linkedin,
+    },
+    {
+        name: "Fiverr",
+        href: "https://www.fiverr.com/awaislancer48",
+        icon: FiverrIcon,
+    },
+];
 
 export default function Banner() {
     const glowRef = useRef<HTMLDivElement>(null);
@@ -114,9 +138,22 @@ export default function Banner() {
                         I create interfaces that blend function with emotion, crafting digital experiences that feel intuitive, seamless, and meaningful.
                     </motion.p>
                     <div className={styles.socials}>
-                        <div className={styles.socialIcon}><Twitter size={18} /></div>
-                        <div className={styles.socialIcon}><Instagram size={18} /></div>
-                        <div className={styles.socialIcon}><Youtube size={18} /></div>
+                        {heroSocialLinks.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.socialIcon}
+                                    aria-label={item.name}
+                                    title={item.name}
+                                >
+                                    <Icon size={18} />
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
 

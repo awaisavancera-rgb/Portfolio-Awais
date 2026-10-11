@@ -13,33 +13,33 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const faqs = [
     {
         num: "01",
-        question: "What services do you offer?",
-        answer: "I provide creative direction, branding, UI/UX design, and Framer development tailored for modern digital experiences."
+        question: "What core services do you specialize in?",
+        answer: "I deliver end-to-end digital engineering across four key pillars: 1) Creative Frontend & Interactive Web Apps (Next.js, React 19, TypeScript, GSAP), 2) E-Commerce & CMS Architecture (Shopify Liquid, WordPress, WooCommerce), 3) CRM Funnels & Automation (GoHighLevel, HubSpot, Klaviyo, Zapier/Make), and 4) Advanced AI Engineering (Custom RAG architectures, Autonomous Voice Calling Agents & Support Bots)."
     },
     {
         num: "02",
-        question: "What is your typical turnaround time?",
-        answer: "Typically, a standard project takes 2-4 weeks. However, turnaround times depend entirely on the scope and complexity of the work."
+        question: "Which tech stacks and platforms do you build with?",
+        answer: "My core frontend stack is Next.js 16 (App Router), React 19, TypeScript, and Vanilla CSS Modules, powered by GSAP, Framer Motion, and Lenis for fluid motion. For e-commerce and CMS, I specialize in Shopify Liquid and WordPress. On the backend and AI side, I work with Python, LangChain, Vector Databases (Pinecone & Qdrant), n8n, OpenAI/Claude APIs, and Vapi/Bland AI for voice systems."
     },
     {
         num: "03",
-        question: "Do you only work in Framer?",
-        answer: "While Framer is my primary tool for web development due to its animation capabilities, I also work with Next.js, React, and other modern stacks when required."
+        question: "Can you build custom AI Voice Agents and automated workflows?",
+        answer: "Yes, absolutely. I develop intelligent, conversational AI calling agents (using Vapi, Bland AI, and Twilio telephony) for automated inbound/outbound calls, lead qualification, and appointment booking. I also engineer 24/7 autonomous support bots for WhatsApp, Telegram, and web, wired directly into your CRM (GoHighLevel, HubSpot, Salesforce)."
     },
     {
         num: "04",
-        question: "Can you handle both design and build?",
-        answer: "Yes, I offer end-to-end services. I can take your project from the initial strategy and wireframing phase all the way to a fully developed, live product."
+        question: "Do you build from scratch or migrate existing websites and stores?",
+        answer: "Both. I architect brand-new high-converting stores and custom platforms from scratch, and I also execute seamless migrations—such as moving legacy stores to modern Shopify Liquid, upgrading outdated WordPress sites, or re-platforming to headless Next.js with zero downtime and strict SEO preservation."
     },
     {
         num: "05",
-        question: "Do you offer brand strategy too?",
-        answer: "Absolutely. A strong design needs a strong foundation. I help define your brand voice, positioning, and visual identity before we start building."
+        question: "Can you handle both UI/UX design in Figma and custom development?",
+        answer: "Yes, I offer complete end-to-end product delivery. I design clean, intuitive interfaces and design systems directly in Figma, and then translate them 1:1 into accessible, pixel-perfect production code with fluid micro-interactions and smooth responsive layouts."
     },
     {
         num: "06",
-        question: "What’s your process like?",
-        answer: "My process involves Discovery (understanding your goals), Strategy (planning the approach), Design (creating visuals), and Development (building the final product)."
+        question: "What is your typical project timeline and development process?",
+        answer: "A standard custom store or interactive web project typically takes 2 to 4 weeks, while larger enterprise platforms or multi-agent AI ecosystems range from 4 to 8 weeks. Every project follows a transparent 4-stage pipeline: Discovery & Architecture, UI/UX Prototyping in Figma, Full-Stack Development & Testing, and Launch, Speed Optimization & Handover."
     }
 ];
 
@@ -74,10 +74,10 @@ export function FaqSection() {
                         />
                     </div>
                     <h3 className={styles.heading}>
-                        Clarifying Deliverable's<br />
-                        Before They Begin<br />
-                        with Real Process and<br />
-                        Honest.
+                        Clarifying Deliverables<br />
+                        Before We Begin<br />
+                        with Real Process &<br />
+                        Full Transparency.
                     </h3>
                 </div>
 

@@ -88,11 +88,11 @@ export function Contact() {
                     </div>
 
                     <div className={styles.lists}>
-                        <a className={styles.listItem} href="mailto:hello@awaisportfolio.com">
+                        <a className={styles.listItem} href="mailto:awaisarain953@gmail.com">
                             <div className={styles.listItemContent}>
                                 <div className={styles.textRollWrapper}>
-                                    <span className={styles.listItemText}>hello@awaisportfolio.com</span>
-                                    <span className={styles.listItemTextHover}>hello@awaisportfolio.com</span>
+                                    <span className={styles.listItemText}>awaisarain953@gmail.com</span>
+                                    <span className={styles.listItemTextHover}>awaisarain953@gmail.com</span>
                                 </div>
                                 <ArrowUpRight className={styles.icon} />
                             </div>
@@ -114,7 +114,7 @@ export function Contact() {
                             </div>
                         </a>
 
-                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="https://maps.google.com/?q=Karachi+Pakistan">
+                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="mailto:awaisarain953@gmail.com">
                             <div className={styles.listItemContent}>
                                 <div className={styles.textRollWrapper}>
                                     <span className={styles.listItemText}>Office: Karachi, Pakistan.</span>
@@ -127,7 +127,7 @@ export function Contact() {
                             </div>
                         </a>
 
-                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="https://www.instagram.com/">
+                        <a target="_blank" rel="noopener noreferrer" className={styles.listItem} href="https://www.instagram.com/awais_khan_48">
                             <div className={styles.listItemContent}>
                                 <div className={styles.textRollWrapper}>
                                     <span className={styles.listItemText}>Follow me on Instagram</span>

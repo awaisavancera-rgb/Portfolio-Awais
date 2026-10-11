@@ -182,7 +182,7 @@
 .metaBar {
     color: #999;
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: .05em;
     border-bottom: 1px solid #fff3;
     justify-content: space-between;
     align-items: center;
@@ -190,7 +190,7 @@
     max-width: 1480px;
     padding: 24px;
     font-family: Inter, sans-serif;
-    font-size: clamp(0.72rem, 0.8vw, 0.85rem);
+    font-size: .8rem;
     display: flex;
 }
 
@@ -201,7 +201,7 @@
     max-width: 1480px;
     margin: 0 auto;
     gap: 40px;
-    padding: 60px 40px;
+    padding: 4rem 1rem;
     border-top: 1px solid #bbb3;
 }
 
@@ -301,9 +301,12 @@
     }
 
     .metaBar {
-        font-size: 0.68rem;
+        font-size: clamp(.6rem, 2.3vw, .72rem);
         padding: 1.25rem;
-        letter-spacing: 0.05em;
+    }
+
+    .metaBar span:nth-child(2) {
+        display: none;
     }
 
     .relatedGrid {
