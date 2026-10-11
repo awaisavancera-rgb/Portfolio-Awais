@@ -5,6 +5,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Header } from "@/components/Header";
 import { CustomCursor } from "@/components/CustomCursor";
 import { PageTransition } from "@/components/PageTransition";
+import { FloatingButtons } from "@/components/FloatingButtons";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${qwigley.variable}`}>
         <CustomCursor />
         <PageTransition />
+        <FloatingButtons />
         <SmoothScroll>
           <Header />
           {children}
