@@ -70,9 +70,9 @@ export function CustomCursor() {
 
             const target = e.target as HTMLElement | null;
 
-            // Check if hovering over an element with its own dedicated cursor (e.g. portfolio cards)
+            // Check if hovering over an element with its own dedicated cursor (e.g. AllWorks / AboutFeaturedWorks)
             const hasCustomCursor = target?.closest(
-                "[data-cursor='none'], [data-cursor='view'], [class*='projectCard']"
+                "[data-cursor='none'], [data-cursor='view']"
             );
 
             if (hasCustomCursor) {

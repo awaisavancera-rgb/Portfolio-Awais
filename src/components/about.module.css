@@ -25,11 +25,11 @@
 }
 
 .massiveTitle {
-    font-size: 24vw;
+    font-size: 14rem;
     /* Slightly adjusted */
     line-height: 0.8;
-    font-weight: 700;
-    letter-spacing: -0.04em;
+    font-weight: 600;
+    letter-spacing: -0.06em;
     text-transform: uppercase;
     margin: 0;
     text-align: center;
@@ -48,15 +48,6 @@
     transform: translateY(-8vw);
 }
 
-.desktopTitle {
-    display: inline-flex;
-    align-items: baseline;
-    justify-content: center;
-}
-
-.mobileTitle {
-    display: none;
-}
 
 /* 2. Skills Strip (The "Strip") */
 .skillsStrip {
@@ -143,12 +134,12 @@
 }
 
 .headline {
-    font-size: 3vw;
+    letter-spacing: -.04em;
+    will-change: filter, transform, opacity;
+    margin-bottom: 3.2rem;
+    font-size: 2.7rem;
     font-weight: 600;
     line-height: 1;
-    letter-spacing: -0.15vw;
-    margin-bottom: 3.5vw;
-    will-change: filter, transform, opacity;
 }
 
 .tm {
@@ -493,28 +484,10 @@
         margin-bottom: .25rem;
     }
 
-    .desktopTitle {
-        display: none !important;
-    }
-
-    .sup {
-        display: none !important;
-    }
-
-    .mobileTitle {
-        display: block;
-        font-size: 13vw;
-        font-weight: 600;
-        letter-spacing: -0.03em;
-        line-height: 1.15;
-        text-transform: uppercase;
-        white-space: normal;
-        text-align: center;
-    }
-
     .massiveTitle {
-        font-size: inherit;
-        line-height: 1.15;
+        font-size: clamp(2.6rem, 13vw, 4.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
         white-space: normal;
         display: block;
         text-align: center;

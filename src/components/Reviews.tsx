@@ -221,10 +221,10 @@ export function Reviews() {
 
                 <div className={styles.headerInfo}>
                     <div className={styles.headerCol}>
-                        <span>© TESTIMONIALS レビュー</span>
+                        <span>© TESTIMONIALS</span>
                     </div>
                     <div className={styles.headerCol} style={{ textAlign: "center" }}>
-                        <span>(WDX® — 06)</span>
+                        <span>(MAP® — 06)</span>
                     </div>
                     <div className={styles.headerCol} style={{ textAlign: "right" }}>
                         <span>REAL FEEDBACK</span>

@@ -29,18 +29,19 @@
 }
 
 .headerInfo {
-    position: absolute;
-    top: 2vw;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8vw;
-    letter-spacing: 0.1em;
-    color: #555555;
+    letter-spacing: .1em;
+    color: #555;
     z-index: 10;
-    /* Divider additions */
-    padding-bottom: 2vw;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #0003;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 1.2rem;
+    font-size: .75rem;
+    display: flex;
+    position: absolute;
+    top: 2rem;
 }
 
 .headerCol {
@@ -70,12 +71,11 @@
 }
 
 .marqueeText {
-    font-size: 12vw;
-    font-family: var(--font-inter), sans-serif;
+    font-size: 12rem;
     font-weight: 600;
     color: #000000;
     line-height: 1;
-    padding-right: 2vw;
+    padding-right: 2rem;
     letter-spacing: -0.06em;
     text-transform: none;
 }
@@ -273,11 +273,11 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    width: 25vw;
-    padding: 2vw;
+    width: 25rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.5vw;
+    gap: 1.5rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s ease;
 }

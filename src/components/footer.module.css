@@ -64,17 +64,17 @@
 /* TOP: Massive Title */
 .titleWrapper {
     width: 100%;
-    margin-top: 6rem;
+    margin-top: 3rem;
 }
 
 .megaTitle {
-    font-size: 11.1vw;
+    font-size: 11rem;
     font-weight: 600;
     line-height: 0.8;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.06em;
     color: #ffffff;
     margin: 0;
-    margin-left: -1vw;
+    margin-left: -0.5rem;
     /* visual alignment compensation for large text */
 }
 
@@ -88,8 +88,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 10vh;
-    padding-bottom: 5vh;
+    margin-top: 4rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -149,13 +149,13 @@
 }
 
 .emailLink {
-    font-size: 1.5vw;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: #fff;
 }
 
 .phoneText {
-    font-size: 1.1vw;
+    font-size: 1.1rem;
     font-weight: 500;
     color: #fff;
 }
@@ -235,18 +235,18 @@
 .bottomWrapper {
     display: flex;
     justify-content: space-between;
-    margin-top: 5vh;
+    margin-top: 2.5rem;
 }
 
 .linksColumn {
     display: flex;
     flex-direction: column;
-    gap: 0.4vw;
+    gap: .45rem;
     justify-content: flex-end;
 }
 
 .footerLink {
-    font-size: 0.9vw;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #fff;
     text-decoration: none;
@@ -268,7 +268,7 @@
     position: relative;
     display: inline-flex;
     align-items: center;
-    font-size: 0.9vw;
+    font-size: 0.9rem;
     font-weight: 500;
     color: #ffffff;
     text-decoration: none;

@@ -162,7 +162,9 @@ export const Portfolio = () => {
                                             ))}
                                         </div>
 
-                                        <h4 className={styles.cardTitle}>{project.title}</h4>
+                                        <Link href={`/work/${project.slug}`} className={styles.cardTitleLink} data-cursor-text="VIEW">
+                                            <h4 className={styles.cardTitle}>{project.title}</h4>
+                                        </Link>
                                     </div>
 
                                     <div className={styles.cardBottom}>
@@ -187,7 +189,11 @@ export const Portfolio = () => {
                                 </div>
 
                                 {/* Right Image */}
-                                <Link href={`/work/${project.slug}`} className={styles.cardImageWrapper}>
+                                <Link
+                                    href={`/work/${project.slug}`}
+                                    className={styles.cardImageWrapper}
+                                    data-cursor-text="VIEW"
+                                >
                                     <Image
                                         src={project.image}
                                         alt={project.title}

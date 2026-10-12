@@ -108,12 +108,7 @@ export const About = () => {
                 <div className={styles.titleWrapper}>
                     <h1 className={styles.massiveTitle}>
                         <span ref={titleRef}>
-                            <span className={styles.desktopTitle}>
-                                About<sup className={styles.sup}>Awais</sup>
-                            </span>
-                            <span className={styles.mobileTitle}>
-                                About Awais
-                            </span>
+                            About Awais
                         </span>
                     </h1>
                 </div>
@@ -127,7 +122,7 @@ export const About = () => {
 
                 <div className={styles.metaBar}>
                     <span>© Curated Interfaces</span>
-                    <span>(WDX® — 02)</span>
+                    <span>(MAP® — 05)</span>
                     <span>Digital Designer</span>
                 </div>
 

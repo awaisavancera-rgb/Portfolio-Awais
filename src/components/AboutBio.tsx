@@ -82,7 +82,7 @@ export const AboutBio = () => {
                 {/* Meta Bar */}
                 <div className={styles.metaBar}>
                     <span>© Curated Interfaces</span>
-                    <span>(MAP® — 02)</span>
+                    <span>(MAP® — 05)</span>
                     <span>Digital Designer</span>
                 </div>
 

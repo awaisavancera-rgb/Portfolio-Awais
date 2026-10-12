@@ -199,7 +199,27 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
   * Home Page ([About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx)): "VIEW MORE" button links directly to `/about`.
   * About Page ([AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx)): Button updated to **"DOWNLOAD RESUME"** with download link to `/Muhammad Awais Resume (1).pdf`.
 
+### [2026-10-12]
+* **About Section Title Cleanup & AboutBio Synchronization**:
+  * Cleaned up [About.tsx](file:///d:/Portfolio%20Website/src/components/About.tsx) title structure: removed the duplicate `.mobileTitle` and `.desktopTitle` wrapper spans, leaving a single clean `About Awais` title inside `massiveTitle`.
+  * Updated [about.module.css](file:///d:/Portfolio%20Website/src/components/about.module.css): removed obsolete `.desktopTitle` and `.mobileTitle` styles, ensuring `massiveTitle` directly scales smoothly on mobile via `clamp(2.6rem, 13vw, 4.5rem)`.
+  * Synchronized [AboutBio.tsx](file:///d:/Portfolio%20Website/src/components/AboutBio.tsx) and [aboutBio.module.css](file:///d:/Portfolio%20Website/src/components/aboutBio.module.css):
+    * Updated `metaBar` badge to `(MAP® — 05)`.
+    * Synchronized `.headline` styling to exact matching rules (`font-size: 2.7rem; font-weight: 600; line-height: 1; letter-spacing: -.04em; margin-bottom: 3.2rem;`).
+* **Floating Quick Action Button Refinements**:
+  * Removed the border from the floating button in [floatingButtons.module.css](file:///d:/Portfolio%20Website/src/components/floatingButtons.module.css).
+  * Removed the Email button from [FloatingButtons.tsx](file:///d:/Portfolio%20Website/src/components/FloatingButtons.tsx), leaving only the WhatsApp quick action button.
+  * Configured hover state: background transitions to pure white (`#ffffff`), icon transitions to black (`#000000`), with custom subtle box-shadow `0px 1px 3px 0px rgb(0 0 0 / 0.1), 0px 1px 2px -1px rgb(0 0 0 / 0.1)`.
+
 ### [2026-10-11]
+* **Global Floating Quick Action Buttons (WhatsApp & Email)**:
+  * Created [FloatingButtons.tsx](file:///d:/Portfolio%20Website/src/components/FloatingButtons.tsx) and [floatingButtons.module.css](file:///d:/Portfolio%20Website/src/components/floatingButtons.module.css) matching user's exact Framer design specs:
+    * `position: fixed; right: 12px; top: 50%; transform: translateY(-50%); z-index: 9999;`
+    * Circular pills (`width: 30px; height: 30px; border-radius: 30px; background-color: rgb(34, 34, 34);`) with subtle border, box shadow, and smooth hover elevation.
+    * **WhatsApp**: Links directly to `https://wa.me/923103751421` with official vector SVG icon.
+    * **Email**: Links directly to `mailto:awaisarain953@gmail.com` with clean mail SVG icon.
+    * **Sleek Hover Tooltips**: Smooth sliding dark tooltips ("WhatsApp", "Email Me") on desktop.
+  * Mounted in root [layout.tsx](file:///d:/Portfolio%20Website/src/app/layout.tsx) so it persists seamlessly across all pages of the site.
 * **FAQ Section Content Rewritten (Aligned with Real Expertise & Services)**:
   * Replaced the outdated Framer-centric demo FAQs in [FaqSection.tsx](file:///d:/Portfolio%20Website/src/components/FaqSection.tsx) with 6 comprehensive, production-grade answers directly reflecting Muhammad Awais's full stack capabilities:
     1. **Core Specializations**: Creative Frontend (Next.js, React 19, TypeScript, GSAP), E-Commerce (Shopify Liquid, WooCommerce), CRM Funnels (GoHighLevel, Klaviyo, HubSpot), and Advanced AI Engineering (RAG, Voice Agents, Support Bots).
@@ -293,3 +313,13 @@ Currently **12 projects** are configured in `src/data/projects.ts`:
    }
    ```
 3. Update this `MEMORY.md` file's Project Table and Changelog section.
+
+---
+
+### Recent Updates:
+- **Home Portfolio Card Cursor Fix**:
+  - Removed `[class*='projectCard']` from `CustomCursor.tsx` which was mistakenly causing the custom cursor to hide inside `Portfolio.tsx` on the home page.
+  - Added `data-cursor-text="VIEW"` to `.cardImageWrapper` and `.cardTitleLink` in `Portfolio.tsx`, allowing the cursor to expand into an interactive "VIEW" badge when hovering project images and titles.
+  - Added `cursor: pointer` to `.cardImageWrapper` and `.cardTitleLink` in `portfolio.module.css`.
+  - All other portfolio cards (`AllWorks.tsx`, `AboutFeaturedWorks.tsx`, `PortfolioV2.tsx`) remain untouched and work with their existing behaviors.
+

@@ -127,13 +127,25 @@
     color: #000;
 }
 
+.cardTitleLink {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+}
+
 .cardTitle {
-    font-size: 3vw;
+    font-size: 2.5rem;
     font-weight: 600;
     line-height: 1;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.03em;
     margin: 0.8rem 0 0;
     color: #000;
+    transition: opacity 0.25s ease;
+}
+
+.cardTitleLink:hover .cardTitle {
+    opacity: 0.7;
 }
 
 .cardDescription {
@@ -387,6 +399,7 @@
     background-color: #f0f0f0;
     overflow: hidden;
     border-radius: 0 1vw 1vw 0;
+    cursor: pointer;
 }
 
 .cardImage {

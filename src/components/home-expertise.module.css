@@ -15,7 +15,7 @@
     max-width: 1480px;
     margin: 0 auto;
     width: 100%;
-    padding: 2rem 1.8rem 6rem;
+    padding: 2rem 1.25rem 6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,20 +64,20 @@
     letter-spacing: -0.45vw;
     color: #000;
     margin: 0;
-    font-size: 9vw;
+    font-size: 9rem;
     font-weight: 600;
-    line-height: 7vw;
+    line-height: 7rem;
 }
 
 .smallTxt {
-    font-size: 5vw;
+    font-size: 5rem;
 }
 
 .heroImageWrapper {
-    width: 14vw;
-    height: 17vw;
+    width: 14rem;
+    height: 17rem;
     position: relative;
-    border-radius: 0.7vw;
+    border-radius: 10px;
 }
 
 .heroImageInner {
@@ -173,11 +173,11 @@
 }
 
 .closedTitle {
-    font-size: 1.8vw;
+    font-size: 1.8rem;
     font-weight: 600;
     margin: 0;
     color: #000;
-    letter-spacing: -.06vw;
+    letter-spacing: -.06rem;
     line-height: 1.2;
 }
 
